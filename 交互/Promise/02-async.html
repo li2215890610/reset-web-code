@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    const p = _ =>( new Promise((resolve, reject) => {
+        resolve('222')
+    }))
+
+    async function init(params) {
+        // return '字符串' // 返回一个字符串，结果是一个Promise对象
+
+        // throw new Error("出错了") //抛出一个 失败的Promise对象
+
+        //返回结果是 promise 对象
+        // return new Promise((resolve,reject)=>{
+        //     resolve('222')
+        // })
+
+        setTimeout(() => {
+            console.log('setTimeout-----1');
+        }, 1000);
+
+        //相当于 是一个then 同步
+        const result = await p()
+        console.log('-----', result);
+
+        setTimeout(() => {
+            console.log('setTimeout-----2');
+        }, 1000);
+
+        return 'init________'
+    }
+
+    const result = init()
+    result.then(_ => console.log(_))
+    console.log(result);
+</script>
+
+</html>

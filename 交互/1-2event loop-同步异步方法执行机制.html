@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>执行顺序</title>
+    <style>
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 911px;
+            height: 450px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./eventLoop.png" alt="" srcset="">
+</body>
+<script>
+
+
+
+    // 1.什么是事件循环?
+    //      执行代码和收集异步任务，在调用栈空闲时，反复调用任务队列里回调函数执行机制
+    // 2.为什么有事件循环?
+    //      JavaScript 是单线程的，为了不阻塞」 引擎，设计执行代码的模型
+    // 3.Javascript 内代码如何执行?
+    //      执行同步代码，遇到异步代码交给宿主浏览器环境执行异步有了结果后，把回调函数放入任务队列排队
+    //      当调用栈空闲后，反复调用任务队列里的回调函数
+
+
+    // 执行顺序
+    console.log(1);
+
+    setTimeout(function (params) {
+        console.log(7);
+    }, 1000)
+
+    setTimeout(function (params) {
+        console.log(5);
+    })
+
+    console.log(2);
+
+    /**
+     * 同步任务     执行栈。
+     *          同步任务都在主线程上执行，形成一个执行栈。
+     * 异步任务     任务队列。
+     *      J5 的异步是通过回调函数实现的。一般而言，异步任务有以下三种类型:
+     *          1、普通事件，如 click、resize 等
+     *          2、资源加载，如 load、error 等
+     *          3、定时器，包括 setlnterval、setTimeout 等
+     * 
+     * 异步任务相关添加到任务队列中(任务队列也称为消息队列)。
+     * **/
+
+    /**
+     * 
+     * 同步任务放在 执行栈 里面， 异步任务首先放在  异步进程 中处理 
+     * （ 等着点击、时间到了、或者回调函数调用完毕等 ）然后 放在 任务队列 里面，
+     * 等全部 执行栈里面的全部同步任务，执行完毕
+     * 再去找异步队列里面的任务，然后放在 执行栈 里面执行，
+     * 执行完毕在去找异步队列里面的任务，放在执行栈 执行 这样循环 称之为 事件循环（event loop）
+     * 
+     * ES5 之前解决异步 用回调函数
+    **/
+
+    //执行顺序
+    console.log(3);
+
+    setTimeout(function (params) {
+        console.log(6);
+    }, 0)
+
+    console.log(4);
+
+
+</script>
+
+</html>

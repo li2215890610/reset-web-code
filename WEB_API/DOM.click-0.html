@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件大全</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border-bottom: solid 1px red;
+        }
+
+        .divBg {
+            position: absolute;
+            top: 10px;
+            right: 80px;
+            width: 200px;
+            height: 300px;
+            background: url('../网页/images/01.png') no-repeat center;
+            z-index: 100;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" class="onfocusInput" onfocus="" placeholder="按 s 健 自动获取焦点">
+    <div class="divBg"></div>
+    <button>点我</button>
+    <button onclick="onClickBangDing()">绑定事件</button>
+    <div>
+        <a href="javascript:;" style="margin: 0 auto; width: 40px;height: 40px;">div1</a>
+    </div>
+    <div>div2</div>
+    <div>div3</div>
+
+</body>
+<script>
+    /***
+     * 
+     *  绑定事件 
+     *  <div onclick='onclick'>点我</div>
+     * 
+     * function onclick (){
+     * }
+     * 
+     *
+     * 注册事件的唯一性 
+     * 
+     * 绑定多个，执行最后一个
+     * let div document.querySelector('div')
+     *  div.onclick = function (){
+     *      1
+     *   }
+     *  div.onclick = function (){
+     *      2
+     *   }
+     *  
+     * --------------------***********----------------
+     *  监听事件
+     * addEventListener
+     * 
+     * 同一元素监听多个事件
+     *  
+    */
+    let button = document.querySelector("button")
+    button.addEventListener('click', function () {
+        console.log(this);
+    })
+
+    button.addEventListener('click', function () {
+        console.log(22);
+    })
+
+    function onClickBangDing(event) {
+        console.log(this);
+        console.log(event);
+        console.log("事件唯一性————————");
+
+    }
+
+    function onClickBangDing(event) {
+        console.log(this);
+        console.log(event);
+        console.log("事件唯一性=======");
+    }
+
+
+    let div1 = document.querySelectorAll("div")
+
+    div1[0].onclick = function (event) {
+
+        alert("我不会被执行因为下面的把我覆盖了")
+    }
+
+    div1[0].onclick = function (event) {
+
+        console.log(event);
+        console.log(this); //返回当前绑定的事件对象
+        console.log(event.target); //返回当前触发事件的元素
+        console.log(event.type);//返回事件类型
+
+
+        alert("点击第一次有效，第二次无效")
+        //传统方式删除事件
+        div1[0].onclick = null;
+    }
+    div1[0].addEventListener('mousemove', function (e) {
+        console.log(e.type);
+        // console.log('mousemove');
+    })
+
+
+    div1[1].addEventListener('click', removeEventListener, true)
+    function removeEventListener(e) {
+        console.log(e);
+        alert(1)
+        div1[1].removeEventListener("click", removeEventListener)
+    }
+
+
+    /**
+     * 
+     * 获取鼠标事件
+    */
+    document.querySelector("body").addEventListener("click", function (e) {
+        //可视窗口  XY
+        // console.log(e.clientX);
+        // console.log(e.clientY);
+        // //文档页面的XY  重点记忆
+        // console.log(e.pageX);
+        // console.log(e.pageY);
+        // //返回电脑屏幕的XY
+        // console.log(e.screenX);
+        // console.log(e.screenY);
+    })
+
+
+    let divBg = document.querySelector('.divBg')
+    let isDragging = false;
+    //按下
+    divBg.addEventListener("mousedown", function (e) {
+        isDragging = true
+    })
+
+    //鼠标移动
+    divBg.addEventListener("mousemove", function (e) {
+        if (isDragging) {
+            console.log('移入');
+            divBg.style.left = `${e.pageX - 50}px`
+            divBg.style.top = `${e.pageY - 50}px`
+        }
+    })
+
+    //按下后松开
+    divBg.addEventListener("mouseup", function (e) {
+        e.preventDefault();
+        isDragging = false;
+    })
+
+
+    //键盘事件
+    document.addEventListener('keyup', () => {
+        console.log("按下松开 3");
+    })
+
+    document.addEventListener('keydown', (event) => {
+        console.log("按下down1");
+        if (event.code === 'Space') {
+            // 你的代码逻辑
+        }
+    })
+
+    document.addEventListener('keypress', function (e) {
+        console.log('按下有值时触发 keypress 2');
+        if (e.keyCode === 13 || e.which === 13) {
+            // enter键被按下的处理逻辑
+            // ...
+        }
+    });
+    
+    //按下 s 健 松开 自动获取焦点
+    document.addEventListener('keyup', function (e) {
+        if (e.keyCode === 83 || e.which === 83) {
+            // s 键被按下的处理逻辑
+            // ...
+            document.querySelector(".onfocusInput").focus()
+        }
+    })
+
+</script>
+
+</html>

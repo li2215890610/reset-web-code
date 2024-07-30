@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数</title>
+</head>
+
+<body>
+    <button type="button" onclick="fun9Click()">点我</button>
+</body>
+<script>
+    const fun = function (params) {
+        console.log(this); //window
+    }
+
+    const fun1 = () => {
+        console.log(this);// window
+    }
+    const fun2 = x => {
+        //只有一个形参，不用小括号
+        console.log(x);// 
+    }
+
+    //只有一行代码，不用大括号、小括号
+    const fun3 = X => console.log(X);
+
+    //--------------- 省略 return
+    const fun4 = X => X + 1
+
+    const fun5 = (X, Y) => `${X + Y}`
+
+    const fun6 = (message) => ({ message })
+    fun()
+    fun1()
+    fun2(1)
+    fun3(2)
+    console.log(fun4(2));
+    console.log(fun5(2, 3));
+    console.log(fun6('没有return,我是直接返回的对象即可'));
+
+
+    const fun7 = (...arr) => (arr.filter(item => item > 3))
+    console.log(fun7(3, 4, 5));
+
+
+    console.log("--------this--------");
+    //this
+
+    console.log(this);// window
+
+    fun8()
+    function fun8(params) {
+        console.log(this);// window
+    }
+
+    function fun9Click(params) {
+        console.log(this);// window
+    }
+
+    document.querySelector('button').addEventListener('click', () => console.log(this))
+    document.querySelector('button').addEventListener('click', function (params) {
+        console.log(this);// button 
+    })
+
+    const obj1 = {
+        name: 'obj',
+        fun: function (params) {
+            console.log(this);// obj1
+        },
+        fun1: (params) => {
+            console.log(this);
+        },
+        fun2: (massage) => console.log(massage),
+        fun3: () => console.log(this.name),
+        fun4: function () {
+
+            let i = 10;
+            const count = () => console.log(this);
+            count()
+        }
+    }
+
+    console.log('------obj-------');
+    obj1.fun() // obj
+    obj1.fun1() //window
+    obj1.fun2('message') // message
+    obj1.fun3() // "" 空
+    obj1.fun4() // obj
+
+
+</script>
+
+</html>

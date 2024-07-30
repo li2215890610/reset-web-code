@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    //生成器就是一个函数，来进行异步编程
+    function* getName(data) {
+
+        console.log(data);
+
+        // yield 函数代码的分割符,调用next一次，
+        //就执行yield上面的代码  
+        console.log(1111);
+        let one = yield '生成器1';
+        console.log(one);
+
+
+        console.log(2222);
+        let two = yield '生成器2';
+        console.log(two);
+
+        console.log(3333);
+        let three = yield '生成器3';
+        console.log(three);
+
+        console.log(4444);
+        yield '生成器4';
+
+    }
+
+    //调用一次 就执行一次 yield 之前的函数
+    const name = getName('data')
+    //next方法可以传实际参数 
+    console.log(name.next());
+
+    //传入的参数，可以作为函数内第一个 yield 返回值
+    console.log(name.next('我是第二次返回的 yield'));
+
+    //传入的参数，可以作为函数内第二个 yield 返回值
+    console.log(name.next('我是第三次返回的 yield'));
+    // console.log(name.next());
+
+
+
+    console.log('**********for 便利 生成器***********');
+    console.log('**********for 便利 生成器***********');
+    console.log('**********for 便利 生成器***********');
+    console.log('**********for 便利 生成器***********');
+    console.log('**********for 便利 生成器***********');
+    console.log('**********for 便利 生成器***********');
+
+
+    for (const iterator of getName()) {
+        console.log(iterator);
+    }
+
+
+    console.log('**********  setTimeout 地狱回调***********');
+    console.log('**********  setTimeout 地狱回调***********');
+    console.log('**********  setTimeout 地狱回调***********');
+    console.log('**********  setTimeout 地狱回调***********');
+    console.log('**********  setTimeout 地狱回调***********');
+    console.log('**********  setTimeout 地狱回调***********');
+
+    // setTimeout(() => {
+    //     console.log(1);
+    //     setTimeout(() => {
+    //         console.log(2);
+    //         setTimeout(() => {
+    //             console.log(3);
+
+    //         }, 3000);
+    //     }, 2000);
+    // }, 1000);
+
+
+    console.log('**********模拟异步请求函数***********');
+    console.log('**********模拟异步请求函数***********');
+    console.log('**********模拟异步请求函数***********');
+    console.log('**********模拟异步请求函数***********');
+    console.log('**********模拟异步请求函数***********');
+    console.log('**********模拟异步请求函数***********');
+
+    function getUsreInfo(params) {
+        setTimeout(() => {
+            console.log('getTimes1');
+            getTimeNext.next({
+                name: '张三',
+                age: 18
+            })
+        }, 1000);
+
+    }
+    function getOrderInfo(data) {
+        setTimeout(() => {
+            console.log(data);
+            getTimeNext.next({
+                order_id: 2000,
+                order_name: '鞋子',
+                ...data
+            })
+        }, 2000);
+    }
+
+    function getGoodsInfo(data) {
+        setTimeout(() => {
+            console.log(data);
+            getTimeNext.next({
+                ...data,
+                shop_name:"商店名称"
+            })
+        }, 5000);
+    }
+
+    function* getTimes(params) {
+        console.log('我是第一次执行');
+        const userInfo = yield getUsreInfo()
+
+        console.log('我是第二次执行');
+        const order = yield getOrderInfo(userInfo)
+
+        console.log('我是第三次执行');
+        let data = yield getGoodsInfo(order)
+        console.log(data);
+    }
+
+    let getTimeNext = getTimes()
+    getTimeNext.next()
+    // getTimeNext.next()
+    // getTimeNext.next()
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浅拷贝</title>
+    <!-- https://www.jsdelivr.com/package/npm/lodash -->
+    <script src="./lodash.min.js"></script>
+</head>
+
+<body>
+    <div class="digui"></div>
+</body>
+<script>
+    //浅拷贝
+    console.log('--------浅拷贝--------');
+    console.log('--------浅拷贝--------');
+    console.log('--------浅拷贝--------');
+    console.log('--------浅拷贝--------');
+    console.log('--------浅拷贝--------');
+    console.log('--------浅拷贝--- 拷贝的栈区的指针-----');
+    const obj = {
+        name: '11',
+        age: 19
+    }
+    const o = obj
+    console.log(o);
+    o.age = 20
+    console.log(o);
+    console.log(obj);
+
+    console.log('--------浅拷贝 单层--------');
+    console.log('--------浅拷贝 单层--------');
+    console.log('--------浅拷贝 单层--------');
+    console.log('--------浅拷贝 单层--------');
+    console.log('--------浅拷贝 单层--------');
+
+
+    //浅拷贝的是最上层的，单层对象没问题，多层不行，如下
+    const obj1 = {
+        name: '11',
+        age: 40,
+        famliy: {
+            baby: "小孩",
+            age: 19,
+        }
+    }
+    // 解构
+    // const o1 = {...obj1}
+    const o1 = Object.assign({}, obj1)
+    console.log(o1);
+    o1.age = 20
+    console.log(o1);
+    console.log(obj1);
+    // debugger 
+
+    console.log('--------浅拷贝 多层--------');
+    console.log('--------浅拷贝 多层--------');
+    console.log('--------浅拷贝 多层--------');
+    console.log('--------浅拷贝 多层--------');
+    console.log('--------浅拷贝 多层--------');
+    o1.famliy.age = 200;
+    o1.famliy.baby = 200;
+    console.log(o1);
+    console.log(obj1);
+
+
+
+    /***
+     * 
+     * 1.直接赋值和浅拷贝有什么区别?
+     *      直接赋值的方法，只要是对象，都会相互影响，因为是直接拷贝对.象栈里面的地址
+     *      浅拷贝如果是一层对象，不相互影响，如果出现多层对象拷贝还会》相互影响
+     * 2.浅拷贝怎么理解?
+     *      拷贝对象之后，里面的属性值是简单数据类型直接拷贝值’如果属性值是引用数据类型则拷贝的是地址
+     * 
+    */
+
+
+
+    console.log('************-----深拷贝 多层----************');
+    console.log('************-----深拷贝 多层----************');
+    console.log('************-----深拷贝 多层----************');
+    console.log('************-----深拷贝 多层----************');
+    console.log('************-----深拷贝 多层----************');
+
+    //三种方法
+    //通过递归实现深拷贝
+
+    let i = 1;
+
+    function fun(params) {
+
+        if (i >= 4) {
+            console.log(i);
+            return
+        } else {
+            console.log(new Date().toLocaleDateString());
+        }
+        i++
+        fun()
+    }
+    fun()
+
+    function getTime(params) {
+        document.querySelector(".digui").innerHTML = `递归：${new Date().toLocaleString()}`
+
+        setInterval(getTime, 1000)
+    }
+
+    getTime()
+
+
+
+
+    console.log('************-----深拷贝--递归函数--************');
+    console.log('************-----深拷贝--递归函数--************');
+    console.log('************-----深拷贝--递归函数--************');
+    console.log('************-----深拷贝--递归函数--************');
+    console.log('************-----深拷贝--递归函数--************');
+    console.log('************-----深拷贝--1---递归函数--************');
+    console.log('************-----深拷贝--1---递归函数--************');
+
+
+    const obj3 = {
+        name: '王五',
+        bobby: ['篮球', '足球'],
+        famliy: {
+            babyName: '章三',
+            age: 10,
+        },
+        age: 30,
+    }
+
+    let newObj = {}
+
+    function resetData(oldData, newData) {
+
+        Object.keys(oldData).forEach(key => {
+
+            console.log(key, '------');
+            //先数组 后对象
+            // Array.isArray(oldData[key]
+            if (oldData[key] instanceof Array) {
+                // if (Object.getOwnPropertyNames(oldData[key]).length !== 0) {
+                // debugger
+                newData[key] = []
+
+                resetData(oldData[key], newData[key])
+            } else if (oldData[key] instanceof Object) {
+                newData[key] = {}
+                resetData(oldData[key], newData[key])
+            } else {
+                newData[key] = oldData[key]
+            }
+        });
+
+        return newData
+    }
+
+    //为了不影响 new old对象，我们用函数递归来，
+    // 如果遇到数组再次调用，如果遇到对象再次调用
+    //先 判断 Array 后对象
+    console.log(resetData(obj3, newObj));
+    console.log(newObj);
+
+
+    console.log('************-----深拷贝--2---库来运用--************');
+    console.log('************-----深拷贝--2---库来运用--************');
+    console.log('************-----深拷贝--2---库来运用--************');
+    console.log('************-----深拷贝--2---库来运用--************');
+    console.log('************-----深拷贝--2---库来运用--************');
+    console.log('************-----深拷贝--2---库来运用--************');
+    // 库来运用
+    console.log(_.cloneDeep(obj3));
+
+
+    console.log('************-----深拷贝--3---JSON.stringify--************');
+    console.log('************-----深拷贝--3---JSON.stringify--************');
+    console.log('************-----深拷贝--3---JSON.stringify--************');
+    console.log('************-----深拷贝--3---JSON.stringify--************');
+    let parse = JSON.parse(JSON.stringify(obj3))
+    console.log(parse);
+</script>
+
+</html>

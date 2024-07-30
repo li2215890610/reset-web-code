@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防抖</title>
+    <style>
+        div {
+            margin-top: 200px;
+            width: 300px;
+            text-align: center;
+            height: 300px;
+            line-height: 300px;
+            color: red;
+            font-size: 40px;
+            background-color: black;
+        }
+
+        img {
+            width: 1100px;
+            height: 434px;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+    <script src="./lodash.min.js"></script>
+</head>
+
+<body>
+    <button type="button" onclick="btnChange()">点我吧</button>
+    <input oninput="btnChange()" type="text" name="" id="" placeholder="请输入搜索">
+
+    <div class="mouse__move__div">
+        0
+    </div>
+
+    <img src="./防抖节流.png" alt="" srcset="">
+
+</body>
+<script>
+    //单位时间内，频繁触发事件，只执行最后一次
+
+    let timer = null;
+
+    function btnChange(params) {
+
+        timer && clearTimeout(timer)
+
+        timer = setTimeout(() => {
+            console.log('2222');
+        }, 800);
+    }
+
+
+
+    let i = 0;
+
+    let timer2 = null;
+
+    const div = document.querySelector('.mouse__move__div')
+    // div.addEventListener('mousemove', _.debounce(() => {
+    //     div.innerHTML = i++
+    // }, 500))
+    div.addEventListener('mousemove', () => {
+        timer2 && clearTimeout(timer2)
+
+        timer2 = setTimeout(() => {
+            alert(1111)
+        }, 800);
+    })
+
+
+
+</script>
+
+</html>

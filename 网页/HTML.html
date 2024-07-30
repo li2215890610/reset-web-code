@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!-- 指定中文网站 -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 编码类型 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第一天</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h1 id="one">标题一</h1>
+    <h2>标题二</h2>
+    <h3>标题三</h3>
+    <h4>标题四</h4>
+    <h5>标题五</h5>
+    <h6>标题六</h6>
+    <p> 我是一个段落标签</p>
+    <p> 我是第二 <br />个段落标签 我换行了</p>
+
+    <p> 我是<strong>加粗</strong></p>
+    <p> 我是<ins>下划线</ins></p>
+    <p> 我是<del>删除线</del></p>
+    <p> 我是<em>倾斜</em></p>
+    <div>我是一个div 盒子，我是块元素</div>
+    <span>我是一个span 盒子,我是行内元素</span>
+
+    <!-- 浏览器会根据设备像素比、可用图片资源和设备宽度来自动选择和加载最佳的图片，从而实现高清晰度和响应式图片的效果. -->
+    <!-- 
+    //相对路径    
+    / 下一级路径
+    ../上一级路径 
+    //绝对路径 有图片云服务地址的路径
+    -->
+    <img src="/images/01.png" alt="图片不能显示，我显示" srcset="" title="鼠标放上我显示" width="300" height="300" border="12" />
+
+    <div>
+        <div>
+            <a href="#">我是A标签，我是一个空链接</a>
+        </div>
+        <div>
+            <a href="javascript:void(0)">我是A标签，我是一个空链接，点我URL不会出现#</a>
+        </div>
+        <div>
+            <a href="./02.html">我是A标签，我可以跳转,当前窗口</a>
+        </div>
+        <div>
+            <a href="http://www.baidu.com" target="_blank">我是A标签，我可以跳转百度，新建窗口</a>
+        </div>
+        <div>
+            <a href="images.zip" target="_blank">我是A标签，我可以下载文件</a>
+        </div>
+        <div><a href="#one">锚 &nbsp; 点 <strong>跳转到ID元素</strong></a></div>
+    </div>
+
+    <h1>表格</h1>
+    <table align="content" border="2" bgcolor="#fff" width="300" cellpadding="0" cellspacing="0">
+        <thead>
+            <th>名称</th>
+            <th>价格</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="2">貂皮大衣</td>
+                <td>888</td>
+            </tr>
+            <tr>
+                <td rowspan="2">牛仔裤</td>
+                <td>298</td>
+            </tr>
+            <tr>
+                <td>休闲裤</td>
+                <td>396</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h1>列表</h1>
+    <h2>ul 无序列表</h2>
+    <ul>
+        <li>牛仔裤</li>
+        <li>休闲裤</li>
+    </ul>
+    <h2>ol 有序列表</h2>
+    <ol>
+        <li>牛仔裤</li>
+        <li>休闲裤</li>
+    </ol>
+    <h2>自定义列表</h2>
+    <dl>
+        <dt>关注我们</dt>
+        <dd>联系我们</dd>
+        <dd>联系我们</dd>
+        <dd>联系我们</dd>
+
+        <dt>欢迎投诉</dt>
+        <dd>联系我们</dd>
+        <dd>联系我们</dd>
+        <dd>联系我们</dd>
+    </dl>
+
+    <h1>表单</h1>
+    <form action="" method="post" name="表单域的名称">
+
+        <div> 
+            <label for="userName">
+                用户姓名：
+            </label>
+            <input type="text" name="userName" id="userName" value="userName">
+        </div>
+
+        <div>
+            <label for="passWord">
+                用户密码：
+            </label>
+            <input maxlength="6" type="password" name="passWord" id="passWord" value="passWord">
+        </div>
+
+        <div> 
+            <label>
+                用户性别：
+            </label>
+            <input type="radio" checked name="sex" value="1" id="sex"><label for="sex">男</label></input>
+            <input type="radio" name="sex" value="2" id="nv"><label for="nv">女</label></input>
+            <input type="radio" name="sex" value="0" id="nonv"><label for="nonv">不男不女</label></input>
+        </div>
+
+        <div> 
+            <label for="hobby">
+                用户爱好：
+            </label>
+
+            <label for="hobby">
+                <input type="checkbox" checked name="hobby" id="hobby">吃饭
+            </label>
+            <label for="hobby1">
+                <input type="checkbox" name="hobby" id="hobby1">睡觉
+            </label>
+        </div>
+
+        <div> 
+            <label for="images">
+                上传图片：
+            </label>
+            <input type="file" name="img" id="userName" id="images">
+        </div>
+
+        <div> 
+            <label for="select">
+                开发方向：
+            </label>
+            <select name="方向" id="select" >
+                <option>前端</option>
+                <option disabled="disabled">后端</option>
+                <option selected>go端</option>
+            </select>
+        </div>
+
+        <div> 
+            <label for="xx">
+                用户介绍：
+            </label>
+            <textarea rows="3" cols="20"></textarea>
+        </div>
+
+        <input type="submit" onsubmit="submit()" value="保存"/>
+        <input type="reset"/>
+    </form>
+
+    
+</body>
+<script>
+    function submit(e) {
+        alert(1)
+        console.log(e)
+    }
+
+</script>
+
+</html>

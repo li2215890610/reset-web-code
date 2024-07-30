@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    // 获取字符串里面的所有o
+    let str = `qweorotyuio`
+    let strArr = []
+    let index = str.indexOf('o')
+
+    while (index !== -1) {
+        strArr.push(index)
+        index = str.indexOf('o', index + 1)
+    }
+    console.log(strArr);
+
+    console.log(str.charAt(6));//  返回位置的字符
+
+
+
+
+    function getMostFrequentChar(str) {
+        let charMap = {};
+        let maxChar = '';
+        let maxCount = 0;
+
+        for (let char of str) {
+            charMap[char] = (charMap[char] || 0) + 1;
+
+            if (charMap[char] > maxCount) {
+                maxCount = charMap[char];
+                maxChar = char;
+            }
+        }
+
+        console.log(charMap);
+        return { char: maxChar, count: maxCount };
+    }
+
+    // 示例使用
+    const result = getMostFrequentChar(str);
+    console.log(result); // 输出最多的字符及其次数
+
+    console.log(str.concat('22'));
+    console.log(str.substring(2,4)); //索引，取字符
+    
+    console.log([3,4,5,6,6].join(",").split(','));
+
+    
+    console.log(str.replace('q','M')); //替换字符串
+</script>
+
+</html>

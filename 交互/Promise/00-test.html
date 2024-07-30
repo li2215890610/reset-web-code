@@ -1,0 +1,38 @@
+<script>
+
+
+    //.then.then undefiend
+    new Promise((resolve, reject) => {
+ 
+        setTimeout(() => {
+            resolve('oK');
+        }, 1000);
+
+    }).then(value => {
+        console.log(value);
+        return new Promise((resolve, reject) => {
+            resolve("success");
+        });
+    }).then(value => console.log(value)).then(value => console.log(value)).then(value => {
+        console.log(value);
+        //中断 Promsie 链条执行
+        return new Promise(()=>{})
+    }).then(value => console.log(value,'____我不执行') )
+
+
+    //p.then p.then 不是undefiend
+    const p = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(1);
+        }, 1000);
+    })
+    p.then(value => {
+        console.log(value);
+    }).then(value => { console.log(value) });
+
+    p.then(value => {
+        console.log(value);
+    })
+
+
+</script>

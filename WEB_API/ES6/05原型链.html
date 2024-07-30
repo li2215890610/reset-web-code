@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型链</title>
+    <style>
+        .sec {
+            /* height: 100vh; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sec .bg {
+            width: 800px;
+            height: 600px;
+            background-image: url("./原型链关系.jpg");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    </style>
+</head>
+
+<body>
+    <section style="padding: 30px;" class="sec">
+        <div>
+            <div>
+                <div>构造函数的原型链关系</div>
+                <div class="bg"></div>
+            </div>
+            <div>
+                <img src="./问题.png" alt="" srcset="">
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+    /**
+     * 1.原型是什么？
+     * 构造函数通过原型分配的函数是所有对象所 共享的
+     * JS 规定，每个构造函数都有一个 prototype 属性，指向另一个对象，叫做原型对象
+     * 2.原型的作用是什么？
+     * 共享方法：这个对象可以挂载函数，对象实例化不会多次创建原型上函数，节约内存
+     * 我们可以把那些不变的方法，直接定义在 prototype 对象上，这样所有对象的实例就可以共享这些方法
+     * 3.构造函数和原型里面的this 指向谁
+     * 构造函数和原型对象中的 this 都指向 实例化的对象
+     * 
+    */
+    function Star({ name = '张三', age = 60 }) {
+        this.name = name;
+        this.age = age
+    }
+
+    //实例对象生成 对象原型 __proto__  指向 构造函数里面 原型对象（prototype）的指针
+    //实例对象 生成一个 __proto__ 里面有个constructor 指向构造函数
+    //所以 实例化对象 才能访问 原型对象的方法
+    const ldf = new Star("ldf", 80);
+    const zxy = new Star("zxy", 70);
+
+    //原型对象里面的this 指向的是 实例对象
+    Star.prototype.sing = function (params) {
+        console.log(this); //当前调用的对象
+    }
+    Star.prototype.sing1 = (params) => {
+        console.log(this); //windows
+    }
+
+    // 公共的属性写在 构造函数里面的 实例属性
+    // 公共的方法写在原型（.prototype）
+
+    ldf.sing() //this 为 ldf
+    ldf.sing1()
+
+    console.log('______扩展数组_________');
+    console.log('______扩展数组_________');
+    console.log('______扩展数组_________');
+    console.log('______扩展数组_________');
+
+
+    //扩展函数 扩展方法
+    Array.prototype.sum = function () {
+        if (this.length > 0) {
+            return this.reduce((old, newData) => {
+                return old + newData
+            }, 0)
+        } else {
+            return 0
+        }
+    }
+
+    console.log([1, 2, 3].sum());
+
+
+    console.log('______constructor_________');
+    console.log('______constructor_________');
+    console.log('______constructor_________');
+    console.log('______constructor_________');
+
+    console.log(Star.prototype);
+    //构造函数里面有 prototype 属性，
+    //prototype里面又有一个 constructor 属性指向 构造函数
+    //作用：重新指回创造这个原型对象的 构造函数
+    console.log(Star.prototype.constructor);
+
+
+
+    function Person(name) {
+        this.name = name;
+    }
+
+    let personOne = new Person("xl");
+
+    //这样写
+    // Person.prototype.sayName = ()=>{}
+    //就不用 
+    //Person.prototype.constructor = Person
+    //重新修改指向了
+
+    // 如果我们重写(重新定义)
+    // Person.prototype = {
+    //     constructor: Person, //必须加指向
+    //     sayName: function () {
+    //         console.log(this.name);
+    //     }
+    // }; 
+
+    let personTwo = new Person('XL');
+    console.log(personOne.constructor == Person); //输出true
+    console.log(personTwo.constructor == Person); //输出false   
+    //大家可能会对这个地方产生疑惑？为何会第二个会输出false,personTwo不也是由Person创建的吗？这个地方应该要输出true啊？
+    //这里就涉及到了js里面的原型继承
+    //这个地方是因为person实例继承了Person.prototype原型对象的所有的方法和属性，包括constructor属性。当Person.prototype的constructor发生变化的时候，相应的person实例上的constructor属性也会发生变化。所以第二个会输出false;
+    //当然第一个是输出true，因为改变构造函数的prototype属性是在personOne被创建出来之后。
+
+
+
+
+    //原型链 是一种查找规则
+    // ① 当访问一个对象的属性(包括方法)时，首先查找这个对象自身有没有该属性。
+    // ② 如果没有就查找它的原型(也就是__proto__ 指向的 prototype 原型对象)
+    // ③ 如果还没有就查找原型对象的原型(0bject的原型对象)
+    // ④ 依此类推一直找到 Object 为止(null)
+    // ⑤ _proto_对象原型的意义就在于为对象成员查找
+    //    机制提供一个方向，或者说一条路线
+    // ⑥ 可以使用 instanceof 运算符用于检测构造函数的 
+    //    prototype 属性是否出现在某个实例对象的原型链上
+
+    console.log('------------instanceof------------');
+    console.log('------------instanceof------------');
+    console.log('------------instanceof------------');
+    console.log('------------instanceof------------');
+    console.log('------------instanceof------------');
+
+    function Person(params) {
+
+    }
+
+    let woman = new Person()
+
+    //instanceof 是否存在该原型链
+    console.log(woman instanceof Person);
+
+    console.log(woman instanceof Object);
+2
+    console.log([222, 3] instanceof Object);
+
+    console.log([222, 3] instanceof Array);
+
+    //数组也属于对象
+    console.log(Array instanceof Object);
+
+
+    console.log(typeof woman);
+
+    // typeof 适用于基本数据类型的检查以及简单的存在性检查，
+    // instanceof 适合于判断一个对象是否属于某个特定的类或构造函数。
+
+
+</script>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迭代器</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    //原型如果有 Symbol.iterator 属性 那么就可以被 for of 循环便利
+    const arr1 = [1,2,3,4]
+    const iterators = arr1[Symbol.iterator]()
+    //第一次调用 next，指针自动会调用数据结构的第一个成员
+    //接下来不断调用，直到返回最后一个 数据
+    //每次调用 next方法，会返回一个value 和 done 属性的对象
+    //done  === true 便利完成
+    console.log(iterators.next()); 
+
+    for (const valuer of arr1) {
+        console.log(valuer);
+    }
+
+    for (const key in arr1) {
+        if (Object.hasOwnProperty.call(arr1, key)) {
+            const element = arr1[key];
+            console.log(element);
+        }
+    }
+
+</script>
+</html>

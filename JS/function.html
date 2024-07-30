@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+</head>
+<body>
+    
+</body> 
+<script>
+ 
+    function onclick(data,cb){
+
+        console.log("未进入回调函数");
+        cb(data)
+
+        //如果 return 后面有值就返回，没有返回的是undefined 
+        return Number(data) + 100
+    }
+
+    let fun = onclick(2,(id)=>{
+        console.log("进入回调函数",id++);
+    }) 
+
+    console.log(fun);
+
+
+    /***
+     * 
+     * arguments ,存储所有的实参
+     * 
+     * */
+ 
+     function name() {
+        console.log(arguments);
+        console.log(arguments.length);
+        
+     }
+     
+     console.log(name(1,3,4,5));
+
+
+     var num = 10;
+     var num = 20;
+     console.log(num);
+
+     function name1(params) {
+        var num = 30;
+
+        function name2(params) {
+            console.log(num);
+        }
+        
+        name2()
+     }
+
+     name1()
+     console.log(num,'---');
+
+</script>
+</html>

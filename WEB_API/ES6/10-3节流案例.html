@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .art-video {
+            width: 500px;
+            height: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+    </style>
+    <script src="./lodash.min.js"></script>
+</head>
+
+<body>
+    <video class="art-video" controls
+        src="https://vdept3.bdstatic.com/mda-qfh8350ijixktx7s/sc/cae_h264/1718689869229666415/mda-qfh8350ijixktx7s.mp4?v_from_s=hkapp-haokan-hbf&amp;auth_key=1721382249-0-0-fcd26b00d54617f96cf7f42a3888b8d5&amp;bcevod_channel=searchbox_feed&amp;pd=1&amp;cr=2&amp;cd=0&amp;pt=3&amp;logid=2649714455&amp;vid=113753342020343363&amp;klogid=2649714455&amp;abtest=101830_1-17451_2-3000225_2"
+        ></video>
+</body>
+<script>
+    let videos = document.querySelector('video')
+
+    videos.ontimeupdate = _.throttle(() => {
+        localStorage.setItem('timer', videos.currentTime)
+    }, 1000)
+
+    videos.onloadeddata = () => {
+        videos.currentTime = localStorage.getItem('timer')
+    }
+</script>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节流</title>
+    <style>
+        div {
+            margin-top: 200px;
+            width: 300px;
+            text-align: center;
+            height: 300px;
+            line-height: 300px;
+            color: red;
+            font-size: 40px;
+            background-color: black;
+            margin: 0 auto;
+        }
+        img{
+            width: 1100px;
+            height: 434px;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+    <script src="./lodash.min.js"></script>
+</head>
+
+<body>
+    <div class="mouse__move__div">
+        0
+    </div>
+    <img src="./防抖节流.png" alt="" srcset="">
+</body>
+<script>
+    //单位时间内，多次频繁触发事件，只执行一次
+
+
+
+    // 使用场景 mousemove, window.onresize, window.onscroll
+
+    // 在两秒期间，不管触发多少次，都执行一次
+    const div = document.querySelector('.mouse__move__div')
+    // div.addEventListener('mousemove', _.throttle(() => {
+    //     div.innerHTML = i++
+    // }, 2000))
+
+    let i = 0;
+
+
+    function mousemove(params) {
+        div.innerHTML = i++
+    }
+
+    //节流的核心就是利用定时器(setTimeout)来实现
+    //1. 声明一个定时器变量
+    //2. 当鼠标每次滑动都先判断是否有定时器了，如果有定时器则不开启新定时器I1 
+    //3. 如果没有定时器则开启定时器，记得存到变量里面
+    //3.1 定时器里面调用执行的函数
+    //3.2 定时器里面要把定时器清空
+
+    let timer = null;
+
+    function timerDate(func, timeNum) {
+
+        return function () {
+            if (!timer) {
+                timer = setTimeout(function () {
+                    func()
+
+                    //在 setTimeout 中是无法删除定时器的，
+                    //因为定时器还在运作，所以使用 timer =null 
+                    //而不是 clearTimeout(timer)
+                    timer = null
+                }, timeNum * 1000);
+            }
+        }
+    }
+
+    div.addEventListener('mousemove', timerDate(mousemove,2))
+
+    /**
+    div.addEventListener('mousemove', timerDate1.bind(div,2))
+    function timerDate1(timeNum) {
+
+        if (!timer) {
+            timer = setTimeout(() => {
+                this.innerHTML = i++
+
+                //在 setTimeout 中是无法删除定时器的，
+                //因为定时器还在运作，所以使用 timer =null 
+                //而不是 clearTimeout(timer)
+                timer = null
+            }, timeNum * 1000);
+        }
+    }
+    ***/
+
+    // div.addEventListener('mousemove', () => {
+
+    //     if (!timer) {
+    //         timer = setTimeout(function () {
+
+    //             div.innerHTML = i++
+
+    //             //在 setTimeout 中是无法删除定时器的，
+    //             //因为定时器还在运作，所以使用 timer =null 
+    //             //而不是 clearTimeout(timer)
+    //             timer = null
+    //         }, 2000);
+    //     }
+    // })
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型链</title>
+    <style>
+        .sec {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sec img {
+            width: 800px;
+            height: 400px;
+        }
+
+        .sanjiao {
+            width: 0;
+            height: 0;
+            border: 50px solid transparent;
+            border-right-color: black;
+        }
+
+        .sec .bg {
+            width: 800px;
+            height: 600px;
+            background-image: url("./原型链关系.jpg");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    </style>
+</head>
+
+<body>
+    <section style="padding: 30px;" class="sec">
+        <div>
+            <div>
+                <div>构造函数的原型链关系</div>
+                <div class="bg"></div>
+            </div>
+            <div>
+                <img src="./问题.png" alt="" srcset="">
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+
+    function Preson(eays = 2, head = 1) {
+        this.eays = eays;
+        this.head = head
+    }
+    Preson.Names = '初始化Names，私有变量'
+    Preson.change =  function (params) {
+        console.log(Preson.Names);
+    }
+
+    //公共方法
+    Preson.prototype = {
+        constructor: Preson,
+        setName: function (params) {
+            console.log('---Preson--公共方法---setName----');
+            console.log('---Preson--公共方法---setName----');
+            this.name = params;
+            console.log(this, '获取Name：', params);
+            console.log('---Preson--公共方法---setName----');
+            console.log('---Preson--公共方法---setName----');
+            console.log('---Preson--公共方法---setName----');
+        },
+        getName() {
+            console.log('---Preson--公共方法---getName----');
+            console.log('---Preson--公共方法---getName----');
+            console.log(this);
+            return this.name
+            console.log('---Preson--公共方法---getName----');
+            console.log('---Preson--公共方法---getName----');
+            console.log('---Preson--公共方法---getName----');
+        },
+        windowGetName: (params) => {
+            console.log('---Preson--公共方法---windowGetName----');
+            console.log('---Preson--公共方法---windowGetName----');
+            console.log(this);// window
+            this.name = params;
+            console.log(this.name);
+            console.log('---Preson--公共方法---windowGetName----');
+            console.log('---Preson--公共方法---windowGetName----');
+            console.log('---Preson--公共方法---windowGetName----');
+        },
+        eat() {
+            console.log('我会吃饭了！！！');
+        }
+    }
+
+    const newInit = new Preson(2, 3)
+    console.log(newInit.eays);
+    console.log(newInit.head);
+    newInit.setName('我是初始化')
+    newInit.getName()
+    console.log(newInit.name);
+    //私有属性/方法
+    Preson.change()
+
+
+    console.log('                ');
+    console.log('                ');
+    console.log('---NewWoMan----');
+
+    function NewWoMan(eays = 2, head = 1, name = 'balck') {
+        //继承父类的属性，并添加私有属性
+        Preson.call(this, eays, head)
+        this.name = name;
+    }
+
+    //通过原型 来继承 Person
+    NewWoMan.prototype = new Preson();
+    //指会原来的构造函数
+    NewWoMan.prototype.constructor = NewWoMan;
+
+    //重写方法
+    NewWoMan.prototype.setName = function (params) {
+        console.log('                            ');
+        console.log('                            ');
+        console.log('---NewWoMan-----重写setName----');
+        console.log('---NewWoMan-----重写setName----');
+
+        this.name = params;
+        console.log('---NewWoMan-----重写setName----');
+        console.log(this.name, "修改Baby的名字1");
+
+        console.log('---NewWoMan-----重写setName----');
+        console.log('---NewWoMan-----重写setName----');
+    }
+
+    //新增方法
+    NewWoMan.prototype.getBabyName = function (params) {
+        console.log(this.name, "getBabyName");
+    }
+
+    const woman = new NewWoMan(3, 3, 'woman张三')
+    woman.setName('张三') // 调用重写方法
+    // 调用父类方法
+    woman.getName()
+    woman.windowGetName('windowName')
+    woman.getBabyName() // 调用自己的方法
+    console.log(woman);
+
+
+    console.log('                     ');
+    console.log('                     ');
+    console.log('                     ');
+    console.log('---NewMan-----运行----');
+
+
+    function NewMan(eays = 2, head = 1, name,) {
+        NewWoMan.call(this, eays, head, name)
+    }
+
+    NewMan.prototype = new NewWoMan()
+    NewMan.prototype.constructor = NewMan
+
+    //重写方法
+    NewMan.prototype.getBabyName = function (params) {
+        console.log("获取baby2");
+        alert(this.name, 'baby2')
+    }
+
+    const man = new NewMan(4, 4, '222')
+
+
+    // 调用父类方法
+    man.setName('我是小baby') // 调用父类（NewWoMan）方法
+    man.getBabyName()
+    man.getName() //调用 Pronse类方法
+    man.windowGetName('windowName') //调用 Pronse类方法
+
+    console.log(man.eays);
+    console.log(man.head);
+    console.log(man);
+
+</script>
+
+</html>

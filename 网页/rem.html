@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* 
+        // 动态设置html标签font-size大小
+
+        假设设计稿是750px
+        假设我们把整个屏幕划分为15等份(划分标准不一可以是20份也可以是10等份)
+        每一份作为html字体大小，这里就是50px
+        那么在320px设备的时候，字体大小为320/15 就是 21.33px
+        用我们页面元素的大小 除以不同的 htmr学体大小会发现他们比例还是相同的
+        比如我们以 750为标准设计稿
+        一个100*100像素的页面元素在 750屏幕下，就是 100/50 转换为rem 是 2rem*2rem 比例是 1比1
+        320屏幕下， html了字体大小为21.33 则 2rem = 42.66px 此时宽和高都是 42.66 但是 宽和高的比例还是 1比1
+        但是已经能实现不同屏幕下 页面元素盒子等比例缩放的效果
+        
+        */
+        @media screen and (min-width:320px) {
+            html{
+                font-size: 21.33px;
+            }
+        }
+
+        @media screen and (min-width:750px) {
+            html{
+                font-size: 50px;
+            }
+        }
+
+        div{
+            width: 6rem;
+            height: 6rem;
+            border: 0.02rem solid red;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        颠三倒四
+    </div>
+</body>
+</html>

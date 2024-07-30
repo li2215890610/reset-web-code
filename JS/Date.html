@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+
+
+    //+ new Date() === getTime === Date.now
+    const time = + new Date();
+    
+    console.log(format(time));
+    function format(time, type = "MM-DD") {
+        const t = new Date(time);
+        const timeObj = {
+            hour: beDouble(t.getHours()),
+            min: beDouble(t.getMinutes()),
+            sed: beDouble(t.getSeconds()),
+
+            year: t.getFullYear(),
+            month: beDouble(t.getMonth() + 1),
+            date: beDouble(t.getDate())
+        };
+
+        if (type === 'YYYY') {
+            return  `${timeObj.year}`
+        }else if (type === 'MM-DD') {
+            return  `${timeObj.month}-${timeObj.date}`
+        }else if (type === 'YYYY-MM-DD') {
+            return  `${timeObj.year}-${timeObj.month}-${timeObj.date}`
+        }else{
+            return `${timeObj.year}-${timeObj.month}-${timeObj.date} ${timeObj.hour}:${timeObj.min}:${timeObj.sed}`
+        }
+        
+    }
+
+    function beDouble(number) {
+        return number < 10 ? `0${number}` : `${number}`
+    }
+
+</script>
+
+</html>

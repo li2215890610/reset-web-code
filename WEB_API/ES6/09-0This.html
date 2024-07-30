@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this</title>
+</head>
+
+<body>
+    <button type="button">点我</button>
+    <button type="button" onclick="callback()">测试callback</button>
+</body>
+<script>
+    // 普通函数的调用方式决定了，this的指向，粗略的规则 严格模式下 fun()函数，非严格模式下 一般谁调用就是谁 
+    console.log('大函数', this);//windows
+
+    function fun(params) {
+        // 'use strict'  严格模式  this = undefined
+        console.log("fun函数", this);//window
+    }
+
+    let fun1 = (params) => {
+        console.log("fun1函数", params);
+
+        console.log("fun1函数", this); //window
+    }
+
+    setTimeout(() => {
+        console.log("外层Timeout", this);// widows
+    }, 2000);
+
+    let o = {
+        name: 11,
+        sayHi: function (params) {
+            console.log('sayHi1____', this); // o
+        },
+        sayHi1: fun1,
+        sayHi2: function (params) {
+            console.log('sayHi2____', this); // o
+            setTimeout(function () {
+                console.log('sayHi2____setTimeout');
+                console.log(this);//window
+            }, 2000)
+        },
+        sayHi3: (params) => {
+            // 箭头函数的this 是一层一层的往外查找，（最近的作用域）
+            console.log('sayHi3____', this); //window
+            setTimeout(() => {
+                console.log('sayHi3____setTimeout');
+                console.log(this); // window
+            }, 2000)
+        },
+        sayHi4: function () {
+            console.log('sayHi4____', this); //o
+            setTimeout(() => {
+                console.log('sayHi4____setTimeout');
+                console.log(this); // o
+            }, 2000)
+        }
+    }
+    console.log("对象", o);
+    fun()
+    o.sayHi()
+    o.sayHi1("params————sayHi1传参")
+    o.sayHi2()
+    o.sayHi3()
+    o.sayHi4()
+
+
+    document.querySelector("button").onclick = function (params) {
+        console.log(this); //btn
+    }
+
+    document.querySelector("button").addEventListener('click', function (params) {
+        console.log(this); //btn
+        this.disabled = true
+        setTimeout(function (params) {
+            console.log(this); // window
+            this.disabled = false; //不起作用的 this是window
+        }, 2000)
+
+        setTimeout((params) => {
+            console.log(this);// btn
+            this.disabled = false;
+        }, 3000)
+    })
+
+
+    //构造函数
+    function Fun2(params) {
+        console.log(this);//构造的实例对象
+    }
+
+    const name = new Fun2();
+    name
+
+
+
+    // 如果将函数A，当成一个参数传递给函数B时，那么A就是回调函数
+    // 如果 定时器、addEventListener
+    
+    function callback() {
+
+        callbackA(1, function (item) {
+            console.log(this);
+            console.log(item);
+            console.log('回调结束');
+        })
+
+    }
+
+    function callbackA(num, cb) {
+
+        console.log(this);
+        setTimeout(() => {
+            console.log(this);
+            cb("ok 了")
+        }, 1000 * num)
+    }
+</script>
+
+</html>

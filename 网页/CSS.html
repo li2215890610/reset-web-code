@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 所有标签 */
+        * {
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            margin-bottom: 50px;
+            min-width: 1226px;
+        }
+        p {
+            font-size: 24px;
+            color: pink;
+            /* 设置字体 */
+            font-family: 'Courier New', Courier, monospace;
+
+            /* italic */
+            font-style: italic;
+        }
+
+        .red {
+            color: red;
+            text-align: center;
+            /*下划线  */
+            text-decoration: underline;
+            /*上划线  */
+            text-decoration: overline;
+            text-decoration: line-through;
+            /*  首行缩进  1em 当前一个文字的大小 */
+            text-indent: 2em;
+        }
+
+        a {
+            /*  取消默认下划线 */
+            text-decoration: none;
+            line-height: 100px;
+        }
+
+        #nav {
+            background-color: rebeccapurple;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            border: 5px solid #333;
+            /* 合并相邻的边框 */
+            border-collapse: collapse;
+            padding: 20px 10px;
+            border-radius: 10px;
+        }
+
+        .weilei:link {
+            /* 未访问 */
+            color: #333;
+        }
+
+        .weilei:visited {
+            /* 已访问 */
+            color: orange;
+        }
+
+        .weilei:hover {
+            /* 鼠标覆盖 */
+            color: blue;
+        }
+
+        .weilei:active {
+            /* 正在按下，还没有弹起 */
+            color: green;
+        }
+
+        input:focus {
+            background-color: red;
+
+            /* background-image: ;
+            //位置  x,y
+            background-position: ;
+            //是否重复
+            background-repeat: ;
+            //是否固定
+            background-attachment: scroll | fixed ;
+            background: url() no-repeat center center; */
+
+        }
+
+        ul li {
+            /* 去掉li标签的圆 */
+            list-style: none;
+        }
+
+        .box__shadow{
+            width: 200px;
+            /* height: 50rpx;  */
+            border-radius: 10px;
+            color: #333;
+            font-size: 24px;
+            /* 水平|垂直|模糊距离|颜色 */
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+            background-color: red;
+            text-align: center;
+            /* 文字阴影 */
+            text-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);;
+        }
+        .section__float{
+            background-color: rebeccapurple;
+            float: left;
+            width: 316px;
+            height: 170px;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+        .section__float1{
+            width: 234px;
+            /* margin-left: 0; */
+        }
+
+    </style>
+</head>
+
+<body>
+    <p>我是一个P标签</p>
+    <div class="red">红色</div>
+    <div id="nav">行高</div>
+    <a href="#" >a标签</a>
+    <a href="#" class="weilei">伪类</a>
+
+    <div>
+        <input type="text" value="速度速度">
+    </div>
+
+    <div style="margin: 0 auto; width: 200px;">
+        <ul>
+            <li>就这样</li>
+            <li>是不</li>
+        </ul>
+    </div>
+    <div style="margin: 0 auto; width: 200px;">
+        <div class="box__shadow">点击获取</div>
+    </div>
+
+
+    <div style="height: 180px;  background-color: red; overflow: hidden;">
+        <section class=" section__float section__float1"></section>
+        <section class="section__float"></section>    
+        <section class="section__float"></section>
+        <section class="section__float"></section>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>改变this</title>
+</head>
+
+<body>
+    <button type="button">倒计时</button>
+</body>
+<script>
+
+    console.log('---------call-----------');
+    console.log('---------call-----------');
+    console.log('---------call-----------');
+    console.log('---------call-----------');
+
+    // 绑定内部this的指向
+    //call()
+    //1、调用函数
+    //2、改变this指向
+    // fun.call(function,arr1,arr2)
+    //返回值 是函数内部的 return
+    
+    const obj = {
+        name: 'zhangsan'
+    }
+
+    function fun(x, y) {
+        console.log(this); //改变this
+        console.log(arguments);
+    }
+
+    //this的指向变量， N个实际参数
+    //返回值 是函数 内部的 return
+    fun.call(obj, 1, 2, 3)
+
+    console.log('---------apply-----------');
+    console.log('---------apply-----------');
+    console.log('---------apply-----------');
+    console.log('---------apply-----------');
+
+    //apply()
+
+    function fun1({ x: name }, y) {
+        console.log(this); //改变this
+        console.log(arguments);
+        console.log(name, y);
+    }
+
+    //this的指向变量， 参数是数组
+    fun1.apply(obj, [{ x: '11' }, 5, 6])
+    //求最大值
+    const max = Math.max.apply(Math, [1, 20, 80])
+    console.log(max);
+    console.log(Math.max(...[4, 6, 10]));
+
+
+    console.log('---------bind-----------');
+    console.log('---------bind-----------');
+    console.log('---------bind-----------');
+    console.log('---------bind-----------');
+    // bind()
+    //不会调用函数，
+    //只是改变this 指向
+    // 返回值是 函数，由指定的this 和初始化参数改造的原函数拷贝（给复制成一个新函数）
+    //但是这个函数里面的this 是更改过的obj
+
+    function fun2(x, y) {
+        console.log(this); //改变this
+        console.log(arguments);
+        console.log(x, y);
+    }
+
+    fun2.bind(obj, 2, 3)()
+
+
+    // debugger
+    const btn = document.querySelector('button')
+    btn.addEventListener('click', function (params) {
+        this.disabled = true;
+        //自调函数
+        setTimeOuts.bind(this, 5)()
+    })
+
+    function setTimeOuts(num) {
+        let newNum = num;
+        let clearTimer = null;
+
+        clearTimer = setInterval(() => {
+            if (newNum === 0) {
+                clearInterval(clearTimer)
+                this.disabled = false;
+                this.innerText = '请点击倒计时'
+            } else {
+                this.innerText = `倒计时${newNum} 秒`
+                newNum--
+            }
+        }, 1000);
+    }
+
+</script>
+
+</html>

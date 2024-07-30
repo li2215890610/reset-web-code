@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数提升</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    ///// 函数提升
+    /**
+     * 1. 会把所有函数声明提升到当前作用的最前面
+     * 2. 只提升函数声明，不提升函数调用
+     * 
+     * function fun(params) {
+        console.log('11');
+        }
+        fun()
+     * 
+     * **/
+    fun()
+    function fun(params) {
+        console.log('11');
+    }
+
+
+    /**
+     * 只提升声明，并没有提升函数赋值
+     * var fun1 
+     * fun1()
+     * 
+     * fun1 = function (params) {
+        console.log('22');
+        } 
+     * **/
+    // fun1()
+    // //这种写法 函数表达式
+    // var fun1 = function (params) {
+    //     console.log('22');
+    // }
+
+
+    console.log('--------函数内部 型参 arguments--------');
+    console.log('--------函数内部 型参 arguments--------');
+    console.log('--------函数内部 型参 arguments--------');
+    console.log('--------函数内部 型参 arguments--------');
+    console.log('--------函数内部 型参 arguments--------');
+    console.log('--------函数内部 型参 arguments--------');
+
+    getSum(22, 3, 4, 5, 5, 4, (cb) => {
+        console.log("回调函数", cb);
+
+        // debugger
+    })
+
+    function getSum() {
+        //arguments(伪数组) 动态参数 只存在于 函数里面
+        arguments[arguments.length - 1](arguments)
+        console.log(arguments[arguments.length - 1]);
+    }
+
+    console.log('--------函数剩余参数解构--------');
+    console.log('--------函数剩余参数解构--------');
+    console.log('--------函数剩余参数解构--------');
+    console.log('--------函数剩余参数解构--------');
+    console.log('--------函数剩余参数解构--------');
+    console.log('--------函数剩余参数解构--------');
+
+
+    getSum1(22, 3, 4, 5, 5, 4, (cb) => {
+        console.log("回调函数", cb);
+    })
+
+    //剩余参数
+    function getSum1(a, b, ...arr) {
+        console.log(arr);
+    }
+
+    //按需导入
+    const [arrA, , arrC, [arr1A, arr1B], ...newArr] = [1, 2, 3, ["二维数组1", "二维数组2"], 5, 6]
+    console.log(arrA, arrC);
+    console.log(arr1A, arr1B);
+
+    //默认参数赋值
+    const [arr2A, arr2B = 10] = [1]
+    console.log("默认是 arr2B=10", arr2A, arr2B);
+
+    //展开运算符 不会修改原数组
+    console.log("数组合并 ...[] ---", Math.max(...[3, 4, 5, ...[3, 4, 5, 6]]));
+
+    console.log('--------对象解构--------');
+    console.log('--------对象解构--------');
+    console.log('--------对象解构--------');
+    console.log('--------对象解构--------');
+    console.log('--------对象解构--------');
+    console.log('--------对象解构--------');
+
+    let obj = {
+        name: 1,
+        age: 2,
+        sex: 3,
+        family: {
+            peiqi: '111',
+            haizi: '222'
+        }
+    }
+    //name更名为 username
+    const { a = 0, b, family: { peiqi }, name: username, ...newObj } = obj
+    // 解构的名称要与对象里面的相同
+    console.log(a, b, username)
+    console.log(peiqi, '佩琦');
+    console.log(newObj)
+
+    const obj1 = [{
+        name: 11,
+        age: 22,
+        family1: {
+            peiqi: '11',
+            haizi: '222'
+        }
+    }, {
+        name: 11,
+        age: 22,
+        family1: {
+            peiqi: '11',
+            haizi: '222'
+        }
+    }, {
+        name: 11,
+        age: 22,
+        family1: {
+            peiqi: '11',
+            haizi: '222'
+        }
+    }]
+
+    function getData([{ age, family1: { peiqi } }]) {
+        console.log(peiqi);
+    }
+
+    getData(obj1)
+
+    //便利数组对象
+    obj1.forEach((item, index,) => {
+        console.log(item)
+    })
+</script>
+
+</html>

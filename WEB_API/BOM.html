@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+    <style>
+        .div1 {
+            margin-top: 10px;
+            width: 250px;
+            height: 250px;
+            background-color: pink;
+        }
+    </style>
+    <script>
+
+        // 判断手机设备
+        if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+            document.getElementsByTagName("html")[0].style.fontSize = document.documentElement.clientWidth / 16 + "px";
+            // loadStyle('./css/mb_style.css');
+            // location.href = ""
+        } else {
+            // loadStyle('./css/style.css');
+        }
+
+        function loadStyle(url) {
+            var link = document.createElement('link');
+            link.type = 'text/css';
+            link.rel = 'stylesheet';
+            link.href = url;
+            var head = document.getElementsByTagName('head')[0];
+            head.appendChild(link);
+        }
+
+    </script>
+</head>
+
+<body>
+    <button type="button" onclick="dianJi()">按钮 </button>
+    <div class="div1"></div>
+    <a href="DOM.html">前进 </a>
+    <button onclick="tiaozhuan()"> 跳转 </button>
+</body>
+<script>
+
+    //页面所有的元素、内容、图片加载完在执行
+    window.onload = function () {
+        console.log('onload___2');
+    }
+
+
+    //Dom 加载完毕，不包括CSS文件、图片等
+    document.addEventListener("DOMContentLoaded", function (params) {
+        console.log('DOMContentLoaded___3');
+    })
+
+    //调整窗口大小事件
+
+    window.onresize = function (params) {
+        console.log(`onreset____`);
+        console.log(params);
+        let div1 = document.querySelector('.div1');
+        if (window.innerWidth < 800) {
+            div1.style.display = "none"
+        } else {
+            div1.style.display = "block"
+        }
+    }
+
+
+    //多次点击搜索框优化 防抖
+    let clearTimer = null;
+    function dianJi(params) {
+
+        clearTimeout(clearTimer)
+
+        clearTimer = setTimeout(() => {
+            console.log('setTimeout');
+        }, 2000)
+    }
+
+    // setTimeout 回调执行
+    setTimeout(() => {
+        console.log('setTimeout3.8');
+    }, 2000)
+    setTimeout(() => {
+        console.log('setTimeout3.7');
+    })
+    console.log('setTimeout3.1');
+    console.log('setTimeout3.2');
+    console.log('setTimeout3.3');
+    console.log('setTimeout3.4');
+    console.log('setTimeout3.5');
+    console.log('setTimeout3.6');
+
+    //定时查询
+    let setIntervalI = 0
+    let setIntervalTimer = null;
+
+    setIntervalTimer = setInterval(function (params) {
+        console.log("定时查询开始");
+        setIntervalI++
+        if (setIntervalI >= 3) {
+            clearInterval(setIntervalTimer)
+            console.log("定时查询结束");
+        }
+    }, 2000)
+
+    console.log(location.href); //获取地址
+    console.log(location.search); //获取参数
+    // location.assign("")//记录地址可以后退
+    // location.replace("") //
+    // location.reload(true )//强制重新刷新
+
+    function tiaozhuan() {
+        history.forward() //在history 记录里面跳转
+        // history.go(1)//前进一步，-1后退一步
+        // history.back()// 返回
+
+    }
+
+
+    //自调函数，里面都是局部变量
+    (() => {
+        console.log('自调函数');
+
+        // 窗口关闭生命周期结束
+        //在同一个窗口（页面）下数据可以共享
+        //以key value
+        //5M
+        sessionStorage.setItem('userName', 'zhangsan')
+        sessionStorage.getItem('userName')
+        sessionStorage.removeItem('userName')
+        sessionStorage.clear()
+
+    })(); //多个必须加分号
+    ((a, b) => {
+
+        // 不删除一直存在，本地持久化存储
+        // 在同一浏览器下数据可以共享
+        //以key value
+        //20M
+        localStorage.setItem('userName', 'zhangsan')
+        localStorage.getItem('userName')
+        localStorage.removeItem('userName')
+        localStorage.clear()
+        console.log('自调函数', a + b);
+    })(2, 4)
+
+</script>
+
+</html>

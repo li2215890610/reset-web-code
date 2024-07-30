@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内存</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //基本数据类型  null 返回的是一个空对象 object
+    let timer = null;
+    console.log(typeof timer);
+    /*
+        null undefiend BOOL Number String  Symbol
+        放在栈区 
+
+        let time = 100;
+        栈区存  100; 而 time 类似于一个指针指向栈区的内存地址
+
+        let arr = [1,2];
+
+        arr 在栈区开辟内存地址，而栈区的内存地址（相当于一个指针）指针指向的是堆区的 [1,2] 真实地址
+
+        复杂数据类型。在栈区开辟一个16进制的内存地址，通过指针指向堆区的内存存储空间 
+    */
+
+   let sss = BigInt(1000000000000);
+</script>
+</html>

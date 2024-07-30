@@ -1,0 +1,19 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "main": "1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "jquey": "0.0.1-security",
+    "moment": "^2.30.1"
+  },
+  "devDependencies": {
+    "webpack": "^5.93.0"
+  }
+}

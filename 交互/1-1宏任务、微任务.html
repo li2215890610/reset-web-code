@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宏任务、微任务</title>
+    <style>
+        table {
+            font-size: 50px;
+            /* width: 100%; */
+        }
+
+        td {
+            min-width: 400px;
+            text-align: left;
+        }
+
+        img {
+            width: 100vw;
+            /* height: 150vh; */
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; ">
+        <section>
+            <table align="content" border="2" bgcolor="#fff" cellpadding="0" cellspacing="0">
+                <thead>
+                    <th colspan="2">宏任务：由浏览器环境执行的异步代码</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>任务（代码）</td>
+                        <td>执行所在环境</td>
+                    </tr>
+                    <tr>
+                        <td>JS 脚步执行事件（<code>
+                             ` script标签`</code>）</td>
+                        <td>浏览器</td>
+                    </tr>
+                    <tr>
+                        <td>setTimeout/setInterval</td>
+                        <td>浏览器</td>
+                    </tr>
+                    <tr>
+                        <td>Ajax 请求完成事件</td>
+                        <td>浏览器</td>
+                    </tr>
+                    <tr>
+                        <td>用户交互事件等</td>
+                        <td>浏览器</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <table align="content" border="2" bgcolor="#fff" cellpadding="0" cellspacing="0">
+                <thead>
+                    <th colspan="2">微任务：由浏览器环境执行的异步代码</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>任务（代码）</td>
+                        <td>执行所在环境</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Promise.then()
+                        </td>
+                        <td>JS引擎</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            async、await
+                        </td>
+                        <td>JS引擎</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+
+
+
+    <img src="./eventLoop2.png" alt="" srcset="">
+</body>
+<script>
+    /**
+     * ES6之后引入了Promise 之后 让JS 引擎也可以发起异步任务
+     * 异步任务分为
+     *      宏任务：由浏览器环境执行的异步代码
+     *     
+     *      微任务：由JS环境执行的异步代码，永远都是 微任务执行完毕 在执行宏任务
+     *    
+     * **/
+
+
+    function init1(params) {
+
+
+        setTimeout(function () {
+            console.log('定时器开始啦9')
+        });
+
+        new Promise(function (resolve) {
+            console.log('马上执行for循环啦1');
+            for (var i = 0; i < 10000; i++) {
+                i == 99 && resolve();
+            }
+        }).then(function () {
+            console.log('执行then函数啦6')
+        });
+
+        console.log('代码执行结束2');
+
+
+        setTimeout(function () { console.log(10) }, 0);
+        new Promise(function executor(resolve) {
+            console.log(3);
+            for (var i = 0; i < 5; i++) {
+                if (i == 4) {
+                    resolve();
+                }
+            }
+            console.log(4);
+
+        }).then(function () {
+            console.log(7);
+        }).then(() => {
+            console.log('我没有return 不执行 8');
+        });
+        console.log(5);
+    }
+
+    // init()
+
+    // 1 8 7 13 11
+    // 16 14 5 5 17 
+    // 6 2 3 4 9 
+    // 15 12
+
+    function init(params) {
+        console.log(1)
+        setTimeout(() => {
+            console.log(2);
+            const p = new Promise(resolve => resolve(3))
+            // 永远都是 微任务执行完毕 在执行宏任务
+            p.then(result => console.log(result))
+        }, 0);
+
+        const p = new Promise((resolve, reject) => {
+            console.log(8);
+
+            const timer = function (params) {
+                console.log(4);
+            }
+
+            setTimeout(timer.bind(this), 0);
+
+            setTimeout(() => {
+                console.log(9);
+
+            }, 0);
+
+            // 如果 没有 return 直接在 8 后面输出 10
+            //加了 就不输出10
+
+            return resolve(5)
+
+            console.log(10);
+        })
+
+        p.then(result => console.log(result))
+        p.then(result => console.log(result))
+        p.then(() => {
+            console.log(17);
+        })
+
+        const p2 = new Promise(resolve => resolve(6))
+
+        p2.then(result => console.log(result))
+
+        console.log(7);
+
+        callBack(fun)
+
+    }
+
+    // callBack(fun)
+
+    // 13 11 16 14 15 12 
+
+    function fun(callBack) {
+
+
+        console.log(11);
+        setTimeout(() => {
+            console.log(15);
+        }, 0);
+
+        setTimeout(() => {
+            //模拟发请求 异步操作
+            callBack(12)
+        })
+
+        console.log(16);
+    }
+
+    function callBack(fun) {
+
+        console.log(13);
+
+        fun((data) => {
+            console.log(data);
+        })
+
+        console.log(14);
+    }
+
+    // callBack((data)=>{
+
+    // })
+
+
+    // console.log('start1');
+    // setTimeout(() => console.log('setTimeou1'), 0);
+    // Promise.resolve().then(() => console.log('Promise1'));
+    // console.log('end2');
+
+
+    // setTimeout(() => {
+    //     console.log('setTimeout2')
+    //     Promise.resolve().then(() => { console.log('Promise2') })
+    // }, 0)
+
+    // Promise.resolve().then(() => {
+    //     console.log('Promise3')
+    //     setTimeout(() => { console.log('setTimeout3') }, 0)
+    // })
+
+    // start1
+    // end2
+    // Promise1
+    // Promise3
+    // setTimeout1
+    // setTimeout2
+    // Promise2
+    // setTimeout3
+
+
+    //p1、2、3、 catch_111、 p
+    // console.log('p0');
+    // let p2 = new Promise((resolve, reject) => {
+    //     console.log('p1');
+    //     setTimeout(() => {
+    //         console.log('4');
+    //     }, 1000);
+    //     return reject(111)
+    // })
+    // console.log('p2');
+    // p2.then(_ => console.log(_)).catch(_ => console.log(`catch_____${_}`))
+    // console.log('p3');
+
+
+</script>
+
+</html>

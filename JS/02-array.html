@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array</title>
+</head>
+
+<body>
+
+</body>
+<script>  
+
+    let array = [2, 6, 1, 7, 4,9,4]
+    let num = 0;
+    let maxNum = null;
+    for (let index = 0; index < array.length; index++) {
+        const element = array[index];
+        num += element;
+
+        if (maxNum < element) {
+            maxNum = element
+        }
+        // if (index++ === array.length) {
+        //     console.log(num/array.length);
+        // }
+    }
+
+    console.log(maxNum,"最大值 ");
+    console.log(num,num /array.length);
+ 
+    //去重 
+    console.log(...new Set(array));
+
+
+    let arr1 = ['mybab','graay','blue','red'].toString()
+     console.log( arr1.split(",").join("|").split("|  "))
+     
+     let arr2 = ['mybab','graay','blue','red','red']
+     arr2.push(1)
+    //  arr2.pop(
+     console.log(arr2);
+
+     //筛选 filter
+    let fiterArray =  arr2.filter((item,index,array)=>{
+        //去重
+        console.log(item,index,array);
+        // indexof 从前往后
+        // lastIndexOf 从后往前
+        return array.indexOf(item) === index
+    })
+
+
+    console.log(fiterArray);
+    console.log([...fiterArray,...arr2]);
+    console.log(fiterArray.concat(arr1));
+    
+
+    let arr = [2,2,5,7,6,8]
+    let sum = arr.filter((item,index,array)=>{
+        const num = 15 - item;
+        return array.includes(num)
+    })
+
+
+    console.log(sum);
+
+    console.log(arr.reverse()); //翻转数组
+    console.log(arr.sort());
+    if (arr instanceof Array) {
+        console.log(arr instanceof Array);        
+    }else{
+        console.log("不是数组");
+    }
+
+    console.log(Array.isArray(arr));// 检测数组
+
+    arr.unshift("头部")
+    arr.pop() // 删除最后一个
+    arr.shift() // 删除第一个
+    arr.splice(arr.length -2,3)
+ 
+    console.log(arr);
+
+</script>
+
+</html>

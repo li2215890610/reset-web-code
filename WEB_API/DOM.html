@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        .change {
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="time" data-index="自定义属性">点我</div>
+    <input type="text" placeholder="请输入">
+
+    <ul>
+        <li id="changeBg" onclick="changeBg">1 点我换肤</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <div></div>
+    </ul>
+    <ol>
+        <li>w</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+
+    <div class="boxs">
+        <div class="box">盒子1</div>
+        <div class="box">盒子2</div>
+    </div>
+
+    <input id="focus" type="text" value="手机">
+
+    <div>
+        <button type="button">btn1 </button>
+        <button type="button">btn2 </button>
+        <button type="button">btn3 </button>
+        <button type="button">btn4 </button>
+        <button type="button">btn5 </button>
+    </div>
+
+    <section id="section1"></section>
+
+    <section id="section2"></section>
+
+    <section id="section3"></section>
+
+</body>
+<script>
+
+    let clearTime = null;
+
+    document.getElementById("time").onclick = function () {
+        // let element = document.getElementsByTagName('div')[1]
+        //不识别html标签，空格换行也会去掉
+        // element.innerText = 'oooo'
+
+        //识别html标签，空格换行不会去掉
+        this.innerHTML = '<strong>0000<strong>'
+        console.log(this);
+        
+        this.style.backgroundColor = 'pink'
+        //获取属性
+        //获取内置属性值，元素本身自带的属性
+        console.log(this.className);
+        console.log(this.id);
+        // 主要获得自定义的属性，我们程序员自定义的属性
+        console.log(this.getAttribute("data-index"));
+        console.log(this.dataset['index']);
+        //设置属性
+        console.log(this.setAttribute("data-index", '2222'));
+        console.log(this.removeAttribute("data-index"));
+
+
+        clearTimeout(clearTime)
+        //倒计时
+        clearTime = setTimeout(() => {
+            this.style.display = 'none'
+        }, 2000)
+        //     // clearTimeout()
+
+        let input = document.getElementsByTagName('input')[0]
+        input.value = "2222"
+        input.disabled = true;
+    }
+
+    //获取所有的li标签
+    let ul = document.getElementsByTagName("li")
+    console.log(ul);
+
+    let ol = document.getElementsByTagName("ol")[0].getElementsByTagName("li")
+
+    console.log(ol);
+    //获取所有类名的元素
+    let classDiv = document.getElementsByClassName("box")
+    console.log(classDiv);
+
+    //返回指定选择器的第一个对象
+    console.log(document.querySelector(".box"));
+    console.log(document.querySelector("li"));
+    console.log(document.querySelectorAll(".box")[1]);
+    //获取 body html
+    console.log(document.body, document.documentElement);
+
+    let focus = document.getElementById("focus")
+    focus.style.color = "blue"
+    focus.onfocus = function (params) {
+        this.value = ""
+    }
+    focus.onblur = function (params) {
+        this.value = "手机"
+
+        //修改当前元素类名，会直接覆盖
+        this.className = 'change'
+        this.className = `${this.className} change`
+
+    }
+    focus.onchange = function (params) {
+        console.log(22);
+    }
+
+    let btnArr = document.querySelectorAll("button")
+
+    for (let index = 0; index < btnArr.length; index++) {
+        const element = btnArr[index];
+        // element.style.color = "#000"
+
+
+        element.onclick = function (index) {
+
+            btnArr.forEach((item, i, arr) => {
+
+                item.style.color = "#000"
+            })
+
+            if (this.style.color === "red") {
+                this.style.color = "#000"
+            } else {
+                this.style.color = "red"
+            }
+
+        }
+    }
+
+    document.getElementById("changeBg").onclick = function (params) {
+        document.body.style.backgroundColor = "red"
+    }
+
+    document.querySelector("ul").onmouseover = function (params) {
+        this.style.color = 'red'
+    }
+
+    document.querySelector("ul").onmouseout = function (params) {
+        this.style.color = '#000'
+        this.className = '3333'
+    }
+    console.log(document.querySelector(".boxs").parentNode); // 父元素
+    console.log(document.querySelector(".boxs").children); // 子元素
+    console.log(document.querySelector(".boxs").previousElementSibling); // 上面的兄元素
+    console.log(document.querySelector(".boxs").nextElementSibling); // 下面的兄元素
+
+    /*
+        三种方式创建 元素
+        douction.write  直接写入内容，但是文档流执行完毕，则会导致页面全部重绘
+        text.innterHTML  将内容写入某个DOM节点，不会导致页面全部重绘
+        text.innterHTML 创建多个元素效率更高（不拼接字符串，采取数组形式拼接），结构稍微复杂
+        text.createElement() 常见多个元素效率稍微低一点，但是结构清新且麻烦
+        
+        section0()
+        section1()
+        section2()
+        section3()
+     */
+
+
+     let wwwww = function section0(params) {
+        let d1 = +new Date()
+        document.write("<div>222</div>")
+        let d2 = +new Date();
+        console.log(`section0耗时：${d2 - d1}`);
+    }
+     
+    function section1(params) {
+        let d1 = +new Date()
+        let section1 = document.getElementById("section1")
+        for (let index = 0; index <= 100; index++) {
+            section1.innerHTML += `<div style="width:100px;height:2px;border:1px solid blue; "> innerHTML ____${index}</div>`
+        }
+        let d2 = +new Date();
+        console.log(`section1_____直接拼接字符串______耗时：${d2 - d1}`);
+    }
+
+    function section2(params) {
+        let d1 = +new Date()
+
+        let section2 = document.getElementById("section2")
+        let array = [];
+        for (let index = 0; index <= 100; index++) {
+            array.push(`<div style="width:100px;height:2px;border:1px solid blue; "> innerHTML ____${index}</div>`)
+        }
+
+        section2.innerHTML = array.join('')
+
+        let d2 = +new Date();
+        console.log(`section2 _____数组拼接字符串______耗时：${d2 - d1}`);
+    }
+
+    function section3(params) {
+        let d1 = +new Date()
+
+        let section3 = document.getElementById("section3")
+
+        for (let index = 0; index <= 100; index++) {
+            let create = document.createElement("div")
+            create.style.height = "100px"
+            create.style.width = '2px'
+            create.style.border = '1px solid blue;'
+            create.textContent = `createElement___${index}`
+            section3.appendChild(create)
+        }
+        let d2 = +new Date();
+        console.log(`section3 createElement___耗时：${d2 - d1}`);
+    }
+</script>
+
+</html>

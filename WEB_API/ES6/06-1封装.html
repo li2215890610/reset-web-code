@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>封装</title>
+    <link rel="stylesheet" href="../../网页/flex.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            color: black;
+        }
+
+        .model__box {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+        }
+
+        .model__box section {
+            width: 100%;
+            height: 100%;
+        }
+
+        .model {
+            width: 500px;
+            height: 500px;
+            background-color: beige;
+        }
+
+        .model__title {
+            font-size: 30px;
+            padding: 30px;
+        }
+
+        .x-shape {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            border: 2px solid black;
+        }
+
+        .x-shape:before,
+        .x-shape:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            border-color: black;
+            pointer-events: none;
+            /* Prevent mouse events from firing on the pseudo-elements */
+        }
+
+        .x-shape:before {
+            border-top: 2px solid;
+            border-right: 2px solid;
+            transform: rotate(45deg);
+        }
+
+        .x-shape:after {
+            border-bottom: 2px solid;
+            border-left: 2px solid;
+            transform: rotate(-45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="model__box ">
+        <section class="f f-c-c">
+            <div class="model">
+                <div class="model__title f f-s-c">
+                    <div class="f1">
+                        <strong>温馨提示</strong>
+                    </div>
+                    <div style="position: relative;">
+                        <div class="x-shape" onclick="reset()"></div>
+                    </div>
+                </div>
+                <div class="model__content">
+                    温馨提示
+                </div>
+            </div>
+        </section>
+    </div>
+    <button onclick="login()">登陆</button>
+    <button onclick="reset()">重置</button>
+
+
+</body>
+<script>
+
+    function Modal({
+        BOOL = flase,
+        title = "敬请期待",
+        modalBox = ''
+    }) {
+
+        this.BOOL = BOOL
+        this.title = title
+        this.modalBox = document.querySelector(`${modalBox}`)
+    }
+
+    Modal.prototype.show = function (params) {
+        this.BOOL = true;
+        document.querySelector('.model__box').style.display = 'block'
+    }
+
+    Modal.prototype.close = function (params) {
+        this.BOOL = false;
+        document.querySelector('.model__box').style.display = 'none'
+    }
+
+
+    function login(params) {
+        let modals = new Modal({
+            BOOL: true,
+            modalBox: ".model__box",
+            title: '不要在那11'
+        })
+        modals.show()
+    }
+
+    function login2(params) {
+        let modals = new Modal({
+            BOOL: true,
+            modalBox: ".model__box",
+            title: '不要在那个啥了'
+        })
+        modals.show()
+    }
+
+    function reset(params) {
+        let modals = new Modal({ BOOL: true, modalBox: ".model__box" })
+        modals.close()
+    }
+
+
+</script>
+
+</html>

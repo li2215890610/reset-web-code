@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>异常处理</title>
+</head>
+
+<body>
+    <p>123</p>
+</body>
+<script>
+    // function fn(x, y) {
+    //     if (!x || !y) {
+
+    //         throw new Error('没有穿参数')
+    //     }
+
+    //     return x + y
+    // }
+
+    // fn()
+
+
+    function fun1(params) {
+
+        try {
+            //可能出现错误的代码
+
+            let p = document.querySelector('.p')
+            p.style.color = 'red'
+        } catch (error) {
+            console.log(error.massage);
+            //需要加上 return 中断程序
+            return
+        } finally {
+            alert('不管上面 异常抛不抛出，我都执行')
+        }
+
+        console.log('执行完毕');
+    }
+
+    fun1()
+
+</script>
+
+</html>

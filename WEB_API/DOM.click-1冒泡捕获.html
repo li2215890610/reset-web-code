@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件大全</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border-bottom: solid 1px red;
+        }
+
+        img {
+            width: 800px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./捕获冒泡.png" alt="" srcset="">
+    <div onclick="stopPropagationDiv()"><a class="preventDefaultA" href="http://www.baidu.com">点我不跳转</a></div>
+
+    <ul class="ul1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <div class="no__copy">🈲️止复制文字</div>
+    <div class="no__copy1">🈲️止复制文字，并且选中文字1</div>
+
+</body>
+<script>
+
+    /**
+     * 捕获 : 从 document 上往下
+     * document
+     *          html 
+     *              body
+     *                 <div onclick ></div>
+     * 冒泡 : 从 div 往上
+     *              document
+     *          html 
+     *        body
+     *    <div onclick ></div>
+     * 
+     * 
+     * JS代码只能有捕获和冒泡一个阶段
+     * onclick 和 attachEvent 只能得到冒泡阶段
+     * 
+     * addEventListener 
+     * 第三个参数如果是true。表示在事件捕获阶段调用事件，
+     * 如果是false（默认值），表示在冒泡阶段调用事件处理
+     * 
+     * 
+     * 
+     * 以下事件没有冒泡 
+     * onblur，onfocus、onmouseenter、onblur，onfocus、onmouseleave
+     * 
+     * **/
+
+
+    document.querySelector(".preventDefaultA").addEventListener('click', function (e) {
+        console.log(e);//
+
+        e.preventDefault();//阻止默认事件
+        console.log('阻止默认事件');
+        e.stopPropagation();//阻止冒泡事件
+
+    })
+
+    //事件委托，在父节点绑定，用 e.target 获取当前点击的元素 进行修改
+    document.querySelector('.ul1').addEventListener("click", function (e) {
+
+        console.log(e === this);
+        console.log(e.target);
+        e.target.style.color = "red"
+    })
+
+    //禁用右键菜单
+    document.querySelector(".no__copy").addEventListener("contextmenu", function (event) {
+        event.preventDefault();
+    })
+    //禁止选中文字
+    document.querySelector(".no__copy1").addEventListener("selectstart", function (event) {
+        event.preventDefault();
+    })
+
+
+</script>
+
+</html>

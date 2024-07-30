@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // new Phone() 执行  constructor
+    class Phone{
+        constructor(brand,price){
+            this.brand = brand;
+            this.price = price;
+        }
+
+        static initBrand = '诺基亚'
+
+        static getInitBrand(){
+            console.log('getInitBrand');
+            console.log(this.initBrand);
+        }
+        static setInitBrand(data){
+            console.log('setInitBrand');
+            this.initBrand = data
+            console.log(this.initBrand);
+        }
+
+        get resetData(){
+            return this.price
+        }
+
+        set resetData(price){
+            this.price = price
+        }
+
+        call(){
+            console.log('我会打电话');
+        }
+
+        setMessage(){
+            console.log('发短信');
+        }
+    }
+
+    class MP3{
+        music(){
+            console.log('我能听歌');
+        }
+    }
+
+    class MP4{
+        musicAndFilm(){
+            console.log('我能看电影');
+        }
+    }
+
+    
+    //继承多个
+    // class ApplePhone extends Object.assign(Phone, MP3,MP4)  {
+    class ApplePhone extends Phone {
+        constructor(barnd,price,size,color){
+            super(barnd,price) //Phone.call(this,barnd,price)
+            this.size = size;
+            this.color = color;
+        }
+        static ApplePlyMessage = '专属支付'
+        static getApplePly(){
+            console.log('我有ApplePly 方法');
+        }
+
+        //重写父类方法
+        call(){
+            console.log('我会视频通话');
+        }
+
+        photo(){
+            console.log('我能拍照');
+        }
+
+        playGame(){
+            console.log("我能玩游戏");
+        }
+        
+    }
+
+    class HuaWei extends ApplePhone {
+        constructor(barnd,price,size,color,quMianPing = true){
+            super(barnd,price,size,color)
+            this.quMianPing = quMianPing;
+        }
+
+        static ID = 30
+
+        static getId(){
+            return ID
+        }
+
+        nullCardPlay(){
+            console.log("我会无卡支付");
+        }
+    }
+
+    const apple = new HuaWei("苹果",4999,'20寸','black', false);
+    apple.setMessage()
+    apple.call()
+    apple.photo()
+    apple.playGame()
+    ApplePhone.getApplePly()
+    console.log(apple.resetData);
+    apple.nullCardPlay()
+    // apple.music()
+    // apple.musicAndFilm()
+</script>
+</html>

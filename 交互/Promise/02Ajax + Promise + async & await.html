@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        img {
+
+            width: 1227px;
+            height: 364px;
+        }
+
+        .but__box {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .but__box div{
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+
+        }
+
+        .but__box div button{
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="title" style="font-size: 40px; text-align: center;">
+        <div><strong>Ajax + Promise + async & await</strong></div>
+        <span>点上面 触发事件</span>
+    </div>
+    <div class="but__box">
+       <div>
+        <button type="button" class="promise__await">点我发请求吧！！！ ---await---</button>
+        <button type="button" class="promise__all"> promiseAll</button>
+        <button type="button" class="promise__allSettled">promise__allSettled</button>
+       </div>
+    </div>
+
+    <ul>
+
+    </ul>
+</body>
+
+
+<script type="module">
+
+    import { renderHtml, getCity, newSun, promiseList} from "./ajax.js";
+
+    document.querySelector('.title') && document.querySelector('.title').addEventListener('click', function (params) {
+        newSun()
+    })
+
+    document.querySelector('.promise__await') && document.querySelector('.promise__await').addEventListener('click', function (params) {
+        init()
+    })
+
+    /**
+     * 
+     * 作用:了解Promise对象如何关联的处理函数，以及代码执行顺序
+     * 概念:一个Promise对象，必然处于以下几种状态之一
+     * 待定(pending)        :初始状态，既没有被兑现，也没有被拒绝 
+     * 已兑现(fulfilled) resolve()   :意味着，操作成功完成"
+     * 已拒绝(rejected)  reject()    :意味着，操作失败
+     * 
+     * **/
+
+    //执行过程中，一旦pending 必须有结果 成功 或者失败 relove
+    //  注意:Promise 对象一旦被兑现/拒绝就是已敲定了，状态无法再被改变
+
+    //GET POST PUT(修改数据 全部) DELETE PATCH（修改部分数据)
+
+    //定义修饰 的异步函数
+    async function init() {
+
+        /***
+         *  目标:掌握async和await语法，解决回调函数地狱
+         * 概念:在async函数内，使用await关键字，获取Promise对象"成功状态"结果值
+         * 注意:await必须用在async修饰的函数内(await会阻止"异步函数内"代码继续执行，原地等待结果)
+         * 
+         * **/
+        //1.包裹可能出现的错误代码
+        try {
+
+            /**
+             * 
+             * await getCity({ url: `province` }).then(({ list }) => {
+             *      debugger
+             * })
+             * **/
+
+            const { list: province } = await getCity({ url: `province` })
+            renderHtml({ data: province, className: ".li" })
+
+            const { list: city } = await getCity({ url: 'city', data: { pname: "河南省" } })
+            renderHtml({ data: province, className: ".li" })
+
+            let { list: area } = await getCity({ url: 'area', data: { pname: "河南省", cname: "许昌市" } })
+            renderHtml({ data: area, className: ".li" })
+
+        } catch (error) {
+            // 2.监听可能存在的错误
+            // try里面 某行如果出现错误，try后面的代码不执行
+            alert(error)
+            console.log(error);
+        }
+
+    }
+
+    document.querySelector('.promise__all') && document.querySelector('.promise__all').addEventListener('click', function (params) {
+        Promise.all([getCity({ url: `province` }), getCity({ url: 'city', data: { pname: "河南省" } }), getCity({ url: 'area', data: { pname: "河南省", cname: "许昌市" } })]).then((result) => {
+            console.log(result);
+            debugger
+        })
+    })
+
+    document.querySelector('.promise__race') && document.querySelector('.promise__race').addEventListener('click', function (params) {
+
+        // 超时处理：如果你想在某个操作超过特定时间后停止等待
+        // 取消异步操作：如果你想在某个Promise完成之前取消它，也可以使用
+        // 选择最快的请求：如果你有多个异步请求，并且你想使用最快返回结果的请求的结果，也可以使用
+        Promise.race([...promiseList,getCity({ url: `province` })])
+            .then(result => console.log(result))
+            .catch(error => console.log(error));
+    })
+
+
+    /**
+     * 
+     * 在所有promise都已经fulfilled或rejected后才会返回的新的ES2020特性。
+     * 这个方法接收一个promise的数组作为参数，并且当所有的promise都结束之后，
+     * 无论是成功还是失败，都会返回一个包含了每个promise结果的数组。
+     * 使用场景：
+     *      当你需要等待多个promise完成，不管它们是成功还是失败，都需要处理它们的结果时。
+     *      当你需要并行处理多个异步操作，并且不关心它们的执行顺序时。
+     *      例如，你可以使用Promise.allSettled来记录多个API请求的结果，即使某些请求失败，也能保证所有请求的结果都被记录。
+     * **/
+
+    document.querySelector('.promise__allSettled') && document.querySelector('.promise__allSettled').addEventListener('click', function (params) {
+
+        Promise.allSettled([...promiseList, getCity({ url: `province` })]).then(results => {
+            results.forEach(result => {
+                // 可能是 'fulfilled' 或 'rejected'
+                console.log(result.status);
+                // 成功的值，如果已满足的话
+                console.log(result.value);
+                // 失败的原因，如果被拒绝的话
+                console.log(result.reason);
+            });
+        });
+
+    })
+</script>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <button type="button" onclick="onClick()">内外部变量</button>
+    <button type="button" onclick="onClick1()">闭包的应用 -- 统计函数调用的次数</button>
+</body>
+<script>
+
+    console.log(num);//undefined
+
+
+    var num;
+    num = 10;
+
+    const num1 = 30
+
+/**
+ * 
+ * 1.如何产生闭包? 
+ *  当一个嵌套的内部(子)函数引用了套的外部(父)函数的变量(函数)时，就产生了闭包
+ * 2.闭包到底是什么?
+ *   理解一: 闭包是嵌套的内部函数(绝大部分人)
+ *   理解二: 包含被引用变量(函数)的对象(极少数人)
+ *   注意:闭包存在于嵌套的内部函数中
+ *  3、产生闭包的条件?
+    函数嵌套
+    内部函数引用了外部函数的数据(变量/函数)
+ * 
+ * **/
+
+
+
+
+    function onClick() {
+        //闭包：封装数据，提供操作，外部函数，也可以访问函数内部的变量
+        console.log("闭包数据:", fun1111()); // typeof fun1111() object 的原因是  fun2 函数有return 
+        console.log("闭包数据:", typeof fun1111()); // typeof fun1111() object 的原因是  fun2 函数有return 
+
+        // fun1111 === fun1 === fun2 === function fun2 (params) {}
+    }
+
+    function fun1() {
+        console.log(num); //获取全局变量
+
+        let num2 = 20
+        console.log('第一次num2', num2);
+
+        let count = 0;
+
+        function fun2() {
+            num2 = 3;
+            console.log('第二次num2', num2);
+
+            let num3 = 4;
+            console.log('num3', num3);
+
+            return [num3, num2, count++]
+
+        }
+
+        // console.log(num3);//  Uncaught ReferenceError: num3 is not defined
+        return fun2
+    }
+
+    let fun1111 = fun1()
+
+
+
+
+    function onClick1() {
+        console.log(onFun());
+        // typeof onFun undefined 的原因是  fun2 函数没有return 
+        onFun()
+    }
+
+
+    function onClickFun() {
+
+        //闭包实现了 数据私有
+        var counts = 0
+        function fun() {
+            counts++
+            console.log(counts);
+            return counts + 1000
+        }
+        return fun
+    }
+
+    let onFun = onClickFun()
+
+
+</script>
+
+</html>

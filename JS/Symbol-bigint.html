@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol.html</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    // ES5 的对象属性名都是字符串，这容易造成属性名的冲突。
+    // 比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin 模式），
+    // 新方法的名字就有可能与现有方法产生冲突。
+    // 如果有一种机制，保证每个属性的名字都是独一无二，
+    // 这样就从根本上防止属性名的冲突。
+    // 这就是 ES6 引入Symbol的原因。
+
+    // ES6 引入了一种新的原始数据类型Symbol，表示独一无二的值
+
+    //设置全局的 Symbol
+    const globalSym = Symbol.for("foo");
+    //// "foo"
+    console.log(Symbol.keyFor(globalSym));
+
+    var globalSym1 = Symbol("foo1");
+    //// "foo1"
+    console.log(globalSym1);
+
+
+    const METHOD = {
+        GET: Symbol(),
+        POST: Symbol(),
+        PUT: Symbol(),
+        DELETE: Symbol(),
+        PATCH: Symbol(),
+        get: Symbol()
+    }
+
+    const METHODS = {
+        //普通方式
+        GET1: "GET111",
+        POST1: "POST1",
+        PUT1: "PUT1",
+        DELETE1: "DELETE1",
+        PATCH1: "PATCH1",
+
+        //Symbol {} 这种模式
+        [METHOD.GET]: "GET",
+        [METHOD.POST]: "POST",
+        [METHOD.PUT]: "PUT",
+        [METHOD.DELETE]: "DELETE",
+        [METHOD.PATCH]: "PATCH",
+        [Symbol('up')]: function (params) {
+            console.log('Symbol___up');
+        },
+        [Symbol('down')](params) {
+            console.log('Symbol___down');
+        }
+    }
+
+    //Symbol 外层 这种模式
+    METHODS[METHOD.get] = function (params) {
+        console.log('Symbol 函数执行了');
+    }
+    
+    METHODS[METHOD.get]()
+
+    
+    //Symbol 外层 这种模式
+    // METHODS[METHOD.GET] = "GET"
+
+
+    const str = Symbol('GET')
+    console.log(str);
+
+    console.log(METHODS);
+
+</script>
+
+</html>

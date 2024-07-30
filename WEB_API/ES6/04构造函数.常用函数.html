@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        div {
+            border: solid 1px pink;
+
+            border-top: none;
+            border-left: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</body>
+<script>
+    const obj = { age: 11 }
+
+    const obj1 = new Object({ age: 22 })
+    obj1['name'] = '22';
+    obj.sex = 2;
+
+    function Pig({ name = 30, age = 30, sex = 3 }) {
+        this.name = name
+        this.age = age
+        this.sex = sex
+        // 不建议创建实例方法
+        //因为每次创建实例对象，都会创建一个实例方法内存，浪费空间，
+        //用原型创建方法，挂载在 prototype
+        this.eat = function () {
+            console.log(this)// 调用者本身
+        }
+        this.reset = () => {
+            console.log(this)// 调用者本身
+        }
+    }
+
+    //构造函数是一种特殊的函数，用来创建对象
+    //快速创建多个对象，避免重复书写 
+    //构造函数不用 写return，默认的返回值就是 对象
+    const obj2 = new Pig({
+        name: "佩琦",
+        age: "80",
+        sex: 2
+    });
+
+    console.log('---------obj3----------');
+    console.log('---------obj3----------');
+    console.log('---------obj3----------');
+    console.log('---------obj3----------');
+    console.log('---------obj3----------');
+    console.log('---------obj3----------');
+
+    //创建对象，
+    //1、首先new的时候 创建一个空对象
+    //2、构造函数里面的this，会指向空对象
+    //3、然后执行 构造函数里面的代码，进行初始化 属性和方法
+    //4、返回新对象
+
+    //obj3 就是实例对象
+    // 为构造函数传入参数，创建结构相同但值不同的对象
+    // 构造函数创建的实例对象彼此独立互不影响
+    const obj3 = new Pig({
+        name: "乔治",
+        age: "8",
+        sex: 22
+    });
+
+    //实例属性
+    obj3.name = "新乔治"
+    //实例方法
+    obj3.eat()
+    obj3.reset()
+    obj3.reset1 = () => {
+        console.log('新增实例方法');
+        console.log(this); //window
+    }
+    obj3.reset1()
+    console.log(obj3);
+
+    //静态成员 只能用构造函数 名 来访问（可以理解为 私有属性）
+    //静态属性
+    Pig.newName = "新乔治1"
+    //静态方法
+    Pig.getNewName = function () {
+        console.log(this); //自己本身
+        console.log(this.newName);
+    }
+    Pig.getNewName1 = () => {
+        console.log(this); //window
+    }
+
+    Pig.getNewName()
+    Pig.getNewName1()
+
+    console.log('----------Object 静态方法--------');
+    console.log('----------Object 静态方法--------');
+    console.log('----------Object 静态方法--------');
+    console.log('----------Object 静态方法--------');
+    // Object 静态方法
+    const obj4 = { name: "乔治2", age: 6 }
+    console.log(Object.keys(obj4));
+    console.log(Object.values(obj4));
+
+    const obj5 = {}
+    //给对象添加属性
+    Object.assign(obj5, { sex: 1, ...obj4 }) //对象拷贝
+    console.log('obj5-----', obj5);
+
+    // Array方法
+    console.log('----------Array方法--------');
+    console.log('----------Array方法--------');
+    console.log('----------Array方法--------');
+    console.log('----------Array方法--------');
+
+    /**
+     * forEach // 便利数组， 不返回数组，经常用于查找便利数组元素
+     * filter //过滤数组 返回新数组，返回的是筛选满足条件的数组
+     * map //迭代数组 返回新数组，返回的是 处理之后的数组元素，想要使用返回的新数组
+     * reduce// 累计器 返回累计处理的结构，经常用于求和等
+     * 
+    */
+
+    let arr = [{ name: 1, price: 1000 }, { name: 1, price: 10002 }, { name: 1, price: 100 }]
+    /**
+     * 
+     *  let arr = [1,3,4]
+     *  const sum = arr.reduce((上次的值, 当前的值) => {
+     *      return o + n
+     *  },初始值)
+     * 上次  初始 返回
+     * 1    3   4
+     * 4    4   8
+     * 
+     * 如果有 初始值 =1000
+     * 上次  初始 返回
+     * 1000  1  1001
+     * 1001  3  1004
+     * 1004  4  1008
+    */
+    //如果数组是个对象 初始值 要为0 
+    const sum = arr.reduce((oldPrice, { price: newPrice }) => {
+        console.log('________oldPrice--------', oldPrice);
+        return oldPrice + (newPrice * 1.3)
+    }, 0)
+
+    console.log(sum.toFixed(2));
+    /**
+     * const sum1 = arr.reduce((o, n) => {
+     *      return o + n
+     * },5)
+    */
+    const sum1 = arr.reduce((o, { price: n }) => o + n, 5)
+    //起始值+ 新值 = return
+    console.log(sum1);
+
+    //判断是否包含这个值
+    console.log(arr.includes(2));
+    //排序
+    console.log([2, 1, 3].sort());
+    //可以处理数据 返回一个新数据
+    console.log([1, 2, 3, 4].map(item => item + 1));
+    //过滤数据
+    console.log([1, 2, 3, 4].filter((item) => item >= 3));
+    console.log([1, 2, 3, 4, 2, 3, 4].filter((item, index, arr) => {
+        console.log(arr[index]);
+        return arr[index] === item
+    }));
+
+    //查找 第一个符合条件的 数组元素
+    console.log([{ name: 1 }, { name: 2 }, { name: 100 }, { name: 500 }].find((item, index, arr) => item.name >= 3));
+    //返回索引号: 第一个符合条件的 数组索引
+    console.log([1, 2, 3, 4].findIndex((item) => item === 2));
+
+
+    //判断健康码 是不是所有都符合条件 是返回 true， 如果不是绿色 false
+    console.log([1, 2, 3, 4].every((item) => item === 3));
+
+    //判断健康码  这个数组 如果有一个符合条件 ===3 是返回 true， 如果不是绿色 false
+    console.log([1, 2, 3, 4].some((item) => item === 3));
+
+    const spec = { name: "zhangsan", sex: "nan", age: "erShiSi" }
+    //join 变成字符串
+    console.log(Object.keys(spec).map(item => item).join('/'));
+    console.log(Object.values(spec).join('/'));
+    //删除元素
+    const arr1 = [1, 2, 3, 4];
+    arr1.splice(1, 1)
+    console.log("删除元素", arr1);
+
+    // key  value 互换位置
+    let newSpec = {}
+    Object.keys(spec).map((item, index) => {
+        newSpec[Object.values(spec)[index]] = item
+        newSpec[`${spec[item]}___`] = item
+    })
+    console.log('key  value 互换位置____', newSpec);
+
+    //把伪数组，转换为真数组
+    let lis = document.querySelectorAll("ul li")
+    // lis.pop is not a function
+    // lis.pop();// 不是真正的数组 需要转换
+    let list = Array.from(lis)
+    list.pop();
+    console.log(list);
+    console.log([...lis]);
+
+    console.log('-------------字符串-------------');
+    console.log('-------------字符串-------------');
+    console.log('-------------字符串-------------');
+    console.log('-------------字符串-------------');
+    console.log('-------------字符串-------------');
+    const str = "1,2,3,4,5";
+    //变成数组
+    console.log(str.split(","));
+
+    console.log(str.split(",").join('/'));
+    // 开始索引，结束索引
+    //结束的索引，不包含想要截取的位置 
+    console.log('Wo Zai Shang Ke'.substring(1, 3));
+    //匹配字符，从哪里开始
+    console.log('Wo Zai Shang Ke'.startsWith("We", 4));
+
+
+    // 返回从开头第一次出现的索引
+    console.log(str.indexOf(','))
+    console.log(str.includes('2'))
+
+    //转换字符串
+    console.log([1, 2, 3].toString());
+
+
+
+
+
+</script>
+
+
+
+</html>

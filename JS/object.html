@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object</title>
+</head>
+<body>
+    
+</body>
+<!-- <script  src="./object1.js"></script> -->
+<script> 
+    var name = `全局11`;
+    let obj = {
+        name:'obj-01',
+        getName: function (params) {
+            console.log(name);
+            console.log(this.name);
+        }
+    }
+    console.log(obj['name']);
+    obj.getName()
+   
+    // console.log(num);
+
+
+    function ObjFun({ name,age,sex,}) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.music = ({name})=>{
+            this.name = name;
+            console.log(this.name);
+        }
+    }
+
+    let music =  () => {
+        console.log(this.name );
+    }
+
+    let newObjFun = new ObjFun({
+        name: "zhangsan",
+        sex: 1,
+        age:18,
+    })
+    newObjFun.music({name:'444________'})
+
+
+    for (const key in newObjFun) {
+        if (Object.hasOwnProperty.call(newObjFun, key)) {
+            const element = newObjFun[key];
+            console.log(element);
+        }
+    }
+
+
+    Object.keys(newObjFun).forEach(element => {
+        console.log(element);
+    });
+
+</script>
+</html>

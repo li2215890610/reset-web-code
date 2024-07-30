@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>在线网站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+            /* 边框+padding+内容 不用计算宽高，这个属性css3里面可以直接适用，不用计算 */
+            box-sizing: border-box;
+        }
+
+        body {
+            margin-bottom: 100px;
+        }
+
+        .w1200px {
+            /* 文字显示。。。 */
+            text-overflow: ellipsis;
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav {
+            padding: 30px;
+            line-height: 42px;
+            /* float: left; */
+        }
+
+        nav div {
+            display: inline-block;
+        }
+
+        .box__logo {
+            vertical-align: middle;
+        }
+
+        .__logo {
+            width: 200px;
+            height: 48px;
+            vertical-align: middle;
+            /* 模糊函数，数值越大越模糊 */
+            filter: blur(5px);
+        }
+
+        .label__box {
+            padding-left: 50px;
+            vertical-align: middle;
+        }
+
+        .label__box a {
+            float: left;
+            /* display: inline-block; */
+            line-height: 42px;
+            padding: 0 10px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .label__box a:hover {
+            border-bottom: 1px solid red;
+        }
+
+        .sanjiao {
+            width: 0;
+            height: 0;
+            border-top: 10px solid red;
+            border-bottom: 10px solid pink;
+            border-right: 10px solid green;
+            border-left: 10px solid #333;
+            margin: 0 auto;
+
+        }
+
+        .sanjiao1 {
+
+            /* 为了兼容 */
+            line-height: 0;
+            font-size: 0;
+
+
+            width: 0;
+            height: 0;
+            border: 50px solid transparent;
+            border-left-color: red;
+        }
+        .wenziduiqi{
+            /* + - * / */
+            width: calc(100%-50px);
+        }
+        .wenziduiqi span {
+            vertical-align: middle;
+        }
+
+        .wenziduiqi img {
+            vertical-align: middle;
+            width: 200px;
+            height: 200px;
+        }
+
+        .triangle-up {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+
+        <nav class="w1200px">
+            <div class="nav">
+                <div class="box__logo">
+                    <img class="__logo" src="./images/01.png" alt="" srcset="">
+                </div>
+
+                <div class="label__box">
+                    <a href="#">首页</a>
+                    <a href="#">课程</a>
+                    <a href="#">职业规划</a>
+                </div>
+                <!-- <div>
+                    
+                </div>
+                <div>
+                    
+                </div> -->
+            </div>
+        </nav>
+    </section>
+
+    <header class="w1200px">
+
+        <div class="sanjiao"></div>
+        <div class="sanjiao1"></div>
+
+        <input type="text" style="outline:none;">
+        <textarea style="resize: none;outline:none;" name="textareaValue" id="textarea" cols="30" rows="10"></textarea>
+    </header>
+
+    <section class="w1200px">
+        <div class="wenziduiqi">
+            <img src="./images/01.png" alt=""> <span>对齐</span>
+        </div>
+    </section>
+
+    <main class="w1200px">
+        <div class="triangle-up"></div>
+
+    </main>
+
+    <footer class="w1200px">
+
+    </footer>
+</body>
+
+</html>

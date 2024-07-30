@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本数据类型</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    // number BOOL String undefined null 基本数据类型
+    //Object, Array Function  饮用数据类型
+    var test;
+    // 定义了 未赋值
+    console.log(test); //undefined
+    //null 定义了 赋值 为空值
+    test = null
+    console.log(test); //null
+
+    // 什么时候给变量赋值为null？
+    // 初始复制为null 为了 以后告诉别人是 储存对象的
+    //并且垃圾回收
+
+
+    // 判断是数字 false，不是数字 true
+    console.log(isNaN(2));
+    isNaN(NaN); // true
+    isNaN(undefined); // true
+    isNaN({}); // true
+
+    isNaN(true); // false
+    isNaN(null); // false
+    isNaN(37); // false
+
+    // 字符串
+    isNaN("37"); // false：可以被转换成数字 37，不是 NaN
+    isNaN("37.37"); // false：可以被转换成数字 37.37，不是 NaN
+    console.log(isNaN("37,5"));; // true
+    isNaN("123ABC"); // true：Number("123ABC") 的结果是 NaN
+    isNaN(""); // false：空字符串被转换成 0，不是 NaN
+    isNaN(" "); // false：由空格组成的字符串被转换成 0，不是 NaN
+
+    // 日期
+    isNaN(new Date()); // false；Date 对象可以转换为数字（时间戳）
+    isNaN(new Date().toString()); // true；Date 对象的字符串表示形式不能解析为数字
+
+
+    let str = '2224---454545'
+    console.log(str.length);
+    // str = str+"luo" 
+    console.log(str);
+    str = `${str}luo1`
+    console.log(str);
+    //数值相加，字符相连
+    str = str + 900
+    console.log(str);
+    str = `${str}${300}人`
+    console.log(str);
+
+    str1 = undefined;
+    console.log(str1 + "字符串"); // undefined字符串
+    console.log(str1 + 1); //NaN，undefined 和数字相加 NaN（不确定什么类型 和数字相加 得不出来）
+    var space = null;
+    console.log(space + "字符串");
+    console.log(space + 1); // 1
+
+    /**
+     * 数据类型 判断
+     *  typeof 返回数据类型的 字符串表达
+     * ture 1
+     * false 0
+     * **/
+    let num = 10;
+    console.log(typeof num === "number"); // number
+    num = null;
+    console.log(typeof num); // object
+    num = undefined;
+    console.log(typeof num); // undefined 
+
+    /**
+    * 数据类型 转换
+    * **/
+    let toStr = 22222;
+    console.log(toStr);
+    console.log(toStr.toString());
+    console.log(`${toStr}`);
+
+    //parseInt
+    console.log(parseInt(toStr.toString()));
+    console.log(Number(toStr.toString()));
+    console.log(Number(`3.1415926`));
+
+    // 转换为BOOL
+    console.log(Boolean(''));
+    console.log(Boolean(0));
+    console.log(Boolean(NaN));
+    console.log(Boolean(null));
+    console.log(Boolean(undefined));
+    console.log(Boolean(toStr));
+
+
+    //递增
+    //++i（前缀形式）：先将 i 的值加1，然后返回新的值。
+    //i++（后缀形式）：先返回 i 的旧值，然后再将 i 的值加1。 
+    let num1 = 1;
+    console.log(++num1);
+    console.log(num1++);
+
+    // 递减
+    console.log(--num1);
+
+    num1 += 2
+    console.log(num1);
+    num1 -= 2
+    console.log(num1);
+
+    /*
+     ==，!=   会转换数据类型 
+     ===，!== 全等，要求数据和数据类型都相等
+    */
+
+    switch (num1) {
+
+        case "苹果":
+            console.log("苹果");
+            break;
+
+        // case 的值是全等的关系 ===
+        case 5:
+            console.log("小于5");
+            break;
+
+        case 2:
+            console.log("小于6");
+            break;
+
+        default:
+            console.log("默认结束了");
+
+            break;
+    }
+
+    /**
+     * 
+     * 循环
+    */
+    let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    for (let index = 0; index < array.length; index++) {
+
+        const element = array[index];
+
+        if (element === 3) {
+            console.log("准备结束了", index);
+            break
+        }
+        console.log('！！！！', index);
+    }
+
+    /*
+     乘法表
+    */
+
+    for (let X = 1; X < 10; X++) {
+        let str2 = ""
+        for (let index = 1; index <= X; index++) {
+
+            str2 += `${index} * ${X} = ${X * index}   `
+            // console.log(`${X} * ${index} = ${X*index}`);
+        }
+        console.log(str2);
+    }
+
+    let whileI = 1
+
+    while (whileI <= 4) {
+        console.log(whileI);
+        whileI++
+    }
+
+    for (let index = 0; index < 6; index++) {
+        if (index === 3) {
+            //结束当前循环 到i++
+            continue;
+        }
+
+        if (index === 5) {
+            //结束整个循环 
+            break;
+        }
+
+        console.log(`现在是${index}`);
+    }
+
+</script>
+
+</html>
