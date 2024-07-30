@@ -3,30 +3,34 @@
 # dependencies
 
 
-again-study-web/02 第2阶段/04 第四周/03 第3天/01 XHR-Multipart-FormData/node_modules
-again-study-web/02 第2阶段/04 第四周/04 第4天/01 留言板精讲/node_modules
-again-study-web/02 第2阶段/04 第四周/05 第5天/02 Grunt/Clock/node_modules
-again-study-web/02 第2阶段/05 第五周/01 第1天/01 Grunt-Watch：上周未讲完部分/Clock/node_modules
-again-study-web/02 第2阶段/05 第五周/01 第1天/03 jQuery Ajax-1/jQuery/node_modules
-again-study-web/02 第2阶段/05 第五周/02 第2天/01 作业讲解：jQuery Ajax和XSS攻击/message/node_modules
-again-study-web/02 第2阶段/05 第五周/02 第2天/02 jQuery Ajax-2/Ajax/node_modules
-again-study-web/02 第2阶段/06 第六周/01 第1天/作业讲解：问答/questions/node_modules
-again-study-web/02 第2阶段/06 第六周/05 第5天/01 网站计数器/node_modules
-again-study-web/02 第2阶段/06 第六周/05 第5天/04 图片上传/node_modules
-again-study-web/02 第2阶段/03 第三周/04 第4天/02 Node.js入门/node_modules
-again-study-web/02 第2阶段/03 第三周/04 第4天/03 Node.js POST请求、H5表单新特性/node_modules
-again-study-web/02 第2阶段/04 第四周/05 第5天/02 Grunt/Clock未讲部分/node_modules
-again-study-web/02 第2阶段/05 第五周/04 第4天/作业讲解：用户登录部分/node_modules
-again-study-web/02 第2阶段/04 第四周/03 第3天/02 留言板精讲/node_modules
-again-study-web/02 第2阶段/04 第四周/02 第2天/02 XHR/XHR/node_modules
-again-study-web/02 第2阶段/03 第三周/05 第5天/02 ExpressJs 和 no-refresh/node_modules
+# again-study-web/02 第2阶段/04 第四周/03 第3天/01 XHR-Multipart-FormData/node_modules
+# again-study-web/02 第2阶段/04 第四周/04 第4天/01 留言板精讲/node_modules
+# again-study-web/02 第2阶段/04 第四周/05 第5天/02 Grunt/Clock/node_modules
+# again-study-web/02 第2阶段/05 第五周/01 第1天/01 Grunt-Watch：上周未讲完部分/Clock/node_modules
+# again-study-web/02 第2阶段/05 第五周/01 第1天/03 jQuery Ajax-1/jQuery/node_modules
+# again-study-web/02 第2阶段/05 第五周/02 第2天/01 作业讲解：jQuery Ajax和XSS攻击/message/node_modules
+# again-study-web/02 第2阶段/05 第五周/02 第2天/02 jQuery Ajax-2/Ajax/node_modules
+# again-study-web/02 第2阶段/06 第六周/01 第1天/作业讲解：问答/questions/node_modules
+# again-study-web/02 第2阶段/06 第六周/05 第5天/01 网站计数器/node_modules
+# again-study-web/02 第2阶段/06 第六周/05 第5天/04 图片上传/node_modules
+# again-study-web/02 第2阶段/03 第三周/04 第4天/02 Node.js入门/node_modules
+# again-study-web/02 第2阶段/03 第三周/04 第4天/03 Node.js POST请求、H5表单新特性/node_modules
+# again-study-web/02 第2阶段/04 第四周/05 第5天/02 Grunt/Clock未讲部分/node_modules
+# again-study-web/02 第2阶段/05 第五周/04 第4天/作业讲解：用户登录部分/node_modules
+# again-study-web/02 第2阶段/04 第四周/03 第3天/02 留言板精讲/node_modules
+# again-study-web/02 第2阶段/04 第四周/02 第2天/02 XHR/XHR/node_modules
+# again-study-web/02 第2阶段/03 第三周/05 第5天/02 ExpressJs 和 no-refresh/node_modules
 
 
 
 react/my-app/node_modules
 react/my-app/.pnp
 react/my-app/.pnp.js
-Node/node_modules
+# Node/node_modules
+#忽略所有 node_modules
+node_modules/
+
+# *node_modules/*
 
 react/my-app/coverage
 
