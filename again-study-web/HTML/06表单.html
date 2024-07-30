@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>06表单</title>
+  <link rel="stylesheet" type="text/css" href="styles.css" /> <!-- 外联样式表 -->
+</head>
+
+<body>
+  <form name="input" action="html_form_action.php" method="get">
+    <strong>注意:表单本身并不可见。同时，在大多数浏览器中，文本域的缺省宽度是20个字符。</strong>
+    <div>
+      <label for="firstname">First name: </label><input type="text" id="firstname" name="firstname">
+    </div>
+    <div>
+      Last name: <input type="text" name="lastname">
+    </div>
+    <div>
+      密码: <input type="password" name="lastname">
+    </div>
+    <div class="form__div">
+      <div>
+        单选框
+      </div>
+      <input type="radio" name="sex" value="male" checked="checked">Male<br>
+      <input type="radio" name="sex" value="female">Female<br>
+    </div>
+    <div class="form__div">
+      <div>
+        复选框
+      </div>
+      <input type="checkbox" name="vehicle" value="Bike" checked="checked">I have a bike<br>
+      <input type="checkbox" name="vehicle" value="Car">I have a car
+    </div>
+    <div class="form__div">
+      <div>
+        选择框
+      </div>
+      <select name="volvo">
+        <!-- https://www.runoob.com/tags/tag-select.html -->
+        <optgroup label="Swedish Cars">
+          <!-- https://www.runoob.com/tags/tag-optgroup.html -->
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+        </optgroup>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="fiat">Fiat</option>
+        <option value="audi">Audi</option>
+      </select>
+    </div>
+    <div class="form__div">
+      <textarea rows="10" cols="30">
+            我是多行文本框。 
+      </textarea>
+      <!-- https://www.runoob.com/tags/tag-textarea.html -->
+    </div>
+    <input type="submit" value="Submit">
+  </form>
+  <div class="form__div">
+    <form action="MAILTO:2215890160@qq.com" method="post" enctype="text/plain">
+      <fieldset>
+        <legend>表单发送邮件</legend>
+        Name:<br>
+        <input type="text" name="name" value="your name"><br>
+        E-mail:<br>
+        <input type="text" name="mail" value="your email"><br>
+        Comment:<br>
+        <input type="text" name="comment" value="your comment" size="50"><br><br>
+        <input type="submit" value="发送">
+        <input type="reset" value="重置">
+      </fieldset>
+    </form>
+  </div>
+  <div class="form__div">
+    <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">0
+      <input type="range" id="a" value="50">100
+      +<input type="number" id="b" value="50">
+      =<output name="x" for="a b"></output>
+    </form>
+
+    <p><strong>注意:</strong> Internet Explorer 不支持 output 标签。</p>
+  </div>
+
+
+  <div class="form__div">
+    <!-- frameborder="0" 去除边框 -->
+    <iframe name="iframe_a" src="https://www.baidu.com/"></iframe>
+    <p><a href="https://www.runoob.com/try/try.php?filename=tryhtml_iframe_target" target="iframe_a">RUNOOB.COM</a></p>
+    <p><b>注意：</b> 因为 a 标签的 target 属性是名为 iframe_a 的 iframe框架的name属性相对应，所以在点击链接时页面会显示在 iframe框架中。</p>
+  </div>
+
+  <div class="form__div">
+    定义选项列表。与 input 元素配合使用该元素，来定义 input 可能的值。
+    <form action="demo-form.php" method="get">
+      <input list="browsers" name="browser">
+      <datalist id="browsers">
+        <option value="Internet Explorer">
+        <option value="Firefox">
+        <option value="Chrome">
+        <option value="Opera">
+        <option value="Safari">
+      </datalist>
+      <input type="submit">
+    </form>
+    <p><strong>注意:</strong> Internet Explorer 9（更早 IE 版本），Safari 不支持 datalist 标签。</p>
+
+  </div>
+
+
+
+  <script>
+    document.write("Hello World!  我是脚本插入的");
+  </script>
+  <noscript>抱歉，你的浏览器不支持 JavaScript!</noscript>
+
+</body>
+
+</html>

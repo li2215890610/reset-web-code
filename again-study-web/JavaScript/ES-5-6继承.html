@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>1111</title>
+</head>
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+  <script>
+    
+    // function test1(name,age){
+    //   this.name = name,
+    //   this.age = age;
+    // }
+
+    // test1.prototype.getName = function(){
+    //   console.log(this.name);
+      
+    // }
+
+    // let sss = new test1('222',111)
+    // console.log(sss);
+    
+    // sss.getName()
+
+
+    // function test2(momo) {
+    //   test1.apply(this,[momo])
+    // }
+
+    // test2.prototype = Object.create(test1.prototype)
+
+    // test2.prototype.constructor = test2
+
+    // let qqq = new test2('2221111')
+    // console.log(qqq);
+    
+    // qqq.getName()
+
+    class sss {
+      constructor(name, age){
+        this.name = name;
+        this.age = age;
+      }
+
+      getNmae(){
+        console.log(this.name);
+        
+      }
+    }
+
+    class aaa extends sss{
+      constructor(name){
+        super(name)
+      }
+      getNmae(age){   
+        debugger     
+        this.age = age
+        console.log('2222111',this.age);
+      }
+    }
+    new aaa('222').getNmae('wwwww')
+  </script>
+</body>
+</html>

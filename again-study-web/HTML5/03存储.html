@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>03存储</title>
+</head>
+
+<body>
+  <input type="text" id='input' value="key" placeholder="请输入内容">
+  <button onclick="savaValue()">保存内容</button>
+  <button onclick="removeKey()">删除某条</button>
+  <button onclick="removeALLKey()">删除所有内容</button>
+  <button onclick="getInputValue()">查看所有内容</button>
+  <div>
+    <p>删除请输入 key</p>
+  </div>
+</body>
+<script src="03.js"></script>
+ <script>
+  // import { storageSetItem, storageGetItem, storageRemoveItem } from "./03.js";   
+
+  function savaValue() {
+    console.log(document.getElementById("input").value);
+    storageSetItem('key',document.getElementById("input").value).then(()=>{
+      alert("success")
+    }).catch((err)=>{
+      alert(err.message)
+    })
+  }
+
+  function removeKey(params) {
+    storageRemoveItem(document.getElementById("input").value).then(()=>{
+      alert("success")
+    }).catch((err)=>{
+      alert(err.message)
+    })
+  }
+
+  function removeALLKey(params) {
+    storageRemoveItem().then(()=>{
+      alert("success")
+    }).catch((err)=>{
+      alert(err.message)
+    })
+  }
+
+  function getInputValue(params) {
+      alert(storageGetItem(document.getElementById("input").value))
+  }
+ </script>
+</html>
