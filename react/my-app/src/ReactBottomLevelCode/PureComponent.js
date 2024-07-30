@@ -1,21 +1,22 @@
 
 import React from 'react';
+
 // 纯组件:PureComponent 与React.Component 
 // 功能相似区别:PureComponent 内部自动实现了 shouldComponentUpdate 钩子,不需要手动比较
 // 原理:纯组件内部通过分别 对比 前后两次 props 和 state 的值，来决定是否重新渲染组件
 
 
 /***** 
-// 说明:纯组件内部的对比是 shallow compare(浅层对比)
-// 对于值类型来说: 比较两个值是否相同(直接赋值即可，没有坑)
-// let number = 0
-// let newNumber = number
-// newNumber = 2
-// console.1og(number ==newNumber)//false
-    state = { number : 0 }
-    setState({
-        number: Math.floor(Math.random()*3)
-    })
+ * 说明:纯组件内部的对比是 shallow compare(浅层对比)
+ * 对于值类型来说: 比较两个值是否相同(直接赋值即可，没有坑)
+ * let number = 0
+ * let newNumber = number
+ * newNumber = 2
+ * console.1og(number ==newNumber) //false
+ *     state = { number : 0 }
+ *     setState({
+ *        number: Math.floor(Math.random()*3)
+ *     })
     // PureComponent 内部对比:
     最新的state.number === 上一次的state.number // false，重新渲染组件
  * 

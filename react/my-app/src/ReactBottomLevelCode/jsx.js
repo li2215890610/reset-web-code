@@ -1,7 +1,7 @@
 import React from 'react';
 
 //内部为这样转换
-// JXS --> React.createElement --> React元素
+// JXS --> React.createElement --> React元素（虚拟DOM）
 
 //JXS 是React.createElement的（简化语法）
 
