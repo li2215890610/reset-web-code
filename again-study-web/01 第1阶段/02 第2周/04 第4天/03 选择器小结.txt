@@ -1,0 +1,33 @@
+﻿*		所有标签
+标签名称	所有同名的标签
+#id		指定此id的标签
+.className	含有此className的标签
+A B		嵌套关系
+A>B		父子关系
+:nth-child(n)	第n个标签，支持2n+1，3n+2等公式，支持负值，所有标签都计数
+:nth-of-type(n)	第n个同类标签，冒号前需要标签名，支持负值，前置*会测试所有标签
+:nth-last-child(n)
+:nth-last-of-type(n)
+:first-letter	首字选择器，能实现类似印刷的首字放大的效果
+:first-line		首行选择器
+:first-child	第1个子标签
+:last-child		最后1个子标签
+:only-child	只有1个【子】标签
+:only-of-type	类型只有1个，指定类型后可能选不到结果，不指定类型时可选中多种标签类型
+~		后面所有的同级标签，可用*、标签名、样式类等
++		后面1个
+,		同时定义多个样式
+
+选择某个标签前面标签的技巧
+:nth-of-type(-n+4)
+:nth-child(-n+5)
+:nth-last-of-type(n+2)
+:not(:nth-of-type(n+5))
+
+
+单独的文字不是标签（是文档节点），所以不能用大部分选择器操作
+
+同一个标签可以使用多个样式类（用空格分隔）因此常将通用的样式定义为样式类以供组合使用
+在一个产品中，使用的字号是有限的几种，因此可以定义如 f1，f2，f3，f4，f5等字号类
+还可以定义文字颜色，如black，gray1，gray2，gray3，blue1，blue2，gold1，gold2
+使用时可以组合，如 f2 gray1表示2号大的1号灰文字

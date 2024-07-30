@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>小实验</title>
+        <style>
+            body{
+                font-size: 30px;
+                /*影响 em ex 等单位*/
+            }
+            p{
+                text-indent: 2em;
+                /*缩进*/
+                /*font-variant: small-caps; */
+                /*小型大写字母，中文没有作用，也不用它*/
+                /*text-transform: capitalize;*/
+                /*全部变成大写字母，还有小写字，首字母大写等值*/
+            }
+            hr{
+                border-width: 3px;
+                border-style: solid;
+                color: red;
+            }
+            hr:nth-child(1){
+                width:5px;
+                /*最常用*/
+            }
+            hr:nth-child(2){
+                width: 5mm;
+                /*打印时使用*/
+            }
+            hr:nth-child(3){
+                width: 5cm;
+                /*打印时使用*/
+            }
+            hr:nth-child(4){
+                width: 5in; /*英寸 inch*/
+                /*打印时使用*/
+            }
+            hr:nth-child(5){
+                width: 5pt; /*磅 1/72英寸*/;
+                /*打印时使用，表示文字大小，印刷专业用的单位*/
+            }
+            hr:nth-child(6){
+                width: 5% /*百分比*/;
+                /*适配多种尺寸的屏幕时常用*/
+            }
+            hr:nth-child(7){
+                width: 5em; /*当前字体一个字符的大小*/
+                /*适配多种尺寸的屏幕时常用*/
+                /*注意：更常用的是rem ！！！！！
+                因为 em 是相对于容器的，会继承
+                而 rem 是相对于 html 根元素的(root em)，因此非常好用，所以实际开发中会使用 rem*/
+            }
+            hr:nth-child(8){
+                width: 5ex; /*当前字体中x字母的大小*/
+                /*中文环境下基本不用*/
+            }
+        </style>
+    </head>
+    <body>
+        <hr>
+        <hr>
+        <hr>
+        <hr>
+        <hr>
+        <hr>
+        <hr>
+        <hr>
+        <p>我已经学会了HTML和CSS的大部分内容。I am a big big girl live in a big big world. 我已经学会了HTML和CSS的大部分内容。</p>
+    </body>
+</html>

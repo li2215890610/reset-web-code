@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>属性选择器</title>
+        <style>
+            a{
+                text-decoration: none;
+            }
+            
+            a[target]:visited,a[target]:link{
+                color:red;
+            }
+            /*定义了指定属性*/
+            a[title^=购物]{
+                text-decoration: underline;
+            }
+            /*属性以指定的值开头*/
+            a[title$=闻]{
+                text-decoration: line-through;
+            }
+            /*属性以指定的值结尾*/
+            a[zhiyou100*='6']{
+                font-weight: bold;
+                font-style: italic;
+            }
+            /*属性包含指定的值*/
+        </style>
+    </head>
+    <body>
+        <a href="https://www.baidu.com" target="_blank">百度</a>
+        <a href="http://www.qq.com" title="社交、即时聊天、新闻">QQ</a>
+        <a href="http://www.sina.com.cn" zhiyou100="996699">新浪</a>
+        <a href="http://www.taobao.com" title="购物、分享">淘宝</a>
+    </body>
+</html>

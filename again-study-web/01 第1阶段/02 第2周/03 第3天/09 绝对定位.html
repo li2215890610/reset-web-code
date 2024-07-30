@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>绝对定位</title>
+        <style>
+            section{
+                width:300px;
+                height: 300px;
+                margin: 150 auto;
+                border: 2px solid red;
+                
+                position: relative;
+                /*设置为相对定位并不是要调整它的位置，而是让子标签在绝对定位时把它作为参考点
+                如果不设置它为 relative 那子标签将会以 body 为参考点，可以注释掉它观察一下 */
+                
+                /*总结一下 relative 的作用：
+                1. 微调自身的位置
+                2. 作为子标签绝对定位的参考点*/
+            }
+            #H{
+                position: absolute;
+                top: 5px;
+                left: 5px;
+            }
+            #T{
+                position: absolute;
+                top: 5px;
+                right: 5px;
+            }
+            #M{
+                position: absolute;
+                bottom: 5px;
+                left: 5px;
+            }
+            #L{
+                position: absolute;
+                bottom: 5px;
+                right: 5px;
+                /*善于使用 bottom 和 right 而不要自己计算出值，然后设置到 top 和 left 上*/
+            }
+            #N5{
+                /*position: absolute;
+                top:140px;
+                left:145px;*/
+                
+                display: block;
+                text-align: center;
+                margin: 47% auto;
+                
+                /*垂直方向定位是个难题，这里给出两种方法以供参考*/
+                /*另外可以学习一下非标准样式 box-align box-peck 能实现较好的垂直居中效果*/
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <b id="H">H</b>
+            <b id="T">T</b>
+            <b id="M">M</b>
+            <b id="L">L</b>
+            <b id="N5">5</b>
+        </section>
+    </body>
+</html>

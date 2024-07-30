@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>DOM节点-元素</title>
+	</head>
+	<body>
+		<ul>
+			<li>HTML5</li>
+			<li>CSS3</li>
+			<li>JavaScript</li>
+			<li>PHP</li>
+		</ul>
+		<script>
+			var ul = document.getElementsByTagName('ul')[0]
+            //alert(ul)
+//			var li2 = ul.childNodes.length;
+//          alert(li2)
+//			获取子节点，包含文本节点，会受到HTML文档中空白字符的干扰
+
+			var li2 = ul.children[0];
+//          alert(li2)
+//			获取子元素/标签，不包含空白字符
+			
+//			alert(li2.outerHTML)
+//			获取包含标签本身在内的所有HTML代码
+			
+			// document.writeln('<pre>')
+			// for (var k in li2) {
+			// 	document.writeln(k)
+			// }
+			// document.writeln('</pre>')
+//			可以在</body>之前向HTML文档或
+//			当前页面写入新的标签或文本
+			
+			
+//			alert(li2.previousSibling.nodeName)
+//			alert(li2.nextSibling.nodeName)
+//			返回临近的节点，不管这个节点是什么类型
+
+//			alert(li2.previousElementSibling.outerHTML)
+//			alert(li2.nextElementSibling.outerHTML)
+//			返回临近的标签元素，忽略文本节点
+			
+//			alert(ul.childElementCount)
+//			子元素的数量
+			
+//			alert(ul.firstChild.nodeName)
+//			alert(ul.lastChild.nodeName)
+//			返回第1个或最后1个节点
+
+//			alert(ul.firstElementChild.outerHTML)
+//			alert(ul.lastElementChild.outerHTML)
+//			返回第1个或最后1个标签元素
+			
+			
+//			var newli = document.createElement('li')
+//			创建一个新的标签元素
+//			newli.innerText = 'DOM'
+//          ul.appendChild(newli)
+			
+//			ul.appendChild(newli)
+//			将标签元素添加到最后一个子节点之后
+
+//			var removed = ul.removeChild(ul.firstElementChild)
+//			移除子节点
+
+//			ul.appendChild(removed)
+//          又把刚移除的子节点添加
+			
+//			ul.replaceChild(removed, newli)
+//			替换子节点
+			
+//			ul.insertBefore(removed, ul.firstChild)
+            
+//			ul.insertAdjacentText('beforeBegin', '外面的前面')
+//			ul.insertAdjacentHTML('afterBegin', '<li>里面的前面</li>')
+//			ul.insertAdjacentHTML('beforeEnd', '<li>里面的后面</li>')
+//			ul.insertAdjacentText('afterEnd', '外面的后面')
+//			插入文本
+//			ul.insertAdjacentElement()
+//			插入标签元素
+//			ul.insertAdjacentHTML()
+//			插入HTML代码
+		</script>
+	</body>
+</html>

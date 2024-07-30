@@ -1,0 +1,5 @@
+GET -> POST -> FormData
+穿插获取响应行、响应头、响应体信息，设置请求头等
+参考：
+https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest
+https://developer.mozilla.org/zh-CN/docs/Web/API/FormData

@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>App登录</title>
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            body{
+                margin: 0;
+                height: 100%;
+                overflow-x: hidden;
+                background-color: #333;
+                color: #DDD;
+                text-align: center;
+            }
+            body>img{
+                position: absolute;
+                top: -20px;
+                left: -200px;
+                height: 100%;
+                filter: blur(20px);
+                opacity: 0.9;
+            }
+            main{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+            }
+            header{
+                font-size: 1.1rem;
+                line-height: 3rem;
+                position: relative;
+            }
+            header span{
+                font-size: 0.9rem;
+            }
+            #goBack{
+                position: absolute;
+                left: 0.8rem;
+                top: 0.01rem;
+            }
+            #register{
+                position: absolute;
+                right: 0.8rem;
+                top: 0.01rem;
+            }
+            #img{
+                width: 32vw;
+                height: 32vw;
+                max-width: 14rem;
+                max-height: 14rem;
+                background-image: url(img.jpg);
+                background-position: 50% 50%;
+                background-size: 120% 120%;
+                border-radius: 50%;
+                margin: 8vh auto;
+            }
+            #acount, #password{
+                width: 70vw;
+                height: 3rem;
+                margin: 0 auto;
+                border-bottom: 1px solid white;
+                text-align: left;
+                padding-top: 1rem;
+            }
+            #password span{
+                letter-spacing: 0.3rem;
+                font-size: 0.7rem;
+            }
+            #login{
+                width: 70vw;
+                margin: 5vh auto 8vh auto;
+                height: 2.5rem;
+                background-color: #33AA65;
+                font-size: 1.1rem;
+                padding-top: 0.4rem;
+                border-radius: 0.8rem;
+            }
+            #forget{
+                font-size: 0.9rem;
+            }
+            #login3{
+                margin: 4rem auto 0.2rem auto;
+            }
+            #login3 img{
+                width: 4rem;
+                height: 4rem;
+                margin: 0 0.5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="bg.jpg" alt="背景图片">
+        <main>
+            <header>
+                <span id="goBack">返回</span>
+                登录
+                <span id="register">注册</span>
+            </header>
+            <section id="img"></section>
+            <section id="acount">
+                账号&#x3000;273263743@qq.com
+            </section>
+            <section id="password">
+                密码&#x3000;<span>&#x25CF;&#x25CF;&#x25CF;&#x25CF;&#x25CF;&#x25CF;&#x25CF;&#x25CF;</span>
+            </section>
+            <section id="login">登&#x3000;录</section>
+            <section id="forget">忘记密码？</section>
+            <section id="login3">
+                <img src="weibo.png" alt="">
+                <img src="qq.png" alt="">
+                <img src="weixin.png" alt="">
+            </section>
+        </main>
+    </body>
+</html>

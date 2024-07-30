@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>布尔对象</title>
+	</head>
+	<body>
+		<script>
+			var a = 1, b = 3
+		
+			console.log(!true)     		//false
+			console.log(!!(a + b))    	//true
+			console.log(!!!true)   		//false
+			
+//			!第一个作用是取反
+//			第二个作用是强制类型转换
+			
+			var b = new Boolean('false')
+			// console.log(2123123)
+			console.log(b)
+//			b是一个布尔对象，而不是一个值
+//			b是一个包含一个true值的对象
+//			可以将b对象当成一盒子
+//			
+//			把一个值装进一个对象的过程叫 装箱 boxing
+//			把值从对象中取出来的过程叫 拆箱 unboxing
+			
+            // 如果new Object()中没有传入参数，与{}是一样的。
+            //但是如果传入不同的参数，会有不同的效果。
+
+    // 传入String 返回String，类似new String()
+    // 传入Number 返回Number，类似new Number()
+    // 传入Object 返回Object，其实没啥用
+			var me = {}
+			var me2 = new Object()
+			
+			console.log(me)
+			console.log(me2)
+			
+			console.log(!!me)
+			console.log(!me2)
+			//一个空白对象即 {} 它会被认为是true
+			
+			
+			me.name = 'ZhangSan'
+			me.age = 3
+			
+			me2.name = 'ZhangSan'
+			me2.age = 3
+			
+			console.log(me)
+			console.log(me2)
+			
+			console.log(!!me)
+			console.log(!me2)
+			
+			//!!保持逻辑含义不变
+			//!会使逻辑含义取反
+			
+//			0、-0、''、null、undefined、NaN都会被认为是false
+			
+//			new Boolean(true)			盒子内的值是true
+//			new Boolean(false)			----------false
+//			new Boolean('false')        ----------true
+//			new Boolean(0)              ----------false
+//			new Boolean(2)              ----------true
+//			new Boolean(null)           ----------false
+//			new Boolean('')             ----------false
+//			new Boolean('ChangWei')     ----------true
+//			以上都是布尔对象
+			
+			console.log('验证以下值：')
+			console.log(new Boolean(false))
+			console.log(new Boolean('false'))
+			console.log(new Boolean(2))
+			
+
+			if(new Boolean(0)) {
+				console.log('能打印出来吗？')
+			}
+//			不管布尔对象这个盒子里边装的是true还是false
+//			一个布尔对象都会被认为是true，因为布尔对象是一个对象
+//			布尔对象 与 布尔值 大大的不同！！！
+//			在使用布尔值场景下如if()永远不要用布尔对象
+			
+            //调用 toString() 方法可以将布尔值转换成字符串
+			var str = true.toString()
+//			试图对布尔值（包括数值、字符串值等）调用方法时
+//			会导致值临时装箱，产生一个新对象，在这个对象上调用方法
+//			方法调用完毕，对象即会消失
+			
+			console.log(str)
+			console.dir(str)
+			
+			
+			var bvalue1 = Boolean('false')
+			var bvalue2 = Boolean(null)
+			console.log(bvalue1)
+			console.log(bvalue2)
+//			直接调用 Boolean 函数（而不是使用new调用Boolean函数）返回的是布尔值
+//			使用new调用是调用构造函数，会返回对象
+//			更常用的方法是下面的强制类型转换：
+			console.log(!!'false')
+		</script>
+	</body>
+</html>

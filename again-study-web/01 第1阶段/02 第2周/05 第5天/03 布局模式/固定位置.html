@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>固定位置</title>
+        <style>
+            body{
+                margin: 0;
+            }
+            footer{
+                position: fixed;
+                bottom: 0;
+                /*固定位置的两个必要条件*/
+                z-index: 99999999; 
+                /*防止其它内容遮挡*/
+                
+                width: 100%;
+                background-color: #333;
+            }
+            section{
+                 height: 60px;
+                 width: 960px;
+                 margin: 0 auto;
+                 text-align: center;
+                 background-color: red;
+                 color: white; 
+                 padding-top: 18px;
+                 box-sizing: border-box;
+            }
+        </style>
+    </head>
+    <body>
+        <footer>
+            <section>
+            固定位置
+            </section>
+        </footer>
+    </body>
+</html>

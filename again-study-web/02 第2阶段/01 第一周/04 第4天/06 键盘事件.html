@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>键盘事件</title>
+	</head>
+	<body>
+		<script>
+//			onkeyup按键弹起时
+//			onkeypress按键按下并弹起一次
+
+//			onkeydown在键盘按下时会不断重复触发
+
+			window.onkeydown = function(e){
+				console.log(e.key)
+				console.log(e.keyCode)
+				
+				if(e.key == 'p' && e.ctrlKey){
+					alert('你按下了 Ctrl + P')
+				}
+				if(e.keyCode == 83 && 
+					e.ctrlKey && e.shiftKey && e.altKey){
+					alert('你按下了 Ctrl + Shift + Alt + S')
+				}
+			}
+		</script>
+	</body>
+</html>

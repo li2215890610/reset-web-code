@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>圆形布局</title>
+	</head>
+	<body>
+		
+		<script>
+			
+			var initDeg = Math.PI / 4
+			var deg = Math.PI / 3
+			var R = 150
+			var offsetX = 250
+			var offsetY = 300
+			var r = 100
+			for (var i = 0; i < 6; i++) {
+				var div = document.createElement('div')
+				div.style.width = r + 'px'
+				div.style.height = r + 'px'
+				div.style.backgroundColor = 'hsl(' + i * 60 + ', 100%, 50%)'
+				div.style.position = 'absolute'
+				div.style.borderRadius = '50%'
+				
+				div.style.top = offsetY + R * Math.cos(initDeg + deg * i) + 'px'
+				div.style.left = offsetX + R * Math.sin(initDeg + deg * i) + 'px'
+				document.body.appendChild(div)
+			}
+		
+		</script>
+	</body>
+</html>

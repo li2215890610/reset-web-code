@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>样式继承</title>
+        <style>
+            body{
+                color: red;
+                /*将 color 应用到 body 上，会使 body 内部所有的标签都加上颜色，这就是样式继承*/
+                /*还有哪些样式是可以继承的？*/
+              
+                /*font-size: 25px;
+                font-family: 楷体;
+                text-align: right;
+                font-style: italic;
+                text-decoration: underline;
+                line-height: 300%;*/
+               
+                /*能够继承的样式多是与文字相关的样式*/
+                /*而盒模型相关的样式和其它更多样式是不继承的*/
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <article>
+                <header>
+                    <h1>大标题</h1>
+                    <h3>副标题</h3>
+                    <address>作者，联系方式和地址</address>
+                </header>
+                <section>
+                    <h2>小标题1</h2>
+                    <p>正文段落1</p>
+                    <p>正文段落2</p>
+                    <p>正文段落3</p>
+                </section>
+                <section>
+                    <h2>小标题2</h2>
+                    <p>正文段落1</p>
+                    <p>正文段落2</p>
+                    <p>正文段落3</p>
+                </section>
+                <section>
+                    <h2>小标题3</h2>
+                    <p>正文段落1</p>
+                    <p>正文段落2</p>
+                    <p>正文段落3</p>
+                </section>
+                <section>
+                    <h2>小标题4</h2>
+                    <p>正文段落1</p>
+                    <p>正文段落2</p>
+                    <p>正文段落3</p>
+                </section>
+                <section>
+                    <h2>小标题5</h2>
+                    <p>正文段落1</p>
+                    <p>正文段落2</p>
+                    <p>正文段落3</p>
+                </section>
+            </article>
+        </main>
+    </body>
+</html>

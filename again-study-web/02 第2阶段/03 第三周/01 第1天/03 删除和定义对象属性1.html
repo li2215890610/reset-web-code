@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>控制对象</title>
+	</head>
+	<body>
+		
+		<script>
+			var p = {}
+			p.name = 'ZhangSan'
+			p.age = 3
+//			为p对象增加了一些属性
+			
+			console.dir(p)
+			
+//			那怎样才能删除呢？
+			p.age = undefined
+			console.dir(p)
+			p.age = null
+			console.dir(p)
+			
+//			用上面的方法只能改变属性的值，并不能删除属性
+			
+			delete p.age
+			console.dir(p)
+			
+			p.show = function(){}
+			console.dir(p)
+			
+			delete p.show
+			console.dir(p)
+			
+//			delete即可删除属性也可以删除方法
+			
+//			下面我们来看一下Object对象的文档（MDN）：
+			
+			var num = new Number(3.14159)
+			console.log(num)
+			
+			var num1 = new Object(3.14159)
+			console.log(num1)
+			
+			var b = new Object(true)
+			console.log(b)
+			
+//			使用对象构造函数包装一个值
+			
+			
+			var p = {
+				name: 'ZhangSan',
+				age: 3
+			}
+			
+			console.log(p)
+			
+			var p1 = new Object({
+				name: 'ZhangSan',
+				age: 3
+			})
+			
+			console.log(p1)
+			
+//			包装对象
+			
+			Object.defineProperty(p1, 'isMale', {
+				value: true,
+				configurable: false,
+				writable: true,
+				enumerable: false
+			})
+//			为对象定义一个新的属性
+//			第1个参数：要添加新属性的对象
+//			第2个参数：属性名称
+//			第3个参数：属性描述对象（关于属性更多信息）
+//						value: 属性值
+//						configurable: 指示属性能否被删除
+//									  false无法删除属性，但可以改变属性值
+//									  默认值false
+//						writable:	  指示属性值能否被改变
+//									   默认值是false
+//						enumerable:   属性名是否可以被for..in..列举出来
+									  
+			
+			delete p1.isMale
+//			如果属性无法删除，不会导致程序崩溃
+//			程序会继续执行
+			
+			p1.isMale = 'asdf'
+			
+			console.log(p1)
+			
+			for(var k in p1){
+				console.log(k)
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>数组对象</title>
+	</head>
+	<body>		
+		<script>
+			var arr1 = ['a', 'b', '', 'd', 'e', 'f', '   ', 'h']
+//			JS的数组中可存放任意类型的值
+			
+			arr1.forEach(function(item, index, arr){
+				console.log('第%d个位置的值是：%s', index, item)
+			})
+			
+			console.log('+'.repeat(30))
+			
+			for (var i = 0; i < arr1.length; i++) {
+				console.log('第%d个位置的值是：%s', i, arr1[i])
+			}
+			
+			//可以判断item是否是空白字符串
+			//如果item是空字符串或只含有空格，则返回true
+			function isEmptyString(item, index, array) {
+				item = item.trim()
+				return item.length == 0
+			}
+			
+			//如果每1个数组元素都符合条件，总体结果是true
+			console.log(arr1.every(isEmptyString))
+			
+			//如果任意1个数组元素符合条件，结果就是true
+			console.log(arr1.some(isEmptyString))
+			
+			var nums = [1,2,3,4,5,6,7,8,9]
+			
+			var result = nums.map(function(item){
+				return Math.pow(item, 3)
+			}).reduce(function(preValue, value, index, arr){
+				return preValue + value
+			}, 0)
+			
+			console.log(result)
+			
+//			map的作用：
+//			对数组中每一元素都进行指定运算，将运算结果构成一个新数组
+//			redure的作用：
+//			对数组中的每一个元素都进行一次运算，最终生成一个组合值
+//			能生成组合值的原因在redure参数function能够得到前值（前一次function的返回结果）
+			
+//			使用map/redure可以简化思考逻辑，可以把复杂问题变简单
+//			变简单的原因在于：
+//			它把一个问题拆解为2步来解决
+//			每一次思考的时候只需关注其中一步即可
+//			排除了其它干扰
+		
+//			map/reduce作为一种编程思想在大数据中也有广泛使用
+//			教师可到百度搜索相关资料学习
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>查找元素</title>
+	</head>
+	<body>
+		<a class="red-link col-md-3" id="baiduID" href="https://www.baidu.com">百度搜索</a>
+		<a class="red-link col-md-2" id="baiduID" href="https://www.baidu.com">百度<span>***</span>搜索</a>
+		
+		<input type="radio" name="sex" id="sex0" value="0" />
+		<input type="radio" name="sex" id="sex1" value="1" />
+		<input type="radio" name="sex" id="sex2" value="2" />
+		
+		<script>
+//			var baidu = document.getElementById('baiduID')
+//			alert(baidu)
+//			document表示当前整体文档
+//			getElementById获取指定Id的标签/元素，要么是1个，要么是null
+//			如果指定id不存在，会得到null，即空对象
+//			
+//			alert(baidu.tagName)
+//			标签名
+//			alert(baidu.id)
+//			标签id
+//			
+//			var sex = document.getElementsByName('sex')
+//			alert(sex.tagName)
+//			undefined 未定义值，因为 NodeList 没有 tagName，例如：
+//			var a = 1, b
+//			alert(a)  // 1
+//			alert(b)  // undefined，变量未赋值时就是undefined
+
+
+//			alert(sex.length)   //获得节点列表的长度，也就是节点个数
+//			for (var i = 0; i < sex.length; i++) {
+//				alert(sex[i].value)
+//				//sex是一个NodeList，所以通过[1]可以得到列表中的第“1”个项
+//				//实际上是从0开始计数的，所以[x]表示第x+1项
+//				//.value获得input标签的值
+//			}
+//			
+//			var s = document.getElementsByName('sex4232')[1];
+//			//获取第1个name属性的值是sex的元素
+//			//如果不存在，则是undefined
+//			alert(s)
+			
+
+//			var inputs = document.getElementsByTagName('Input')
+//			//通过标签名（不区分大小写）获取一组标签元素
+//			alert(inputs.length)
+			
+//			var links = document.getElementsByClassName('red-link col-md-2')
+//			通过class属性的值获取一组标签元素
+//			使用任意一个样式类即可，不需要全部写出来
+//			alert(links.length)
+//			alert(links[0].innerText)
+//			得到标签内部【所有的】文本，即使这个文本在子标签内，也一样能得到
+//			alert(links[0].innerHTML)
+//			得到标签内部的HTML，即连同标签一同显示出来
+			
+			
+//			使用CSS筛选器获取标签元素：
+
+//			document.querySelector('body>a:nth-child(2)')
+//			得到的是第一个符合条件的标签元素
+//			相当于querySelectorAll('')[0]
+			
+//			document.querySelectorAll('body>a.red-link')
+//			得到所有符合条件的标签元素列表
+			
+			
+//			总结：
+//			getElementById
+//			getElementsByName
+//			getElementsByTagName
+//			getElementsByClassName
+//			querySelector
+//			querySelectorAll
+
+		</script>
+	</body>
+</html>

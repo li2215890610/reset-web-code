@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>表单-登录页面示例</title>
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            body{
+                height: 100vh;
+                /*比使用100%靠谱，因为使用100%无效，除非同时设置了 html { height:100% }*/
+                margin: 0;
+                display: flex;
+                /*使用 flex 弹性布局*/
+                flex-flow: column;
+                justify-content: space-between
+            }
+            input{
+                border: none;
+                /*去掉输入框边框*/
+                border-radius: 5px;
+                padding: 3px;
+                height: 30px;
+            }
+            span,label,input{
+                font-size: 0.9rem;
+            }
+            div{
+                padding: 1vh 0;
+                /*使用 vh 单位，当屏幕变小时能够相应变小*/
+            }
+            .controls{
+                border-bottom: 1px solid gray;
+                padding: 1vh 0;
+            }
+            .controls input{
+                width: 8em;   
+            }
+            form{
+                margin: 0 auto;
+                width: 72vw;
+            }
+            input[type=button]{
+                /*使用属性选择器*/
+                width: 100%;
+                height: 2.5rem;
+                background-color: #339944;
+                color: white;
+                margin-top: 2vh;
+                font-size: 1rem;
+            }
+            #img{
+                width: 33vw;
+                height: 33vw;
+                /*都设置为相对于宽度的“百分比”*/
+                margin: 10vh auto 5vh auto;
+                border-radius: 50%;
+                background-image: url(img.jpg);
+                background-position: 50% 50%;
+                background-size: 48vw auto;
+            }
+            #forget{
+                display: block;
+                margin: 0 auto;
+                text-align: center;
+                font-size: 0.8rem;
+                text-decoration: none;
+                color:gray;
+            }
+            #register{
+                display: block;
+                margin: 5vh auto;
+                text-align: center;
+                font-size: 0.9rem;
+                text-decoration: none;
+                color: #888;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="img"></section>
+        <!--这种方法可以将大多数非正方形图片显示为圆形-->
+        <form action="#">
+            <div class="controls">
+                <span>帐号：</span>
+                <!--使用这种方式不如使用 label 标签-->
+                <input type="text" placeholder="请输入帐号">
+            </div>
+            <div class="controls">
+                <label for="password">密码：</label>
+                <input type="password" name="password" id="password" placeholder="请输入密码">
+                <!--设置为密码输入框-->
+                <!--name属性用来向服务端提交数据，id属性由前端（浏览器或js）使用-->
+            </div>
+            <div>
+                <input type="button" value="登 录">
+                <!--设置为按扭-->
+            </div>
+        </form>
+        <a href="#" id="forget">忘记密码</a>
+        <a href="#" id="register">注册新用户</a>
+    </body>
+</html>

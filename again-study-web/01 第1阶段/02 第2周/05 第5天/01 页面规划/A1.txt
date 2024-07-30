@@ -1,0 +1,15 @@
+body
+    main
+       section
+          img
+          div
+              span
+              a
+          div
+             span
+             a
+    footer
+       section
+          nav
+             a | a | a  | a
+          span

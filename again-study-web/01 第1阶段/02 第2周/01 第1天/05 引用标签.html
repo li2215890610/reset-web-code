@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>引用标签</title>
+        <style>
+            cite:before{
+                content: '《';
+            }
+            cite:after{
+                content: '》';
+            }
+            cite{
+                font-style: normal;
+            }
+        </style>
+    </head>
+    <body>
+        <q>知之者不如乐知者...</q>，这名话来自<cite>论语</cite><br>
+        <q>一切有为法，如梦幻泡影，如露亦如电，应作如是观</q>，这句话来自<cite>金刚经</cite>
+        <!--标签 q 表示引用内容；标签 cite 则表出引用来源，通常是书籍、刊物名称-->
+    </body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="author" content="张强">
+        <title>Form表单</title>
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            body{
+                margin: 0;
+            }
+            header{
+                background-color: #f93;
+                color: white;
+                height: 44px;
+                line-height: 44px;
+                text-align: center;
+                font-size: 18px;
+            }
+            form{
+                padding: 10px;
+            }
+            input, select{
+                display: block;
+                width: 100%;
+                margin: 5px auto;
+                height: 40px;
+                padding: 10px;
+                font-size: 0.9rem;
+                border: 1px solid silver;
+                -webkit-appearance: none;
+                /*去掉Chrome、Safari的特殊外观*/
+            }
+            input:hover, select:hover, input:focus, select:focus{
+                box-shadow: inset 0 0 2px silver;
+            }
+            input[type=submit]{
+                border-color: #e82;
+                background-color: #e82;
+                color: white;
+                font-size: 0.9rem;
+                line-height: 0.9rem;
+                margin-top: 15px;
+            }
+            .radio-group label{
+                display: inline-block;
+                width: 90px;
+                margin: 5px auto;
+                height: 40px;
+                padding: 12px;
+                background-image: url(images/unselect.png);
+                background-repeat: no-repeat;
+                background-size: 22px;
+                background-position: left center;
+                padding-left: 28px;
+                font-size: 0.9rem; 
+            }
+            input[type=radio]:checked+label{
+                background-image: url(images/select.png);
+            }
+            .radio-group input{
+                display: none;
+            }
+            option{
+                height: 36px;
+                display: inline-block;
+                line-height: 36px;
+                padding-top: 10px;
+            }
+           
+        </style>
+    </head>
+    <body>
+        <header>注册</header>
+        <form id="register" method="POST" action="/user" target="_blank">
+            <!--novalidate不再验证required/pattern
+            用户提交表单时不会验证输入-->
+            <input type="text" name="petname" autofocus autocomplete="off" required pattern="[\u4e00-\u9fa5a-zA-Z0-9]{2,16}" placeholder="请输入昵称">
+            <!--autocomplete会记住用户之前输入的值，当双击输入框时
+            会把之前记住的值列出来供用户选择-->
+            <!--autofocus会让输入焦点出现指定的输入框中-->
+            
+            <!--required要求用户提交表单时必须填写-->
+            <!--使用正则表达式可以验证输入数据的格式-->
+            <!--[]表示允许的字符范围
+            a-z表示允许26个小写字母
+            0-9表示允许数字
+            \u4e00-\u9fa5允许汉字
+            {4,16}最少要求4个字符，最多16个字符-->
+            <input type="password" name="password" placeholder="请输入密码">
+            <input type="password" placeholder="请再次输入密码">
+            <!--如果两个普通input的name相同，会导致同一个名字提交两个数据-->
+            <div class="radio-group">
+                <input type="radio" name="isMale" id="male" checked>
+                <label for="male">先生</label>
+                <input type="radio" name="isMale" id="female">
+                <label for="female">女士</label>
+            </div>
+            <select name="course">
+                <option value="HTML5">HTML5</option>
+                <option value="CSS3">CSS3</option>
+                <option value="JavaScript">JavaScript</option>
+            </select>
+            <input type="email" name="email" placeholder="请输入电子邮箱">
+            <input type="number" name="number" max="100" step="5" placeholder="请输入年龄">
+            <input type="range" name="range" max="10">
+            <input type="color" name="color">
+            <input type="time" name="date" placeholder="请输入出生日期">
+            <input type="text" name="city" placeholder="请选择或填写意向城市" list="cities">
+            <datalist id="cities">
+                <option label="Beijing" value="Beijing"></option>
+                <option label="Baotou" value="Baotou"></option>
+                <option label="Baoji" value="Baoji"></option>
+                <option label="Zhengzhou" value="Zhengzhou"></option>
+            </datalist>
+            <!--可以让普通文本框变成可以选择也可以输入的文本框-->
+            <input type="submit" value="确认提交">
+        </form>
+        
+        <input type="text" form="register" name="test" placeholder="会提交吗？">
+        <input type="submit" value="我也能提交" form="register" formnovalidate>
+        <!--使用form属性可以将表单元素放在表单外面
+        使用formnovalidate可以单独在未验证状态下直接提交表单
+        formmethod
+        formtarget
+        formaction
+        都可以单独控制-->
+    </body>
+</html>

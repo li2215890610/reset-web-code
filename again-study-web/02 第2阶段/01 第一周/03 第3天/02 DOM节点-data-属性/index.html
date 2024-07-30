@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>DOM节点-data-*属性</title>
+	</head>
+	<body>
+		<button data-toggle="collapse" data-target="#nav">按扭</button>
+		<!--bootstrap中使用较多-->
+		<script>
+			var button = document.querySelector('button')
+			
+//			获取值
+			alert(button.dataset.toggle)
+			alert(button.getAttribute('data-toggle'))
+//			不能使用的方式
+//			button.data-toggle
+//			因为JS会将 - 当成减号，将toggle当成变量
+			
+//			设置值
+			button.dataset.name = 'ZhangSan'
+		</script>
+	</body>
+</html>

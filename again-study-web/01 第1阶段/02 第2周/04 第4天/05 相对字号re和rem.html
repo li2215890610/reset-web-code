@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>相对字号em和rem</title>
+        <style>
+            /*em以父标签的字号作为标准进行计算。*/
+            /*如果父元素也是em字号，则可以逐级相乘，直到到达有明确字号定义的标签*/
+            /*页面默认字号是16px*/
+            /*在第1个section中最深的span标签的字号的计算方法是 0.5 * 0.5 * 2 * 16px = 8px;*/
+           
+            /*rem以文档根标签（html）的字号作用标准进行计算*/
+            /*rem字号不受上级标签影响，因此计算起来更加方便*/
+            /*但是并不意味着em不重要，将rem和em结合起来使用能使页面开发更得心应手*/
+            html{
+            	/*font-size: 30px;*/
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <h2>小标题</h2>
+            <p>正文段落1</p>
+            <p>正文段落2</p>
+            <p>正文段落3</p>
+            <p style="font-size:1.2em">正文段落4</p>
+            <p style="font-size:1.5em">正文段落5</p>
+            <p style="font-size:2.0em">正文段落6
+                <span style="font-size:0.5em">内部文字
+                    <span style="font-size:0.5em">内部的内部</span>
+                </span>
+            </p>
+        </section>
+        <!--注意观察区别-->
+        <!--将html样式中的字号注释放开再观察-->
+        <section>
+            <h2>小标题</h2>
+            <p>正文段落1</p>
+            <p>正文段落2</p>
+            <p>正文段落3</p>
+            <p style="font-size:1.2rem">正文段落4</p>
+            <p style="font-size:1.5rem">正文段落5</p>
+            <p style="font-size:2.0rem">正文段落6
+                <span style="font-size:0.5rem">内部文字
+                    <span style="font-size:0.5rem">内部的内部</span>
+                </span>
+            </p>
+        </section>
+    </body>
+</html>

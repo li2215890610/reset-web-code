@@ -1,0 +1,6 @@
+<!--#include file="header.inc"-->
+<main>
+    这里是页面内容区域<br>
+    <a href="page2.shtm">页面2</a>
+</main>
+<!--#include file="footer.inc"-->

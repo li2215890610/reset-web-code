@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>Person</title>
+		<script src="js/baby.js"></script> 
+		<script src="js/child.js"></script> 
+		<script src="js/student.js"></script>
+		<script src="js/worker.js"></script>
+	</head>
+	<body>
+		<script>
+			var baby = new Baby('ZhangSan', true, new Date(2013, 5, 1, 12, 0, 0))
+			console.log(baby)
+			console.log(baby.age)
+			console.log(baby.getAge())
+			baby.eat('苹果')
+			baby.sleep(12)
+			
+//			baby.name = '12341234'
+//			baby.age = 22
+//			console.log(baby)
+
+			var child = new Child('ZhangSan', true, new Date(2013, 5, 1, 12, 0, 0))
+			console.log(child)
+			child.eat('西瓜')
+			child.sleep(9)
+			child.play('滑滑梯', 1)
+			child.play('足球', 3)
+			
+			var student = new Student('ZhangSan', true, new Date(2013, 5, 1, 12, 0, 0))
+			console.log(student)
+			student.eat('鸡腿')
+			student.sleep(7)
+//			student.play('滑滑梯', 1)
+			student.play('手机', 0.5)
+			student.study('【HTML5】', 15)
+			
+			var worker = new Worker('ZhangSan', true, new Date(2013, 5, 1, 12, 0, 0))
+			console.log(worker)
+			worker.eat('鸡腿')
+			worker.sleep(7)
+//			student.play('滑滑梯', 1)
+			worker.play('手机', 0.5)
+			worker.study('【管理学】', 1)
+			worker.work('【写代码】', 3)
+			worker.work('【开会】', 2)
+			worker.work('【技术交流】', 3)
+		</script>
+	</body>
+</html>

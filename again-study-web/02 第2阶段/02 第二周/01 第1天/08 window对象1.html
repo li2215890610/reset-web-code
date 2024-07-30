@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>window对象-1</title>
+	</head>
+	<body>
+		<script>
+//			window.alert('提示框')
+//			只有一个确定按扭
+
+//			alert(window.confirm('确认框'))
+//			有2个按扭：点确定时返回true，点取消返回false
+			
+//			alert(window.prompt('输入提示框', '默认文字'))
+//			有2个按扭：点确定时返回输入的文字
+//			如果文本是空的，那么返回''
+//			如果点取消，返回null
+			
+//			这3个框会阻断 JS 执行，当框弹出时JS会暂停执行
+//			
+//			alert、confirm、prompt这3个方法都是window对象的方法
+//			window对象的方法可以省略“window.”
+//			window.alert('')      相当于          alert('')
+//			
+			
+//			window.openDialog('https://www.baidu.com', '_blank', 'width=500px,height=300px')
+//			window.showModalDialog('https://www.baidu.com', '123', 'width=500px,height=300px')
+//			弹出模态对话框，在模态框关闭之前无法回到原窗口
+//			传入到模态框内部的数据
+//			模态框关闭时可以返回数据
+//			window.returnValue
+//			
+//			
+//			window.showModelessDialog('https://www.baidu.com', '123', 'width=500px,height=300px')
+//			非模态框，不会阻止用户返回原窗口
+//			
+//			模态框和非模态框用户不好，而且浏览支持不好，通常会使用弹出层
+			
+			
+//			var timer = setTimeout(function(){
+//				alert('3秒后执行1次')
+//			}, 3000)
+//			//延迟执行行代码
+//			
+//			clearTimeout(timer)
+//			//可以清除延迟执行
+//
+//////////////////////////////////////////////////////////////////////////////			
+//			var i = 1;
+//
+            // setInterval() 方法可按照指定的周期（以毫秒计）来调用函数或计算表达式
+//			var t = setInterval(function(){
+//				alert('1秒执行1次')
+//				i++
+//				
+//				if(i > 10){
+//					clearInterval(t)
+//					//清除
+//				}
+//			}, 1000 / 60)
+			//每隔指定的时候执行1次，不断地执行，直到你清除它
+//////////////////////////////////////////////////////////////////////////////
+			
+//			setTimeout()
+//			clearTimeout()
+//			setInterval()
+//			clearInterval()
+//			这4个方法都是window对象的方法 
+//			setInterval()的执行频率最好不要超每秒60次
+			
+			
+//			var a = 1;
+//			var af
+			
+//			var func = function(){
+//				document.body.innerHTML = a++
+//				af = requestAnimationFrame(func)
+//			}
+			
+//			requestAnimationFrame(func)
+			
+//			requestAnimationFrame()会将代码的执行和页面的渲染放在一块
+//			因此特别适合用来做动画
+//			它的频率等于页面渲染的频率  “更新”或“重绘” 通常是60次每秒
+			
+			
+//			setTimeout(function(){
+//				cancelAnimationFrame(af)
+//			}, 1000)
+			
+//			cancelAnimationFrame()
+//			cancelRequestAnimationFrame()    //某些浏览器
+//			可以取消动画帧
+			
+		</script>
+	</body>
+</html>

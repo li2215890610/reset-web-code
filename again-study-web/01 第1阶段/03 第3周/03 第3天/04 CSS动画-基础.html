@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>CSS动画-基础</title>
+        <style>
+            body{
+                margin: 0;
+            }
+            section{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                animation-name: colors, rotates;
+                animation-duration: 5s;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+                transform-origin: -100px -100px;
+                position: absolute;
+                top: 400px;
+                left: 50%;
+            }
+            div{
+                width: 10px;
+                height: 10px;
+                background-color: red;
+                position: absolute;
+                top: calc(400px - 105px);
+                left: calc(50% - 105px);
+            }
+            
+            
+            @keyframes rotates{
+                from {
+                    transform: rotate(0);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+            
+            @keyframes colors{
+                0%{
+                    background-color:red;
+                }
+                14%{
+                    background-color:orange;
+                }
+                28%{
+                    background-color:yellow;
+                }
+                42%{
+                    background-color:green;
+                }
+                56%{
+                    background-color:cyan;
+                }
+                70%{
+                    background-color:blue;
+                }
+                85%{
+                    background-color:purple;
+                }
+                100%{
+                    background-color:red;
+                }
+            }
+        </style>
+    </head>
+    <body>
+
+        <div></div>
+        <section></section>
+    </body>
+</html>

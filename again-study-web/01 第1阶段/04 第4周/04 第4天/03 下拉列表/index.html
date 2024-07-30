@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="author" content="张强">
+        <title>爱迷尼儿童摄影</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body{
+                padding-top: 50px;
+            }
+            header{
+                background-color: #eee;
+                height: 6rem;
+            }
+            header h1{
+                font-size: 2.2rem;
+            }
+            .toolbar{
+                padding: 10px 15px;
+            }
+            th{
+                background-color: #eee;
+                font-weight: normal;
+            }
+            th:last-child, td:last-child{
+                text-align: center;
+            }
+            #myModal .control-label{
+                text-align: left;
+            }
+            .navbar-inverse .navbar-toggle{
+                padding: 5px 10px;
+                margin-top: 10px;
+                color: #ccc;
+                border-color: #d53;
+            }
+            .navbar-inverse .navbar-toggle:hover{
+                background-color: #c93;
+            }
+            .navbar-inverse .navbar-toggle:focus{
+                background-color: transparent;
+            }
+            .nav-right{
+                background: none;
+                color: #ccc;
+                border: 1px solid #d53;
+                margin-top: 10px;
+                padding: 4px 8px;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <!------------------------------->
+                    <div class="btn-group pull-right">
+                        <button class="navbar-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">用户管理</a></li>
+                            <li><a href="#">修改密码</a></li>
+                            <li><a href="#">安全退出</a></li>
+                        </ul>
+                    </div>
+                    <!------------------------------->
+                    <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                        <span class="glyphicon glyphicon-menu-hamburger"></span>
+                    </button>
+                    <a href="#" class="navbar-brand">爱迷尼儿童摄影</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">首页</a></li>
+                        <li class="active"><a href="#">客户</a></li>
+                        <li><a href="#">宝贝</a></li>
+                        <li><a href="#">孕妈咪</a></li>
+                        <li><a href="#">会员卡</a></li>
+                        <li><a href="#">订单</a></li>
+                        <li><a href="#">预约</a></li>
+                        <li><a href="#">产品</a></li>
+                    </ul>
+                    <!----------------------------------------->
+                    <div class="btn-group pull-right hidden-xs">
+                        <button class="nav-right" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">用户管理</a></li>
+                            <li><a href="#">修改密码</a></li>
+                            <li><a href="#">安全退出</a></li>
+                        </ul>
+                    </div>
+                    <!----------------------------------------->
+                </div>
+            </div>
+        </nav>
+        <header>
+            <div class="container">
+                <h1>客户查询及管理</h1>
+            </div>
+        </header>
+        <div class="container toolbar">
+            <button class="btn btn-success">添加客户</button>
+            <a class="btn btn-warning" href="#" data-toggle="modal" data-target="#myModal">
+                <span class="glyphicon glyphicon-search"></span> 搜索
+            </a>
+        </div>
+        <div class="container">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <th style="width:150px">添加时间</th>
+                        <th style="width:120px">姓名</th>
+                        <th>性别</th>
+                        <th>QQ</th>
+                        <th>手机</th>
+                        <th>客户经理</th>
+                        <th>详情</th>
+                    </tr>
+                    <tr>
+                        <td>2016-03-23 16:03</td>
+                        <td><span data-toggle="tooltip" data-placement="left" title="这里是提示内容">常伟</span></td>
+                        <td>先生</td>
+                        <td>273263743</td>
+                        <td>18638273637</td>
+                        <td>小瑞</td>
+                        <td>
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2016-03-23 16:03</td>
+                        <td><span data-toggle="tooltip" data-placement="right" title="这里是提示内容">常伟</span></td>
+                        <td>先生</td>
+                        <td>273263743</td>
+                        <td>18638273637</td>
+                        <td>小瑞</td>
+                        <td>
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2016-03-23 16:03</td>
+                        <td><span data-toggle="tooltip" data-placement="top" title="这里是提示内容">常伟</span></td>
+                        <td>先生</td>
+                        <td>273263743</td>
+                        <td>18638273637</td>
+                        <td>小瑞</td>
+                        <td>
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">客户搜索</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="name" class="col-sm-3 control-label">姓名：</label>
+                            <div class="col-sm-4">
+                                <input type="text" id="name" class="form-control" placeholder="客户姓名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="qq" class="col-sm-3 control-label">QQ：</label>
+                            <div class="col-sm-4">
+                                <input type="text" id="qq" class="form-control" placeholder="QQ号">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="col-sm-3 control-label">手机：</label>
+                            <div class="col-sm-4">
+                                <input type="text" id="phone" class="form-control" placeholder="手机号">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="idNo" class="col-sm-3 control-label">身份证：</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="idNo" class="form-control" placeholder="身份证号">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="manager" class="col-sm-3 control-label">客户经理：</label>
+                            <div class="col-sm-4">
+                                <input type="text" id="manager" class="form-control" placeholder="客户经理">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">&#x3000;关闭&#x3000;</button>
+                    <button type="button" class="btn btn-success">&#x3000;搜索&#x3000;</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script>
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+        </script>
+    </body>
+</html>

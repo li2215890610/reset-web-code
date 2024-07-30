@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>Fig标签</title>
+        <style>
+            body{
+                counter-reset: fig;
+            }
+            figure{
+                counter-increment: fig;
+                text-align: center;
+            }
+            figcaption:before{
+                content: '图 ' counter(fig) '：'
+            }
+            figcaption[lang=en]:before{
+                content: 'fig. ' counter(fig) ': '
+            }
+        </style>
+    </head>
+    <body>
+        <figure>
+            <img src="lry.jpg" alt="刘若英近照">
+            <figcaption>著名歌手、影星刘若英</figcaption>
+            <figcaption lang="en">Liu Ruoying</figcaption>
+        </figure>
+        <figure>
+            <img src="lry.jpg" alt="刘若英近照">
+            <figcaption>著名歌手、影星刘若英</figcaption>
+            <figcaption lang="en">Liu Ruoying</figcaption>
+        </figure>
+        <figure>
+            <img src="lry.jpg" alt="刘若英近照">
+            <figcaption>著名歌手、影星刘若英</figcaption>
+            <figcaption lang="en">Liu Ruoying</figcaption>
+        </figure>        
+    </body>
+</html>

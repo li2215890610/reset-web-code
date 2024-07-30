@@ -1,0 +1,12 @@
+npm init 		
+		在当前文件夹初始化一个package.json项目配置文件
+		按照提示输入信息
+		保存后按Ctrl + C
+
+npm install packageName --save
+		在当前文件夹中安装模块包（安装在node_modules中）及其依赖包
+		--save将本次安装的模块包记录到package.json配置文件的依赖项中
+
+npm uninstall packageName --save
+		卸载模块包
+		--save从package.json中删除本依赖项

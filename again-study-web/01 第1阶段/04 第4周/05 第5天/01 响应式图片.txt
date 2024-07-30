@@ -1,0 +1,5 @@
+关于banner的讲解可以先尝试响应式图片：
+img-responsive 其实就是
+	max-width:100%;
+	height:auto;
+	display:block;

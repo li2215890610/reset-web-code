@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS对象</title>
+</head>
+<body>
+    <script>
+        // JS是面向对象的，但不使用类。它基于prototype(原型)
+        // 1 使用new关键字创建一个对象,动态的添加属性和方法(JS是动态语言)。
+        var person1 = new Object();
+        // 为对象添加name age sex属性
+        person1.name = 'zhangSan';
+        person1.age = 30;
+        person1.sex = true;
+        // 添加方法
+        person1.showName = function(){
+            console.log(this.name);
+        }
+        // 上面这种方式的问题是：如果需要多次创建对象，则需要重复代码多次，不利于代码的复用
+        
+        // 2 使用构造函数创建
+        function Person(name, age, sex){
+            // 为当前对象添加属性
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+            // 为当前对象添加方法
+            this.showName = function(){
+                console.log(this.name);
+            }
+            this.showAge = function(){
+                console.log(this.age);
+            }
+        }
+        // 创建对象、传值
+        var p1 = new Person('zhangSan', 22, true);
+        var p2 = new Person('liSi', 24, false);
+        // 调用方法
+        p1.showName();
+        p1.showAge();
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>日期时间对象</title>
+	</head>
+	<body>		
+		<script>
+			//注意讲解几种构造函数的不同
+			var t1 = new Date(2016, 6, 2, 12)
+			//月份是从0开始的
+			//讲一下时区的概念及应用
+			console.log(t1)
+            // getTime() 方法可返回距 1970 年 1 月 1 日之间的毫秒数
+			console.log(t1.getTime())
+						
+			var t2 = new Date(9999, 11, 31, 24, 0, 0)
+			console.log(t2)
+			console.log(t2.getTime())
+            
+            console.log("*".repeat(50))
+
+			//日期加减方法1：
+			//取出要加减的部分，加减完再设回去
+			var now = new Date()
+            console.log(now)
+			now.setMonth(15)
+//			会使年份增加
+//			now.setDate(95)
+//			会使月份增加
+//			now.setHours(35)
+//			会使日期增加
+//			其它setMinutes/setSeconds类同
+//			负值也能恰当处理
+						
+			console.log(now)
+//			日期加减的方法2：
+//			date.getTime() + 2 * 24 * 60 * 60 * 1000
+//			先得到毫秒表示，然后再计算
+
+//			其它方法请教师自行备课
+//			https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date
+
+		</script>
+	</body>
+</html>

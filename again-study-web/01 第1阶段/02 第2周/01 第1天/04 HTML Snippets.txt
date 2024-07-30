@@ -1,0 +1,27 @@
+1.打开VS Code新窗口
+2.按 F1 进入命令列表，输入 Snippets
+3.输入 HTML 选择 HTML编辑模式
+4.在打开的窗口中新增：
+
+    "HTML文档基本结构": {
+		"prefix": "go",
+		"body": [
+			"<html>",
+            "\t<head>",
+            "\t\t<meta charset=\"utf-8\">",
+            "\t\t<meta name=\"author\" content=\"张强\">",
+            "\t\t<title>$1</title>",
+            "\t\t<style>",
+            "\t\t\t",
+            "\t\t</style>",
+            "\t</head>",
+            "\t<body>",
+            "\t\t$2",
+            "\t</body>",
+            "</html>"
+		],
+		"description": "HTML文档基本结构"
+	}
+    
+5.保存
+6.在 HTML 模式下即可使用 go + 回车快速创建 HTML 文档

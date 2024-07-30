@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>数学对象</title>
+	</head>
+	<body>
+		
+		<script>
+			
+			console.log(Math.ceil(2.1))
+			console.log(Math.ceil(-2.1))
+			//天花板，向上取整，负数向上取整时相当于把小数部分扔掉
+			//不存在四舍五入
+			//返回的是数字
+			
+			var type = typeof Math.ceil(2.1)
+			console.log(type)
+			
+			console.log(Math.floor(2.1))
+			console.log(Math.floor(-2.1))
+			//地板，向下取整，负数向下取整时会变得更小
+			
+			console.log(Math.round(2.1))
+			console.log(Math.round(2.4))
+			console.log(Math.round(2.49))
+			console.log(Math.round(2.5))
+			//四舍五入取整，只考虑小数点后第1位小数的值
+			
+			console.log(Math.pow(2, 3))
+			//幂，即a的b次方
+			
+			console.log(Math.sqrt(9))
+			//平方根
+			
+			Math.PI 
+			//3.1415926...
+			//当成弧度值的话，相当于180度对应的弧度
+			//Math.PI * 2 相当于360度
+			//Math.PI / 6 相当限30度
+			
+			
+//			其它数学方法请自己备课
+//			https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math
+		</script>
+	</body>
+</html>

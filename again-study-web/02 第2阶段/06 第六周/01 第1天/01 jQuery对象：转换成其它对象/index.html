@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>jQuery</title>
+        <style>
+            .red-text{
+                color:red;
+            }
+            .bold-text{
+                font-weight: bold;
+                font-size: 2rem;
+            }
+        </style>
+    </head>
+    <body>
+        <ul></ul>
+        <ul>
+            <li>第1项</li>
+            <li>第2项</li>
+            <li class="bold-text">第3项</li>
+            <li>第4项</li>
+            <li>CSS</li>
+            <li>第6项</li>
+            <li>第7项</li>
+        </ul>
+        <iframe></iframe>
+        
+        <script src="jquery.js"></script>
+        <script>
+            
+            // var ts = $('li').map(
+            //     function(){
+            //         return $(this).text()
+            //     }
+            //     // 使用function函数时，可以使用this，
+            //     // this表示当前索引位置的标签元素
+            // )
+            // console.dir(ts)
+            // 将jQuery对象转换成类似字符串数组
+            
+            
+            // 使用，拼接jQuery对象中标签元素中的字符串
+            // ES6 在Node.js中支持95%，在现代桌面浏览器中支持90%以上
+            // 而在手机中只支持50%
+            // var ts = $('li').map(
+            //     // (i, ele) => { return $(ele).text() } 
+            //     (i, ele) => $(ele).text()
+            //     // 如果 => 右侧只有一个return语句
+            //     // 可以省略{ return }
+                
+            //     // 如果 => 左侧只有一个参数则可以省略圆括号
+            //     // (ele) => {}
+            //     // ele => {}
+            //     // 如果 => 左侧没有参数，则必须写 () => {}
+                
+            //     // 使用箭头函数时要注意this的指向，
+            //     // 如果没有明确的function作用域包围this，
+            //     // this将指向全局作用域window 
+            // )
+            
+            
+            // 将类似数组转换成数组的方法
+            // 拼接数组元素为字符串的方法
+            // alert(Array.from(ts).join('，'))
+            // // Array.from可以把类似数组的对象转换成数组（Array）
+            // // 老写法：
+            // console.log(Array.prototype.slice.call(ts))
+            
+            
+            /* -------------------------------------------------- */
+            
+            
+            // 判断jQuery对象中的标签元素是否符合某个条件
+            // alert(  $('li:even').is('.red-text')  )
+            
+            
+            // 内容中是否包含指定字符串
+            // function hasCSS(i, ele){
+            //     return $(ele).text().indexOf('CSS') > -1
+            // }
+            
+            // alert(  $('li:eq(4)').is(hasCSS)  )
+            
+            
+            /* -------------------------------------------------- */
+            
+            
+            // 使用toArray()将jQuery对象（类似数组的对象）转换成数组
+            console.log(    $('li').toArray().reverse().map(ele => ele.innerText).join('，')   )
+            
+            
+            
+        </script>
+    </body>
+</html>

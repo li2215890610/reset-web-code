@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html> 
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>作用域</title>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<script>
+			var a = 3
+			var b = 5
+			
+			function add(a, b){
+//				函数{}内部是函数作用域
+//				Function域
+//				函数作用域中的变量只在本函数内部可见、可用
+//				函数作用域外部的同名变量会被覆盖，不可用
+//				函数作用域外部不同名的变量可见、可用的
+				
+				var wA = window.a
+//				全局作用域即window对象
+//				定义在全局作用域中的变量可以通过window对象获取
+//				相当于是window对象的属性
+				
+//				全局作用域中的变量在所有地方都是可见的，除非被覆盖
+//				如果被覆盖，可以用  window.变量名  使用（获取或设置值）
+				
+//				{
+//					var a = 9
+//					alert(a)
+//				}
+//				在JS中{}单独使用并不会创建作用域
+//				而是和{}外面是同一个作用域
+				
+
+				for(var i = 0; i < arguments.length; i++){
+					var a = 10
+//					会改变for外面的a变量的值！！！
+
+					console.log('for中的变量a:' + a)
+					console.log('参数' + i + '：' + arguments[i])
+				}
+				
+				return a + b
+			}
+			
+			console.log(add(2, 4, 7, 9))   // 6
+			console.log(add(a, b))   // 8
+			
+			function add2(a, c){     // 1 + 5 + 8 = 14
+				return a + b + c
+			}
+			
+			console.log(add2(1, 8))
+			
+		</script>
+	</body>
+</html>

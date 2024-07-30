@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>外边距重叠</title>
+        <style>
+            body{
+                margin: 0;
+            }
+            p:nth-of-type(1){
+                margin: 30px;
+                text-align: center;
+                border: 1px solid red;
+            }
+            p:nth-of-type(2){
+                margin: 50px;
+                text-align: center;
+                border: 1px solid blue;
+            }
+        </style>
+    </head>
+    <body>
+        <p>HTML5从狭义上说是HTML超文本标记语言的第5个版本。</p>
+        <p>HTML5从广义上说是HTML、CSS、JavaScript最新特性的总称。</p>
+        <!--使用右键“查看元素”观察两个 p 标签的外边距，即可得到结论-->
+    </body>
+</html>

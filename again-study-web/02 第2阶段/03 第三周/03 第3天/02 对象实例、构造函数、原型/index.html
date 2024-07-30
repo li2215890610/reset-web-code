@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>Person</title>
+		<script src="js/baby.js"></script> 
+		<script src="js/child.js"></script> 
+		<script src="js/student.js"></script>
+		<script src="js/worker.js"></script>
+	</head>
+	<body>
+		<script>
+			var baby = new Baby('ZhangSan', true, new Date(2013, 5, 1, 12, 0, 0))
+			console.log(baby)
+			console.log(baby.age)
+			console.log(baby.getAge())
+			baby.eat('苹果')
+			baby.sleep(12)
+			
+//			baby.name = '12341234'
+//			baby.age = 22
+//			console.log(baby)
+
+			var child = new Child('ZhangSan', true, new Date(2013, 5, 1, 12, 0, 0))
+			console.log(child)
+			child.eat('西瓜')
+			child.sleep(9)
+			child.play('滑滑梯', 1)
+			child.play('足球', 3)
+			
+			var student = new Student('ZhangSan', true, new Date(2013, 5, 1, 12, 0, 0))
+			console.log(student)
+			student.eat('鸡腿')
+			student.sleep(7)
+//			student.play('滑滑梯', 1)
+			student.play('手机', 0.5)
+			student.study('【HTML5】', 15)
+			
+			var worker = new Worker('ZhangSan', true, new Date(2013, 5, 1, 12, 0, 0))
+			console.log(worker)
+			worker.eat('鸡腿')
+			worker.sleep(7)
+//			student.play('滑滑梯', 1)
+			worker.play('手机', 0.5)
+			worker.study('【管理学】', 1)
+			worker.work('【写代码】', 3)
+			worker.work('【开会】', 2)
+			worker.work('【技术交流】', 3)
+			
+			console.log('-'.repeat(30))
+			
+			console.log(worker instanceof Worker)
+			console.log('worker对象是Worker构造函数的一个实例')
+			console.log(worker instanceof Student)
+			console.log(worker instanceof Child)
+			console.log(worker instanceof Baby)
+			console.log(worker instanceof Object)
+//			worker对象也是Student、Child、Baby、Object构造函数的实例
+			
+			console.log('-'.repeat(30))
+			console.log(student instanceof Worker)
+			console.log(student instanceof Student)
+//			student对象不是Worker构造函数的实例！！
+			
+//			一个worker对象能否当成一个student对象来使用呢？
+//			一个worker对象能否当成一个child对象来使用呢？
+//			
+//			在语法上完全可以把worker当成student或child来使用！
+//			因为worker具有student和child所具有的所有属性和方法
+//			
+//			在语义上可能会有所不同，比如worker的play方法与
+//			child的play方法是不一样的
+			
+			console.log('-'.repeat(30))
+			console.log(typeof worker)
+			console.log(typeof student)
+			console.log(typeof child)
+//			typeof 只能判断出worker、student等是object
+//			不能提供具体是哪个构造函数构造出来的object
+
+//			如果想得到一个对象的构造函数，怎么办？
+			console.log(worker.constructor)
+//			得到的是一个活生生的构造函数，并不是构造函数的名字
+//			使用 new worker.constructor(name, isMale, birthDate)
+//			是可以构造出对象的！
+			
+			console.log(worker.constructor.name)
+//			在firefox中可以得到构造函数的名字，但这是一个非标准属性
+			
+			console.log(worker.constructor.toString())
+//			可以得到构造函数的源代码
+			var code = worker.constructor.toString()
+			var index = code.indexOf('(')
+			var name = code.substring(9, index)
+			console.log(name)
+			
+//			怎样得到一个对象的原型？
+			console.log(worker.prototype)
+//			结果是undefined，无法通过 .prototype 获得对象的原型
+			
+//			console.log(worker.constructor.prototype)
+			
+//			console.log(Object.getPrototypeOf(worker))
+			
+			var workerPrototype = Object.getPrototypeOf(worker)
+			var workerPrototypePrototype = Object.getPrototypeOf(workerPrototype)
+			var workerPrototypePrototypePrototype = Object.getPrototypeOf(workerPrototypePrototype)
+			var workerP4 = Object.getPrototypeOf(workerPrototypePrototypePrototype)
+			console.log(workerPrototype)
+			console.log(workerPrototypePrototype)
+			console.log(workerPrototypePrototypePrototype)
+			console.log(workerP4)
+			
+//			Object.getPrototypeOf()可以获取指定对象的原型
+//			比使用worker.constructor.prototype靠谱
+			
+			console.log(workerP4.isPrototypeOf(worker))
+//			判断一个对象是否在指定对象的原型链中
+			
+			console.log(child.isPrototypeOf(worker))
+//			在搭建worker构造函数的原型链时根本就没有使用child对象
+//			而是使用了Child构造函数的原型！
+			
+			console.log(workerPrototypePrototype.isPrototypeOf(worker))
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,17 @@
+--abbr
+--dfn
+--cite
+blockqoute
+
+details
+summary
+
+--code
+--var
+output
+samp
+kbd  
+--address
+--pre
+
+

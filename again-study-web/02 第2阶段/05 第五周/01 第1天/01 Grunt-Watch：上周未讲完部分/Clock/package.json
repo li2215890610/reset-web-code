@@ -1,0 +1,21 @@
+{
+  "name": "zy-clock",
+  "version": "1.0.0",
+  "description": "Grunt练习项目",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "张强",
+  "license": "ISC",
+  "dependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0"
+  }, 
+  "srcFiles": ["src/control.js", "src/dot.js", 
+              "src/second.js", "src/minute.js", 
+              "src/hour.js", "src/diamond.js", 
+              "src/clock.js"]
+}

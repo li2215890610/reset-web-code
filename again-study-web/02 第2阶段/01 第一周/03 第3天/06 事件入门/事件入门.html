@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>事件入门</title>
+		<style>
+			div{
+				width: 300px;
+				height: 50px;
+				background-color: red;
+				color: white;
+			} 
+		</style>
+	</head>
+	<body>
+		<!--事件：某件事情的发生就是事件，包含：
+		鼠标操作、键盘操作、触控操作、文档生命周期、
+		窗口操作、用户命令（打印）、程序流程-->
+		<section>
+			<div>这个可以点击</div>
+		</section>
+		<!--<div onclick="click1(event)">这个可以点击</div>-->
+		<!--onclick监听点击事件-->
+		<!--event表示事件对象-->
+		<!--click1()表示事件发生的时候要执行的函数-->
+		
+		<script>
+			
+			var div = document.querySelector('div')
+			var sec = document.querySelector('section')
+			
+			// function click1(e){
+			// 	alert(e.pageX)
+			// }
+
+//			div.addEventListener('click', click1)		
+//			addEventListener 添加事件监听者
+//			第1个参数，需要监听事件，不带'on'
+//			第2个参数，事件发生时执行的函数的名称，不带'()'
+		
+//			div.onclick = click1;
+//			也可监听事件，但它会覆盖html标签中的onclick属性
+//			使用方法名，不带'()'
+//			使用 onclick 相当于属性赋值，因此为覆盖，无法添加多个监听函数
+			
+//			事件挖洞在DOM中称为捕获，即从窗口开始逐步查找最终捕获到触发事件的标签元素
+//			捕获成功后开始冒泡
+			document.documentElement.addEventListener('click', function(){alert('HTML-挖洞')}, true)
+			document.documentElement.addEventListener('click', function(){alert('HTML-冒泡')}, false)
+			
+			document.body.addEventListener('click', function(){alert('BODY-挖洞')}, true)
+			document.body.addEventListener('click', function(){alert('BODY-冒泡')}, false)
+			
+			sec.addEventListener('click', function(){alert('SECTION-挖洞')}, true)
+			sec.addEventListener('click', function(){alert('SECTION-冒泡')}, false)
+			
+			div.addEventListener('click', function(){alert('DIV-挖洞')}, true)
+			div.addEventListener('click', function(){alert('DIV-冒泡')}, false)
+		</script>
+	</body>
+</html>

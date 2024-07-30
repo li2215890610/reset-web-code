@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>Box垂直居中</title>
+        <style>
+            section{
+                display: -moz-box;
+                /*私有样式，如果在移动设备上要写成 -webkit-box*/
+                
+                width: 300px;
+                height: 300px;
+                border: 1px solid blue;
+                
+                -moz-box-pack: center;
+                /*水平居中，必须写在容器中*/
+            }
+            span{
+                display: -moz-box;
+                /*子标签也必须写上此样式！*/
+                
+                -moz-box-align: center;
+                /*垂直居中*/
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <span>垂直水平居中</span>
+        </section>
+    </body>
+</html>

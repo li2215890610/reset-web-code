@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>图片库</title>
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            body{
+                margin: 0;
+            }
+            main{
+                margin: 5px;
+                /*width: 100%;*/
+                /*注意不能设置 width: 100% */
+                display: flex;
+                flex-wrap: wrap;
+            }
+            div{
+                background-color: red;
+                width: calc((100% - 40px) / 4);
+                height: 200px;
+                /*注意 div 不设高度是看不见的，这一点与 img 标签不同！*/
+                margin: 5px;
+                /*不建议使用纯百分比，可以考虑使用 vh、vw*/
+            }
+            @media (max-width:1100px){
+                div{
+                    width: calc((100% - 30px) / 3);
+                }
+            }
+            @media (max-width:800px){
+                div{
+                    width: calc((100% - 20px) / 2);
+                }
+            }
+            @media (max-width:500px){
+                div{
+                    width: calc(100% - 10px);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <!--使用容器确保外边距与内部图片边距相等，注意外边距没有重叠！-->
+            <!--div*20-->
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </main>
+    </body>
+</html>

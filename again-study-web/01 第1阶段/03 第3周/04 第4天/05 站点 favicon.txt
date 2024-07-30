@@ -1,0 +1,7 @@
+显示在浏览器网页标题旁边的小图标，最早由IE发明，只支持.ico格式
+现代浏览器已经支持png格式。可以使用16x16、32x32、64x64尺寸的png文件。
+
+<link rel="shortcut icon" href="favicon.png" type="image/png">
+<link rel="icon" href="favicon.png" type="image/png">
+
+注意：支持老的IE浏览器需要使用 .ico 格式的图标文件

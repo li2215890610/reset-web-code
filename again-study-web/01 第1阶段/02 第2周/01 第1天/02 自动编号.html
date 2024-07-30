@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>自动编号</title>
+        <style>
+            body{
+                counter-reset: h2 -1;
+            }
+            
+            /*第二级标题编号，注意body中的 counter-reset 样式*/
+            
+            h2:before{
+                counter-increment: h2;
+                content: counter(h2) '：';
+            }
+                     
+            /*第三级标题编号*/
+            
+            section{
+                counter-reset: myh3;
+            }         
+            h3{
+                padding-left: 40px;
+            }
+            h3:before{
+                counter-increment: myh3;
+                content: counter(h2) '.' counter(myh3) '、'
+            }
+            
+            /*第四级标题编号*/
+            
+            section>section{
+                counter-reset: myh4;
+            }
+            h4{
+                padding-left: 80px;
+            }
+            h4:before{
+                counter-increment: myh4;
+                content: counter(h2) '.' counter(myh3) '.' counter(myh4) '、'
+            }
+        </style>
+    </head>
+    <body>
+        <h1>个人简历</h1>
+        <h2>基本信息</h2>
+        <section>
+            <h2>专业技能</h2>
+            <section>
+                <h3>精通HTML5</h3>
+                <h4>HTML基本结构</h4>
+                <h4>文本标签</h4>
+                <h4>其它高级标签</h4>
+            </section>
+            <h3>精通CSS3</h3>
+            <h3>精通JavaScript</h3>
+            <h3>H5专家、高手、牛人</h3>
+        </section>
+        <section>
+            <h2>求职意向</h2>
+            <p>HTML高级开发工程师，全职</p>
+            <p>薪资面议</p>
+            <p>现已离职，可一周内到岗</p>
+        </section>
+        <h2>项目经验</h2>
+        <h2>教育经历</h2>
+    </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+	</head>
+	<body>
+		<script>
+		
+//			获取body标签元素并设置样式
+//			document.body.style.margin = '0px'
+//			document.body.style.height = '100%'
+//			document.body.style.border = '5px solid black'
+		
+		
+//			获取html标签元素并设置样式
+//			var html = document.getElementsByTagName('html')[0]
+//			alert(html)
+//			html.style.height = '100%'
+			
+			
+			document.title = '存款收益计算器'
+			
+			var header = document.createElement('header')
+			header.innerText = '存款收益计算器'
+			header.style.height = '50px'
+			header.style.backgroundColor = '#f93'
+			header.style.color = 'white'
+			header.style.fontSize = '18px'
+			header.style.lineHeight = '50px'
+			header.style.textAlign = 'center'
+			document.body.appendChild(header)
+			
+			
+//			document.all
+//			获取页面上的所有标签元素
+//			能把标签元素的树型结构变成线型结构
+//			在循环处理时就会很方便
+//			尽可能把document.all放在所有创建元素的代码之后
+//			否则有些标签可能还没有创建出来
+			
+//			实现类似样式表中的
+//			*{
+//				box-sizing: border-box;
+//			}
+
+			for (var i = 0; i < document.all.length; i++) {
+				var ele = document.all[i]
+//              alert(ele)
+//				
+//				if (ele.tagName == 'SCRIPT') continue;
+//				if (ele.tagName == 'HTML') continue;
+//				
+				if (ele.style) {
+//                    alert(ele.style)
+//					//JS会进行类型转换：
+//					//1会认为是true，0会认为是false
+//					//'不空字符串'会认为是true，''会认为是false
+//					//null，undefined会认为是false
+//					//正常对象为认为true
+//					//因为document.all得到的都是标签元素，所以这个判断不用加
+//					
+					ele.style.boxSizing = 'border-box'
+				}
+			}
+			
+			
+//			document.links
+//			获取页面上的所有link，即<link>
+//			document.images
+//			获取页面上的所有图片，即<img>
+//			document.forms
+//			获取页面上的所有表单，即<form>
+//			document.anchors
+//			获取页面上的所有超连接，即<a>
+//			
+//			document.applets
+//			嵌入到页面上的java小程序，从来就没有在互联网上广泛使用，早已绝迹江湖了
+//			document.embeds
+//			嵌入到页面上的flash等
+			
+//			document.styleSheet
+//			获取页面上的所有样式表，包括<link>和<style>
+//			document.scripts
+//			获取页面上的所有脚本，即<script>
+			
+			
+		</script>
+	</body>
+</html>

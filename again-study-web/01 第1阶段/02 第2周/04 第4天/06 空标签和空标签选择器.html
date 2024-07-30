@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>空标签和:empty选择器</title>
+        <style>
+            /*:empty:before{
+            	content: '可以放上任意文字' '，再加一些文字'
+            }
+            :empty:after{
+            	content: '，还有文字'
+            }*/
+            :empty:before{
+            	content: '放上文字' url(fish.png);
+            }
+            :empty:after{
+            	content: '继续文字';
+            }
+            
+            /*空标签可以变出很多用途！使用:empty可以选中空标签*/
+        </style>
+    </head>
+    <body>
+       	<span></span>
+    </body>
+</html>

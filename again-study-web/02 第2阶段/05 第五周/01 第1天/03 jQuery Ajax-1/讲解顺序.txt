@@ -1,0 +1,14 @@
+$.get()		GET请求
+$.post()	POST请求
+$.ajax()	Ajax请求
+layer.js脚本库的简单应用
+
+可以分成几部分讲，不要一次写完整个代码
+
+$.ajaxSetup()全局配置、全局事件
+
+jQuery的链式调用：
+每一个方法都返回jQuery对象，这样就可以链式调用了
+
+
+

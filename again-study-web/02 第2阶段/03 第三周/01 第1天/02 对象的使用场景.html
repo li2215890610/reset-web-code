@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>对象的使用场景</title>
+	</head>
+	<body>
+		<script>
+//			场景1：将对象作为数据的容器来使用
+//			因为对象是一个容器，所以我们使用对象组织一组数据
+//			从而将这一组数据当成一个整体
+
+//			不使用对象的情况：
+//			要声明大量的变量，如果有很多人要表示，页面上的变量就会很多很混乱
+			var name, age, isMale, height, weight,
+			color, childCount, course
+			
+			name = 'ZhangSan'
+			age = 3
+			isMale = true
+			height = 180
+			weight = 190
+			color = 0xFFFFCC
+			childCount = 1
+//			当要表示的数据增加时，还要定义一个新变量
+			course = 'HTML5'
+			
+			
+//			function showPerson(){}
+//			下面的定义函数的方法与上面等效
+//			定义了大量的参数，来表示每一项数据
+			var showPerson = function(n, a, i, h, w, c, count, course){
+				console.log('名字：' + n)
+				console.log('年龄：' + a)
+				console.log('性别：' + i)
+				console.log('身高：' + h)
+				console.log('体重：' + w)
+				console.log('肤色：' + c)
+				console.log('子女数量：' + count)
+				console.log('课程：' + course)
+			}
+			
+//			调用函数时也需要传递大量数据，如果数据的顺序改变或增加新的数据项就会很麻烦
+			showPerson(name, age, isMale, height, weight, color, childCount, course)
+		
+//			如果要表示40个人呢？
+//			var name1, age1, isMale1...
+//			var name2, age2, isMale2...
+//			var name3, age3, isMale3...
+
+//			使用对象来解决这个问题：
+//			创建一个对象，把对象当作数据的容器
+//			用它来承载一组数据
+			var p = {}
+			p.name = 'ZhangSan'
+			p.age = 3
+			p.isMale = true
+			p.height = 180
+			p.weight = 190
+			p.color = 0xFFFFCC
+			p.childCount = 1
+			p.course = 'HTML5'
+//			不用声明大量变量，只需把数据设置为对象的属性即可
+			
+//			不需要传递大量参数了，只需要传递一个对象即可
+			var showP = function(p){
+				for(var k in p){
+					console.log(k + ':' + p[k])
+//					for...in...循环对象中的属性
+//					p[k] 获取p对象中k属性的值
+				}
+			}
+			
+//			直接传递一个对象即可传递对象中的所有数据
+//			使用对象作为参数传递大量数据
+			showP(p)
+			
+		
+		
+//			场景2：
+//			将对象作为方法的容器来使用
+//			可以将一组功能相关的方法组织成一个整体
+//			或者组织到一起
+			
+//			来看看我们上周学过的Math对象：
+			
+//			Math.PI
+//			Math.SQRT2
+//			Math.E
+//			将常用的数学常量组织到一起（数据容器）
+		
+//			Math.abs()
+//			Math.sin()
+//			Math.pow()
+//			Math.ceil()
+//			Math.floor()
+//			Math.round()
+//			Math.random()
+//			Math作为方法的容器来使用，在其中包含了很多数学功能
+
+
+			
+//			场景3：
+//			对象既是数据容器，同时也是功能容器
+//			对象既提供属性，同时也提供相关的方法 		
+//			如果要实现这一点，就需要：把函数也放到对象内部！！！
+
+//			把function放到p对象的内部
+//			写法上和属性类似，但不是等于一个值而是等于一个函数
+//			放到对象内部的函数通常叫做方法(method)
+			p.show = function(){
+				console.log('名字-' + this.name)
+				console.log('年龄-' + this.age)
+				
+//				当一个函数移到一个对象内部的时候，可以使用this来表示它所在的对象
+
+			}
+			
+			p.show()
+//			当一个函数被移到对象内部时，可以使用 对象.方法名() 调用这个方法
+		
+//			当一个对象包含了数据（属性）和功能(方法)时，就会相对独立，对外的依存度会降低
+//			此时对象就可以变成一个相对独立的程序单元，可以拿到任意一个地方运行
+//			对象就变成了一个可以随时使用，重复使用的程序单元
+//			在使用对象的过程中就可以节省大量的细节代码（即对象内部的代码就不用写了）
+//			即：直接使用对象，而不用在乎对象内部的代码如何写
+			
+//			对象即可以是别人写的，我们直接拿来用
+//			也是可以是我们写好后，给别人用
+//			当然，自己写了自己用也是极好的			
+		</script>
+	</body>
+</html>

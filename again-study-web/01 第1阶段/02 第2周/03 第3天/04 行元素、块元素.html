@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>标签类型</title>
+        <style>
+            img, span, strong, i, b, a{
+                width: 200px;
+                height: 200px;
+                background-color: red;
+                color: white;
+                
+                /*这类元素会占居尽可能少的空间，并且会一个紧贴一个从左往右，从上往下排列
+                它们不受 width、height 样式的影响，即这些样式对它们无效
+                在窗口变化时，它们的大小不变，但会自动换行
+                它们叫做行元素（标签）*/
+            }
+            div, section, p, h1, header, aside{
+                width: 200px;
+                height: 40px;
+                background-color: blue;
+                color: yellow;
+                border: 1px solid red;
+                
+                /*这些元素会独占一行，哪怕它们根本用不了右侧的空间
+                它们受 width、height 控制
+                在窗口变化时，它们的会跟着变窄或变宽，除非设置了 width、min-width、max-width
+                它们在纵上也会尽可能少地占用空间
+                它们叫做块元素（标签）*/
+            }
+            
+            /*除了行标签、块标签之外，还有一个标签很特殊，它兼有两者的特点，即在行内，也会受到 width 和 height 影响*/
+            /*还有一些元素不在这些类别中，或很难分类，如 script、link、title、td 等*/
+            
+            /*行标签、块标签指的是默认特性，实际上行标签可以变成块元素、块标签也可以变成行元素。
+            display: inline; 即行元素
+            display: block; 即块元素
+            图片是 display: inline-block 
+            可以在上面的样式中试一下*/
+            
+            /*display: none; 可以隐藏标签
+            visibility: hidden; 也可以隐藏标签，但标签的位置仍然被占居着*/
+        </style>
+    </head>
+    <body>
+        <!--<img src="leaf.jpg" alt="枫叶">-->
+        <!--图片混合了行元素和块元素的特点-->
+        <span>HTML5</span>
+        <strong>从广义上说是</strong>
+        <i>前端开发技术的总称。</i>
+        <b>包含</b>
+        <a href="#">HTML</a>、
+        <a href="#">CSS</a>、
+        <a href="#">JavaScript</a>的最新内容。
+        HTML5是移动互联网时代的产物。
+        <div>HTML5</div>
+        <p>从广义上说是</p>
+        <section>前端开发技术的总称。</section>
+        <h1>包含</h1>
+        <header>
+            <a href="#">HTML</a>、
+            <a href="#">CSS</a>、
+            <a href="#">JavaScript</a>的最新内容。
+        </header>
+        <aside>HTML5是移动互联网时代的产物。</aside>
+    </body>
+</html>

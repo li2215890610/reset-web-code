@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>常用表单元素</title>
+        <style>
+            select{
+                width: 250px;
+                height: 250px;
+                border: 1px solid red;
+                padding: 5px;
+                resize: both;
+            }
+            optgroup{
+                font-style: normal;
+            }
+            /*optgroup:before{
+                content: '--------------------------';
+            }*/
+            optgroup:after{
+                content: '--------------------------';
+            }
+            /*观察一下上面样式的效果*/
+            textarea{
+                resize: none;
+                font-size: 3rem;
+                /*改变字号会连带造成多行文本框变大*/
+            }
+            fieldset {
+                margin: 0;
+                border-width: 1px;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="#">
+            <!--radio -> checkbox -> select -> optgroup -> textarea -> fieldset -> legend-->
+            <fieldset>
+                <legend>请选择</legend>
+                <div>
+                    <input type="radio" id="boy" name="isMale" checked>
+                    <label for="boy">男孩</label>
+                    <input type="radio" id="girl" name="isMale" checked>
+                    <label for="girl">女孩</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="html5" name="skills" checked>
+                    <label for="html5">HTML5</label>
+                    <input type="checkbox" id="css3" name="skills">
+                    <label for="css3">CSS3</label>
+                    <input type="checkbox" id="javascript" name="skills">
+                    <label for="javascript">JavaScript</label>
+                </div>
+            </fieldset>
+            <div>
+                <select name="skill" id="skill" multiple>
+                    <optgroup label="技能">
+                        <option value="1" selected>HTML5</option>
+                        <option value="2" selected>CSS3</option>
+                        <option value="3">JS</option>
+                        <option value="4">PHP</option>
+                    </optgroup>
+                    <optgroup label="装备">
+                        <option value="5">jQuery</option>
+                        <option value="6">Bootstrap</option>
+                    </optgroup>
+                </select>
+            </div>
+            <textarea name="text" id="text" cols="30" rows="10"></textarea>
+            实际行数通常等于 rows + 1
+            实际每行字符数（英文）通常等于 cols + 1
+        </form>
+    </body>
+</html>

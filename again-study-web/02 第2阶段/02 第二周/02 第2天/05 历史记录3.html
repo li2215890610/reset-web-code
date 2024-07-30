@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>页面3-导航控制-历史记录</title>
+		<style>
+			progress{
+				width: 600px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>页面3</h1>
+		<button onclick="goPage1()">后退到底</button>
+		<button onclick="progress(25)">进度25%</button>
+		<button onclick="progress(50)">进度50%</button>
+		<button onclick="progress(75)">进度75%</button>
+		<button onclick="progress(100)">进度100%</button>
+		<a href="03 - 1-历史记录.html">跳转到页面1</a>
+		<div>
+			<progress max="100" value="0"></progress>
+		</div>
+		<script>
+			function goPage1(){
+				history.go(-2)
+				//前进或后退指定的步数
+			}
+			
+			
+			function progress(value) {
+				document.querySelector('progress').value = value
+//          pushState()有三个参数:state对象，标题(现在是被忽略，未作处理)，URL(可选) 
+				history.pushState(value, '进度' + value, '#' + value)
+//				通过pushState可以向浏览器的历史记录中注入新记录
+//				在浏览器后退按扭上点右键可以看到历史记录
+				document.title = '进度' + value
+			}
+			
+//			注入的历史记录变化时可以获得事件通知
+			window.onpopstate = function(e){
+				var value = e.state
+				console.log(value)
+				
+				if(value == null) value = 0
+				//if后面只有一条语句时（条件成立时只执行一条语句），可以不写大括号
+	
+				document.querySelector('progress').value = value
+				document.title = '进度' + value
+			}
+		</script>
+	</body>
+</html>

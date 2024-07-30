@@ -1,0 +1,198 @@
+body{
+    margin: 0;
+    background-color: #333;
+    counter-reset: h1;
+}
+article{
+    background-color: white;
+    width: 900px;
+    margin: 10px auto;
+    padding: 80px 120px;
+    box-sizing: border-box;
+    counter-reset: figure;
+}
+
+/*文章中文头部*/
+
+h1{
+    text-align: center;
+    font-size: 35px;
+}
+address{
+    text-align: center;
+    font-style: normal;
+    font-family: 楷体;
+}
+address strong{
+    display: block;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 150%;
+}
+address span:before{
+    content: '（';
+}
+address span:after{
+    content: '）';
+}
+address span{
+    line-height: 150%;
+}
+.abstract:before{
+    content: '摘要：';
+    font-weight: bold;
+    line-height: 160%;
+}
+.abstract{
+    text-align: justify;
+    margin: 0;
+}
+.keywords:before{
+    content: '关键词：';
+    font-weight: bold;
+}
+.keywords{
+    margin: 0;
+    line-height: 160%;
+}
+.clcn:before{
+    content: '中图分类号：';
+    font-weight: bold;
+}
+.clcn{
+    margin: 0;
+    line-height: 160%;
+}
+.cite_quotes:before{
+    content: '“';
+}
+.cite_quotes:after{
+    content: '”';
+}
+/*文章英文头部*/
+
+header[lang=en]{
+    margin-top: 40px;
+}
+header[lang=en] h1{
+    font-size: 24px;
+}
+header[lang=en] address{
+    font-family: Arial, Helvetica, sans-serif;
+}
+header[lang=en] address strong{
+    font-size: 18px;
+}
+header[lang=en] address span:before{
+    content: '(';
+}
+header[lang=en] address span:after{
+    content: ')';
+}
+header[lang=en] address span{
+    font-size: 15px;
+}
+header[lang=en] .abstract:before{
+    content: 'Abstract: ';
+    font-weight: bold;
+    line-height: 160%;
+}
+header[lang=en] .abstract{
+    text-align: justify;
+    margin: 0;
+}
+header[lang=en] .keywords:before{
+    content: 'Key words: ';
+    font-weight: bold;
+}
+
+/*正文区*/
+
+h2{
+    counter-reset: h2;
+    font-weight: normal;
+    margin-top: 40px;
+}
+h2:before{
+    counter-increment: h1;
+    content: counter(h1) ' ';
+}
+a{
+    text-decoration: none;
+}
+section p{
+    text-indent: 2em;
+    text-align: justify;
+}
+article>section>section{
+    counter-reset: h3;
+}
+h3{
+    font-weight: normal;
+}
+h3:before{
+    counter-increment: h2;
+    content: counter(h1) '.' counter(h2) '  ';
+}
+
+dfn{
+    font-style: normal;
+}
+
+/*代码块*/
+
+code{
+    font-size: 15px;
+}
+
+/*插图*/
+
+figure{
+    counter-increment: figure;
+    text-align: center;
+}
+figcaption:before{
+    content: '图 ' counter(figure) ' ';
+}
+figcaption{
+    font-size: 15px;
+    line-height: 150%;
+}
+figcaption[lang=en]:before{
+    content: 'fig. ' counter(figure) ' ';
+}
+
+var{
+    font-style: normal;
+}
+article>section>section>section{
+    counter-reset: h4;
+}
+h4{
+    font-weight: normal;
+    text-indent: 2em;
+}
+h4:before{
+    counter-increment: h4;
+    content: '（' counter(h4) '） ';
+}
+
+/*参考文献*/
+
+ol{
+    margin: 0;
+    padding: 0;
+    counter-reset: li;
+}
+li{
+    margin: 0;
+    font-size: 13px;
+    list-style: none;
+}
+li:before{
+    counter-increment: li;
+    content: '[' counter(li) '] ';
+}
+cite{
+    font-style: normal;
+}

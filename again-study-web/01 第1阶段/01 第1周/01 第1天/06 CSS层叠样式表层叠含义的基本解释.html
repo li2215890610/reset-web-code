@@ -1,0 +1,20 @@
+<html>
+	<head>
+        <meta charset="utf-8">
+		<title>CSS</title>
+		<style>
+            span{
+                color:red;
+            }
+            /*上面的样式对所有的span都有影响*/
+            p span{
+                font-size: 45px;
+            }
+            /*这个样式只对p标签内的span有影响*/
+		</style>
+	</head>
+	<body>
+		<p>不在span标签中<span>p标签内部的span</span></p>
+		<span>p标签之外的span</span>
+	</body>
+</html>

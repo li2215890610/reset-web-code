@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>文本效果</title>
+        <meta charset="utf-8">
+        <style>
+            .bold_text{
+                font-weight: bold;
+                /*font-weight: 700;*/
+            }
+            .italic_text{
+                font-style: italic;
+            }
+            .underline_text{
+                text-decoration: underline;
+            }
+            .delete_text{
+                text-decoration: line-through;
+            }
+            .qoutes{
+                quotes: '『' '』' '「' '」';
+            }
+        </style>
+    </head>
+    <body>
+        普通文本<br>
+        <span>普通文本，span标签没有斜体特殊效果，表示一般内容</span><br><br>
+        
+        <strong>加粗文本，strong标签带有很强的强调含义，用于标识内容的重要性</strong><br>
+        <b>加粗文本，b标签强调含义比较弱</b><br>
+        <span class="bold_text">加粗文本，使用样式形成加粗效果，没有任何强调的意味</span><br><br>
+        
+        <!--让同学们比较一下几种加粗效果的不同点
+        含义不同
+        敲的代码多少不同
+        使用样式能够更加灵活地控制笔画粗细
+        样式对其它标签也能起到加粗作用
+        strong、b标签的加粗效果能够通过样式去掉-->
+        
+        <em>斜体文本，em标签带有很强的强调含义，用于标识内容的重要性</em><br>
+        <i>斜体文本，i标签强调含义比较弱</i><br>
+        <span class="italic_text">斜体文本，使用样式形成斜体效果，没有斜体强调的意味</span><br><br>
+        
+        <ins>下划线文本，ins标签带有插入含义，表示是新增的内容</ins><br>
+        <u>下划线文本，u标签没有特殊含义，仅是增加下划线效果</u><br>
+        <span class="underline_text">下划线文本，使用样式形成下划线效果，没有任何含义</span><br><br>
+        
+        <del>删除线文本，del标签带有删除含义，表示已经废除的内容</del><br>
+        <s>删除线文本，s标签删除含义较弱</s><br>
+        <span class="delete_text">删除线文本，使用样式形成下划线效果，没有任何含义</span><br><br>
+ 
+        <small>小字号，比正常字号略小的文本</small><br><br>
+        
+        正常文字<sup>上标文字</sup><br>
+        正常文字<sub>下标文字</sub><br><br>
+        
+        <q>带有引号的文本</q><br>
+        <q>带有引号的文本<q>引号嵌套</q>更多文本</q><br>
+        <q class="qoutes">带有自定义引号的文本<q>引号嵌套</q>更多文本</q><br><br>
+        <!--使用 q 标签可以避免引号字符污染内容-->
+    </body>
+</html>

@@ -1,0 +1,5 @@
+Less 变量及赋值         @var: value;
+Less 函数		     颜色、单位、数学、字符串...
+Less 继承/扩展            :extent()
+Less Mixin/混入  	     .name(@param: 5px);
+

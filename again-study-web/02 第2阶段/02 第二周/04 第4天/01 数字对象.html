@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>数字对象</title>
+	</head>
+	<body>
+		<script>
+			var n = 3
+			var n1 = new Number(3)
+			
+			console.log(n)
+			console.log(n1)
+//			注意数字值和数字对象的区别
+			
+			var n2 = new Number('2016')
+			console.log(n2)
+			var n3 = new Number(true)
+			console.log(n3)
+			
+			var n4 = new Number('2016年')
+			console.log(n4)
+//			Number构造函数的类型转换能力是有限的	
+			
+//			NaN 即 Not a Number 不是一个数字
+
+			var n5 = new Number('a')
+			console.log(n5)
+//			Number构造函数的类型转换能力是有限的	
+			
+			
+//			最大值
+			console.log(Number.MAX_VALUE)
+//			Number能够表示很大值，但是有效数字的位数不多
+//			即能够表示的精度比较小
+			
+			console.log(Number.MIN_VALUE)
+//			最小绝对值
+			
+			-Number.MAX_VALUE
+//			最小值
+			
+			console.log(0.00000000001 / 0)
+//			无穷大
+			
+			console.log(0/0)
+//			NaN
+			
+			
+			//是否是“不是数字”
+			//是否是"NaN"这个值
+			console.log(Number.isNaN(1))
+			console.log(Number.isNaN('1'))
+			console.log(Number.isNaN(0/0))
+			console.log(Number.isNaN(1/0))
+			
+//			1   		不是 			NaN
+//			'1'			不是				NaN
+//			0/1		0	不是				NaN
+//			1/0	无穷大	不是				NaN
+//			0/0			是				NaN
+//			{name:'ZhangSan'} 	不是		NaN
+			
+			console.log(Number('Zhang'))
+//			Number函数无法将字符串转换成数字，所以它返回NaN
+			
+//			Number.isNaN('Chang')     
+//			如果传入的值是  NaN 那么它会返回 true
+//			如果传入的值不是 NaN 那它不会主动进行类型转换，而是直接返回False
+			
+			
+			console.log('-'.repeat(30))
+			
+			console.log(Number.isNaN('Zhang'))
+//			'Chang'是字符串，不是 NaN
+			console.log(Number.isNaN(Number('Zhang')))
+//			Number('Chang')因为无法转换，所以返回NaN
+			
+			
+			
+			
+			console.log('-'.repeat(30))
+			
+			console.log(Number.isInteger(3))
+			//是整数
+			console.log(Number.isInteger(3.0))
+			//是整数
+			console.log(Number.isInteger(100 * (0.1 + 0.2)))
+			//不是整数，内部误差造成
+			
+			console.log('-'.repeat(30))
+			
+			var n = 0b1010
+//			8  + 2  ->   1000  + 10 =  1010
+//			二进制字面量
+			console.log(n)
+			
+			var n1 = 012
+//			八进制
+			console.log(n1)
+//			写数字字面量的时候，不要在前面加0
+//			除非你知道你正在使用8进制
+			
+			var n2 = 0xA
+			console.log(n2)
+//			十六进制
+			
+			console.dir(Math.PI.toExponential(6))
+//			转换字符串，保留指定位数的小数，整数部是1位，以科学计数法表示
+//			会四舍五入
+			console.log(typeof Math.PI.toExponential(6))
+			
+			var num = 123456789.987654321
+			console.log(num.toExponential(6))
+			
+			console.log(num.toFixed(3))
+//			转换成字符串，保留指定位置的小数，不影响整数部分
+//			会四舍五入
+//			
+			var type = typeof num.toFixed(3)
+//			获取指定值类型
+//			typeof后可以加引号，也可以不加
+			console.log(type)
+			
+			
+			type = typeof new Number(3)
+			console.log(type)
+			//JS中没有面向对象中的那种类型 class
+			//JS中有对象的概念，但没有类的概念
+			
+			console.log(num.toPrecision(3))
+//			转换成字符串，保留指定位数的有效数字
+			
+			console.log(n.toPrecision(3))
+			console.log(123..toPrecision(3))
+//			数字字面量
+//			var pi = 3.1415
+//			123..toPrecision()
+//			为了区分小数点和点运算符（调用对象属性或方法 ）需要：
+//			1.使用2个点，第1点是小数点，第2个是点运算符
+//			2.使用()把数字括起来
+//			3.使用变量中转一下
+//			4.使用数字对象
+			
+			
+		</script>
+		
+	</body>
+</html>

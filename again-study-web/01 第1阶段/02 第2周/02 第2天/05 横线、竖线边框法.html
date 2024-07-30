@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>横线、竖线的边框实现法</title>
+        <style>
+            section{
+                padding: 10px;
+                font-size: 30px;
+                width: 300px;
+                
+                /*border-bottom: 1px solid black;*/
+                /*普通下划线*/
+                
+                /*border-bottom: 5px dotted black;*/
+                /*点状下划线*/
+                
+                border-left: 15px solid red;
+                padding: 0 10px;
+                /*左侧装饰线效果*/
+                
+                /*使用 border 实现装饰线效果非常方便，而且灵活性非常强（比 hr 标签好用！），是推荐使用的技术*/
+            }
+        </style>
+    </head>
+    <body>
+        <section>这里是标题想加装饰线</section>
+    </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>jQuery 2</title>
+		<script src="jquery.js"></script>
+		<style>
+			/*html,body{
+				height: 100%;
+			}*/
+			/*li{
+				transform: rotate(-30deg);
+			}*/
+		</style>
+	</head>
+	<body>
+		<ol>
+			<li>第1项</li>
+			<li>第2项</li>
+			<li><i>3333333333333333</i>第3项</li>
+			<li>第4项</li>
+			<li>第5项<i></i>HTML</li>
+			<li>第6项</li>
+			<li>第7项</li>
+		</ol>
+		<ul>
+			<li>A</li>
+			<li>B</li>
+			<li>C<i></i></li>
+		</ul>
+		<script>
+
+//			1.jQuery对象是一个容器，内部可以有多个标签元素
+//			2.在jQuery对象上调用某些方法时会对jQuery对象中的
+//				每一个标签元素都起作用
+//			3.jQuery对象的某些方法会返回jQuery对象自身，所以可以
+//				链式调用方法
+//				
+//			链式调用的原理：
+//				对象的方法能返回对象本身
+
+	
+			// 使用筛选器过滤
+//			$('li').filter(':nth-child(2n)').css('color', 'blue')
+//			
+//			var lis = $('li')
+//			
+//			var filters = lis.filter(':nth-child(2n)')
+//			
+//			filters.css('color', 'blue')
+			
+			
+//			$('ul>li').filter(document.querySelectorAll('li:nth-child(2n)')).css('color','red')
+			
+			
+			// 排除掉一部分
+//			$('ol>li:odd,ul>li:odd').not('ol>li').css('color', 'blue')
+			
+			
+			// 切片
+//			$('li').slice(3, 9).css('color', 'red')
+			
+			
+			// 包含特定子元素
+//			$('li').has('i').css('color', 'blue')
+			
+			
+			
+			
+//			$('ol>li:odd').add('ul>li:even').css('color', 'red')
+			
+			
+			$('ol>li:nth-child(4)').prev().nextAll(':odd').addBack().css('color', 'red')
+			
+		
+			
+	</script>
+	</body>
+</html>

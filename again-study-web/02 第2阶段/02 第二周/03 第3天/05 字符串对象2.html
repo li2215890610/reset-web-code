@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>字符串方法</title>
+	</head>
+	<body>
+		
+		<script>
+			 var name = 'Zhang\'San'
+			 console.log(name.length)
+			 //字符串中实际字符的个数
+			 
+			 var str1 = String.fromCharCode(25105)
+			 //UniCode 10进制值
+			 
+			 console.log(str1)
+			 
+			 var str2 = '\u6211'
+			 console.log(str2)
+			 
+			 var anchor = '百度搜索'
+			 console.log(anchor.anchor('baidu'))
+			 var tag = anchor.anchor('baidu')
+			 console.log(tag.big())
+			 
+			 console.log('我喜欢HTML5'.charCodeAt(0))
+//			 字符的Unicode10进制
+			 console.log('我喜欢HTML5'.codePointAt(0))
+			 
+			 var html5 = 'HTML5', css3 = 'CSS3', js = 'JavaScript'
+			 var sep = '-'
+			 console.log(html5.concat(sep, css3, sep, js))
+			 
+			 var str3 = '我喜欢HTML5，喜欢JavaScript'
+			 console.log(str3.endsWith('HTML5'))
+			 console.log(str3.endsWith('CSS3'))
+//			 判断字符串是否以某个字符串结尾
+
+			console.log(str3.endsWith('HTML', 7))
+//			第二个参数的作用：将字符长度超出（7）的部分忽略掉
+			
+			console.log('包含：' + str3.includes('喜欢'))
+			
+			console.log('位置：' + str3.indexOf('喜欢'))
+			console.log('最后位置：' + str3.lastIndexOf('喜欢'))
+			
+			var result = '我'.localeCompare('一')
+			console.log('比较结果：' + result)
+			
+			console.log('-'.repeat(30))
+			//重得某一个字符串N次
+			
+			console.log(str3.replace('喜欢', '讨厌'))
+			//只替换一次
+			//替换的时候不会改变原字符串，而是会生成一个新字符串作为替换结果
+			console.log(str3.slice(1))
+			console.log(str3.slice(1, 2))
+			//参数1：开始的位置，在这个位置之前字都被切掉
+			//参数2：结束的位置，包含这个字符及后续字符全部切掉
+			
+			console.log(str3.slice(9))
+			//掐头
+			
+			console.log(str3.slice(0, 8))
+			//去尾
+			
+			var arr = str3.split('，')
+			console.log(arr)
+			console.dir(arr)
+			
+			var str4 = 'H1,H2,H3,H4,H5,H6,P,Article,Section,Header,Footer,Div,Span,Ul,Li'
+			var tags = str4.split(',', 3)
+			//分隔字符串
+			//第一个参数是分隔符，即可以是一个字符，
+			//也可以是多个字符  ^_^
+			//第二个参数是最多返回多少个结果，即结果数组中最多有多少项
+			
+			for (var i = 0; i < tags.length; i++) {
+				var tag = tags[i]
+				
+				console.log(''.concat('<', tag, '>', '</', tag, '>'))
+			}
+			
+			
+			console.log('-'.repeat(30))
+			
+			console.log(str3.startsWith('我喜欢'))
+			
+			
+			console.log(str3.substr(9))
+			console.log(str3.substr(9, 2))
+//			substr截取子字符串
+//			第1参数：开始位置（包含该位置的字符）
+//			第2参数：截取的长度
+			
+			console.log(str3.substr(100))
+			//如果超出字符串长度，则会返回空字符串
+			
+			console.log(str3.substring(9))
+			console.log(str3.substring(9, 11))
+//			两个参数都是位置
+//			不包含第2个参数指定的字符
+			
+			console.log(str3.substring(9, 2))
+//			会倒着往前截取
+			
+			console.log('html5'.toUpperCase())
+			//大写
+			console.log('CSS3'.toLowerCase())
+			//小写
+			
+			console.log('       HTML5  CSS3      '.trim())
+//			去掉前后的空白，不能去掉中间的空白
+//			trimLeft去掉左侧空白
+//			trimRight去掉右侧空白
+			console.log('　　　　　我喜欢　　　　　　'.trim())
+//			能去掉中文空白
+			
+			console.log('      HTML5   CSS3         '.replace(/[ 　]/g, ''))
+		</script>
+	</body>
+</html>

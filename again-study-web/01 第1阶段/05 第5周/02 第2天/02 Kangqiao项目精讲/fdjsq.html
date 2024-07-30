@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>房贷计算器</title>
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            body{
+                margin: 0;
+                padding: 12px;
+            }
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            li{
+                margin: 0;
+                padding: 0;
+                line-height: 28px;
+                border: 1px solid #33cc66;
+                color: #33cc66;
+                font-size: 14px;
+                width: 33.33333333%;
+                float: left;
+                text-align: center;
+            }
+            li:nth-child(1){
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+                border-right: none;
+            }
+            li:nth-child(3){
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                border-left: none;
+            }
+            li.active{
+                background-color: #33cc66;
+                color: white;
+            }
+            .cf{
+                clear: both;
+            }
+            form{
+                padding-top: 10px;
+            }
+            .form-control{
+                line-height: 45px;
+                border-bottom: 1px solid #f5f5f5;
+                font-size: 15px;
+                color: #6a6a6a;
+            }
+            .form-control label{
+                color: #333333;
+            }
+            .form-control span{
+                float: right;
+            }
+            .form-control span label{
+                color: #6a6a6a;
+            }
+            .form-control input+i{
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                vertical-align: middle;
+                background-image: url(image/unselect.png);
+                background-size: 100%;
+            }
+            .form-control input:checked+i{
+                background-image: url(image/select.png);
+            }
+            .form-control input[type=radio]{
+                display: none;
+            }
+            .form-control input[type=text]{
+                text-align: right;
+                border: none;
+                color: #6a6a6a;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li class="active">商业</li>
+            <li>公积金</li>
+            <li>组合</li>
+        </ul>
+        <div class="cf"></div>
+        <form action="">
+            <div class="form-control">
+                <label for="type">还款方式：</label>
+                <span>
+                    <input type="radio" name="hkfs" checked>
+                    <i></i>
+                    <label for="debj">等额本金</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="hkfs">
+                    <i></i>
+                    <label for="debx">等额本息</label>
+                </span>
+            </div>
+            <div class="form-control">
+                <label for="dkze">贷款总额：</label>
+                <span>
+                    <input type="text"> 万元
+                </span>
+            </div>
+        </form>
+    </body>
+</html>

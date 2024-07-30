@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>拖动</title>
+		<style>
+			li{
+				cursor: move;
+			}
+		</style>
+	</head>
+	<body>
+		<ol>
+			<li draggable="true">HTML5</li>
+			<li draggable="true">CSS3</li>
+			<li draggable="true">JavaScript</li>
+			<li draggable="true">PHP</li>
+			<li draggable="true">Node.js</li>
+		</ol>
+		<script>
+			var lis = document.getElementsByTagName('li')
+			
+			for (var i = 0; i < lis.length; i++) {
+				var li = lis[i]
+				//拖动开始时
+				li.ondragstart = function(ev) {
+					console.log('拖动开始')
+					ev.target.id = 'draging'
+                    
+// dataTransfer对象提供了对于预定义的剪贴板格式的访问，以便在拖曳操作中使用。
+// 通俗的讲就是在拖曳操作的过程中，我们可以用过dataTransfer对象来传输数据，以便
+// 在拖曳操作结束的时候对数据进行其他的操作。 
+//
+// effectAllowed:设置或返回被拖动元素允许发生的拖动行为					
+					ev.dataTransfer.effectAllowed = 'move'
+					// ev.dataTransfer.setDragImage(ev.target, -30, -10)
+					ev.dataTransfer.setData('li', ev.target.id)
+				}
+				//拖动的对象进入标签范围
+				li.ondragenter = function(ev){
+					console.log('进入')
+					ev.preventDefault()
+					ev.currentTarget.style.color = 'blue'
+					ev.currentTarget.style.borderTop = '1px solid blue'
+				}
+				//拖动的对象离开标签范围
+				li.ondragleave = function(ev){
+					console.log('离开')
+					ev.preventDefault()
+					ev.currentTarget.style.color = ''
+					ev.currentTarget.style.borderTop = ''
+				}
+				//拖动的对象在标签之上
+				li.ondragover = function(ev){
+					console.log('在上面')
+					ev.currentTarget.dropEffect = 'move'
+					ev.preventDefault()
+				}
+				//拖动结束
+				li.ondragend = function(ev){
+					console.log('结束')
+					ev.preventDefault()
+					
+					var id = ev.dataTransfer.getData('li')
+					var li = document.getElementById(id)
+					
+					li.id = ''
+				}
+				//拖动时，鼠标移动时就会触发
+				li.ondrag = function(ev){
+					console.log('拖动')
+					ev.preventDefault()
+				}
+				//释放时
+				li.ondrop = function(ev){
+					console.log('释放')
+					ev.preventDefault()
+					ev.stopImmediatePropagation()
+					
+					var id = ev.dataTransfer.getData('li')
+					var li = document.getElementById(id)
+					
+					ev.currentTarget.style.color = ''
+					ev.currentTarget.style.borderTop = ''
+					
+					if (li == ev.currentTarget) return
+					
+					var ol = li.parentElement
+					ol.removeChild(li)
+					ol.insertBefore(li, ev.currentTarget)
+				}
+			}
+		</script>
+	</body>
+</html>

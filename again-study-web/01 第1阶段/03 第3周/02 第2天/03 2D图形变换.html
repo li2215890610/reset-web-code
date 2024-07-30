@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>2D图形变换</title>
+        <style>
+            body{
+                overflow: hidden;
+                background-color: black;
+            }
+            body>section{
+                width: 300px;
+                height: 300px;
+                margin: 180px auto 10px auto;
+                background-color: blue;
+                opacity: 0.8;
+            }
+            body>section>section{
+                width: 300px;
+                height: 300px;
+                margin: 0;
+                background-color: green;
+                opacity: 0.8;
+                
+                /*transform: translate(50px, 50px);*/
+                /*平移*/
+                /*图形变换时会带动内部的标签一起变换（作为一个整体）*/
+                
+                /*transform: scale(0.8, 0.8);*/
+                /*缩放*/
+                
+                /*transform-origin: 0% 0%;*/
+                /*变换原点，也可以使用 left、top、center 等值*/
+                /*transform: rotate(30deg);*/
+                /*旋转*/
+                /*transform: skew(30deg, 0);*/
+                /*切变、倾斜*/
+                
+                /*transform:  scale(0.6) rotate(-30deg);*/
+                /*组合变换，变换函数只能实现简单变换，如对称镜像之类的无法实现，需要使用变换矩阵实现*/
+                
+                /*transform: matrix(0.6,0,0,0.6,0,0);*/
+                /*缩小 0.6 */
+                /*transform: matrix(0.6,0,0,-0.6,0,0);*/
+                /*缩小 0.6 + 镜像*/
+                transform: matrix(0.52,-0.3,-0.3,-0.52,0,0);
+                /*缩小 0.6 + 镜像 + 旋转 -30deg*/
+                /*矩阵变换的具体理论知识请参考课件中的 “图形变换的矩阵方法.ppt”*/
+                /*在此页面可以对矩阵的值进行测试：http://www.css88.com/tool/css3Preview/Transform-Matrix.html */
+                /*在此页面可以对3D、2D变换进行体验（注意页脚部分导航有2D变换）：*/
+                /*https://dev.windows.com/en-us/microsoft-edge/testdrive/demos/3dtransforms/ */
+            }
+            body>section>section>section{
+                width: 300px;
+                height: 300px;
+                margin: 0;
+                background-color: yellow;
+                opacity: 0.8;
+                
+                transform: translate(150px, 150px);
+                /*可以使用 % 单位，使用 px 单位时，不用考虑上级标签的 scale */
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <section>
+                <section></section>
+            </section>
+        </section>
+        
+        
+    </body>
+</html>

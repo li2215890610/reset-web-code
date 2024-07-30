@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>Location</title>
+	</head>
+	<body>
+		<button onclick="alert(location.href)">弹出当前地址</button>
+		<button onclick="location.href='https://www.baidu.com'">打开百度</button>
+		<button onclick="location.assign('https://www.baidu.com')">打开百度(assign)</button>
+		<!--location.href赋值可以打开新页面
+		location.assign()可以起到相同的效果
+		在本窗口打开-->
+		<button onclick="location.reload()">刷新页面</button>
+		<!--location.reload()刷新页面-->
+		
+		<button onclick="location.replace('http://www.qq.com')">打开QQ</button>
+		<!--location.replace打开一个新页面，但是不会增加新的历史记录项
+		反而会替换当前历史记录项
+		用户无法返回原始页面-->
+		
+		<script>
+//[window 对象] 它是一个顶层对象,而不是另一个对象的属性即浏览器的窗口。
+
+//[document 对象]
+//该对象是window和frames对象的一个属性,是显示于窗口或框架内的一个文档。
+
+//document 只是属于window 的一个子对象。
+
+//          window.location 对象用于获得当前页面的地址 (URL)，并把浏览器重定向到新的页面
+			console.dir(window.location)
+			console.dir(document.location)
+//			location可以得到url的组成部分
+//			location.href 可以得到当前页面的地址
+//			还可改变当前页面的地址 -> 打开指定新页面
+			
+		</script>
+	</body>
+</html>

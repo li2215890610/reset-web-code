@@ -1,0 +1,24 @@
+Ajax    Async   JavaScript  & XML
+	异步的JS和XML
+
+	最先由微软发明，Google搜索在首页上使用Ajax做搜索关键词建议后Ajax就广泛应用起来了
+
+	
+	
+	XML
+	数据量偏大
+	解析相对困难、性能差
+
+	后来大家就转向JSON了，但Ajax的名字没变
+	
+
+XHR	xmlHttpRequest
+	向服务器发起一个网络请求
+	并从服务器获得响应
+	XHR完全将HTTP开放给程序员使用
+
+
+
+
+
+	

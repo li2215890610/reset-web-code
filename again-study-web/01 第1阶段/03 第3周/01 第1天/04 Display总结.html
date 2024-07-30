@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>Display总结</title>
+        <style>
+            table{
+                display: inline-table;
+                /*默认情况下表格是块元素，即独占一行的，该样式能够让表格变成行内表格*/
+                
+                /*vertical-align: top;*/
+                vertical-align: middle;
+                /*vertical-align: bottom;*/
+                /*注意与 vertical-align 样式配合的效果*/
+            }
+            section{
+                display: list-item;
+                /*变成列表项，注意配合下面的样式*/
+                
+                list-style-type: circle;
+                margin-left: 2em;
+            }
+            .table{
+                border: 5px solid blue;
+                display: table;
+                border-spacing: 5px;
+                /*border-collapse: collapse;*/
+            }
+            .tr{
+                display: table-row;
+                /*不加这个样式垂直边框线合并不正常*/
+            }
+            .td{
+                display: table-cell;
+                border: 5px solid red;
+                padding: 5px 20px;
+            }
+            .caption{
+                display: table-caption;
+                /*caption-side: center;*/
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <!--{这里是表格前面}+table[border=1]>(tr>(td>{$})*3)*3^^span>{这是表格后面}-->
+        <!--可以使用 Emmet 一次敲完-->
+        
+        这里是表格前面
+        <table border="1">
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+        </table>
+        <span>这是表格后面</span>
+        
+        <!--div>(section>{afsdafa})*3-->
+        
+        <div>
+            <section>afsdafa</section>
+            <section>afsdafa</section>
+            <section>afsdafa</section>
+        </div>
+        <!--使用 list-item 能够形成列表项效果，但不能明确表示列表含义-->
+        
+        <div class="table">
+            <div class="caption">这里是标题</div>
+            <div class="tr">
+                <div rowspan=2 class="td">1</div>
+                <div class="td">2</div>
+                <div class="td">3</div>
+            </div>
+            <div class="tr">
+                <div class="td">4</div>
+                <div class="td">5</div>
+                <div class="td">6</div>
+            </div>
+            <div class="tr">
+                <div class="td">7</div>
+                <div class="td">8</div>
+                <div class="td">9</div>
+            </div>
+        </div>
+        <!--使用 table-* 能够形成表格效果，但不能明确表示表格含义，而且合并单元格等表格高级功能无法实现-->
+    </body>
+</html>

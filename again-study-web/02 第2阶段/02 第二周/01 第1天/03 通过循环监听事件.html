@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>通过循环监听事件</title>
+		<style>
+			div{
+				width: 50px;
+				height: 200px;
+				float: left;
+				border: 10px solid blue;
+			}
+		</style>
+	</head>
+	<body>
+		<!--div[data-note=$]{$}*10-->
+		
+		<div data-note="1">1</div>
+		<div data-note="2">2</div>
+		<div data-note="3">3</div>
+		<div data-note="4">4</div>
+		<div data-note="5">5</div>
+		<div data-note="6">6</div>
+		<div data-note="7">7</div>
+		<div data-note="8">8</div>
+		<div data-note="9">9</div>
+		<div data-note="10">10</div>
+			
+		<script>
+			var divs = document.getElementsByTagName('div')
+			
+			for (var i = 0; i < divs.length; i++) {
+				var div = divs[i]
+				var num = div.dataset.note
+
+//				注意：此时可不必讲闭包，只需要带着大家通过调试器看一下代码的执行过程即可
+				div.addEventListener('click', function(e){
+					alert(num)
+//					for的时候，这一行代码没有执行
+//					当for结束，页面显示出来，你点了div之后
+//					才触发click事件
+//					这时alert(num)这一行代码才执行
+//					而此时num早已经是10了
+				})
+			}
+			
+//			换一种写法，这种写法更好
+			for (var i = 0; i < divs.length; i++) {
+				divs[i].addEventListener('click', function(e){
+					var div = e.target 		//触发事件的标签元素
+					alert(div.dataset.note)
+				})
+			}
+			
+			var func1 = function(){
+				alert('新的事件监听者')
+			}
+			
+			divs[3].addEventListener('click', func1)
+			divs[3].removeEventListener('click', func1)
+//			移除事件监听者
+			
+		</script>
+	</body>
+</html>

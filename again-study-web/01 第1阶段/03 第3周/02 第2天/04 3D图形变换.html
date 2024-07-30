@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>3D图形变换</title>
+        <style>
+            body{
+                overflow: hidden;
+                background-color: black;
+            }
+            section{
+                opacity: 0.85;
+                perspective: 600px;
+                /*创建透视场景，让子元素形成透视效果，变换中也支持透视函数*/
+                perspective-origin: 80% 50%;
+                /*调整观察者的位置*/
+                transform-style: preserve-3d;
+                /*保留并叠加 3D 效果，设置为 flat 查看区别*/
+            }
+            body>section{
+                width: 300px;
+                height: 300px;
+                margin: 200px auto 10px auto;
+                background-color: blue;
+                /*transform: rotateY(30deg);*/
+            }
+            body>section>section{
+                width: 300px;
+                height: 300px;
+                margin: 0;
+                background-color: green;
+                transform: rotateX(70deg);
+            }
+            body>section>section>section{
+                width: 300px;
+                height: 300px;
+                margin: 0;
+                background-color: yellow;
+                transform-origin: right center;
+                transform: translate3d(0, 0, 60px) rotate3d(0, 1, 1, 30deg) scale3d(0.8, 0.8, 1);
+                /*注意 totate3d 的前3个值是掩码，分别表示是否要在相应方向旋转 */
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <section>
+                <section></section>
+            </section>
+        </section>
+    </body>
+</html>

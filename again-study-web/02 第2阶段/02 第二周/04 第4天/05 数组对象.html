@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>数组</title>
+	</head>
+	<body>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		
+		<script>
+			var arr1 = [1,2,3]
+			console.log(arr1)
+			
+			// console.log(2233)
+            
+			arr1.push(4)
+			console.log(arr1)
+			//在数组的末尾添加一个新元素
+						
+			arr1.unshift(0)
+			console.log(arr1)
+			//在数组的开头添加一个新元素
+						
+			var n = arr1.shift()
+			console.log(arr1)
+			console.log(n)
+			//在数组的开头移除并返回一个新元素
+						
+			var m = arr1.pop()
+			console.log(arr1)
+			console.log(m)
+//			在数组的结尾移除并返回一个元素
+						
+//			使用push和pop可以构成一个栈
+//			使用unshift和shit可以构成一个栈
+//			使用push和shift可构成队列
+//			使用unshift和pop可构成队列
+			
+			
+//			访问中间的元素
+			var o = arr1[1]
+			console.log(o)
+//			使用[x]可以得到第x+1个元素
+			
+			o = arr1[100]
+			console.log(o)
+//			如果超出范围会得到undefined
+			
+			var type = typeof arr1
+			console.log(type)
+			//JS中只有对象，没有类（没有OOP中的类）
+			
+//			arr1 = []
+			//长度length为0的空数组
+			//JS数组的长度是可以变的
+			
+			arr1 = ['z', 'h', 'a', 'n', 'g', 's', 'a', 'n']
+//			arr1.reverse()
+			//能够反转数组中的元素，倒着排
+			//数组本身发生变化
+			
+//			console.log(arr1)
+//			
+//			arr1.sort()
+//			console.log(arr1)
+//			
+//			var p1 = {
+//				name: 'ZhangSan',
+//				age: 3
+//			}
+//			var p2 = {
+//				name: 'PiSuaishuai',
+//				age: 2
+//			}
+//			
+//			arr1 = [p1, p2]
+//			
+//			arr1.sort(function(a, b){
+//				return b.age < a.age
+//			})
+//			
+//			使用排序函数可控制排序的依据和排序方向
+//	
+//			console.dir(arr1)
+//						
+//			arr1.splice(5)
+//			会删除索引位置为5及之后的所有元素
+//			console.log(arr1)
+						
+			arr1.splice(5, 0)
+			//第2参数是删除元素的个数
+			console.log(arr1)
+			
+			arr1.splice(5, 5, 'h', 't', 'm', 'l', '5')
+			console.log(arr1)
+			//第3个及之后的参数会插入到数组中
+						
+			arr1.splice(5)
+			
+			var arr2 = arr1.concat([1,2,3], 4, 5, 6)
+			console.log(arr1)
+			console.log(arr2)
+			//即可以连接数组，也可以连接值
+			
+			console.log(arr2.join('----'))
+//			连接数组元素，返回一个字符串，默认使用,连接
+//			可以指定使用任意字符连接
+//			也可以用多个字符连接
+
+			var strs = [
+				'起来！',
+				'不愿做奴隶的人们。',
+				'把我们血肉...'
+			]
+
+			console.log(strs.join(''))
+			//可以连接数组元素拼字符串
+			console.log(strs.join())
+			console.log(strs.join(null))
+			console.log(strs.join(undefined))
+			console.log(strs.join(0))
+			
+			console.log(arr1)
+			console.log(arr1.slice(2))
+			//数组切片
+			//第一个参数是开始位置，会保留
+			console.log(arr1.slice(2, 3))
+			//第二个参数是结束位置，会被切掉
+			console.log(arr1.slice(-2))
+			//第一个参数是负值时会倒着切
+			console.log(arr1.slice(-2, -1))
+			console.log(arr1.slice(-2, -4))
+			console.log(arr1.slice(2, 1))
+//			如果第2个参数小于等于第1个参数，那会返回一个空数组
+			
+			console.log(arr1.slice())
+			//不传任何参数会整体复制一下，得到一个相同新数组
+			//相当于数组复制
+			
+			var divs = document.querySelectorAll('div')
+			console.dir(divs)
+			
+//			console.log(divs.slice(2))
+//			console.log(divs.shift())
+			
+			var divArr = []
+			for (var i = 0; i < divs.length; i++) {
+				divArr.push(divs[i])
+			}
+			
+			console.log(divArr)
+			
+			var divArr1 = Array.prototype.slice.call(divs)
+//			使用call调用Array对象的原型（prototype）的slice方法
+//			调用的结果是divs被“复制”成一个数组Array对象
+			console.log(divArr1)
+			
+			divArr1 = Array.prototype.slice.apply(divs)
+//			同上call方法
+			console.log(divArr1)			
+			console.log(arr1)			
+			console.log(arr1.indexOf('a'))
+//			从前往后查找元素的位置，找到的是第1个位置
+			console.log(arr1.indexOf('x'))
+//			如果找不到会返回-1
+			
+			arr1.push('a')
+			console.log(arr1)
+			console.log(arr1.lastIndexOf('a'))
+//			倒着找，找到1个就停止
+			
+		</script>
+	</body>
+</html>

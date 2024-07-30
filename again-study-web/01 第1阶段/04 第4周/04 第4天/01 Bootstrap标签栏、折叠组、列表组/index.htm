@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="author" content="张强">
+    <title>Bootstrap插件及组件</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{
+            padding-top: 10px;
+        }
+        .tab-pane{
+            padding: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="container">
+        <div>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">时政</a></li>
+                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">财经</a></li>
+                <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">科技</a></li>
+                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">体育</a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="home">
+                    <ul>
+                        <li>揭秘二类疫苗灰色利益链:20元采购可卖至上百元</li>
+                        <li>朝鲜成功试验火箭发动机点火和箭体分离</li>
+                        <li>山西同煤集团同生安平煤业发生事故 19名矿工遇难</li>
+                        <li>中石油2015年净利同比降67% 从日赚3亿变日赚1亿</li>
+                        <li>中国最有钱的城市:北京上海深圳仍居前三</li>
+                    </ul>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="profile">
+                    <ol>
+                        <li>揭秘二类疫苗灰色利益链:20元采购可卖至上百元</li>
+                        <li>朝鲜成功试验火箭发动机点火和箭体分离</li>
+                        <li>山西同煤集团同生安平煤业发生事故 19名矿工遇难</li>
+                        <li>中石油2015年净利同比降67% 从日赚3亿变日赚1亿</li>
+                        <li>中国最有钱的城市:北京上海深圳仍居前三</li>
+                    </ol>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="messages">
+                    <ul class="list-unstyled">
+                        <li>揭秘二类疫苗灰色利益链:20元采购可卖至上百元</li>
+                        <li>朝鲜成功试验火箭发动机点火和箭体分离</li>
+                        <li>山西同煤集团同生安平煤业发生事故 19名矿工遇难</li>
+                        <li>中石油2015年净利同比降67% 从日赚3亿变日赚1亿</li>
+                        <li>中国最有钱的城市:北京上海深圳仍居前三</li>
+                    </ul>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="settings">
+                    <ul>
+                        <li>揭秘二类疫苗灰色利益链:20元采购可卖至上百元</li>
+                        <li>朝鲜成功试验火箭发动机点火和箭体分离</li>
+                        <li>山西同煤集团同生安平煤业发生事故 19名矿工遇难</li>
+                        <li>中石油2015年净利同比降67% 从日赚3亿变日赚1亿</li>
+                        <li>中国最有钱的城市:北京上海深圳仍居前三</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="container">
+        <div class="panel-group col-md-4 col-lg-4 col-xs-12" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        我的好友
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="badge">2</span> 好友1
+                        </li>
+                        <li class="list-group-item">
+                            <span class="badge">5</span> 好友2
+                        </li>
+                        <li class="list-group-item">
+                            <span class="badge">12</span> 好友3
+                        </li>
+                        <li class="list-group-item">
+                            <span class="badge">1</span> 好友4
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        小学同学
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item active">
+                        Cras justo odio
+                    </a>
+                        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+                        <a href="#" class="list-group-item">Morbi leo risus</a>
+                        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                        <a href="#" class="list-group-item">Vestibulum at eros</a>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingThree">
+                    <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            初中同学
+                            </a>
+                        </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-success">Dapibus ac facilisis in</li>
+                        <li class="list-group-item list-group-item-info">Cras sit amet nibh libero</li>
+                        <li class="list-group-item list-group-item-warning">Porta ac consectetur ac</li>
+                        <li class="list-group-item list-group-item-danger">Vestibulum at eros</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading4">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="false" aria-controls="collapseThree">
+                        高中同学
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="panel-body">
+                        好友1
+                        <br> 好友2
+                        <br> 好友3
+                        <br> 好友4
+                        <br> 好友5
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading5">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false" aria-controls="collapseThree">
+                        大学同学
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="panel-body">
+                        好友1
+                        <br> 好友2
+                        <br> 好友3
+                        <br> 好友4
+                        <br> 好友5
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading6">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+                        我的同事
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse6" class="panel-collapse collapse" role="tabpanel">
+                    <div class="panel-body">
+                        好友1
+                        <br> 好友2
+                        <br> 好友3
+                        <br> 好友4
+                        <br> 好友5
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

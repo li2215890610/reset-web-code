@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>圆形布局-变化</title>
+		<style>
+			div:nth-child(1){
+				width: 100px;
+				height: 100px;
+				background-color: hsl(0, 100%, 50%);
+				position: relative;
+				top: 200px;
+				left: 200px;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<script>
+			
+			var initDeg = Math.PI / 4
+			var deg = Math.PI / 3
+			var R = 150
+			var offsetX = 250
+			var offsetY = 300
+			var r1 = 50
+			var r2 = 100
+			for (var i = 0; i < 6; i++) {
+				var div = document.createElement('div')
+				div.style.width = r1 + 'px'
+				div.style.height = r2 + 'px'
+				div.style.backgroundColor = 'hsl(' + i * 60 + ', 100%, 50%)'
+				div.style.position = 'absolute'
+				div.style.borderRadius = '50%'
+				
+				div.style.top = offsetY + R * Math.cos(initDeg + deg * i) + 'px'
+				div.style.left = offsetX + R * Math.sin(initDeg + deg * i) + 'px'
+				document.body.appendChild(div)
+			}
+			var divs = document.querySelectorAll('div')
+			function rotate(){
+				initDeg -= 0.02
+				for (var i = 0; i < 6; i++) {
+					var div = divs[i]
+					div.style.top = offsetY + R * Math.cos(initDeg + deg * i) + 'px'
+					div.style.left = offsetX + R * Math.sin(initDeg + deg * i) + 'px'
+					div.style.transform = 'rotate(' + 180 * -(initDeg + deg * i) / Math.PI  + 'deg)'
+					
+//					div.style.transform = 'rotate(' + 180 * (initDeg + deg * i) / Math.PI  + 'deg)'
+				}
+				requestAnimationFrame(rotate)
+			}
+			requestAnimationFrame(rotate)
+		</script>
+	</body>
+</html>

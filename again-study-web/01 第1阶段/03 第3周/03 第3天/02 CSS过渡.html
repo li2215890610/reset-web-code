@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>CSS过渡</title>
+        <style>
+            body{
+                background-color: black;
+            }
+            section{
+                width: 300px;
+                height: 300px;
+                margin: 150 auto;
+                background-color: lightgreen;
+                border-radius: 50%;
+                
+                /*transition: transform 1s;*/
+                /*过渡综合样式的简写*/
+                
+                position: absolute;
+                top: 0px;
+                left: 100px;
+                /*定义初始位置*/
+                
+                transition-property: width, margin, background-color, top;
+                /*同时过渡多个属性*/
+                /*请参考过渡属性列表*/
+                
+                /*transition-timing-function: ease-in;*/
+                /*transition-timing-function: ease-out;*/
+                transition-timing-function: ease-in-out;
+                /*transition-timing-function: linear;*/
+                /*请参考缓动函数相关功能*/
+                /*介绍 firefox 动画面板的功能*/
+                
+                /*transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);*/
+                /*请参考贝塞尔曲线*/
+                
+                /*transition-delay: 5s;*/
+                
+                transition-property: box-shadow;
+                transition-duration: 1s;
+                /*过渡阴影复杂样式*/
+            }
+            
+            section:active{
+                /*伪类 active 是鼠标按下时的效果 hover 是鼠标移到上面的效果，都是常用的触发过渡的机制*/
+                
+                /*transform: rotate(30000deg);*/
+                
+                /*width: 600px;
+                margin: 0 auto;
+                background-color: yellow;*/
+                
+                /*top: 500px;*/
+                /*left: 1000px;*/
+                
+                box-shadow: 0 10px 100px yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <section></section>
+    </body>
+</html>

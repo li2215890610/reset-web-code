@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>jQuery DOM</title>
+        <style>
+            .red-div{
+                background-color: red;
+                color: white;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box" name="boxName" class="red-div">这是一个DIV</div>
+        <script src="jquery.js"></script>
+        <script>
+            
+            // 最熟悉的方式，得到的是一个HTMLElement对象
+            // var box = document.getElementById('box')
+            // box.innerText = 'getElementById'
+            
+            
+            // 得到的是jQuery对象
+            // jQuery对象是一个标签元素的盒子，是一个类似数组的对象
+            // $('#box').text('jQuery #id')
+            
+            
+            // 实际上有些浏览器会自动将变量与标签元素的Id关联起来
+            // 在全局中看不到它但你可以使用它如在没有声明的情况下就可直接使用
+            // box.innerText = '没有声明，不使用getElementById就可以直接使用id变量'
+            
+            
+            // 得到的是HTMLCollection
+            // var boxTag = document.getElementsByTagName('div')[0]
+            // boxTag.innerText = 'getElementsByTagName'
+            
+            
+            // 得到的是jQuery对象
+            // $('div').text('jQuery div')
+            
+            
+            // 得到的是NodeList
+            // boxTag = document.querySelectorAll('div')[0]
+            // boxTag.innerText = 'querySelectorAll'
+            
+            
+            // 得到的是HTMLCollection
+            // var boxClass = document.getElementsByClassName('red-div')[0]
+            // boxClass.innerText = 'getElementsByClassName'
+            
+            
+            // 得到的是jQuery对象
+            // $('.red-div').text('jQuery .red-div')
+            
+            
+            // 得到的是NodeList
+            // var boxName = document.getElementsByName('boxName')[0]
+            // boxName.innerText = 'getElementByName'
+            
+            
+            // 得到的是jQuery对象
+            // $('[name=boxName]').text('jQuery [name=boxName]')
+            
+            
+            
+            // HTMLAllCollection
+            // var all = document.all
+            
+            // NodeList
+            // all = document.querySelectorAll('*')
+            
+            // 得到的是jQuery对象
+            // all = $('*')
+            
+            console.dir(all)
+            
+        </script>
+    </body>
+</html>

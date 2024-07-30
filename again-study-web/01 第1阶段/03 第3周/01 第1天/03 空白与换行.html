@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>空白与换行</title>
+        <style>
+            body{
+                /*text-align: right;*/
+                /*不会影响 justify 的最后一行*/
+            }
+            section:nth-child(1){
+                word-break: break-all;
+                /*英文单词默认不会在单词内换行，如果英文单词过长或在页面上显示URL则会将页面撑大*/
+                /*该样式是英文单词暴力换行，换行后可能会造成误解！*/
+            }
+            section:nth-child(2){
+                word-wrap: break-word;
+                /*比较温和的换行，只对长单词或URL强制换行，尽可能避免因截断单词而产生误解*/
+                /*wrap 包裹，在H5中指因为横向空间不足而换行*/
+                
+                /*text-align: right;*/
+                /*注意观察单词换行的方式*/
+                
+                /*text-align: justify;*/
+                /*两端对齐，会拉开单词间距，英文效果显著，但最后一行不会两端对齐！*/
+            }
+            section:nth-child(3){
+                text-align: justify;
+                /*对中文效果微弱（影响最后一个字）*/
+            }
+            section:nth-child(4){
+                /*white-space: pre;*/
+                /*类似 pre 标签，保留空格、tab、回车换行等空白符*/
+                
+                /*white-space: pre-wrap;*/
+                /*在 pre 的基础上增加了换行效果*/
+                /*字体变化是因为 <code> 带有等宽字体浏览器默认样式*/
+                
+                /*white-space: pre-line;*/
+                /*在 pre-wrap 的基础上去掉了空白符*/
+                
+                /*white-space: nowrap;*/
+                /*不换行，也没有空白*/
+                
+                默认不加任何样式时是会换行（wrap）的！
+            }
+        </style>
+    </head>
+    <body>
+        <section>qwrqwerqwerwqefwefdsafasdfsagsfdvgsfgsdfgasfasdfasdfasdfasdfsadgagafasdfsadfsafdasdfasdfsafdasdfasdfasfasdfasdfasdfasfdasfasfasfasfdasfsa</section>
+        <section>1asdfasdfasdf 2asdfsad 3sadfasdf 4asdfsadfas 5asdfasdfasdf 6asdfsad 7sadfasdf 8asdfsadfas 9asdfasdfasdf asdfsad sadfasdf asdfsadfas dfsafdasdfasdfasdfasfsadfsadfsadfasdfasdfsadfasdfasdfasdfsaf</section>
+        <section>中文中文中文中文中文中文中文中文中文中文中文中文中，文中文中文中文中文中文中文中文中文，中文中文中文中文中文中文中文。</section>
+        <section>
+            <!--<pre>-->
+            <!--回顾 pre 标签的作用-->
+            function sayHello(){
+                alert("Hello HTML5!Hello HTML5!Hello HTML5!Hello HTML5!Hello HTML5!Hello HTML5!Hello HTML5!");
+            }
+            <!--</pre>-->
+        </section>
+    </body>
+</html>

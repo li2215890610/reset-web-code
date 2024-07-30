@@ -1,0 +1,6 @@
+有没有更简单的方法？能不能使用符号代替一些颜色？
+引出Less，演示Less实现换肤效果，可以变成任意颜色。
+
+先演示一下效果，然后介绍脚本直接解析less的写法：
+link标签 rel="stylesheet/less"
+script标签 导入 less.js，一定要放在link后面

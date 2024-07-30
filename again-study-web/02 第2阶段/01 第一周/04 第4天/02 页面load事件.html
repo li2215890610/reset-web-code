@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>页面load事件</title>
+		<style>
+			img{
+				width: 400px;
+			}
+		</style>
+		<script>
+//			可以观察到#document的load事件
+			// window.addEventListener('load', function(e){
+			// 	alert('window: ' + e.target.nodeName)
+			// })
+			
+			// alert(document)
+//			此时document已经存在
+
+//			观察不到事件
+			// document.addEventListener('load', function(e){
+			// 	alert('document: ' + e.target.nodeName)
+			// })
+			
+//			观察不到事件
+			// document.documentElement.addEventListener('load', function(e){
+			// 	alert('html: ' + e.target.nodeName)
+			// })
+			
+//			如果上面的任意一个addEventListener将第3个参数设置为true，即观察事件捕获过程，则会观察到很多事件！
+
+			function bodyLoad(e){
+				alert('body attr: ' + e.target.nodeName)
+			}
+		</script>
+	</head>
+	<!--可以观察到#document的load事件-->
+	<body onload="bodyLoad(event)">
+		<script>
+//			图片、body、window 都可以观察到 load 事件
+//			需要按 Ctrl + F5刷新才能观察到
+			
+//			alert(document.body)
+//			此时body已经存在
+
+//			观察不到事件，如果将第3个参数设置为true则可以观察到body子元素的load
+//			与body的onload属性完全不同
+			// document.body.addEventListener('load', function(e){
+			// 	alert('body: ' + e.target.nodeName)
+			// })
+	
+//			普通的div标签观察不到load事件
+//			document.querySelector('div').addEventListener('load', function(e){
+//				alert('div load')
+//			})
+			
+//			动态生成的div标签也观察不到load事件
+//			var div = document.createElement('div')
+//			div.addEventListener('load', function(){
+//				alert('new div load')
+//			})
+//			div.innerHTML = 'NEW DIV'
+//			document.body.appendChild(div)
+			
+//			图片可以观察到load事件
+			// document.querySelector('img').addEventListener('load', function(e){
+			// 	alert('img load')
+			// })
+			
+//			脚本标签观察不到load事件
+//			document.querySelector('script').addEventListener('load', function(e){
+//				alert('script load')
+//			})
+			
+//			动态创建的脚本标签可以观察到load事件
+			// var script = document.createElement('script')
+			// script.src = 'http://cdn.bootcss.com/jquery/3.0.0-beta1/jquery.js'
+			// script.addEventListener('load', function(){
+			// 	alert('new script load')
+			// })
+			// document.head.appendChild(script)
+			
+		</script>
+		
+		<div>
+			这是DIV
+		</div>
+		<img src="https://www.baidu.com/img/bd_logo1.png"/>
+		<script src="http://cdn.bootcss.com/jquery/3.0.0-beta1/jquery.js"></script>
+	</body>
+</html>

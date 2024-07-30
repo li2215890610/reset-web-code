@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <meta name = "author" content = "张强">
+        <title>JS和DOM实现图片库</title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <h1>JS和DOM实现图片库</h1>
+        <ul>
+            <li><a href="image/01.png" onclick="showPic(this); return false">美丽的田园</a></li>
+            <li><a href="image/02.png" onclick="showPic(this); return false">静静的湖畔</a></li>
+            <li><a href="image/03.png" onclick="showPic(this); return false">清澈的湖面</a></li>
+            <li><a href="image/04.png" onclick="showPic(this); return false">幽静的山谷</a></li>
+        </ul>
+        <img id="placeholder" src="image/other.png" alt="我的图片库">
+        <script>
+            function showPic(whichPic){
+                // 
+                var source = whichPic.getAttribute('href');
+                // 
+                var placeholder = document.getElementById('placeholder');
+                console.log(placeholder);
+                // 
+                placeholder.setAttribute('src', source);
+            }
+        </script>   
+    </body>
+</html>

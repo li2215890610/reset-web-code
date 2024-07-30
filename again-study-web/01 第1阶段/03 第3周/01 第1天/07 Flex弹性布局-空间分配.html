@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Flex弹性布局-空间分配</title>
+        <style>
+            body{
+                margin: 0;
+                height: 100%;
+                display: flex;
+            }
+            section{
+                border: 1px solid blue;
+            }
+            section:nth-child(1){
+                flex-basis: 150px;
+                /*flex-shrink: 0;*/
+            }
+            section:nth-child(2){
+                flex-basis: 100px;
+                /*flex-shrink: 1;*/
+            }
+            section:nth-child(3){
+                flex-basis: 500px;
+                
+                /*flex-grow: 1;*/
+                
+                /*flex-shrink: 3;*/
+                /*flex-shrink: 默认值是1，将 flex-shrink 设置为 0 将不会收缩，值越大收缩的越厉害；可拖动窗口观察 */
+            }
+            section:nth-child(4){
+                flex-grow: 1;
+                /*flex-grow: 默认是0，观察设置和不设置的区别*/
+                
+                /*flex-grow: 2;*/
+                /*将第 3 个的 flex-grow 设置为 1，第 4 个设为 2 拖动窗口变宽观察变化*/
+                /*flex-grow 是将剩余空间划分成所有 flex-grow 值的总和指定的份数，然后再将这些份数分配下去*/
+                /*作业：画一个 flex 分配剩余空间的示意图*/
+                
+                /*先讲 flex-grow 再讲 flex-shrink */
+            }
+        </style>
+    </head>
+    <body>
+        <!--(section>{$})*4-->
+        <section>1</section>
+        <section>2</section>
+        <section>3</section>
+        <section>4</section>
+    </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>jQuery对象</title>
+		<script src="jquery.js"></script>
+		<style>
+			li{
+				font-size: 2rem;
+				color: blue;
+			}
+			
+			.ul2 li{
+				font-size: 1.5rem;
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<ul class="ul2">
+			<li>21</li>
+			<li>22</li>
+			<li>23</li>
+			<li>24</li>
+		</ul>
+		<script>
+			// $('筛选器')是最常用的创建jQuery对象的方法
+			// $()创建一个没有标签元素的空jQuery对象
+			
+			// 会将两个筛选器合并（观察selector属性）
+			console.dir($('li', '.ul2', document.body))
+			
+			
+			// 将标签元素转换成jQuery对象
+			var li = document.querySelector('li')
+			console.dir($(li).text())
+			
+			// 将NodeList/HTMLCollection转换成jQuery对象
+			var lis = document.querySelectorAll('li')
+			console.dir($(lis).text())
+			// jQuery对象的大部分方法会在内部循环处理每一个元素
+			// 少部分只处理jQuery对象中的第1个元素
+			
+			
+
+			
+			
+			// jQuery对象的属性
+			console.log($('li').size())
+			console.log($('li').length)
+			console.log($('li:nth-child(2)').length)
+			
+			// selector样式不一定每个jQuery对象都有，不是通过筛选器生成的jQuery对象就没有
+			console.log($('li:nth-child(2)').selector)
+			
+			
+			
+			console.log($('li:gt(1)').get(1))
+			var li3 = $('li:nth-child(3)')
+			//得到的是jQuery对象
+			var li3Ele = li3.get(0)
+			//得到的是标签元素
+			
+			console.log($('li:gt(1)').index(li3Ele))
+			
+			console.log('-'.repeat(30))
+			
+			
+			// jQuery对象是jQuery('筛选器')方法的返回值
+			// 这个返回值是一个对象
+			// jQuery对象相当于一个容器或盒子，
+			// 内部存放的是通过筛选器找到标签元素。
+			// 它是一个【类似数组】的结构。
+			
+			// jQuery对象提供了循环处理内部每一个标签元素的方法
+			$('li:odd').each(function(){
+				console.log($(this).text())
+			})
+
+		
+		</script>
+	</body>
+</html>

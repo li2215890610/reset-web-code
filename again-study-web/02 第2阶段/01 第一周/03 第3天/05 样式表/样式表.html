@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>样式表</title>
+		<style>
+			*{
+				box-sizing: border-box;
+			}
+			html{
+				height: 100%;
+			}
+			body{
+				margin: 0;
+				height: 100%;
+			}
+			section{
+				font-size: 4rem;
+			}
+		</style>
+	</head>
+	<body>
+		<section>HTML5</section>
+		<script>
+            // document.styleSheets可以返回由网页中所用到的样式表组成的
+            // 数组，但是不包括直接嵌在元素里的style。
+			var css = document.styleSheets
+//          alert(css.length)
+			var css1 = css[0]
+			var cssRules = css1.cssRules
+			alert(cssRules.length)
+			alert(cssRules[0].cssText)
+			alert(cssRules[1].selectorText)
+//			获取样式定义
+//          注意使用调试器观察
+			
+//			css1.addRule('section', 'color:red;')
+//			Firefox不支持，Chrome支持
+
+			css1.insertRule('section { color:red; font-size:2rem; }', 3)
+//			浏览支持情况较好
+//			样式插入的位置会影响样式的应用效果（上面第2个参数传3或4是不同的）
+
+		</script>
+	</body>
+</html>

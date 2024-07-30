@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>尺寸和位置</title>
+		<style>
+			section{
+				width: 300px;
+				height: 300px;
+				background-color: red;
+				margin: 100px auto;
+				border: 20px solid blue;
+				padding: 50px;
+				position: relative;
+			}
+			button{
+				position: absolute;
+				top: 100px;
+				left: 100px;
+				border: 10px solid yellow;
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<button>按扭</button>
+		</section>
+		
+		<script>
+			var sec = document.querySelector('section')
+//			alert(sec.clientHeight)
+//			获取元素的“内高度”：Padding + Content
+
+//			alert(sec.clientTop)
+//			Border的尺寸
+
+//			alert(sec.getBoundingClientRect())
+//			使用调试器观察值（用监视表达式）
+//			可以得到“外高度”：width、height，即 Border + Padding + Content
+//			可以得到top/left/right/bottom，相对于窗口工作区边缘
+//			可以得到左上角坐标x/y，相对于窗口工作区边缘
+//			Client这个词在JS中通常指的就是窗口工作区
+			
+			var btn = document.querySelector('button')
+//			alert(sec.offsetHeight)
+//			获取元素外高度：Border + Padding + Content
+
+//			alert(sec.offsetTop)
+//			获取元素上偏移量，相对于定位参考元素的距离
+			
+//			alert(btn.offsetTop)
+//			alert(btn.offsetLeft)
+			
+			
+//			btn.offsetTop 设置它的值是无效的，改变位置需要使用下面的方式
+//			btn.style.top = '200px'
+//			btn.style.left = 'auto'
+//			btn.style.right = '100px'
+//			设置为auto即变为自动值
+//			设置为initial可恢复到原始状态
+//			设置为inherit表示使用上级标签的样式（继承）
+//			上面3个值都可以达到效果
+			
+//			alert(btn.offsetTop)
+			
+//			课堂练习：实现弹出层效果
+
+// 			sec.onclick = function(){
+// 				btn.scrollIntoView()
+// 				可以让标签元素滚动到窗口工作区上边缘
+//			}
+
+
+			btn.onclick = function() {
+				alert('按扭被点击了')
+//				var rect = btn.getBoundingClientRect()
+				
+				var popup = document.createElement('div')
+				popup.style.width = '100px'
+				popup.style.height = '100px'
+				popup.style.border = '2px solid yellow'
+				popup.style.position = 'absolute'
+				popup.style.top = btn.offsetTop + btn.offsetHeight + 5 + 'px'
+				popup.style.left = btn.offsetLeft + 'px'
+				sec.appendChild(popup)
+//				将弹出层加入到sec而不是body中
+				
+//				var pRect = popup.getBoundingClientRect()
+				
+				var close = document.createElement('div')
+				close.style.width = '20px'
+				close.style.height = '20px'
+				close.style.backgroundColor = 'yellow'
+				close.style.position = 'absolute'
+				close.style.top = btn.offsetTop + btn.offsetHeight + 5 - 10 + 'px'
+				close.style.left = btn.offsetLeft + popup.offsetWidth - 10 + 'px'
+				close.style.borderRadius = '50%'
+				close.style.textAlign = 'center'
+				close.style.cursor = 'pointer'
+				close.innerHTML = '╳'
+				sec.appendChild(close)
+				
+				close.onclick = function() {
+					sec.removeChild(popup)
+					sec.removeChild(close)
+				}
+				
+//				alert(document.documentElement.scrollTop)
+//				alert(document.documentElement.scrollLeft)
+//				页面滚动的距离，如果没有滚动则为0
+
+//				alert(document.documentElement.scrollWidth)
+//				alert(document.documentElement.scrollHeight)
+//				页面自身的高度和宽度
+//				没有滚动条的时候，页面宽度和高度等于窗口的宽度和高度（有可能需要设置height:100%）
+//				有滚动条的时候，页面宽度和高度会大于窗口的宽度和高度
+				
+//				document.documentElement.scrollTo(100, 100)	
+//				滚动的距离(相对于滚动起点)滚动到哪个位置
+
+//				document.documentElement.scrollBy(10, 10)
+//				相对当前位置的滚动距离
+
+
+//				window.scrollByPages(1)		//按页滚动
+//				window.scrollByLines(1)		//按行滚动
+				
+
+//				alert(document.documentElement.clientWidth)
+//				alert(document.documentElement.clientHeight)
+//				窗口工作区的宽度和高度
+
+
+//				alert(window.innerWidth)
+//				窗口内宽度
+//				alert(window.outerWidth)
+//				窗口外宽度
+//				外宽度-内宽度=滚动条+窗口边框
+				
+//				alert(window.outerHeight)
+//				窗口外高度
+//				alert(window.innerHeight)
+//				窗口内高度
+//				外高度 - 内高度=窗口标题栏+窗口工具栏
+				
+
+//				alert(window.screenX)
+//				alert(window.screenY)
+				//获取窗口左上角的坐标
+
+
+//				window.screen.availHeight
+//				屏幕可用高度（扣除任务栏）
+//				window.screen.availWidth
+//				屏幕可用宽度（扣除任务栏）
+//				window.screen.width
+//				屏幕总宽度
+//				window.screen.height
+//				屏幕总高度				
+			}
+
+		</script>
+	</body>
+</html>

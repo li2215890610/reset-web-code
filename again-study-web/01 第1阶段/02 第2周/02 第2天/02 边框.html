@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>边框</title>
+        <style>
+            hr{
+                width: 300px;
+                color: red;
+                /*size: 10px;*/
+            }
+            section{
+                margin: 0 auto;
+                width: 300px;
+                height: 300px;
+                border: 20px solid blue;
+                /*上面 border 三个值先后次序颠倒也能正常起作用，担推荐 width style color 这个顺序*/
+                /*不要边框 border: none;*/
+                
+                /*除了用上面的综合样式设置边框之外，还可以分开单独设置：
+                border-width: 20px;
+                border-style: solid;
+                border-color: blue;*/
+                
+                /*还可以单独设置各个方向的边框*/
+                border-top: 10px solid blue;
+                border-right: 10px dotted red;
+                border-bottom: 10px double green;
+                border-left: 10px dashed yellow;
+                /*注意上、右、下、左的用词 top right bottom left
+                注意各种边框风格，除上述列出之外还有 inset outset groove ridge等有立体效果，但都不常用
+                注意不同方向边框连接处（即角落位置）
+                注意不同浏览器对边框的理解和显示是有区别的，但实际上影响不大
+                还可以加上 border-radius: 20px 观察一下*/
+                
+                /*还可以使用 border-image 来实现自定义边框线，w3school 上就有一个例子*/
+                
+                /*border-block-* border-inline-* 样式与文字方向有关，之后再讲*/
+            }
+        </style>
+    </head>
+    <body>
+        <!--使用 hr 标签作尺子，注意上面hr的样式-->
+        <hr>
+        <section>
+            内容
+        </section>
+        <!--宽度 300 是不包含边框的！！这一点非常重要！！！如果意识不到这一点，会经常发现标签比自己设置的尺寸大！-->
+    </body>
+</html>

@@ -1,0 +1,6 @@
+完善在线问答作业：
+点击提问按钮时判断用户是否登录，没有登录时跳转到登录页，登录后方可提问。
+将问题存到questions文件夹，每个问题存一个文件，将用户昵称也保存进去。
+首页使用fs.readdir获取questions 文件夹中所有文件的数据展示到页面上，显示用户头像
+每个问题后增加“我来回答”按钮，回答内容与问题保存到同一个文件中，结构：{username:",question:",ip:",time:",answers:[{username:",answer:",ip,time},{username:",answer:",ip,time}]}
+支持多人回答问题，回答也显示回答人头像

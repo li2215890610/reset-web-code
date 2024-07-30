@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>页面unload事件</title>
+		<script>
+//			强制刷新、转到其它页面、关闭页面时的提示
+//			firefox不会显示提示信息
+//			chrome会显示提示信息
+//			按扭是浏览器自带的
+			window.onbeforeunload = function(){
+				return '您的数据还没有保存！'
+			}
+
+//			下面写法无效！！
+//			window.addEventListener('beforeunload', function(){
+//				return '您的数据还没有保存！'
+//			})
+
+//			下面的写法已不支持！！
+//			window.onunload = function(){
+//				return '您的数据还没有保存！'
+//			}
+		</script>
+	</head>
+	<body>
+		假设本页有未保存数据
+	</body>
+</html>

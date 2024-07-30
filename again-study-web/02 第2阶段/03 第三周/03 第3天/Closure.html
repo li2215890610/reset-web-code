@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <meta name = "author" content = "张强">
+        <title>Closure</title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <script>
+            var num = 11;
+            function func1(){
+                // 在方法内部可以得到全局变量的值
+                console.log(num);
+            }
+            // 可以得到num的值
+            func1();
+            
+            function func2(){
+                var num1 = 22;
+                num2 = 33;
+            }
+            func2();
+            // 父类能否获取到子方法内部的值呢？
+            // num1是局部变量，在func2外部无法获取。所以会报错
+            // console.log(num1); 
+            // <!--可以获取到num2的值，因为不使用var定义变量时，默认是全局变量 -->
+            console.log(num2);      //正确
+            
+            // 如何在方法外部获取方法的局部变量呢！
+            function func3(){
+                var num3 = 44;
+                function func4(){
+                    return num3;
+                }
+                return func4;
+            }
+            // 在外部无法获取到func3内部的局部变量num3，但是func3内部的局部方法func4却可以获取到
+            // 因此 返回一个func4的引用 ，这样在外部通过这个func4就可以获取到func3的内部变量。
+            // func3方法内的局部方法func4就叫做闭包,它搭建了方法内部与方法外部的桥梁，使得在外部也可以任意的获取到方法内部的资源。
+            // 闭包会造成变量在内存中持久占用，因此会有一定的性能问题，最好不要轻易使用，即便使用也要在恰当的时机进行释放。
+            var func = func3();
+            console.log(func());
+        </script>
+    </body>
+</html>

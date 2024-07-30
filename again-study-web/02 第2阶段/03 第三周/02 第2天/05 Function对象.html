@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>Function对象</title>
+		<style>
+			div{
+				width: 300px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<script>
+//			var c = 10
+//			
+//			function test(){
+//				
+//				
+//				var add1 = new Function('a, b', 'return a + b + c')
+//				console.log(add1(3,5))
+//	//			使用Function构造函数可以通过字符串创建函数
+//	//			注意：除非是用代码生成代码，否则不要这样写
+//				
+//	//			这是通常写法，也是推荐的写法
+//				function add2(a, b){
+//					return a + b + c
+//				}
+//				
+//				console.log('add2函数需要的参数个数是：' + add2.length)
+////				获取函数定义中的参数个数
+//				console.log(add2(3,5))
+//				
+//				console.log(add2.toString())
+////				可以获取函数的源代码
+////				可以在运行时输出源代码，编译型编程语言做不到！
+//
+////				var code = prompt('请输入代码：', '')
+////				console.log(code)
+////				eval('(' + code + ')')
+//////				evaluate可以把字符串当做代码来执行！
+//////				其它编程语言很难做到！
+////				
+////				console.log(add2(3,5))
+//				
+//				
+//				
+//			}
+//		
+//
+//			test()
+//			
+			
+			
+//			document.querySelector('div').onclick = function(ev){
+//				console.log(this)
+////				在事件处理函数中，this指向的是当前监听事件的标签元素
+////				相当于 ev.currentTarget
+//			}
+			
+			var p = {
+				name: 'ZhangSan',
+				age: 3,
+				sayHello: function(ev){
+					console.log(this)
+					alert('我的名字是' + this.name)
+				}
+			}
+			
+			document.querySelector('div').onclick = p.sayHello.bind(p)
+//			bind方法可以将函数中的this永远地指向指定的对象
+		</script>
+	</body>
+</html>

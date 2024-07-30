@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>URL和相对路径、URL编码</title>
+	</head>
+	<body>
+		<a href="https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=url%E7%BB%93%E6%9E%84&oq=url%E7%BB%93%E6%9E%84&rsv_pq=dd139c960004e504&rsv_t=33d5pgjWdhmKVKOYaZ3eBuMZTfSZXa56D9aeLoq5dpNm%2FKTD%2BbJ1IwJ5n5o&rsv_enter=0">百度搜索-url结构</a>
+		<script>
+
+			var anchor = document.querySelector('a')
+			alert(a.protocol)
+			
+//			通过观察变量anchor可以看到url结构：
+//			protocol	协议，常见协议有http:   https:    ftp:    
+//			hostname	主机名，域名（www.baidu.com）、IP地址（192.168.15.112）、
+//						localhost（本地主机）、计算机名（在系统设置中设置）
+//			port		端口号，网页默认端口号80，端口号也可以是其它数字，不会超过65535
+//			pathname	路径，如/app1/images/
+//			search		查询字符串（queryString）？后面的name1=value1&name2=value2&...
+//			hash		（fragment）   #54     #name/changwei/age/3
+//			
+//			username/password 可以出现在主机名前面    changwei:12345@localhost
+//			
+//			常见的邮件地址也是URL：changwei@zhiyou100.com
+//			mailto://changwei@zhiyou100.com
+//			mailto:发邮件的协议
+//			changwei：用户名
+//			zhiyou100.com主机名
+//		
+//			<img src="img/1.jpg">
+//			省略的URL，相对地址、相对路径
+//			1 文件名
+//			jpg 文件扩展名
+//			
+//			如果相对地址以字母或数字等不是'/'的字符开头，是相对于当前html文件的位置
+//			如果地址以'/'开头，也是相对地址，相对网站根目录的一个位置
+//			/img/1.jpg    网站根目录中有一个img文件夹，img文件夹中有一个1.jpg的文件 
+//			
+//			如果地址以../开头，也是相对地址，相对于当前html文件上一级文件夹
+//			../img/1.jpg   在当前html文件所在位置上一级文件中有一个img文件夹
+//			
+//			-------------------------------------------
+//			./img/1.jpg 自已测试
+//			
+//			http://www.baidu.com/img/2016/../1.jpg
+//			自己在IIS中创建文件夹测试一下
+
+
+//			var data = window.encodeURIComponent('url结构')
+//			为了解决不同网站（编码不同）之间通过URL相互传值的问题
+//          共同约定，传值时（尤其是非ASCII值，如中文）统一编码为UTF-8
+//          使用 %字节16进制 表示法
+//			alert(data)
+            
+//			var name = window.decodeURIComponent('%E1%88%99')
+//			alert(name)
+
+		</script>
+	</body>
+</html>

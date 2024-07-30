@@ -1,0 +1,5 @@
+早期的浏览器默认样式：
+https://www.w3.org/TR/CSS21/sample.html
+http://css-class.com/test/css/defaults/UA-style-sheet-defaults.htm
+
+介绍一下浏览器样式差异（主要是历史原因，现代浏览器都在向w3标准靠拢，差异越来越小）

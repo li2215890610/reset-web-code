@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>背景图片</title>
+        <style>
+            body{
+                height: 100%;
+                /*因为标签总是会尽最大努力占居最小的高度，所以当 body 中没有内容时，高度为 0 看不见，故将高度设置为 100%*/
+                margin: 0;
+                /*因为 body 标签默认带有 10px 的外边距，所以设置高度 100% 后会出现滚动条，所以将 margin 设为 0 可以去掉滚动条*/
+                background-image: url(leaf.jpg);
+                background-repeat: no-repeat;
+                /*背景图片小于标签尺寸时，背景图片会在两个方向上重复自已，直到填满整个空间，除非设置了 no-repeat
+                还可以设定在单一一个方向重复*/
+                /*background-repeat: repeat-x;
+                background-repeat: repeat-y;*/
+                
+                background-color: red;
+                /*当背景图片小于标签，且背景图片不重复时，可以看到背景颜色是可以和背景图片共存的，背景颜色在下方，背景图片在背景颜色上方*/
+                
+                background-position: 100px 100px;
+                /*这个样式可以决定背景图片从哪个位置开始绘制（注意需要 no-repeat）*/
+                /*background-position: 50% 100px;*/
+                /*注意也可以使用百分比，但计算关系并不简单，比如横向 0% 时靠在左侧，50% 能正好居中，100% 时又靠在右侧*/
+                
+                /*background-size: 500px 700px;*/
+                /*可以设置背景图片的大小*/
+                /*background-size: 100%;*/
+                /*注意也可以使用百分比，注意百分比是以标签尺寸为参照来计算的！*/
+            }
+        </style>
+    <body>
+      
+    </body>
+</html>

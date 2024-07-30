@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>鼠标事件</title>
+		<style>
+			section{
+				width: 150px;
+				height: 150px;
+				background-color: blue;
+				margin: 100px auto;
+				border-radius: 50%;
+			}
+			span{
+				width: 30px;
+				height: 30px;
+				display: block;
+				background-color: hsl(0, 100%,50%);
+				border-radius: 50%;
+				position: absolute;
+			}
+			div{
+				height: 50px;
+				width: 50px;
+				background-color: green;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<section>
+			<div>
+				
+			</div>
+		</section>
+		
+		<script>
+			var sec = document.querySelector('section')
+			sec.addEventListener('click', function(){
+				console.log('clicked!')
+			})
+			sec.addEventListener('dblclick', function(){
+				console.log('dblclicked!')
+			})
+//			双击事件会造成2个单击事件
+//			首先按下鼠标，然后再放开鼠标，才能触发click
+
+//			鼠标任意键按下
+			sec.onmousedown = function(e){
+				sec.style.backgroundColor = 'darkblue'
+			}
+//			鼠标任意键弹起
+			sec.onmouseup = function(e){
+				sec.style.backgroundColor = 'red'
+			}
+			//左键 which = 1, button = 0, buttons = 1
+			//右键 which = 3, button = 2, buttons = 2
+			//滚轮 which = 2, button = 1, buttons = 4
+			
+			var spans = document.querySelectorAll('span')
+			
+			// window.onmousemove = function(e){
+			// 	for (var i = 0; i < spans.length; i++) {
+			// 		var span = spans[i]
+					
+			// 		var r1 = Math.random() * 300 - 150
+			// 		var r2 = Math.random() * 300 - 150
+			// 		var r3 = Math.random()
+					
+			// 		span.style.top = e.pageY + r1 + 'px'
+			// 		span.style.left = e.pageX + r2 + 'px'
+			// 		span.style.transform = 'scale(' + r3 + ')'
+			// 		span.style.backgroundColor = 'hsl(' + r3 * 360 + ', 100%, 50%)'
+			// 	}
+			// }
+			
+			sec.onmouseenter = function(e){
+				console.log('鼠标来了')
+			
+				// sec.style.position = 'absolute'
+				// var r1 = Math.random() * 300 - 300
+				// var r2 = Math.random() * 300 - 300
+				
+				// sec.style.top = e.pageY + r1 + 'px'
+				// sec.style.left = e.pageX + r2 + 'px'
+			}
+			sec.onmouseleave = function(){
+				console.log('鼠标走了')
+			}
+//			mouseenter进入标签元素的范围，包括其子标签元素的范围，不会冒泡
+//			mouseover在标签元素的上面，会冒泡
+//			
+
+			sec.onwheel = function(e){
+				console.log('x:' + e.deltaX + ', Y:' + e.deltaY + ', Z:'+ e.deltaZ)
+			}
+//			表示滚轮的滚动
+//			event中的deltaX表示水平方向滚动
+//			event中的deltaY表示垂直方向滚动
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>模拟键盘事件</title>
+		<style>
+			div{
+				width: 300px;
+				height: 50px;
+				background-color: red;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			这个DIV可以点击<br>
+			点击时会虚拟一个键盘事件
+		</div>
+		<script>
+			var div = document.querySelector('div')
+			
+			div.addEventListener('click', function(e){
+				var keyEvent = new KeyboardEvent('keydown', {
+					key: 'p',
+					code: 'KeyP',
+					ctrlKey: true,
+					keyCode: 0,
+					charCode: 112
+				})
+			
+				window.dispatchEvent(keyEvent)
+			})
+			
+			window.onkeydown = function(e){
+				alert('键盘事件：' + e.charCode + '|' + e.code)
+				alert(e.ctrlKey ? 'Ctrl被按下' : 'Ctrl没有按下')
+			}
+			
+//			模拟键盘事件时，不会触发浏览器自身的快捷键，如Ctrl + P打印
+		</script>
+	</body>
+</html>

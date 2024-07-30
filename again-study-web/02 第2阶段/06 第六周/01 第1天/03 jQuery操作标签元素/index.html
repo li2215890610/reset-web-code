@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>jQuery对象-操作标签元素</title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JS</li>
+        </ul>
+        <ol>
+            <li>第1项</li>
+            <li>第2项</li>
+            <li>第3项</li>
+            <li>第4项</li>
+            <li>第5项</li>
+        </ol>
+        <hr>
+
+        <script src="jquery.js"></script>
+        <script>
+            
+            /*-----------------------------------------------------*/
+            // 使用原生方法创建元素并添加到页面上
+            
+            
+            // var li = document.createElement('li')
+            // li.innerText = '新创建的项'
+            
+            // var ol = document.querySelector('ol')
+            // ol.appendChild(li)
+            
+            // var li1 = ol.children[0]
+            // // 得到所有的子标签元素
+            
+            // ol.insertBefore(li, li1)
+            // // 如果li已经在页面上，则会从原位置移除，然后
+            // // 插入到新位置
+            
+            // // ol.appendChild(li)
+            
+            // var ol = document.querySelector('ol')
+            // ol.insertAdjacentHTML('beforebegin', '<h1>我在ol的外面</h1>')
+            // ol.insertAdjacentHTML('afterbegin', '<li>我是新来的</li>')
+            // ol.insertAdjacentHTML('beforeend', '<li>我也是新来的</li>')
+            
+            // Firefox不支持下面2个方法
+            // ol.insertAdjacentText('afterend', '<footer>我在底部</footer>')
+            
+            // var li = document.createElement('li')
+            // li.innerText = '我是新创建的'
+            // ol.insertAdjacentElement('beforeend', li)
+            
+            
+            
+            /*-----------------------------------------------------*/
+            // 使用jQuery对象创建标签并添加到页面上
+            
+            
+            // $('ul').append('<li>Node.js</li>')
+            
+            // $('ul').append(document.querySelectorAll('ol li'))
+            
+            // $('ol').append($('ul>li'))
+            
+            // $('ul>li').append(function(index, html){
+            //     console.log(html)
+            //     return ' <-> <i>' + (index + 1) + '</i>'
+            // })
+            
+            // $('<span>--------</span>').appendTo('li')
+            // $('li').append('<span>********</span>')
+            
+            // $('ol,ul,body').prepend('<li>我有分身术</li>')
+            
+            // $('li').after('<li>我是保镖</li>')
+            // $('li').before('<li>我是保镖</li>')
+            
+            
+            // $('li:nth-child(1)').insertAfter('hr')
+            // $('li:first').insertBefore('hr')
+            
+            
+            /*-----------------------------------------------------*/
+            // jQuery提供的包裹功能
+            
+            
+            // $('li').wrap('<a href="http://www.zhiyou100.com"></a>')
+            
+            
+            // $('li').wrap(function(){
+            //     // console.log($(this).text())
+            //     var url = 'https://www.baidu.com/s?wd=' + $(this).text()
+            //     return '<a href="' + url + '"></a>'
+            // })
+            
+            // $('li').wrapAll('<div></div>')
+            
+            // $('li').wrapInner('<strong></strong>')
+            
+            // $('li:nth-child(1)')
+            //     .insertAfter('hr')
+            //     .wrapAll('<ul></ul>')
+            //     .first()
+            //     .css('color', 'blue')
+            //     .end()
+            //     .last()
+            //     .css('color', 'red')
+            //     .end()
+            //     .wrapInner(function(){
+            //         var url = 'https://www.baidu.com/s?wd=' + $(this).text()
+            //         return '<a href="' + url + '"></a>' 
+            //     })
+                
+            // $('li:first').unwrap()
+            
+            
+            /*-----------------------------------------------------*/
+            // jQuery提供的替换功能
+            
+            
+            // // $('li').replaceWith('<li>123</li>')
+            // $('<li>123</li>').replaceAll('li:odd')
+            
+            
+            /*-----------------------------------------------------*/
+            // jQuery提供的清空标签和删除标签自身的功能
+            
+            // $('html').empty()
+            
+            // $('hr').remove()
+            
+            
+            // 从页面上移除，然后再添加到页面其它地方
+            // var hr = $('hr').detach()
+            
+            // setTimeout(function(){
+            //     $('ul').after(hr)
+            // }, 1000 * 10)
+            
+            // $('hr').click(function(){
+            //     alert('哎呦！')
+            // })
+            
+            
+            
+            //jQuery提供的clone功能和原生的clone功能
+            // jQuery对事件的支持更强大
+            
+            
+            
+            // $('ul').after($('hr').clone(true, true))
+            
+            // var ul = document.querySelector('ul')
+            // var div = document.createElement('div')
+            // div.innerHTML = '新创建的DIV'
+            
+            // document.body.replaceChild(div, ul)
+            
+            // var hr = document.querySelector('hr')
+            // // document.body.removeChild(hr)
+            // hr.remove()
+            
+            var hr = document.querySelector('hr')
+            hr.onclick = function(){
+                alert('哎呦')
+            }
+            
+            var ol = document.querySelector('ol')
+           
+            document.body.insertBefore(ol.cloneNode(true), ol)
+        </script>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>01 - Flex弹性布局-换行对齐</title>
+        <style>
+            body{
+                display: flex;
+                margin: 0;
+                height: 100%;
+                flex-wrap: wrap;
+                
+                /*flex-direction: row-reverse;*/
+                
+                /*对齐总结：*/
+                align-content: space-between;
+                /*align-content: space-around;*/
+                /*align-content: flex-start;*/
+                /*align-content: flex-end;*/
+                /*align-content: stretch;*/
+                /*align-content: center;*/
+                /*行间对齐*/
+                /*如果不换行，则此样式无效果*/
+                
+                justify-content: center;
+                /*主轴对齐*/
+                align-items: center;
+                /*交叉轴对齐*/
+            }
+            section{
+                width: 150px;
+                height: 150px;
+                /*height: 50px;*/
+                /*height: 50px;*/
+                border: 1px solid blue;
+                /*flex-shrink: 0;*/
+            }
+            section:nth-child(5){
+                align-self: flex-end;
+                /*align-self: flex-start;*/
+                /*align-self: center;*/
+                /*align-self: stretch;*/
+                /*align-self: baseline;*/
+                /*如果设置高度会影响strech*/
+            }
+        </style>
+    </head>
+    <body>
+        <section>1</section>
+        <section>2</section>
+        <section>3</section>
+        <section>4</section>
+        <section>5</section>
+        <section>6</section>
+        <section>7</section>
+        <section>8</section>
+        <section>9</section>
+        <section>10</section>
+    </body>
+</html>

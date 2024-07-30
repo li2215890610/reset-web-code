@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>动画帧</title>
+	</head>
+	<body>
+		<button onclick="stopAF()">停止动画</button>
+		<button onclick="recoverAF()">恢复动画</button>
+		<button onclick="resetAF()">重置动画</button>
+		<div></div>
+		
+		<script>
+			var div = document.querySelector('div')
+			var i = 1
+			var af    //undefined
+			
+//			累加器
+			var adder = function(){
+				div.innerHTML = i
+				i++
+				
+				af = requestAnimationFrame(adder)
+//				adder的下一次调用
+//				当页面最小化时，不会执行，它会省电
+			}
+			
+			requestAnimationFrame(adder)
+//			在下一次“重绘”页面时调用adder，这是adder的第一次调用
+//			起到启动的作用
+
+//			停止动画
+			function stopAF(){
+				cancelAnimationFrame(af)
+			}
+			
+//			恢复动画
+			function recoverAF(){
+				requestAnimationFrame(adder)
+			}
+			
+//			重置动画
+			function resetAF(){
+				i = 1
+				div.innerHTML = i
+			}
+			
+//			10秒之后停止动画
+			setTimeout(stopAF, 1000)
+//			requestAnimationFrame() 在现代浏览器中每秒60次
+//			
+//			setTimeout()
+//			setInterval() 
+			//时间都不是精确的
+		</script>
+	</body>
+</html>

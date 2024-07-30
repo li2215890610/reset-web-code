@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>宽度、高度和内容溢出</title>
+        <style>
+            section{
+                margin: 0 auto;
+                width: 300px;
+                /*宽度是固定的*/
+                
+                /*max-width: 800px; 
+                会随着窗口宽度的增减而变化（注意把窗口宽度调小一点），但不会超过 800px*/
+                
+                /*min-width: 300px;
+                默认是 100% 的宽度，会随窗口变窄而减小宽度，但不会小于 300px，如果窗口再小，
+                会出滚动条*/
+                
+                /*max-width min-width 可以组合使用，但标签总是会尽可能占用尽可能多的横向空间
+                （和尽可能少的纵向空间）*/
+                /*设置 width 时，max-width min-width 不再起作用*/
+                
+                
+                
+                /*如果标签的尺寸不足以容纳内部内容，则会出现内容溢出现象，使用 overflow 样式
+                可以控制溢出行为*/
+                overflow: scroll;
+                /*值 scroll 使用内容滚动，hidden 则完全剪切掉多余内容，也可以单独控制滚动条*/
+                /*overflow-y: scroll;*/
+                /*overflow-x: hidden;*/
+                /*只设置一个 hidden 都起作用！这一点很难理解，最好不要这样用*/
+                /*中文字符可以在任意两个字之间换行，所以通常会出现纵向滚动条
+                而英文要注意其默认不会在单词内部换行，所以如果写一个很长的“单词”，就会出现不会换行，
+                横向滚动的现象
+                比如常见的表格撑开问题
+                如果加上空格（注意是使用键盘打出的空格），则会在空格处换行
+                如果使用 &nbsp; 实体，则又不会换行！因为此种空格是 non-breaking space 即非换行
+                空格，它会被当成字母对待
+                如果此时使用 overflow-wrap: break-word; 则能直接折断单词，强制换行
+                使用 &emsp; 可以换行，但空格较宽*/
+                /*overflow-wrap: break-word;   目前不起作用，可使用下面样式*/
+                /*word-wrap: break-word;*/
+                
+                resize: both;
+                /*允许用户手动调整大小*/
+                
+                height: 100px;
+                /*不要将高度设置的过小，否则无法显示纵向滚动条*/
+                border: 5px solid red;
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <!--内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容-->
+            <!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
+            <!--zzzzz zzzzzzz zzzz zzzzzzzzzzzz zzzzzzzzzzzzzz zzzzzzzzzzzzzzzzzzz zzzz zzzzz zzzzzzz zzzzzzzz zzzzzzzzz zzzz-->
+            zzzzz&nbsp;zzzzzzz&nbsp;zzzz&nbsp;zzzzzzzzzzzz&nbsp;zzzzzzzzzzzzzz&nbsp;zzzzzzzzzzzzzzzzzzz&nbsp;zzzz&nbsp;zzzzz&nbsp;zzzzzzz&nbsp;zzzzzzzz&nbsp;zzzzzzzzz&nbsp;zzzz
+        </section>
+    </body>
+</html>

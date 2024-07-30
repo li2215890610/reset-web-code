@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS数据类型</title>
+</head>
+<body>
+    <script>
+        // 基本数据类型：Undefined Null Boolean Number String
+        // 一种复杂数据类型：Object
+
+        // 操作符typeof可以检测某个变量的数据类型
+        var student = 'zhangsan';
+        console.log(typeof(student)); // string
+        console.log(typeof student); // string
+        console.log(typeof 65); // number
+
+        // 1、String类型
+        // 即字符串类型，可以使用单引号或双引号，单、双引号没有区别
+        var firstName = 'zhang';
+        var lastName = "san";
+        // String数据类型包含一些特殊的字符字面量，也称为转义字符
+        // \n 换行
+        // \b 空格
+        // \r 回车
+        // \unnnn 以十六进制代码表示的一个Unicode字符(n的范围为0~F)
+        // 例如：\u03a3表示希腊字符∑
+        // 字符字面量可以出现在字符串中的任意位置
+
+        // 字符串长度：通过其length属性获得
+        console.log(firstName.length); // 5
+
+        // 字符串拼接：使用加号(+)
+        var fullName = 'zhang' + 'san';
+        console.log(fullName);
+        console.log('hello ' + 100); // 输出字符串hello 100
+
+        // 转换为字符串：toString()方法
+        var age = 19;
+        console.log(age.toString());
+        var isMale = false;
+        console.log(isMale.toString());
+
+        // 2、Number类型
+        // 字面量语法定义十进制整数intNum
+        var intNum = 20;
+        // 除了定义十进制整数，还可定义八进制、十六进制
+        // 在进行算术运算时，所有八进制和十六进制表示的数值都会被转换为十进制
+
+        // 浮点数值：必须包含一个小数点
+        var floatNum1 = 179.5;
+        var floatNum2 = 0.5;
+        var floatNum3 = .9; // 有效，但不推荐这种写法
+
+        // 数值转换：Number() parseInt() parseFloat()
+        // Number()可以用于转换任意数据类型
+        // parseInt()和parseFloat()用于把字符串转换为数值
+
+        var num1 = Number('hello world'); // NaN
+        var num2 = Number(''); // 0
+        var num3 = Number(true); // 1
+        var num4 = parseInt('100'); // 100
+        var num5 = parseFloat('100.5'); // 100.5
+
+        // 3、Object类型
+        // 即对象类型，它是一组数据和功能的集合
+        // 对象通过使用new操作符来创建，例如：new Object()表示创建一个实例
+        // 如果不传递参数可以省略小括号，例如：new Object；但不推荐这种做法
+        // Object的每个实例都有下列属性和方法：
+        // constructor：保存用于创建当前对象的函数
+        // hasOwnProperty(属性名)：检查当前对象实例中是否有某个属性
+        // 创建Object实例的方式有两种，一是使用new操作符
+        var person1 = new Object();
+        // 添加属性name
+        person1.name = 'lisi';
+        person1.age = 20;
+
+        // 第二种创建方式是使用字面量表示法
+        // name和age表示属性名，后面是它们的值
+        var person2 = {
+            name: 'wangwu',
+            age: 21 
+        }
+        // 使用字面量语法时，属性名也可以使用字符串
+        // var person = {
+        //     "name": "John",
+        //     "age": 30
+        // }
+        // js程序员更青睐第二种写法，这种语法代码量少，并且能够带给我们封装数据的感觉
+    </script>
+</body>
+</html>

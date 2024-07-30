@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>事件传播控制</title>
+		<style>
+			div{
+				width: 300px;
+				height: 50px;
+				background-color: red;
+				color: white;
+			} 
+		</style>
+	</head>
+	<body>
+		<section>
+			<div>
+				<a href="https://www.baidu.com">这个可以点击</a>	
+			</div>
+		</section>
+		
+		<script>
+			
+			var div = document.querySelector('div')
+			var sec = document.querySelector('section')
+			
+			document.documentElement.addEventListener('click', function(){alert('HTML-挖洞')}, true)
+			document.documentElement.addEventListener('click', function(){alert('HTML-冒泡')}, false)
+			
+			document.body.addEventListener('click', function(e){alert('BODY-挖洞')}, true)
+			document.body.addEventListener('click', function(){alert('BODY-冒泡')}, false)
+			
+			sec.addEventListener('click', function(e){
+				alert('SECTION-挖洞')
+//				e.stopPropagation()
+//				停止事件传播
+//				即可以停止挖洞过程也可以停止冒泡
+//				不会影响同级别的事件监听者
+				
+//				e.stopImmediatePropagation()
+//				停止同级别的多个事件监听者的调用
+//				不管用哪个方法停止挖洞或冒泡都不会影响超链接跳转
+
+//				超链接跳转是整个事件传播完成之后才进行跳转的
+				
+				
+				e.preventDefault()
+//				使用 preventDefault 可以阻止事件的默认行为，如超链接跳转或表单提交
+//				使用e.defaultPrevented 可以获取事件的默认是否已经被阻止
+				
+				
+			}, true)
+			
+			sec.addEventListener('click', function(){
+				alert('SECTION-挖洞-2')
+			}, true)
+			
+			
+			sec.addEventListener('click', function(e){
+				alert('SECTION-冒泡')
+//				e.stopPropagation()
+
+				alert(e.defaultPrevented)
+				e.defaultPrevented = false
+				//不能将已阻止的默认行为恢复
+				
+			}, false)
+			
+			div.addEventListener('click', function(){alert('DIV-挖洞')}, true)
+			div.addEventListener('click', function(){alert('DIV-冒泡')}, false)
+		
+//			第3个参数决定事件监听者在哪个过程中被调用
+//			如果是ture，那么监听者将在挖洞或捕获的过程被调用
+//			如果是false，监听者在冒泡阶段被调用
+//			
+//			设置为true的时候，监听者调用比较早，设置为false则会比较晚
+//			如果不传第3个值，则监听者调用时间比较晚，会在冒泡阶段才调用
+
+			sec.onclick = function(){
+				alert('在哪个阶段触发？')
+			}
+			//在冒泡阶段触发
+			
+		</script>
+	</body>
+</html>

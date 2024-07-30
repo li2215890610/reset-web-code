@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>jQuery布局</title>
+        <style>
+            div{
+                width: 200px;
+                height: 200px;
+                border: 8px solid red;
+                overflow: scroll;
+                padding: 0px;
+                /*padding: 15px;*/
+                margin: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>中文中文中文中文中文中文中文中文中文中文中文中文中文中文
+            中文中文中文中文中文中文中文中文中文中文中文中文中文中文中文
+            中文中文中文中文中文中文中文中文中文中文中文中文中文中文中文中文
+            中文中文中文中文中文中文中文中文中文中文中文中文中文中文中文中文中文中文
+            中文中文中文中文中文中文中文中文中文中文中文中文中文中文中文中文
+        </div>
+        <button>获取位置</button>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        
+        <script src="jquery.js"></script>
+        <script>
+            var div = document.querySelector('div')
+            var btn = document.querySelector('button')
+            btn.onclick = function(){
+                // 详细的解释请查看Xmind总结
+                
+                // console.log('-'.repeat(30))
+                
+                // console.log(div.clientWidth)
+                // console.log(div.clientHeight)
+                // console.log(div.offsetWidth)
+                // console.log(div.offsetHeight)
+                // console.log(div.scrollWidth)
+                // console.log(div.scrollHeight)
+                
+                // console.log('-'.repeat(30))
+                
+                // console.log(div.clientLeft)
+                // console.log(div.clientTop)
+                // console.log(div.offsetLeft)
+                // console.log(div.offsetTop)
+                // console.log(div.scrollLeft)
+                // console.log(div.scrollTop)
+                
+                // console.log('-'.repeat(30))
+                
+                // console.dir(div.getBoundingClientRect())
+                
+                
+                /*--------------------------------------------------*/
+                console.log('-'.repeat(30))
+                // 尺寸
+                console.log($('div').height())
+                console.log($('div').width())
+                console.log($('div').innerHeight())
+                console.log($('div').innerWidth())
+                console.log($('div').outerHeight())
+                console.log($('div').outerWidth())
+                console.log($('div').outerHeight(true))
+                console.log($('div').outerWidth(true))
+                
+                /*--------------------------------------------------*/
+                console.log('-'.repeat(30))
+                // 位置
+                
+                console.log($('div').offset())
+                console.log($('div').position())
+                // 内部滚动距离
+                console.log($('div').scrollTop())
+                console.log($('div').scrollLeft())
+            }
+            
+            console.log(document.documentElement.clientWidth)
+            console.log(document.documentElement.clientHeight)
+            console.log(document.documentElement.scrollWidth)
+            console.log(document.documentElement.scrollHeight)
+            console.log(window.outerHeight)
+            console.log(window.outerWidth)
+            console.log(window.innerHeight)
+            console.log(window.innerWidth)
+        </script>
+    </body>
+</html>

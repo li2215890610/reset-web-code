@@ -1,0 +1,15 @@
+body
+    header
+         img
+         h1
+         span
+           a
+           a
+           a
+    main
+        section
+          ul/menu
+              li
+              li
+              li
+        p

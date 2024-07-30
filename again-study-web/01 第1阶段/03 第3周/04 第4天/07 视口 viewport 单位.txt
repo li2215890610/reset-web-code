@@ -1,0 +1,9 @@
+移动互联网发展起来之后，引入了 vw、vh 两个单位，以方便 Web App 和手机页面的开发。使用 vw、vh 能很好地解决宽度、高度适配问题，比使用 % 单位更高级！
+vw、vh可以理解为：
+
+x vw = x% * (viewport width)
+x vh = x% * (viewport height)
+
+即可以指定 height: x vh;
+也可以指定 height: x vw;
+比单纯指定 height: x %; 要有用得多！

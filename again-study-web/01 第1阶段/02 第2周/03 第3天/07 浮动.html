@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>浮动</title>
+        <style>
+            body{
+                margin: 0;
+            }
+            ul{
+                margin: 10px;
+                padding-left: 0;
+                /*列表默认带有一个左侧内边距
+                而且 list-style-position 默认是 outside 这个空间是显示列表符号的地方
+                样式 list-style-image 可以自定义列表符号，如果 position 是 inside 
+                则图片要小一点，如果 outside 则不受限制*/
+            }
+            li{
+                float: left;
+                /*浮动之后标签占居的空间最小化，块元素会让出右侧空间（float: left），还
+                可以向右浮动*/
+                /*右浮动时，顺序保持不变的话，可以在外面加一个 nav 标签，将浮动应用到 nav 
+                标签上*/
+                /*浮动与 inline-block 不同，inline-block 会带来小块空白间距，除非将标签
+                全部紧贴着写在一起*/
+                /*浮动会影响后续标签，所以有时需要清除浮动*/
+                list-style: none;
+                padding: 6px 15px;
+                margin-right: 6px;
+                background-color: #EEE;
+                border-radius: 5px;
+                cursor: pointer;
+                /*光标，鼠标指针图标*/
+                /*各种光标的值请参考本文件夹中附带的图片*/
+                /*自定义光标请参考预科打地鼠示例*/
+            }
+            li:hover{
+                background-color: red;
+                color: white;
+            }
+            /*ul:after{
+                content: '.';
+                visibility: hidden;
+                clear: left;
+            }*/
+            /*清除浮动的非常规技巧*/
+            .clear_both{
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>PHP</li>
+            <li>Java</li>
+            <li>.NET</li>
+            <li>NodeJs</li>
+        </ul>
+        <div class="clear_both"></div>
+        <!--清除浮动的常用技巧-->
+        
+        <h1>标题标题标题</h1>
+        <h2>小标题小标题小标题</h2>
+    </body>
+</html>

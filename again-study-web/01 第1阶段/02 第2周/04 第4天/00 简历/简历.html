@@ -1,0 +1,282 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>简历</title>
+        <style>
+            body{
+                height: 100%;
+                background-image: url(wood.png);
+                font-family: 时尚中黑简体;
+                font-size: 12px;
+            }
+            h1,h2,p{
+                margin: 0;
+                text-align: right;
+                cursor: default;
+            }
+            h2{
+                font-size: 19px;
+            }
+            p{
+                line-height: 130%;
+                position: absolute;
+                right: 26px;
+                bottom: 10px;
+            }
+            .white_text{
+                color: #fee9fe;
+            }
+            section{
+                width: 392px;
+                height: 101px;
+                margin: 0 auto;
+                border-radius: 17px;
+                position: relative;
+                box-shadow: 3px 3px 3px #333;
+            }
+            section:nth-child(2n+1){
+                left: -60px;
+            }
+            section:nth-child(2n){
+                left: 60px;
+            }
+            section:nth-child(1){
+                left: -90px;
+                transform: rotate(-3deg);
+                background-color: #1e1a17;
+                margin-top: 50px;
+                z-index: 1000;
+                background-image: url(diwen.png);
+                background-repeat: no-repeat;
+                background-size: 70%;
+                background-position: 70% 13%;
+            }
+            section:nth-child(2){
+                background-color: #dededc;
+                top: -13px;
+                z-index: 900;
+            }
+            section:nth-child(3){
+                background-color: #c4be66;
+                top: -26px;
+                z-index: 800;
+            }
+            section:nth-child(4){
+                background-color: #bc8ebc;
+                top: -39px;
+                z-index: 700;
+            }
+            section:nth-child(5){
+                background-color: #dc214c;
+                top: -52px;
+                z-index: 600;
+            }
+            section:nth-child(6){
+                background-color: #e3efc1;
+                top: -65px;
+                z-index: 500;
+            }
+            section:nth-child(7){
+                background-color: #d5c2d8;
+                top: -78px;
+                z-index: 400;
+            }
+            section:nth-child(8){
+                background-color: #c0c2c1;
+                top: -91px;
+                z-index: 300;
+                overflow: hidden;
+            }
+            .hole{
+                width: 24px;
+                height: 24px;
+                display: block;
+                background-image: url(wood.png);
+                border-radius: 50%;
+                position: absolute;
+                bottom: 10px;
+                left: 10px;
+            }
+            #jl h2{
+                color: #6777A8;
+                font-size: 37px;
+                font-weight: normal;
+                position: relative;
+                top: 30px;
+                left: 34px;
+                display: inline-block;
+                text-align: left;
+            }
+            #jl h2 small{
+                display: block;
+                color: #fffdfa;
+                font-size: 19px;
+            }
+            #jl h1{
+                display: inline-block;
+                color: #fffdfa;
+                font-size: 67px;
+                font-family: 迷你简双线体;
+                font-weight: 200;
+                position: relative;
+                top: -9px;
+                left: 137px;
+            }
+            .sh2{
+                padding: 6.7px 25.5px;
+            }
+            .sh2d{
+                padding: 18.76px 25.5px 0 0;
+            }
+            #grxx p:nth-of-type(1){
+                display: inline-block;
+                width: 134px;
+                right: 195px;
+            }
+            #grxx p:nth-of-type(2){
+                display: inline-block;
+                width: 140px;
+            }
+            #zwpj p:nth-of-type(1){
+                text-align: left;
+                top: 21.5px;
+                left: 40px;
+                width: 241px;
+                font-size: 10px;
+            }
+            #zwpj p:nth-of-type(2){
+                text-align: left;
+                top: 75px;
+                left: 40px;
+                width: 375px;
+                font-size: 10px;
+            }
+            #qzyx h2{
+                text-align: center;
+                color: #fee9fe;
+                position: absolute;
+                top: 20px;
+                left: 30%;
+                z-index: 320;
+            }
+            #qzyx h2:first-letter{
+                color: blue;
+            }
+            #qzyx h3{
+                text-align: center;
+                color: #fee9fe;
+                font-size: 31.5px;
+                position: absolute;
+                top: 27px;
+                left: 40%;
+                z-index: 320;
+            }
+            #qzyx div:nth-of-type(1){
+                width: 134px;
+                height: 134px;
+                background-color: yellow;
+                border-radius: 50%;
+                position: absolute;
+                top: -3.35px;
+                left: 36.85px;
+                opacity: 0.7;
+                z-index: 340;
+                /*clip: rect(0px,134px,103.8px,0px);*/
+            }
+            #qzyx div:nth-of-type(2){
+                width: 200px;
+                height: 200px;
+                background-color: blue;
+                border-radius: 50%;
+                position: absolute;
+                top: -57px;
+                left: 134px;
+                opacity: 0.5;
+                z-index: 310;
+                /*clip: rect(57px, 200px, 158px, 0px);*/
+            }
+            body>span{
+                color: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <span>请安装本文件夹中的 迷你简双线体 和 时尚简中黑体</span>
+        <main>
+            <section id="jl">
+                <span class="hole"></span>
+                <h2>张三<small>zhang san</small></h2>
+                <h1>简历</h1>
+            </section>
+            <section id="grxx">
+                <span class="hole"></span>
+                <h2 class="sh2">个人信息</h2>
+                <p>
+                    籍贯：郑州<br>
+                    政治面貌：党员<br>
+                    毕业学校：郑州大学<br>
+                    专业：HTML5
+                </p>
+                <p>
+                    民族：汉族<br>
+                    出生日期：1996年10月19日<br>
+                    身高：185CM
+                </p>
+            </section>
+            <section>
+                <span class="hole"></span>
+                <h2 class="sh2d">联系方式</h2>
+                <p>
+                    电话：19952001998<br>
+                    E_Mail：123456@qq.com<br>
+                    QQ：123456
+                </p>
+            </section>
+            <section id="jyjl">
+                <span class="hole"></span>
+                <h2 class="sh2 white_text">教育经历</h2>
+                <p>
+                    2013年9月至2017年6月<br>
+                    郑州大学<br>
+                    计算科学与技术专业
+                </p>
+            </section>
+            <section>
+                <span class="hole"></span>
+                <h2 class="sh2d white_text">实践经历</h2>
+                <p>
+                    2017年至今<br>
+                    在河南郑州方圆科技有限公司<br>
+                    HTML5工程师
+                </p>
+            </section>
+            <section>
+                <span class="hole"></span>
+                <h2 class="sh2">技能水平</h2>
+                <p>
+                    可熟练操作<br>
+                    Visual Studio Code、Firefox<br>
+                    等开发工具
+                </p>
+            </section>
+            <section id="zwpj">
+                <span class="hole"></span>
+                <h2 class="sh2d">自我评价</h2>
+                <p>
+                    1、大胆创新、具有敏锐的时尚触角、对开发方面极感兴趣;<br>
+                    2、有良好的独立工作能力，工作认真积极，责任心强，有较好的沟通能力和接受能力；
+                </p>
+                <p>
+                    3、即有团队精神和协调能力，适应能力强，能吃苦耐劳，待人真诚热情
+                </p>
+            </section>
+            <section id="qzyx">
+                <span class="hole"></span>
+                <h2>求职意向</h2>
+                <h3>高级前端开发</h3>
+                <div></div>
+                <div></div>
+            </section>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>回调函数</title>
+		<link rel="stylesheet" href="css/alert.css">
+		<link rel="stylesheet" href="css/confirm.css">
+		<script src="js/alert.js"></script>
+		<script src="js/confirm.js"></script> 
+	</head>
+	<body>
+		<p>这个段落可以删除1</p>
+		<p>这个段落可以删除2</p>
+		<p>这个段落可以删除3</p>
+		<p>这个段落可以删除4</p>
+		<p>这个段落可以删除5</p>
+		<p>这个段落可以删除6</p>
+		<p>这个段落可以删除7</p>
+		<p>这个段落可以删除8</p>
+		<p>这个段落可以删除9</p>
+		<p>这个段落可以删除10</p>
+		<script>
+			var ps = document.querySelectorAll('p')
+			Array.prototype.slice.call(ps).forEach(function(p){
+				p.onclick = function(){
+					new Confirm('确定要删除此段落吗？', function(){
+						p.remove()
+						new Alert('已删除！').show()
+					},
+					function(){
+						new Alert('已取消删除！').show()
+					}).show()
+				}
+			})
+
+		</script>
+	</body>
+</html>

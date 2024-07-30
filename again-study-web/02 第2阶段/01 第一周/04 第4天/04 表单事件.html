@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>表单事件</title>
+	</head>
+	<body>
+		<form action="#" method="post">
+			<input type="text">
+			<input type="submit" value="提交"/>
+			<input type="reset" value="重置/清空数据">
+			<button>按扭</button>
+		</form>
+		<div>HTML5事件，选择文本时触发</div>
+		
+		<script>
+			var input = document.querySelector('input[type=text]')
+			
+			input.addEventListener('focusin', function(){
+				console.log('focusin')
+			})
+			
+			input.addEventListener('focus', function(){
+				console.log('focus')
+			})
+			
+			input.addEventListener('focusout', function(){
+				console.log('focusout')
+			})
+			
+			input.addEventListener('blur', function(){
+				console.log('blur')
+			})
+			
+//			focus/blur支持较好，而focusin/focusout支持不好（不支持或调用顺序不同）
+//			focus聚焦，指的是获取输入焦点
+//			blur模糊，指的是输入焦点离开
+			
+			input.addEventListener('change', function(){
+				console.log('Changed!')
+			})
+//			文本框在失去焦点时检查内容，如果内容发生了变化则触发change事件
+//			如果希望在输入时立即检查，则应使用其它方式
+			
+			input.addEventListener('select', function(){
+				console.log('Selected!')
+			})
+//			选择输入框内的文本时触发，普通div不会触发该事件
+			
+
+			
+			document.forms[0].addEventListener('submit', function(e){
+				if(input.value.length > 0){
+					alert('可以提交')
+				} else {
+					alert('请输入')
+					e.preventDefault()
+				}
+			})
+//			submit指表单提交之前，可以在这个事件中检查用户的输入是否合适
+//			如果不合适，可以使用 event 的 preventDefault 来阻止表单提交
+			
+			document.forms[0].addEventListener('reset', function(e){
+				if(confirm('确定要清空表单内容吗？')) {
+//					confirm弹出一个确认框，确认框有2个按扭
+//					点“确定”confirm会返回true
+//					点“取消”confirm返回false
+					
+				}else{
+					e.preventDefault()
+//					可以阻止表单被清空
+				}
+			})
+		</script>
+	</body>
+</html>

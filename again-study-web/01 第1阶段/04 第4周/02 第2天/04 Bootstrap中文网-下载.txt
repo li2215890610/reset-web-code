@@ -1,0 +1,7 @@
+在bootcss.com导航栏找到最新正式版 bootstrap，下载“用于生产环境的Bootstrap”
+介绍一下下载到的文件内容、3个文件夹及里面的文件
+
+将下载到的文件 + jQuery 组件成空白项目，以方便随后使用
+jQuery下载地址 http://jquery.com
+
+使用Bootstrap后，课程中的例子改为目录（文件夹）开发模式，因为带有资源。

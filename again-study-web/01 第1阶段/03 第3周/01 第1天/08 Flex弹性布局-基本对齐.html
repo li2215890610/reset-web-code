@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Flex弹性布局-基本对齐</title>
+        <style>
+            body{
+                margin: 0;
+                height: 100%;
+                display: flex;
+                
+                justify-content: center;
+                
+                /*justify-content: flex-end;*/
+                /*justify-content: flex-start;*/
+                /*justify-content: space-between;*/
+                /*justify-content: space-around;*/
+                /*主轴对齐方式，主轴即排列方向*/
+                
+                align-items: center;
+                /*此时如不设置高度，则高度会最小化*/
+                
+                /*align-items: flex-end;*/
+                /*align-items: flex-start;*/
+                /*align-items: stretch;*/
+                /*不指定高度默认是 stretch 的*/
+                
+                /*font-size: 300px;*/
+                /*align-items: baseline;*/
+                /*将下方的 span 注释放开，没有左右文字时baseline不起作用*/
+                /*baseline 即英文4线格中的第3线，大部分字母或字母的主体都在这条线上*/
+                /*上面是交叉轴对齐方式，交叉轴即与主轴垂直相交的方向*/
+            }
+            section{
+                border: 1px solid blue;
+                font-size: 16px;
+                text-align: center;
+            }
+            section:nth-of-type(1){
+                flex-basis: 150px;
+                height: 200px;
+            }
+            section:nth-of-type(2){
+                flex-basis: 50px;
+                height: 150px;
+            }
+            section:nth-of-type(3){
+                flex-basis: 200px;
+                height: 50px;
+                
+                /*align-self: flex-end;*/
+                /*align-self: flex-start;*/
+                /*align-self: center;*/
+                /*align-self: baseline;*/
+                /*align-content: stretch;*/
+                /*指定高度时 stretch 不起作用*/
+                
+                /*标签自身在交叉轴的对齐方向，即会覆盖父标签指定的 align-items 样式*/
+            }
+            section:nth-of-type(4){
+                flex-basis: 100px;
+                height: 250px;
+            }
+        </style>
+    </head>
+    <body>
+        <!--<span>b</span>-->
+        <section>1</section>
+        <section>2</section>
+        <section>3</section>
+        <section>4</section>
+        <!--<span>q</span>-->
+    </body>
+</html>

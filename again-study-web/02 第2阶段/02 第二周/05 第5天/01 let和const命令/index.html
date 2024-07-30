@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>let和const</title>
+</head>
+<body>
+    <script>
+        // ES6(ECMAScript 6.0)是JavaScript语言的下一代标准，2015年6月发布
+        // 发布的目标是，让JS可以用来编写复杂的大型应用程序，成为企业级的开发语言
+        
+        // 一、let是ES6新增的命令，用来声明变量，类似于var
+        // 但它所声明的变量只在let命令所在的代码块内有效
+        var score = 61
+        if (score > 60) {
+            var msg1 = '及格'
+            let msg2 = '恭喜，及格' 
+        }
+        console.log(msg1)
+        // ReferenceError: msg2 is not defined
+        // console.log(msg2) 
+
+        // 在for循环中适合使用let命令
+        for (let i = 0; i < 3; i++) {
+            console.log('循环体内，i = ' + i)           
+        }
+        // ReferenceError: i is not defined
+        // console.log(i)
+        for (var index = 0; index < 3; index++) {
+            console.log('===')
+            
+        }
+        // 3
+        console.log(index)
+
+        ////////////////////////////////////////////
+        var a = []
+        // 变量j是var声明的，在全局范围内都有效，全局只有一个变量j
+        for (var j =0; j < 10; j++) {
+            a[j] = function(){
+                console.log(j)
+            }
+            
+        }
+        // 输出为循环结束后的j，即10
+        a[6]()
+
+        var b = []
+        // 变量K是let声明的，只在本次循环有效，所以每次循环k其实都是一个新的变量
+        for (let k = 0; k < 10; k++) {
+            b[k] = function(){
+                console.log(k)
+            }
+            
+        }
+        b[6]()
+        // ////////////////////////////////////////////
+        // for循环：设置循环变量的那部分是一个父级作用域
+        // 循环体内部是一个单独的子作用域
+        for (let p = 0; p < 3; p++) {
+            let p = 'zhiyou'
+            // 输出3次zhiyou
+            console.log(p)
+        }
+        // ////////////////////////////////////////////
+        // 不同于var命令，let声明的变量必须在声明后才能使用
+        // 不会报错，输出：undefined
+        console.log(foo)
+        var foo = 2
+        
+        // 会报错
+        // console.log(baz)
+        // let baz = 2
+        // ////////////////////////////////////////////
+        // 全局变量tmp
+        var tmp = 123
+        if (true) {
+            tmp = 'hao123'
+            console.log(tmp)
+            // 声明局部变量tmp，导致let声明的这个tmp绑定了这个块级作用域
+            // let tmp
+            // ReferenceError: can't access lexical declaration `tmp' before initialization
+            // 在let声明变量前对tmp赋值，导致报错
+            // console.log(tmp)
+        }
+        // /////////////////////////////////////////////
+        // 不允许在相同作用域内重复声明同一个变量
+
+        // var可以多次声明同一个变量
+        // function func (){
+        //     var t = 3
+        //     var t = 10
+        // }
+
+        // 报错
+        // function func () {
+        //     let a = 3
+        //     var a = 3
+        // }
+
+        // 报错
+        // function func () {
+        //     let a = 10
+        //     let a = 3
+        // }
+
+        // 二、块级作用域
+        // ES5只有全局作用域和函数作用域，没有块级作用域，带来了不合理的场景
+        // 场景一：ES5中内层变量覆盖外层变量的情况
+        var t = new Date()
+        function f(){
+            console.log(t)
+            if (false) {
+                // 内层的t覆盖了外层的t
+                var t = 'hello world'
+            }
+        }
+        // 输出undefined
+        f()
+        // 场景二：用来计数的循环变量泄露为全局变量
+        var n = 'zhiyou'
+        for (var s = 0; s < n.length; s++) {
+            console.log(n[s])
+            
+        }
+        // 循环结束后s并没有消失，泄露成了全局变量
+        console.log(s)
+
+        // let为JS新增了块级作用域
+        function f1(params) {
+            let m = 5
+            if (true) {
+                let m = 10
+            }
+            // 输出5
+            console.log(m)
+        }
+        f1()
+
+        // ES5中，函数只能在顶层作用域和函数作用域中声明，不能在块级作用域中声明
+        // 在if条件语句内声明函数，非法
+        // 浏览器没有遵守这个语法，实际运行时不会报错
+        // if (true) {
+        //     function f(){console.log('块级作用域中的函数')}
+        // }
+
+        // ES6引入了块级作用域，明确允许在块级作用域中声明函数
+        // ES6规定，块级作用域中声明函数的行为类似于let，在块级作用域外不可引用
+        // 因为环境导致的行为差异太大，应该避免在块级作用域中声明函数
+
+        // 三、const命令
+        // const用于声明一个常量，一旦声明，常量的值不能更改
+        const PI = 3.14159
+        // TypeError: invalid assignment to const `PI'
+        // PI = 3
+
+        // const声明的变量时，应该立即初始化，不能等到后面再赋值
+        // SyntaxError: missing = in const declaration
+        // const str
+
+        // 与let命令相同，const只在声明所在的块级作用域内有效
+        if (true) {
+            const MIN = 0
+        }
+        // ReferenceError: MIN is not defined
+        // console.log(MIN)
+
+        if (true) {
+            // 在声明之前调用，结果报错
+            // ReferenceError: can't access lexical declaration `MAX' before initialization
+            // console.log(MAX)
+            const MAX = 10
+        }
+
+        // const声明常量时，不可使用同一个变量名重复声明
+        const txt = 'ES6'
+        // SyntaxError
+        // const txt = 'JS'
+
+        // 试图给一个用const声明的对象添加属性，能否成功？
+        const obj = {}
+        obj.name = 'zhangsan'
+        obj.age = 10
+        console.dir(obj)
+        // 以上代码不会报错
+        // 原因：const声明的变量，值不得改变是指变量指向的那个内存地址所保存的数据不得更改
+        // 如果是简单的数据类型(数值、字符串、布尔值)，值就保存在变量指向的那个内存地址，这种情况下等同于常量
+        // 如果是复合的数据类型(对象、数组)，const只能保证这个指针是固定的(总是指向一个固定的地址)，数据结构是可以改变的
+
+        const names = []
+        // 数组本身可写
+        names.push('zhangsan')
+        console.log(names.length)
+        // 赋值则报错
+        // names = ['lisi']
+
+        // ES5只有两种声明变量的方法：var和function
+        // ES6有6中方法：var function let const import class
+
+        // 四、顶层对象的属性
+        // 顶层对象的属性与全局变量挂钩
+        window.a = 100
+        console.log(a)
+        // 这里的a是全局变量还是window的一个属性？
+        a = 2
+        console.log(window.a)
+        // ES6为了改变这个缺陷，规定var和function声明的全局变量依旧是顶层对象的属性
+        // 但是，let、const和class声明的全局变量不属于顶层对象的属性
+        let num = 2
+        // undefined
+        console.log(window.num)
+
+
+    </script>
+</body>
+</html>

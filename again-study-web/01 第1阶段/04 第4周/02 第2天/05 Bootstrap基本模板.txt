@@ -1,0 +1,3 @@
+讲解一下 Bootstrap 的基本模板，然后创建 snippets
+可在原 app snippets 基础上复制一个出来，修改一下即可
+

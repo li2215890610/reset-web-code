@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>子窗口</title>
+		<style>
+			div{
+				width: 300px;
+				height: 50px;
+				background-color: red;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			点击打开子窗口
+		</div>
+		<script>
+			var div = document.querySelector('div')
+			
+			div.addEventListener('click', function(e){
+				window.open('test.html', '_blank', 'location=no, titlebar=no,toolbar=no,scrollbars=no,location=no,menubar=no,resizable=no,width=500px, height=300px, top=100px, left=100px')
+			})
+		
+			
+//			下列属性大部分已经不支持：
+//			alwaysLowered | yes/no | 指定窗口隐藏在所有窗口之后
+//			alwaysRaised | yes/no | 指定窗口悬浮在所有窗口之上
+//			depended | yes/no | 是否和父窗口同时关闭
+//			directories | yes/no | Nav2和3的目录栏是否可见
+//			height | pixel value | 窗口高度
+//			hotkeys | yes/no | 在没菜单栏的窗口中设安全退出热键
+//			innerHeight | pixel value | 窗口中文档的像素高度
+//			innerWidth | pixel value | 窗口中文档的像素宽度
+//			location | yes/no | 位置栏是否可见
+//			menubar | yes/no | 菜单栏是否可见
+//			outerHeight | pixel value | 设定窗口(包括装饰边框)的像素高度
+//			outerWidth | pixel value | 设定窗口(包括装饰边框)的像素宽度
+//			resizable | yes/no | 窗口大小是否可调整
+//			screenX | pixel value | 窗口距屏幕左边界的像素长度
+//			screenY | pixel value | 窗口距屏幕上边界的像素长度
+//			scrollbars | yes/no | 窗口是否可有滚动栏
+//			titlebar | yes/no | 窗口题目栏是否可见
+//			toolbar | yes/no | 窗口工具栏是否可见
+//			Width | pixel value | 窗口的像素宽度
+//			z-look | yes/no | 窗口被激活后是否浮在其它窗口之上		
+
+	
+//			在子窗口中可以：
+//			window.top
+//			最顶级的窗口
+//			window.parent
+//			父窗口
+//			window.close()
+//			可以关闭窗口，但是不能关闭非脚本打开的窗口
+
+//			可以新建一个页面，然后window.open打开它测试一下
+		</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>表单-文本输入框</title>
+        <style>
+            *{
+                box-sizing: border-box;
+                /*需要设置输入框的内边距，让高度样式设置能正确反映出文本框的高度*/
+            }
+            input{
+                border: 1px solid gray;
+                border-radius: 5px;
+                padding: 3px 7px;
+                height: 30px;
+                /*需要改为 border-box*/
+            }
+            input:hover, input:focus{
+                /*:focus 表示具有焦点的标签*/
+                border-color: #3366CC;
+                box-shadow: inset 0px 0px 4px gray;
+                /*注意添加内阴影的方法*/
+            }
+        </style>
+    </head>
+    <body>
+        <form action="#">
+            <label for="account">账号：</label>
+            <!--点击 label 可以使与其关联（通过id）的文本框获得焦点-->
+            <input type="text" id="account" name="account" placeholder="请输入帐号">
+            <!--placeholder 设置文本框提示文字，H5之前要实现此功能得写半天js代码-->
+            <!--文本框的默认字号比正常字号小一点-->
+        </form>
+    </body>
+</html>

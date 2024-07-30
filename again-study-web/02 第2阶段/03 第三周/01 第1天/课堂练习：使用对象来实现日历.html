@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>日历</title>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<script>
+			
+//			定义一个构造函数
+			function Calender(month){
+//				定义构造函数内部使用的变量
+				var div
+//				--------------------------------------------------------------------
+				
+//				定义一个属性，表示当前要展示的月份
+				this.currentMonth = month || new Date()
+//				如果调用者传递了month参数（month有值）那么
+//				this.currentMonth = month
+//				如果调用者没有传值，或者传了被认为是false的值，那么
+//				this.currentMonth = new Date()
+				
+//				--------------------------------------------------------------------
+//				将当前月份的日期设置为1号
+				this.currentMonth.setDate(1)
+				
+				console.log(this.currentMonth)
+				
+//				-------------------------------------------------------------------
+//				获取当前展示月份的第1天
+				this.getFirstDate = function(){
+//					获取当前展示月份1号是星期几
+					var week = this.currentMonth.getDay()
+					if (week == 0) week = 7
+					//JS中星期日是0！！！！
+					
+					console.log(week)
+					week -= 2
+//					相当于 week = week - 2
+//					var firstDate = this.currentMonth
+//					实际上firstDate变量和this.currentMonth指向的是同一个对象
+					var firstDate = new Date(this.currentMonth)
+//					相当于把currentMonth的值创建了一个新对象
+					firstDate.setDate(-week)
+//					得到星期一是几月几号
+					console.log(firstDate)
+					console.log(this.currentMonth)
+//					将firstDate返回给本函数的调用者
+					return firstDate
+				}
+				
+				//展示日历的主体部分
+				this.showCalenderMain = function(){
+					div = document.createElement('div')
+					div.style.width = '450px'
+					div.style.minHeight = '100px'
+					div.style.backgroundColor = 'red'
+					
+					document.body.appendChild(div)
+				}
+				
+//				展示日历的表头部分
+				this.showHeader = function(){
+					var table = document.createElement('table')
+					table.style.width = '100%'
+					
+					//在table中插入一行
+					var tr = table.insertRow()
+					
+					function getWeekName(week){
+						switch(week){
+							case 1:
+								return '一'
+							case 2:
+								return '二'
+							case 3:
+								return '三'
+							case 4:
+								return '四'
+							case 5:
+								return '五'
+							case 6:
+								return '六'
+							case 7:
+								return '日'
+						}
+					}
+					
+					for(var i = 1; i <= 7; i++) {
+						var td = tr.insertCell()
+//						在tr中插入单元格
+						td.style.textAlign = 'center'
+						td.style.color = 'white'
+						td.innerHTML = getWeekName(i)
+					}
+					
+					div.appendChild(table)
+				}
+				
+//				展示日历的主体部分
+				this.showBody = function(){
+					var firstDate = this.getFirstDate().getTime()
+//					创建主体区域的table
+					var table = document.createElement('table')
+					table.style.width = '100%'
+//					循环处理每一行，共6行
+					for(var i = 0; i < 6; i++){
+						var tr = table.insertRow()
+//						循环处理每一列，共7列
+						for(var j = 0; j < 7; j++){
+							var td = tr.insertCell()
+							td.style.textAlign = 'center'
+							td.style.color = 'white'
+							td.style.height = '2rem'
+							
+							var n = i * 7 + j
+							var cellDate = new Date(firstDate + n * 24 * 60 * 60 * 1000)
+							
+							td.innerHTML = cellDate.getDate()
+							
+							if(cellDate.getMonth() != this.currentMonth.getMonth()){
+								td.style.color = 'gray'
+							}
+						}
+					}
+					
+					div.appendChild(table)
+				}
+			
+				this.showToolbar = function(){
+					var toolbar = document.createElement('div')
+					toolbar.style.fontSize = '1.5rem'
+					toolbar.style.color = 'white'
+					toolbar.style.padding = '20px'
+					toolbar.innerHTML = this.currentMonth.getFullYear() + '年' + 
+										(this.currentMonth.getMonth() + 1) + '月'
+										
+					div.appendChild(toolbar)
+					
+					var next = document.createElement('span')
+					next.style.float = 'right'
+					next.innerHTML = '&nbsp;&nbsp;&gt;'
+					toolbar.appendChild(next)
+					
+					var calender = this
+					
+					next.onclick = function(){
+						var month = calender.currentMonth.getMonth()
+						month++
+						
+						calender.currentMonth.setMonth(month)
+						
+						document.body.innerHTML = ''
+						calender.show()
+					}
+					
+					var prev = document.createElement('span')
+					prev.style.float = 'right'
+					prev.innerHTML = '&lt;&nbsp;&nbsp;'
+					toolbar.appendChild(prev)
+
+					prev.onclick = function(){
+						var month = calender.currentMonth.getMonth()
+						month--
+						
+						calender.currentMonth.setMonth(month)
+						
+						document.body.innerHTML = ''
+						calender.show()
+					}
+				}
+			
+				this.show = function(){
+					this.showCalenderMain()
+					this.showToolbar()
+					this.showHeader()
+					this.showBody()
+				}
+			}
+			
+			
+			var calender = new Calender()
+		   	calender.show()
+
+		</script>
+	</body>
+</html>

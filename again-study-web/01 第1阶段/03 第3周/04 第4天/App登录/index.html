@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=0">
+        
+        <meta name="author" content="张强">
+        <title>App登录</title>
+        
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="format-detection" content="email=no">
+
+        <link rel="shortcut icon" href="favicon.png" type="image/png">
+        <link rel="icon" href="favicon.png" type="image/png">
+        <!--设置 favicon，桌面浏览器-->
+
+        <meta name="apple-mobile-web-app-title" content="常伟">
+        <link rel="apple-touch-icon" sizes="57x57" href="icon57.png" />  
+        <link rel="apple-touch-icon" sizes="72x72" href="icon72.png" />  
+        <link rel="apple-touch-icon" sizes="114x114" href="icon114.png" />    
+        <link rel="apple-touch-icon" sizes="144x144" href="icon144.png" /> 
+        <!--<link href="#" rel="apple-touch-icon-precomposed">-->
+        <link rel="apple-touch-startup-image" href="launch6.png">
+        <link rel="apple-touch-startup-image" href="launch6.png" media="(device-width: 375px)">
+        
+        <!--<meta http-equiv="Cache-Control" content="no-cache" />-->
+
+        <!--禁止百度转码-->
+        <!--<meta http-equiv="Cache-Control" content="no-siteapp" /> -->
+        <!--关闭iOS键盘首字母自动大写，自动修正-->
+        <!--<input type="text" autocapitalize="off" /> -->
+        <!--<input type="text" autocorrect="off" />-->
+        <!--禁止文本缩放
+        html {
+        　　-webkit-text-size-adjust: 100%;
+            border: 0; /* 方法1 */
+    　　    -webkit-appearance: none; /* 方法2 */
+            回弹滚动
+            overflow: auto; /* auto | scroll */
+            -webkit-overflow-scrolling: touch;
+            取消touch高亮效果
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }-->
+        
+        <meta name="mobile-web-app-title" content="常伟">
+        <meta name="mobile-web-app-capable" content="yes">
+        <link rel="icon" sizes="196x196" href="icon196.png">
+        <meta name="msapplication-TileImage" content="icon196.png">
+        <meta name="msapplication-TileColor" content="#3372DF">
+        
+        <!--<meta name="apple-itunes-app" content="app-id=425349261"> -->
+        
+        <!--加广告<meta name=”apple-itunes-app” content=”app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL”> -->
+        <!--优先使用最新版本 IE 和 Chrome-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            html{
+                /*禁止弹出操作快捷菜单*/
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+            }
+            body{
+                margin: 0;
+                height: 100vh;
+                width: 100vw;
+                -webkit-overflow-scrolling: none;
+                background-color: #333;
+                color: #DDD;
+                text-align: center;
+                font-weight: 微软雅黑;
+            }
+            #bg{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background-image: url(bg.jpg);
+                background-size: auto 100%;
+                background-position: 50% 50%;
+                filter: blur(20px);
+                -webkit-filter: blur(20px);
+                opacity: 0.9;
+                
+            }
+            main{
+                position: absolute;
+                top: 1.5vh;
+                left: 0;
+                width: 100vw;
+            }
+            header{
+                font-size: 1.1rem;
+                line-height: 3rem;
+                position: relative;
+            }
+            header span{
+                font-size: 0.9rem;
+            }
+            #goBack{
+                position: absolute;
+                left: 0.8rem;
+                top: 0rem;
+            }
+            #register{
+                position: absolute;
+                right: 0.8rem;
+                top: 0rem;
+            }
+            #img{
+                width: 32vw;
+                height: 32vw;
+                max-width: 14rem;
+                max-height: 14rem;
+                background-image: url(img.jpg);
+                background-position: 50% 50%;
+                background-size: 120% 120%;
+                border-radius: 50%;
+                margin: 8vh auto;
+            }
+            #acount, #password{
+                width: 70vw;
+                height: 3rem;
+                margin: 0 auto;
+                border-bottom: 1px solid white;
+                text-align: left;
+                padding-top: 1rem;
+            }
+            #password span{
+                letter-spacing: 0.3rem;
+                font-size: 0.7rem;
+            }
+            #login{
+                width: 70vw;
+                margin: 5vh auto 7vh auto;
+                height: 2.5rem;
+                background-color: #33AA65;
+                font-size: 1.1rem;
+                padding-top: 0.4rem;
+                border-radius: 0.8rem;
+            }
+            #forget{
+                font-size: 0.9rem;
+            }
+            #login3{
+                margin: 4rem auto 0.2rem auto;
+            }
+            #login3 img{
+                width: 3.6rem;
+                height: 3.6rem;
+                margin: 0 0.8rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="bg"></div>
+        <main>
+            <header>
+                <span id="goBack">返回</span>
+                登录
+                <span id="register">注册</span>
+            </header>
+            <section id="img"></section>
+            <section id="acount">
+                账号&#x3000;273263743@qq.com
+            </section>
+            <section id="password">
+                密码&#x3000;<span>&#x25CF;&#x25CF;&#x25CF;&#x25CF;&#x25CF;&#x25CF;&#x25CF;&#x25CF;</span>
+            </section>
+            <section id="login">登&#x3000;录</section>
+            <section id="forget">忘记密码？</section>
+            <section id="login3">
+                <img src="weibo.png" alt="">
+                <img src="qq.png" alt="">
+                <img src="weixin.png" alt="">
+            </section>
+        </main>
+    </body>
+</html>

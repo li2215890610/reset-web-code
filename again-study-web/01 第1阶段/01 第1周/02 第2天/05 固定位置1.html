@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>固定位置1</title>
+        <style>
+            body{
+                margin: 0;
+            }
+            #nav{
+                width: 800px;
+                margin: 0 auto;
+                background-color: red;
+                height: 100px;
+                
+                /*position: fixed;
+                top: 0;*/
+                /*使用 position:fixed; 能够起到固定位置的作用
+                但定宽居中失效！！！
+                原先元素占有的位置将被其它元素占有，fixed 的元素位于较高的层*/
+            }
+            #main{
+                width: 800px;
+                margin: 0 auto;
+                background-color: blue;
+                height: 2000px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="nav">
+            固定位置 - 导航栏
+        </div>
+        <div id="main">
+            内容区
+        </div>
+    </body>
+</html>

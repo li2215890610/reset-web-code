@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>DOM节点-文本节点</title>
+	</head>
+	<body>
+		<ul>
+			<li>HTML5</li>
+			<li>CSS3</li>
+			<li>JavaScript</li>
+			<li>PHP</li>
+		</ul>
+		<script>
+			var list = document.querySelector('ul')
+//			alert(list.childNodes.length)
+			
+			for (var i = 0; i < list.childNodes.length; i++) {
+//				alert(list.childNodes[i].nodeName)
+//				//nodeType 得到是节点类型的值，数字，相当于其它编程语言中的枚举值
+//              对于元素节点，nodeType=1
+//              对于文本节点，nodeType=3
+//              对于属性节点，nodeType=2 
+
+//				//nodeName 得到是节点类型的名称
+//              对于元素节点，nodeName=标签名（返回的名称是大写的）
+//              对于文本节点，nodeName=#text
+//              对于属性节点，nodeName=属性名（返回的名称是大写的） 
+				var node = list.childNodes[i]
+                // alert(node)
+				if(node.nodeType != Node.TEXT_NODE) {
+					var liChildren = node.childNodes
+					var liChild = liChildren[0]
+//					alert(liChild.nodeName)
+//					alert(liChild.nodeValue)
+				}
+			}
+
+
+			var textNode = list.childNodes[1].childNodes[0]
+//			alert(textNode.textContent)
+//			使用nodeValue或textContent都可以弹出文本节点的内容
+			
+			// for (var k in textNode) {
+			// 	console.log(k)
+			// }
+			
+//			textNode.appendData('：HTML的第5个版本')
+//			在结尾处添加新的文本
+
+//			textNode.insertData(1, '----')
+//			在指定位置插入新的文本，格式：insertData(start,string)
+//          参数start必须。规定在何处插入字符。开始值以 0 开始。
+//          参数string必需。规定要插入的字符串。
+
+//			textNode.replaceData(1, 4, '*****')
+//			替换指定区域的文本，格式：replaceData(start,length,string)
+//          参数“1”指的是开始位置 参数“4”指的是要替换的字符串长度 
+
+//			textNode.deleteData(1, 4)
+//			删除指定区域的文本
+
+//			alert(textNode.substringData(7, 10))
+//			获取指定区域的文本
+
+//			alert(textNode.length)
+//			文本节点字符的个数
+
+//			alert(textNode.data)
+//			获取文本节点的内容
+
+//			alert(textNode.wholeText)
+//			获取文本节点的内容
+
+//			textNode.remove()
+//			移除文本节点
+			
+//			小结：
+//			使用DOM提供API可以
+//			在页面显示之后对页面进行各种修改
+//			API：Application Programing Interface
+//			应用程序编程接口
+//			即可供开发人员开发程序时调用的对象、属性、方法等
+			
+			
+		</script>
+	</body>
+</html>

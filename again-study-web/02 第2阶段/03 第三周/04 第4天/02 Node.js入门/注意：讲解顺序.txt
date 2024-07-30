@@ -1,0 +1,9 @@
+项目结构
+node_modules	Node.js项目使用的功能模块
+wwwroot		放置网站静态文件的位置
+package.json	项目配置文件，保存项目基本信息
+app.js		项目的程序文件
+
+app.js精讲
+
+	

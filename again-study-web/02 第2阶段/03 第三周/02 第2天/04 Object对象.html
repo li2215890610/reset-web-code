@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>Object对象</title>
+	</head>
+	<body>
+		
+		<script>
+			var p = {}
+			p.name = 'ZhangSan'
+			p.age = 3
+			p.isMale = true
+			
+//			console.log(p)
+//			delete p.isMale
+//			console.log(p)
+//			
+//			Object.freeze(p)
+//			delete p.age
+//			console.log(p)
+//			
+////			Object.freeze()冻结一个对象
+////			冻结后对象的属性不能被删除
+////			冻结是冻结整个对象，而不是某一个属性
+//			
+//			p.age = 33
+//			console.log(p)
+//			
+////			冻结后，属性的值无法被改变！！
+//			冻结后，不能添加新属性
+//			
+//			console.log(Object.isFrozen(p))
+////			Object.isFrozen()判断对象是否被冻结
+////			
+//			
+//			Object.seal(p)
+////			Object.freeze(p)
+//			
+//			delete p.age
+//			console.log(p)
+//			
+//			p.age = 33
+//			console.log(p)
+////			Object.seal()密封一个对象
+////			密封后，属性不能被删除，但可以被更改
+//			
+//			p.height = 180
+//			console.log(p)
+////			密封后，不能添加新属性
+//
+//			console.log(Object.isSealed(p))
+////			判断是否被密封
+
+//			Object.preventExtensions(p)
+//			
+//			p.weight = 200
+//			console.log(p)
+//			
+//			delete p.age
+//			console.log(p)
+////			Object.preventExtensions()只能阻止添加属性或方法
+////			不能阻止删除，不能阻止修改属性或方法
+//			
+//			p.isMale = false
+//			console.log(p)
+//			
+//			console.log(Object.isExtensible(p))
+////			判断对象能否被扩展
+//			
+//			
+//			
+////			freeze   >   seal     >     preventExtentions
+////			freeze后，对象不可变
+////			seal后，只能修改值
+////			prev...，只能阻止添加属性或方法
+
+
+			Object.defineProperty(p, 'course', {
+				enumerable: false,
+				value: 'HTML5'
+			})
+			
+			console.log(p)
+
+			var keys = Object.getOwnPropertyNames(p)
+			console.log(keys)
+//			getOwnPropertyNames获取对象中属性的名字
+//			只能获取自身的属性名字！！
+//			不能获取原型中的属性名字
+//			即使通过属性配置（defineProperty）将属性标记为不可列举
+//			一样能够获取到这个属性的名字
+
+			keys = Object.keys(p)
+			console.log(keys)
+			
+			for(var key in p){
+				console.log(key)
+			}
+			
+			console.log(p.hasOwnProperty('course1'))
+//			p.hasOwnProperty()判断是否拥有指定的属性
+//			注意：不是Object.hasOwnProperty()
+
+			console.log(p.propertyIsEnumerable('age'))
+//			p.propertyIsEnumerable()判断指定的属性是否可以被列举
+
+			var b = new Object(true)
+			console.log(b)
+//			将值装入对象
+//			装箱
+			
+			var bValue = b.valueOf()
+			console.log(bValue)
+//			valueOf()从对象中取出值
+//			拆箱
+			
+			console.log(p.toString())
+			console.log(b.toString())
+			console.log(window.toString())
+			
+			var now = new Date()
+			console.log(now.toString())
+			
+//			每一个对象都有toString()方法，但是对象可以改变这个方法的实现
+//			从而返回不同的值，一般对象返回 [object 对象构造函数名称]
+//			其它对象会返回特定的值，如布尔对象返回 true/false字符串
+//			Date对象返回 日期时间字符串
+//			数字对象返回 数字字符串
+			
+			var n = new Number(3.14159)
+			console.log(n.toString())
+			
+			console.log(Object.prototype.toString.call(n))
+			console.log(Object.prototype.toString.call(now))
+			console.log(Object.prototype.toString.call(b))
+			console.log(Object.prototype.toString.call(p))
+			console.log(Object.prototype.toString.call(1))
+//			可以通过上面的方法获取对象的类型
+			
+		</script>
+	</body>
+</html>

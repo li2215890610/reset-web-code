@@ -1,0 +1,12 @@
+display:none;		隐藏，空间也会让出来
+visibility:hidden;	隐藏，空间会保留
+display:inline;		变成行元素
+display:block;		变成块元素
+display:inline-block;	变成行内块元素
+display:inline-table;	变成行内表格
+display:list-item;	变成列表项（请参考示例）
+display:table-*;	变成表格（请参考示例）
+display:flex;		弹性布局
+
+text-align		文本居中
+vertical-align		标签自身垂直对齐位置（注意居中middle）

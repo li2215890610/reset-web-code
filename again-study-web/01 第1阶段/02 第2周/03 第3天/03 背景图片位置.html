@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>背景图片位置</title>
+        <style>
+            p:nth-child(1){
+                margin: 30px;
+                border: 20px dotted blue;
+                padding: 50px;
+                background-image: url(leafs.jpg);
+                background-repeat: no-repeat;
+                /*默认情况下背景图片从边框线左上角内部开始，到右下角边框线外部*/
+                
+                /*background-origin: border-box;*/
+                /*将背景图片起点位置调到边框线左上角，即边框盒子左上角*/
+                background-origin: content-box;
+                /*将背景图片起点位置调到内容区左上角，即内容盒子左上角
+                padding-box内边距盒子是默认值*/
+                
+                background-clip: content-box;
+                /*背景图片截止位置*/
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            这是段落一这是段落一这是段落一这是段落一这是段落一这是段落一<br>
+            这是段落一这是段落一这是段落一这是段落一这是段落一这是段落一<br>
+            这是段落一这是段落一这是段落一这是段落一这是段落一这是段落一<br>
+            这是段落一这是段落一这是段落一这是段落一这是段落一这是段落一<br>
+            这是段落一这是段落一这是段落一这是段落一这是段落一这是段落一<br>
+        </p>
+    </body>
+</html>

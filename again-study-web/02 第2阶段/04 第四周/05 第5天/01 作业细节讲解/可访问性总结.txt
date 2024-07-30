@@ -1,0 +1,35 @@
+﻿以下假设为某种面向对象编程语言
+
+public class Student : Child
+{
+    public string Name { get; set; }
+    public int Age { get; }
+    private string Password { get; set; }
+    protected string Belief { get; set; }
+}
+
+var student = new Student();
+student.Name = "ZhangSan";           正确，有public，有set
+student.Age = 3;                     不正确：没有set，不能设置值，即只读属性
+student.Password = "123456";         不正确：因为它是private，即私有不公开
+student.Belief = "世上无难事，只怕有心人";      不正确：因为它是protected，即受保护不开放
+
+在模块包的外面不可使用Worker
+package class Worker : Student
+{
+    public Worker()
+    {
+        this.Belief = "天下事有难易乎？为之则难者亦易矣！";
+        this.Password = "654321";       错误！
+    }
+}
+
+因为Worker是Student的子类，所以可以访问受保护 Belief 属性
+Password是私有的，即使在子类中也不可访问
+
+
+class表示定义一个类，:表示继承，Child是父类/基类
+public表示可以在外部使用
+private表示只可以在内部使用
+protected表示只能在内部及子类中使用
+

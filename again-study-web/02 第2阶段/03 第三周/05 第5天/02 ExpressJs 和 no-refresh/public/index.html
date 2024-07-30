@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>无刷新</title>
+        <style>
+            form{
+                padding: 10px;
+            }
+            input{
+                display: block;
+                width:100%;
+                margin: 0 auto;
+            }
+            iframe{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="/user/login" method="POST" target="result">
+            <input type="tel" name="phone" placeholder="请输入手机号" required pattern="^1[3-8]\d{9}$">
+            <input type="password" name="password" placeholder="请输入密码" required pattern=".{6,16}">
+            <input type="submit" value="登录">
+        </form>
+        <iframe src="#" frameborder="1" id="result" name="result"></iframe>
+        <!--让表单刷新iframe而不是整个页面，从而达到无刷新效果！-->
+        <script src="js/index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>右侧对齐</title>
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            body{
+                margin: 0;
+                height: 100%;
+            }
+            header{
+                background-color: black;
+            }           
+            header section{
+                width: 960px;
+                margin: 0 auto;
+                height: 60px;
+                background-color: red;
+            }
+            nav{
+                width: 600px;
+                background-color: yellow;
+                float: right;
+                margin-top: 20px;
+                text-align: right;
+            }
+            footer{
+                background-color: black;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
+            footer section{
+                width: 960px;
+                margin: 0 auto;
+                height: 60px;
+                background-color: red;
+                text-align: right;
+                padding-top: 20px;
+                color: white;
+            }
+            main{
+                height: 2000px;
+                background-color: #eee;
+                width: 960px;
+                margin: 0 auto;
+                position: relative;
+            }
+            div{
+                width: 200px;
+                height: 200px;
+                text-align: right;
+                background-color: red;
+                color: white;
+                position: absolute;
+                right: 0;
+                top: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <section>
+                <nav>
+                    此处为导航
+                </nav>
+            </section>
+        </header>
+        <main>
+            <div>
+                绝对定位
+            </div>
+        </main>
+        <footer>
+            <section>
+               	右对齐 
+            </section>
+        </footer>
+    </body>
+</html>

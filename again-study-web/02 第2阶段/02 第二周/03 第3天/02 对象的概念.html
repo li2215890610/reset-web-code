@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <meta name = "author" content = "张强">
+        <title>对象的概念</title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <!--
+            对象是带有属性和方法的特殊数据类型。
+            属性：静态的，例如身高、体重、肤色...
+            方法：动态的，例如学习、睡觉、吃饭...
+            JavaScript 中的所有事物都是对象：字符串、数值、数组、函数...
+            JavaScript 提供多个内建对象，比如 String、Date、Array 等等
+            此外，JavaScript 允许自定义对象。
+        -->
+        <script>
+            // 1.内建对象(native object)
+            var arr1 = new Array();
+            var current_date = new Date();
+            
+            // 2.宿主对象(host object)
+            // 除内建对象外，在JS脚本里使用一些已经预先定义好的其它对象。
+            // 这些对象不是由JS语言本身而是由它的运行环境提供的，具体到--
+            // --web应用，这个环境就是浏览器。
+            // 宿主对象包括Form、Image、Element等，我们可以通过这些对象--
+            // --获得关于网页上表单、图像和各种表单元素等信息。
+            
+            // 对象的属性
+            var str = 'Hello World!';
+            // 使用字符串对象的length属性
+            console.log(str.length);
+            console.log(str.toUpperCase());
+            // 字符串repeat()方法
+            console.log('-'.repeat(50));
+            // 
+            console.log('abcdef'.charAt(3));
+            
+            // substring() 方法用于提取字符串中介于两个指定下标之间的字符
+            // 格式：substring(start, stop) 其中start是必须的，stop是可选的
+            console.log('hello world!'.substring(0, 3));
+            // 如果stop省略，一直取到结尾
+            console.log('JavaScript'.substring(2));
+            // lastIndexOf() 方法可返回一个指定的字符串值最后出现的位置，从后向前搜索。
+            // lastIndexOf(searchvalue, fromindex)
+            // searchvalue必需，表示待检索的字符串。
+            // fromindex 可选的整数参数。
+            var urlStr = 'https://www.baidu.com/img/logo/bd_logo1_31bdc765.png';
+            var num = urlStr.lastIndexOf('/');
+            console.log(num);
+            console.log(urlStr.substring(num));
+        </script>
+    </body>
+</html>

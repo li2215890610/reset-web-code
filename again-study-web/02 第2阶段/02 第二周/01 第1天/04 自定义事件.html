@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>自定义事件</title>
+	</head>
+	<body>
+		<script>
+//			var div = document.querySelector('div')
+//			
+//			div.addEventListener('自定义事件名', function(e){
+//				alert('观测到了一个自定义事件！' + e.detail)
+//			})
+//			
+//			var customEvent = document.createEvent('CustomEvent')
+//			customEvent.initCustomEvent('自定义事件名', true, true, '自定义数据')
+//			参数1：事件类型名称
+//			参数2：是否可以冒泡
+//			参数3：是否可以取消
+//			参数4：自定义数据
+//			div.dispatchEvent(customEvent)
+//			派发事件
+			
+			
+			
+			
+			document.body.addEventListener('discoverNumber', function(e){
+				alert('获得了一个数：' + e.detail.num + ' | ' + e.detail.description)
+			})
+		
+			window.addEventListener('discoverNumber', function(e){
+				alert('第2个监听者：' + e.detail.num)
+			})
+//			可以都添加上第3个参数观察一下区别是什么，试分析原因
+			
+			
+			for (var i = 1; i <= 100; i++) {
+				if (i % 3 == 0) {					
+					//创建一个数据对象
+					var detail = new Object()
+					detail.num = i
+					detail.description = '被3整除的数'
+					
+					//事件数据
+					var data = {}
+					data.detail = detail
+					data.bubbles = true  //控制是否冒泡，可改为false观察一下
+					data.cancelable = true
+					
+					var e = new CustomEvent('discoverNumber', data)
+					//创建事件的新方式
+					
+					document.body.dispatchEvent(e)
+					//派发一个事件
+				}
+			}
+			
+//			参考：
+//			https://developer.mozilla.org/en-US/docs/Web/API/Event
+			
+//			总结：
+//			自定义事件的事件类型名称可以是任意名称，可以写成中文
+//			自定义事件可挖洞（捕获过程）、也可冒泡，事件的传播是正常的
+//			自定义事件可以设置不冒泡，可以控制是否能够取消
+//			自定义事件可以携带数据，这个数据可以是一个复杂的数据对象，也可以是一个简单数字或字符串
+			
+//			自定义事件的使用过程：
+//			1.监听一个自定义事件
+//			2.在合适情况下创建一个自定义事件对象
+//			3.初始化该事件对象
+//			4.派发该事件（可以在任意标签元素上派发事件）
+
+		</script>
+		
+	</body>
+</html>

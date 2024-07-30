@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>有序列表和无序列表</title>
+        <style>
+            ol{
+                counter-reset: myol;
+                padding-left: 20px;
+            }
+            ol li{
+                counter-increment: myol;
+                list-style-type: none;
+            }
+            ol li:before{
+                content: '[' counter(myol) '] '
+            }
+            ul{
+                padding-left: 20px;
+            }
+            ul li{
+                list-style-type: none;
+            }
+            ul li:before{
+                content: '♥ ';
+            }
+        </style>
+    </head>
+    <body>
+        <!--有序列表-->
+        <!--通过 list-style-type 样式可以使用一些预定好的列表符号
+        阿拉伯数字、罗马数字、大写字母、小写字母
+        实心圆、空心圆、方块等
+        当然还可以实现自动编号-->
+        <ol>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ol>
+        
+        <!--无序列表-->
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ul>
+    </body>
+</html>

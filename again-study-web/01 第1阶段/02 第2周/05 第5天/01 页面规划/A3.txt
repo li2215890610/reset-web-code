@@ -1,0 +1,23 @@
+body
+   header
+       section
+           img
+           nav
+              a, a, a, a, a, a, a
+   section
+   section
+       div
+            img
+            h1(small)
+            p
+       div
+       div
+       div
+   section
+       ul
+           li(a)
+       select
+   footer
+       span
+       ul
+           li

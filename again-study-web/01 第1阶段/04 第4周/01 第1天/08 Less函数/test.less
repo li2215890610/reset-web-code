@@ -1,0 +1,23 @@
+@color: red;
+@blue: blue;
+
+// 演示各种常用函数
+
+section:nth-child(1){
+    width: 300px;
+    height: 50px;
+    background-color: @color;
+}
+section:nth-child(1):hover{
+    background-color: greyscale(@color);
+}
+
+section:nth-child(2){
+    width: 300px;
+    height: 50px;
+    background-color: mix(@color, #00ff00, 80%);
+    position: relative;
+    top: -10px;
+    z-index: 10;
+    border: 5px solid @blue;
+}

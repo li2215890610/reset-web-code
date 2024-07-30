@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>控制对象</title>
+	</head>
+	<body>
+		
+		<script>
+			var p = {}
+			p.name = 'ZhangSan'
+			p.age = 3
+//			为p对象增加了一些属性
+			
+			console.dir(p)
+			
+//			那怎样才能删除呢？
+			p.age = undefined
+			console.dir(p)
+			p.age = null
+//			console.dir(p)
+			
+//			用上面的方法只能改变属性的值，并不能删除属性
+			
+			delete p.age
+//			console.dir(p)
+			
+			p.show = function(){}
+//			console.dir(p)
+			
+			delete p.show
+//			console.dir(p)
+			
+//			delete即可删除属性也可以删除方法
+			
+//			下面我们来看一下Object对象的文档（MDN）：
+			
+			var num = new Number(3.14159)
+			console.log(num)
+			
+			var num1 = new Object(3.14159)
+			console.log(num1)
+			
+			var b = new Object(true)
+			console.log(b)
+			
+//			使用对象构造函数包装一个值
+			
+			
+			var p = {
+				name: 'ZhangSan',
+				age: 3
+			}
+			
+			console.log(p)
+			
+			var p1 = new Object({
+				name: 'ZhangSan',
+				age: 3
+			})
+			
+			console.log(p1)
+			
+//			包装对象
+			
+			Object.defineProperty(p1, 'isMale', {
+				value: true,
+				configurable: false,
+				writable: true,
+				enumerable: false
+			})
+//			为对象定义一个新的属性
+//			第1个参数：要添加新属性的对象
+//			第2个参数：属性名称
+//			第3个参数：属性描述对象（关于属性更多信息）
+//						value: 属性值
+//						configurable: 指示属性能否被删除
+//									  false无法删除属性，但可以改变属性值
+//									  默认值false
+//						writable:	  指示属性值能否被改变
+//									   默认值是false
+//						enumerable:   属性名是否可以被for..in..列举出来
+									  
+			
+			delete p1.isMale
+//			如果属性无法删除，不会导致程序崩溃
+//			程序会继续执行
+			
+			p1.isMale = 'asdf'
+			
+			console.log(p1)
+			
+			for(var k in p1){
+				console.log(k)
+			}
+			
+			
+			p1.height = 180
+			//用 【.属性】 为对象添加的属性可以被delete删除，可以被for..in..列举，可以重新修改值
+			
+			var heightDesc = Object.getOwnPropertyDescriptor(p1, 'height')
+//			获取 p1 对象的 height 属性的描述信息
+			
+			console.log(heightDesc)
+			
+			
+//			创建一批表示人的p对象，比如40个人
+			
+			var p2 = {
+				name: 'ZhangSan',
+				age: 33,
+				desc: '我的名字叫ZhangSan，我今年33岁了'
+			}
+			
+			var p3 = {
+				name: 'PiShuaishuai',
+				age: 4
+			}
+			
+			var p4 = {
+				name: 'ZhangShuai',
+				age: 5
+			}
+			
+//			...后面还几十个
+//			快速创建对象的方法，而且代码还要尽可能的少：
+//			去掉重复代码
+//			能够实现简单的运算，比如拼字符串
+//			快速创建对象的方法：
+//			使用构造函数！！！
+
+//			把一个函数当作构造函数使用时，函数名首字母大写
+//			Pascal命名法
+			function Person(nameValue, ageValue, isMaleValue, heightValue){
+				this.name = nameValue
+				this.age = ageValue
+				this.isMale = isMaleValue
+				this.height = heightValue
+				this.desc = '我的名字叫' + nameValue + '，我今年' + ageValue + '岁了。'
+				
+				
+//				把定义属性的代码移到构造函数中
+//				之后，通过构造函数创建的对象都会有这个属性
+//				
+				Object.defineProperty(this, 'birthYear', {
+					configurable: false,
+					enumerable: true,
+					get: function(){
+						var year = new Date().getFullYear()
+						return year - this.age
+					},
+					set: function(value){
+						var year = new Date().getFullYear()
+						
+						if(value > 2016){
+							alert('出生年份不能大于' + year)
+							return
+						}
+						
+						this.age = year - value
+					}
+				})
+//				定义一个【计算属性】，即属性的值是计算出来的，设置属性时，不直接保存属性值
+//				而是将值转换为其它属性的值或以其它方式保存
+
+//				属性的set/get方法通常被称为：
+//				setter
+//				getter
+				
+				
+			}
+			
+			var p5 = new Person('John', 3, true, 180)
+			var p6 = new Person('ZhangSan', 6, false, 175)
+//			使用构造函数可以更方便地创建对象
+//			简化对象的创建过程
+			
+			console.log(p5)
+			console.log(p6)
+			
+			
+//			实现下面的功能：
+//			console.log(p5.birthYear)
+			
+//			Object.defineProperty(p5, 'birthYear', {
+////				writable: false,
+////				定义get/set时，不能设置writable
+//				configurable: false,
+//				enumerable: true,
+//				get: function(){
+//					var year = new Date().getFullYear()
+//					return year - this.age
+//				},
+//				set: function(value){
+//					var year = new Date().getFullYear()
+//					this.age = year - value
+//				}
+//			})
+			
+			
+			console.log(p5.birthYear)
+//			通过p5.birthYear获取属性值时，会调用该属性指定的get方法，计算出属性值
+			
+			p5.birthYear = 1991
+//			没有set方法的情况下，无法通过【.属性 = 值】改变属性的值
+//			有set方法时，通过【.属性 = 值】为属性设置值的时候：
+//			会调用 set 方法，将=后面的值当作参数传给set方法，
+//			set方法需要在内部进行处理
+//			以保留或转换这个值
+			
+			console.log(p5.birthYear)
+			console.log(p5.age)
+			
+			console.log('-'.repeat(30))
+			
+			
+			console.log(p6.birthYear)
+//			p6这个对象没有birthYear这个属性！！
+
+//			浏览器提供对象中的属性也一样有get、set方法，如属性不可写，即不能给属性赋值，那么
+//			set方法是 undefined
+			
+			p6.birthYear = 2019
+			
+		</script>
+	</body>
+</html>

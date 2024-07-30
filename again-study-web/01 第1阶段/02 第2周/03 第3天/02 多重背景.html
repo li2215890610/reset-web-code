@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>多重背景</title>
+        <style>
+            section{
+                margin: 50px;
+                height: 500px;
+                
+                /*background-color: red;
+                background-image: url(leafs.jpg);
+                background-repeat: no-repeat;
+                background-size: 95%;*/
+                /*背景颜色与背景图片可以同时存在，并且背景颜色不受 background-size 影响*/
+                
+                background-image: url(leafs.jpg), url(leaf.jpg);
+                background-repeat: no-repeat;
+                background-position: 50%;
+                /*background-blend-mode: multiply;*/
+                background-blend-mode: exclusion;
+                /*更多的值请参考图片混合模式截图*/
+            }
+        </style>
+    </head>
+    <body>
+        <section></section>
+    </body>
+</html>

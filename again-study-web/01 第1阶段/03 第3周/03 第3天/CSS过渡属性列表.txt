@@ -1,0 +1,5 @@
+http://www.css88.com/book/css/properties/transition/transition-property.htm
+
+尽可能多地演示，让学生开阔眼界和思路；如果实在来不及，可以发问，让学生判断是否可以过渡；但效果就远不如一见了。
+
+凡眼见的，才会进入想象力

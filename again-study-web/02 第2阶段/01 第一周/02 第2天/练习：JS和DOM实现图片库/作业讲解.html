@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <meta name = "author" content = "张强">
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <ul>
+            <!--rerturn false,可以防止默认的事件行为-->
+            <li><a href="image/01.png" onclick="changePic(this);return false">1111</a></li>
+            <li><a href="image/02.png" onclick="changePic(this);return false">2222</a></li>
+            <li><a href="image/03.png" onclick="changePic(this);return false">3333</a></li>
+            <li><a href="image/04.png" onclick="changePic(this);return false">4444</a></li>
+        </ul>
+        <img id="placeholder" src="image/other.png" alt="">
+        <script>
+            function changePic(picName){
+                var source = picName.getAttribute('href');
+                var placeholder = document.getElementById('placeholder');
+                placeholder.setAttribute('src', source);
+            }
+        </script>
+    </body>
+</html>

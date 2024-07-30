@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>JSON</title>
+	</head>
+	<body>
+		<script>
+//			JSON：Javascript Object Notation
+//			JS对象表示法
+			
+			var me = {
+				"name": "ZhangSan",
+				"age": 3,
+				"course": {
+					"name": "HTML5"
+				}
+			}
+			
+			console.dir(me)
+			
+//			对象字面量 => 符合JSON的规范 => JSON
+//			JSON可以网络传播数据，而且各种平台都有
+//			非常好的支持，通常被用来作为数据交换标准
+//			JSON在大多数领域都取代了XML
+//			
+//			比如iOS开发、Android开发、Windows App开发
+//			都已经转向JSON
+			
+//			同样的数据用XML表示：
+//			<person>
+//				<name>ZhangSan</name>
+//				<age>3</age>
+//				<course>
+//					<name>HTML5</name>
+//				</course>
+//			</person>
+//			1.XML占用的空间大
+//			2.XML解析时使用代码非常多，而且很难写
+					
+			var str = JSON.stringify(me)
+			console.log(str)
+//			把一个对象转换成字符串：序列化
+//			对象在内存中是并列展开的是有结构的，序列化后
+//			会变成一串字符，变成了线性结构
+
+			var obj = JSON.parse(str)
+//			将字符串转换为对象，即反序列化
+			
+			console.log(obj.course.name)
+			
+//			预科时天气预报例子
+//			JSON字符串
+			var weatherStr = '{"error":0,"status":"success","date":"2016-05-29","results":[{"currentCity":"石家庄","pm25":"89","index":[{"title":"穿衣","zs":"炎热","tipt":"穿衣指数","des":"天气炎热，建议着短衫、短裙、短裤、薄型T恤衫等清凉夏季服装。"},{"title":"洗车","zs":"较适宜","tipt":"洗车指数","des":"较适宜洗车，未来一天无雨，风力较小，擦洗一新的汽车至少能保持一天。"},{"title":"旅游","zs":"一般","tipt":"旅游指数","des":"天气较好，温度较高，但风能缓解些炎热的感觉，还是可以外出旅游的，但要注意防暑降温。"},{"title":"感冒","zs":"少发","tipt":"感冒指数","des":"各项气象条件适宜，发生感冒机率较低。但请避免长期处于空调房间中，以防感冒。"},{"title":"运动","zs":"较适宜","tipt":"运动指数","des":"天气较好，但由于风力较大，推荐您在室内进行低强度运动，若在户外运动请注意避风。"},{"title":"紫外线强度","zs":"强","tipt":"紫外线强度指数","des":"紫外线辐射强，建议涂擦SPF20左右、PA++的防晒护肤品。避免在10点至14点暴露于日光下。"}],"weather_data":[{"date":"周日 05月29日 (实时：24℃)","dayPictureUrl":"http://api.map.baidu.com/images/weather/day/qing.png","nightPictureUrl":"http://api.map.baidu.com/images/weather/night/qing.png","weather":"晴","wind":"微风","temperature":"30 ~ 19℃"},{"date":"周一","dayPictureUrl":"http://api.map.baidu.com/images/weather/day/qing.png","nightPictureUrl":"http://api.map.baidu.com/images/weather/night/duoyun.png","weather":"晴转多云","wind":"南风3-4级","temperature":"35 ~ 20℃"},{"date":"周二","dayPictureUrl":"http://api.map.baidu.com/images/weather/day/yin.png","nightPictureUrl":"http://api.map.baidu.com/images/weather/night/duoyun.png","weather":"阴转多云","wind":"东北风3-4级","temperature":"29 ~ 18℃"},{"date":"周三","dayPictureUrl":"http://api.map.baidu.com/images/weather/day/qing.png","nightPictureUrl":"http://api.map.baidu.com/images/weather/night/qing.png","weather":"晴","wind":"北风3-4级","temperature":"29 ~ 19℃"}]}]}'
+//			转换成对象
+			var weather = JSON.parse(weatherStr)
+						
+			console.dir(weather)
+			
+		</script>
+	</body>
+</html>

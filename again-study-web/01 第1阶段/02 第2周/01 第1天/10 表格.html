@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>table标签的基本使用</title>
+        <style>
+            table{
+                margin: 30px auto;
+                /*border-collapse 属性设置表格的边框是否被合并为一个
+                  单一的边框，还是像在标准的 HTML 中那样分开显示。
+                  默认值：separate(分离)
+                  可能值：collapse 边框会合并为一个单一的边框。此时会
+                  忽略 border-spacing 属性。
+                */
+                /*border-collapse: separate;*/
+                border-collapse: collapse;
+                /*border-spacing 属性设置相邻单元格的边框间的距离
+                 border-collapse 被设置为 separate时有效 */
+                /*border-spacing: 3px;*/
+                border: 3px solid green;
+            }
+            caption{
+                line-height: 280%;
+                font-size: 20px;
+            }
+            th{
+                border: 1px solid green;
+                width: 100px;
+                height: 36px;
+                background-color: green;
+                color: white;
+            }
+            td{
+                border-bottom: 1px solid green;
+                text-align: center;
+                height: 36px;
+            }
+            td:nth-child(5){
+                border-right: solid 1px green;
+            }
+            td:nth-child(6){
+                border-right: solid 1px green;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <!--<caption>元素定义表格标题，要紧随table标签之后，每个表格只能有一个caption。-->
+            <caption>HTML5课程表</caption>
+            <!--<thead> 标签定义表格的表头。-->
+            <thead>
+                <tr>
+                    <!--<th>定义表格头部的单元格，字体通常呈现为粗体。-->
+                    <th>周一</th>
+                    <th>周二</th>
+                    <th>周三</th>
+                    <th>周四</th>
+                    <th>周五</th>
+                    <th>周六</th>
+                    <th>周日</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>HTML5</td>
+                <td>HTML5</td>
+                <td>HTML5</td>
+                <td>HTML5</td>
+                <td>HTML5</td>
+                <!--rowspan 属性规定单元格可横跨的行数。-->
+                <td rowspan="2">自习</td>
+                <td rowspan="3">休息</td>
+            </tr>
+            <tr>
+                <td>HTML5</td>
+                <td>HTML5</td>
+                <td>HTML5</td>
+                <td>HTML5</td>
+                <td>HTML5</td>
+            </tr>
+            <tr>
+                <td>自习</td>
+                <td>自习</td>
+                <td>自习</td>
+                <td>自习</td>
+                <td>自习</td>
+                <td>休息</td>
+            </tr>
+        </table>
+    </body>
+</html>

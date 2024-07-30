@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>jQuery 筛选器</title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>第1项</li>
+            <li>第2项</li>
+            <li>第3项</li>
+            <li>第4项</li>
+            <li>第5项</li>
+            <li>第6项</li>
+            <li>第7项</li>
+        </ul>
+        <hr>
+        <ol>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ol>
+        <script src="jquery.js"></script>
+        <script>
+            // 整个页面上的第一个li标签
+            // $('li:first').css('color', 'blue')
+            
+            // 全局索引是偶数
+            // $('li:even').css('color', 'red')
+            
+            // 全局索引大于3
+            // $('li:gt(3)').css('color', 'red')
+            
+            // 任意标签的倒数第x个子标签
+            // $('li:nth-last-child(1)').css('color', 'blue')
+        </script>
+    </body>
+</html>

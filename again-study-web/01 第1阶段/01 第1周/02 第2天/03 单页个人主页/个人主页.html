@@ -1,0 +1,177 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>个人主页</title>
+        <style>
+            body{
+                margin: 0;
+            }
+            #nav{
+                width: 100%;
+                position: fixed;
+                top: 0;
+                background-color: white;  
+                box-shadow: 0px 1px 1px #999;
+                z-index: 1000;
+            }
+            #nav div{
+                width: 960px;
+                margin: 0 auto;
+                padding: 10px 0; 
+                /*background-color: red;             */
+            }
+            #nav img{
+                width: auto;
+                height: 40px;
+            }
+            #nav a{
+                color:#142458;
+                font-size: 16px;
+                text-decoration: none;
+            }
+            #nav a:hover{
+                color:#B06803;
+            }
+            #nav span{
+                float:right;
+                line-height: 40px;
+            }
+            #header img{
+                margin-top: 60px;
+                width: 100%;
+            }
+            h1{
+                font-size: 24px;
+                width: 960px;
+                margin: 18px auto;
+                color: #B06803;
+            }
+            h1:before{
+                content: '\258A ';
+            }
+            p{
+                width: 960px;
+                margin: 20px auto 40px auto;
+                font-size: 16px;
+                font-weight: normal;
+                color: #666666;
+                line-height: 150%;
+                text-align: left;
+            }
+            p:before{
+                content: '“';
+                font-size: 32px;
+                font-family: 宋体;
+                position: relative;
+                top: 10px;
+            }
+            p:after{
+                content: '”';
+                font-size: 32px;
+                font-family: 宋体;
+                position: relative;
+                top: 10px;
+            }
+            .section{
+                text-align: center;
+            }
+            .section img{
+                width: 960px;
+                margin: 0 auto;
+            }
+            #classmates{
+                width: 960px;
+                height: 520px;
+                margin: 0 auto;
+                position: relative;
+                background-image: url(classmates.jpg);
+                /*background-image: linear-gradient(to bottom, rgb(194, 166, 116), rgb(204, 166, 116));*/
+            }
+            #classmates img{
+                border: solid 3px white;
+            }
+            #classmates img:nth-child(1){
+                width: 250px;
+                height: 250px;
+                border-radius: 50%;
+                position: absolute;
+                top: 20px;
+                left: 50px;
+                
+            }
+            #classmates img:nth-child(2){
+                width: 350px;
+                height: 350px;
+                border-radius: 50%;
+                position: absolute;
+                top: 130px;
+                left: 300px;
+                
+            }
+            #classmates img:nth-child(3){
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                position: absolute;
+                top: 50px;
+                left: 730px;
+            }
+            hr{
+                color: #F9F9F9;
+                width: 960px;
+            }
+            #footer div{
+                margin: 30px auto 60px auto;
+                color: #999;
+                width: 960px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="nav">
+            <div>
+                <img src="logo.png" alt="智游教育Logo，两座山峰">
+                <span>
+                    <a href="#">首页</a>&#x3000;&#x3000;
+                    <a href="#html5">HTML5</a>&#x3000;&#x3000;
+                    <a href="#classmate">我的同学</a>&#x3000;&#x3000;
+                    <a href="#hometown">我的家乡</a>&#x3000;&#x3000;
+                    <a href="#school">我的学校</a>&#x3000;&#x3000;
+                    <a href="#footer">关于我</a>
+                </span>
+            </div>
+        </div>
+        <div id="header">
+            <img src="header.jpg" alt="清晨的天际，寓意一日之计在于晨，珍惜时间努力学习">
+            <p>学好一门技术的唯一方法是使用它，在使用它的过程中才能真正学会它。 如果能够在使用它的过程中体会到乐趣，就是学习的最佳状态。希望大家在学习HTML5的过程中多多练习，多敲代码一定会有回报，意想不到的收获都会在使用的过程中迸发出来。</p>
+        </div>
+        <h1 id="html5">HTML5</h1>
+        <div class="section">
+            <img src="html5.jpg" alt="HTML5来袭">
+            <p>从小就喜欢学习，感觉自己的自学能力超强，也喜欢把自己学会的知识分享给大家。我希望自己能够成为一个好老师，把每一个同学都教好，让他们都能有所成就。我认为一个好老师不仅要有较好的技术，也要对学生严格要求。放任不管只有部分同学能安心学习，严格要求才能保证绝大多数同学都能稳下心来好好学习。</p>
+        </div>
+        <h1 id="classmate">我的同学</h1>
+        <div>
+            <div id="classmates">
+                <img src="wf.png" title="我的同学王菲，她是中国最莫名的女歌手" alt="我的同学王菲，她是中国最莫名的女歌手">
+                <img src="lry.jpg" title="我的同学刘若英，她出演的电影《天下无贼》是我最喜欢的电影之一" alt="我的同学刘若英，她出演的电影《天下无贼》是我最喜欢的电影之一">
+                <img src="ldh.jpg" title="我的同学刘德华，我觉得他很帅" alt="我的同学刘德华，我觉得他很帅">
+            </div>
+            <p>王菲、刘若英、刘德华：很高兴和你们一起学习HTML5，感谢在这个美好的季节遇见你们！</p>
+        </div>
+        <h1 id="hometown">我的家乡</h1>
+        <div class="section">
+            <img src="hometown.jpg" alt="我的家乡七峰山风景区">
+            <p>我的家乡在南阳市方城县。这是离我家最近的风景区----七峰山森林公园，这里是中国第一大石川。石川就是在巨大的岩石上流动的溪水，七峰山整个山脉都是由一块巨大的花岗岩构成，再加上山顶湖泊常年蓄积雨水就形成了一年四季溪流不断的美丽景观。</p>
+        </div>
+        <h1 id="school">我的学校</h1>
+        <div class="section">
+            <img src="lzu.jpg" alt="兰州大学风光">
+            <p>我的大学----兰州大学。在这里度过了我人生中最难忘的四年时光。那里的风光，那里的人，那里的图书馆，还有那里蓝蓝的天和金黄的秋天，每每回想想来总是让心中久久不能平复。</p>
+        </div>
+        <hr>
+        <div id="footer">
+            <div>&copy;2008-2018 智游教育 版权所有&#x3000;&#x3000;0371-123456789&#x3000;&#x3000;郑州市经开区河南通信产业园6楼605</div>
+        </div>
+    </body>
+</html>

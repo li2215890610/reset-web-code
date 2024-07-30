@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="张强">
+		<title>DOM节点-属性</title>
+		<style>
+			.red-text{
+				color: red;
+				font-size: 40px;
+				font-weight: bold;
+			}
+			.kaiti-text{
+				font-family: 楷体;
+			}
+			.italic-text{
+				font-style: italic;
+			}
+		</style>
+	</head>
+	<body>
+		<a class="red-text kaiti-text" href="https://www.baidu.com" title="打开百度搜索" target="_blank" id="baidu">Baidu百度搜索[Shift + Alt + B]</a>
+		<script>
+			var link = document.getElementById('baidu')
+//			alert(link.attributes)
+//			获取属性列表（所有属性）
+//			for (var i = 0; i < link.attributes.length; i++) {
+//				var attr = link.attributes[i];
+//				alert(attr.value)
+//				alert(attr.name)
+//			}
+			
+//			var target = link.getAttribute('target')
+//			获取属性值
+//			alert(target)
+//
+//			link.setAttribute('title', '百度一下 你就知道')
+//			设置属性值
+			
+//			alert(link.target)
+//			获取属性值
+//			link.title = '百度一下 什么都忘了'
+//			设置属性值
+			
+			link.accessKey = 'B'
+//			设置快捷键 Shift + Alt + Key
+
+//			link.contentEditable = 'true'
+//			标签内容是否可以编辑
+		
+//			link.removeAttribute('href')
+//			彻底移除属性
+//			alert(link.hasAttribute('href'))
+//			alert(link.hasAttribute('title'))
+//			是否有指定属性
+//			alert(link.hasAttributes())
+//			alert(document.body.hasAttributes())
+//			是否有属性，任意都算数
+//		
+
+//			class属性
+//			style属性
+			
+//			link.class = 'red-text'
+//			class是关键字，所以不能使用class
+//			link.className = 'red-text kaiti-text'
+//			使用className控制元素的class属性
+			
+			
+//			link.classList.remove('kaiti-text')
+//			移除样式类
+//			link.classList.add('italic-text')
+//			添加样式类
+//			alert(link.classList.contains('blue-text'))
+//			是否包含指定的样式类
+//			link.classList.toggle('red-text')
+//			切换样式类，如果有则去掉，如果无则添加
+//			link.classList.toggle('red-text')
+
+//			修改style属性
+//			link.style.backgroundColor = 'black'
+//			link.style.border = '1px solid blue'
+//			link.style.padding = '10px'
+//			link.style.display = 'block'
+//			
+//			alert(link.style.border)
+//			alert(link.style.fontFamily)
+//			只能获取刚刚设置样式值
+//			或者说只能获取标签元素style属性定义的样式
+			
+//			var style = window.getComputedStyle(link, ':after')
+//			获取计算后的样式值
+//			或者说获取所有应用到该元素上的有效的样式值
+//			alert(style.fontFamily)
+
+		</script>
+	</body>
+</html>

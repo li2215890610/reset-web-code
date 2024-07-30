@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta charset="utf-8">
+        <meta name="author" content="张强">
+        <title>登录</title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <form action="/user/signin" method="POST">
+            <input type="text" name="petname" required
+             pattern="^[0-9a-zA-Z\u4e00-\u9fa5]{2,16}$" placeholder="请输入昵称">
+            <br>
+            <input type="password" name="password" pattern="^.{6,16}$"
+             required placeholder="请输入密码">
+            <br>
+            <input type="submit" value="登录">
+            <input type="button" value="注册新用户" onclick="location.href='register.html'">
+        </form>
+        <script src="js/jquery.js"></script>
+        <script src="js/signin.js"></script>
+    </body>
+</html>

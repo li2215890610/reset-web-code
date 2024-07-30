@@ -1,0 +1,7 @@
+background-image: url(image/bg.jpg);		image文件夹与样式表同级
+background-image: url(./image/bg.jpg);	image文件夹与样式表同级
+background-image: url(../image/bg.jpg);	image文件夹在样式表上一级文件夹中
+background-image: url(../../image/bg.jpg);
+
+<a href="/path/index.html">			根目录中的 path 文件夹
+<a href="path/index.html">			当前文件所在文件夹中有一个 path 文件夹
