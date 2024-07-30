@@ -61,11 +61,10 @@ class Index extends React.Component {
         const { list, textareaText, userName } = this.state;
 
         return (<div>
-            
             <button onClick={() => {
-                console.log(this.props.history.push('/page1'));
+                console.log(this.props.history.push('/route-tm/page1'));
             }}>点击跳转page1</button>
-
+            
             <div style={{ marginTop: "50px" }} >
                 <input placeholder="请输入名称" name="userName" onChange={this.handleChangeForm} value={userName} />
                 <br />

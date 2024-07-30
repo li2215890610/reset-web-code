@@ -51,7 +51,6 @@ class Controlled extends React.Component {
             <div style={{ marginTop: "50px" }}>
                 非受控组件
                 <input onChange={this.onChange} type="text"  ref={this.textRef} />
-
             </div>
         </div>)
     }

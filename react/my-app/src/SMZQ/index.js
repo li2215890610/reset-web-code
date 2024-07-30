@@ -24,7 +24,7 @@ class Child extends React.Component {
   //用来 Ajax
   componentDidMount() {
     console.log('Child__Component DID MOUNT!')
-    setTimeout(() => {
+    document.querySelector('h1') && setTimeout(() => {
       document.querySelector('h1').innerText = '我是更改过的 h1 文案'
     }, 2000);
   }
