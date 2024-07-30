@@ -12,7 +12,7 @@ class App extends React.Component {
 
     componentDidMount() {
         console.log('Component DID MOUNT!')
-        setTimeout(() => {
+        document.querySelector('h1') && setTimeout(() => {
             document.querySelector('h1').innerText = '我是更改过的 h1 文案'
         }, 2000);
     }

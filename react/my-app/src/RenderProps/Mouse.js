@@ -15,9 +15,11 @@ class App extends React.Component {
       window.addEventListener('mouseover', this.handleMover.bind(this))      
     }, 300);
   }
+
   componentWillUnmount(){
     clearTimeout(this.thimer)
-    window.removeEventListener('mouseover',this.handleMover)
+    debugger
+    window.removeEventListener('mouseover',this.handleMover.bind(this))
   }
   handleMover(e) {
     console.log(e);

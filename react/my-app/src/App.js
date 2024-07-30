@@ -6,6 +6,7 @@ import Context from "./Context";
 import SMZQ from "./SMZQ";
 import RenderProps from "./RenderProps";
 import ReactBottomLevelCode from "./ReactBottomLevelCode";
+import RouteTM from "./Route";
 import './App.css';
 
 function App() {
@@ -13,13 +14,14 @@ function App() {
   return (
     <div className="App">
       <img src={logo} className="App-logo" alt="logo" />
-      <PropsComment />
+      <RouteTM/>
+      {/* <PropsComment />
       <Foundation />
       <CommentList />
       <Context />
       <SMZQ />
       <RenderProps/>
-      <ReactBottomLevelCode/>
+      <ReactBottomLevelCode/> */}
     </div>
   );
 }
