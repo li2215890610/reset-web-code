@@ -45,7 +45,7 @@ function Sider() {
     </section>
 
     <section>
-      <Link to='/UseCustom'>自定义 hooks</Link>
+      <Link to='/UseCustom'>封装hooks</Link>
     </section>
     
 
