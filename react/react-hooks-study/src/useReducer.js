@@ -51,6 +51,7 @@ const App = () => {
   function increment() {
     dispatch({ type: ADD });
   }
+  
   console.log('父组件',state.count);
   return (
     <div>

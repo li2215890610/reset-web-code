@@ -1,5 +1,5 @@
 
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 
 function useUpdateInput(initialValue) {
     const [value, setValue] = useState(initialValue);
