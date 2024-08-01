@@ -23,29 +23,53 @@
 
 
 
-react/react-foundation/node_modules
-react/react-foundation/.pnp
-react/react-foundation/.pnp.js
+.pnp/
+.pnp.js/
 # Node/node_modules
 #忽略所有 node_modules
 node_modules/
 
 # *node_modules/*
 
-react/react-foundation/coverage
+coverage/
 
 # production
-react/react-foundation/build
+build/
 
 # misc
-react/react-foundation/.DS_Store
-react/react-foundation/.env.local
-react/react-foundation/.env.development.local
-react/react-foundation/.env.test.local
-react/react-foundation/.env.production.local
+.DS_Store/
+.env.local/
+.env.development.local/
+.env.test.local/
+.env.production.local/
 
-react/react-foundation/npm-debug.log*
-react/react-foundation/yarn-debug.log*
-react/react-foundation/yarn-error.log*
-.DS_Store
-again-study-web/.gitignore
+npm-debug.log*/
+yarn-debug.log*/
+yarn-error.log*/
+.DS_Store/
+
+
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+.pnp/
+.pnp.js/
+
+# testing
+coverage/
+
+# production
+build/
+
+# misc
+.DS_Store/
+.env.local/
+.env.development.local/
+.env.test.local/
+.env.production.local/
+
+npm-debug.log*/
+yarn-debug.log*/
+yarn-error.log*/
