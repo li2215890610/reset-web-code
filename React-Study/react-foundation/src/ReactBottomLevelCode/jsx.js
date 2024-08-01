@@ -8,6 +8,7 @@ import React from 'react';
 //以下三者相等，一步一步转换
 //JXS 语法被@babel/preset-react编译成React.createElement创建的元素
 const ElementJsx = () => (<h1 className='box_h1'>我创建了一个元素</h1>)
+
 const ElementCreate = ()=> React.createElement('h1',{
     className:'box_h1'
 },'我创建了一个元素')
@@ -20,6 +21,14 @@ const ReactCreateElement = {
     },
 }
 
-export default ElementCreate
+const App = () => {
+    
+    return (<div>
+        <ElementJsx/>
+        <ElementCreate/>
+        {ReactCreateElement}
+    </div>)
+}
 
+export default App
 

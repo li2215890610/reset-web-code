@@ -1,4 +1,4 @@
-import { Route, Link, Redirect } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import LeiZuJian from "./LeiZuJian";
 import RenderTM from "./RenderTM";
 import ThisTMClass from "./ThisTMClass";

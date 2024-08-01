@@ -63,7 +63,7 @@ class App extends React.Component {
     console.log('render--');
     return (
       <div>
-        <img src={ImgUrl}></img>
+        <img alt='' src={ImgUrl}></img>
       </div>
     );
   }
