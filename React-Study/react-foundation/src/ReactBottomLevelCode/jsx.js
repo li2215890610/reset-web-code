@@ -13,7 +13,7 @@ const ElementCreate = ()=> React.createElement('h1',{
     className:'box_h1'
 },'我创建了一个元素')
 
-const ReactCreateElement = {
+const ReactCreateElementDom = {
     type: 'h1',
     props:{
         className:'box_h1',
@@ -26,7 +26,7 @@ const App = () => {
     return (<div>
         <ElementJsx/>
         <ElementCreate/>
-        {ReactCreateElement}
+        {ReactCreateElementDom.type}
     </div>)
 }
 
