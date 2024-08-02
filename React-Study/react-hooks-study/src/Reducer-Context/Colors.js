@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from "react";
 
-export const CreateContextData = createContext();
+export const CreateContext = createContext();
 
 export const UPDATE_COLOR = 'UPDATE_COLOR';
 
@@ -11,7 +11,7 @@ export const reducer = (state, action) => {
 
       return {
         ...state,
-        ...action.value
+        ...action.playlod
       }
 
     default:
@@ -21,11 +21,15 @@ export const reducer = (state, action) => {
 
 export const Colors = props => {
 
-  const [color, dispatch] = useReducer(reducer, { color: 'blue' })
+  const [ color, dispatch] = useReducer(reducer, { color: 'blue' },(data)=>{
+    return {
+      ...data
+    }
+  })
 
   return (
-    <CreateContextData.Provider value={{ ...color, dispatch }}>
+    <CreateContext.Provider value={{ ...color, dispatch }}>
       {props.children}
-    </CreateContextData.Provider>
+    </CreateContext.Provider>
   )
 }

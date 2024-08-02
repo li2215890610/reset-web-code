@@ -10,13 +10,13 @@ import Memo from "../memo";
 import useCallback from "../useCallback";
 import useRef from "../useRef";
 import UseCustom from "../UseCustom";
+import useImperativeHandle from "../useImperativeHandle";
+import ReducerContext from "../Reducer-Context";
 
 
-
-import Example6 from "../Example6/Example6";
 import Example10 from "../Example10";
 import Example11 from "../Example11";
-import Example12 from "../Example12";
+import useLayoutEffect from "../useLayoutEffect";
 
 function Content() {
 
@@ -32,14 +32,15 @@ function Content() {
       <Route path="/Memo" component={Memo} />
       <Route path="/useCallback" component={useCallback} />
       <Route path="/useRef" component={useRef} />
-      <Route path="/Example6" component={Example6} />
+      <Route path="/useImperativeHandle" component={useImperativeHandle} />
+      <Route path="/Reducer-Context" component={ReducerContext} />
       <Route path="/UseCustom" component={UseCustom} />
 
-      
+    
 
       <Route path="/Example10" component={Example10} />
       <Route path="/Example11" component={Example11} />
-      <Route path="/Example12" component={Example12} />
+      <Route path="/useLayoutEffect" component={useLayoutEffect} />
     </Switch>
   )
 }

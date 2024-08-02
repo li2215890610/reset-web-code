@@ -39,9 +39,13 @@ function Sider() {
     <section>
       <Link to='/useRef'>useRef</Link>
     </section>
+    
+    <section>
+      <Link to='/useImperativeHandle'>useImperativeHandle</Link>
+    </section>
 
     <section>
-      <Link to='/Example6'>useReducer、useContext实例</Link>
+      <Link to='/Reducer-Context'>useReducer、useContext实例</Link>
     </section>
 
     <section>
@@ -59,7 +63,7 @@ function Sider() {
     </section>
 
     <section>
-      <Link to='/Example12'>useLayoutEffect</Link>
+      <Link to='/useLayoutEffect'>useLayoutEffect</Link>
     </section>
   
   </div>)

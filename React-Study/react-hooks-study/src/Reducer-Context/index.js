@@ -2,12 +2,24 @@ import React from "react";
 import Buttons from "./Buttons";
 import ShowArea from "./ShowArea";
 import { Colors } from "./Colors";
+
+
+const Child = () => (<>
+  <ShowArea />
+</>)
+
+const Father = () => {
+  return (<>
+    <Child />
+  </>)
+}
+
 export default () => {
 
   return <div>
     <Colors>
       <Buttons />
-      <ShowArea />
+      <Father />
     </Colors>
   </div>
 }

@@ -29,6 +29,7 @@
 #忽略所有 node_modules
 node_modules/
 
+React-Study/react-hooks-study01/*
 # *node_modules/*
 
 coverage/
@@ -37,7 +38,7 @@ coverage/
 build/
 
 # misc
-.DS_Store/
+.DS_Store/*
 .env.local/
 .env.development.local/
 .env.test.local/

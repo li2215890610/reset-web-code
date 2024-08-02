@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Route, Link } from "react-router-dom";
 import imgUrl from "./useEffect.jpg";
 
@@ -63,32 +63,59 @@ function getData(params) {
 }
 
 let showComponent = false;
-let timer = null;
 
-export default () => {
+const useMouseInfo = () => {
 
-  const [count, setCount] = useState(0)
-  const [list, setList] = useState([])
-  useEffect(()=>{
-    console.log('componentDidMount');
-  },[])
-
+  const [position, setPosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
 
+    window.addEventListener("mousemove", onMousemove)
+
+  }, [])
+
+  function onMousemove(e) {
+    setPosition({ x: e.clientX, y: e.clientY })
+  }
+
+  useEffect(() => {
+    return () => {
+      window.removeEventListener('mousemove', onMousemove)
+    }
+  }, [])
+
+  return [position, onMousemove]
+}
+
+const MouseInfo = () => {
+  const [position] = useMouseInfo()
+
+  return (<>
+    {position.x} ,{position.y}
+  </>)
+}
+
+
+export default () => {
+
+  let timer = useRef();
+
+  const [count, setCount] = useState(0)
+  const [list, setList] = useState([])
+
+  useEffect(() => {
+
+    console.log('componentDidMount-----1');
     // 类似于 componentDidMount
     console.log('初始化函数');
 
-    window.addEventListener('scroll',onScroll)
-    
     showComponent = true;
-    
-    timer = setInterval(() => {
+
+    timer.current = setInterval(() => {
       setCount(_ => _ + 1)
-    }, 3 * 1000);
+    }, 5 * 1000);
 
-
-    //子调用函数，成异步
+    //自调用函数，成异步
     console.log('0');
     (async () => {
       console.log('2');
@@ -96,27 +123,30 @@ export default () => {
       console.log('3');
       setList(listData)
       console.log('4');
-    })();(async () => {
+    })(); (async () => {
       await getData()
     })()
 
-    
+
     console.log('1');
     console.log('1.1');
     console.log('1.2');
 
+  }, [])
+
+
+  useEffect(() => {
+
+    // componentWillUnmont  组件销毁
     return () => {
       showComponent = false
-
-      clearInterval(timer)
-      window.removeEventListener('scroll', onScroll)
-      // componentWillUnmont  组件销毁
+      clearInterval(timer.current)
       console.log('我离开了/useEffect  ');
     }
   }, [])
 
 
-  
+
   // 类似于  componentDidUpdate
   useEffect(() => {
 
@@ -126,26 +156,20 @@ export default () => {
         类似于 componentDidUpdate
       `);
 
-      if (count > 4) clearInterval(timer)
-
+      if (count > 4) clearInterval(timer.current)
     }
     // else {
     //   showComponent = true
 
-    //   window.addEventListener('scroll',onScroll)
     //   console.log(`
     //     count 初始化
     //     类似于componentDidMount
     //   `);
     // }
-
+    console.log('监听 count ，count变化就执行');
     //监听 count ，count变化就执行
   }, [count])
 
-
-  function onScroll(params) {
-    console.log("页面滚动了");
-  }
   console.log(list);
   return (<div>
     <img alt="" src={imgUrl} style={{ width: '800px', height: "300px" }} />
@@ -155,11 +179,17 @@ export default () => {
     <button onClick={() => {
       setCount(count + 1)
     }}>点我</button>
+    
     <ul>
       {list && list.map(_ => (<li key={_.name + _.age}>
         <p>姓名：{_.name} 年龄：{_.age}</p>
       </li>))}
     </ul>
+
+    <hr></hr>
+    <MouseInfo />
+    <hr></hr>
+
     <div>
       <br />
       <Link to="/useEffect/index">/useEffect/index</Link>

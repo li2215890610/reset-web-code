@@ -1,18 +1,21 @@
 import React, { useState, createContext } from "react";
 import CounterChild from "./useCounterChild";
 
-export const CreateContextValue = createContext() //创建上下文
+export const CreateContext = createContext() //创建上下文
 
 // 在跨组件层级获取数据时简化获取数据的代码，
-
 
 //  createContext ,useContext 配合使用 父子组件传值
 export default () => {
 
   const [count, setCount] = useState(0);
 
-  function onClick(number) {
+  function onClickNumber(number) {
     alert(number)
+  }
+
+  function onReset(params) {
+    setCount(0)
   }
 
   return (
@@ -28,10 +31,16 @@ export default () => {
         当父组件的count变量发生变化时，子组件也会发生变化
       */}
 
-      <CreateContextValue.Provider value={{
+      <CreateContext.Provider value={{
         count,
+        onClickNumber,
+        onReset
       }}>
-        <CounterChild onClick={onClick} />
-      </CreateContextValue.Provider>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <CounterChild />
+      </CreateContext.Provider>
     </div>)
 }

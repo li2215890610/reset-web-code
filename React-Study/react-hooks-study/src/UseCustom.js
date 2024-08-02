@@ -1,13 +1,14 @@
 
 import React, { useState } from "react";
 
-function useUpdateInput(initialValue) {
+export const useUpdateInput = function (initialValue) {
     const [value, setValue] = useState(initialValue);
     return {
         value,
-        onChange: event => setValue(event.target.value)
+        onChange: event => setValue((event && event.target.value) || '')
     }
 }
+
 function App() {
     const usernameInput = useUpdateInput(''); 
     const passwordInput = useUpdateInput('');
