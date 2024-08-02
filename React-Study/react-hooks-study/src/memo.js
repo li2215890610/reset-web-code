@@ -2,6 +2,7 @@ import React,{ useState, memo } from "react";
 
 // memo
 //类似于 PureComponent 和 shouldComponentUpdate
+//缓存组件，Props 不一样 就不运行
 
 const Child = memo((props)=> {
     
