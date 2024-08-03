@@ -5,11 +5,11 @@ function Sider() {
 
   return (<div>
     <section>
-      <Link to='/useState1'>useState1</Link>
+      <Link to='/useState'>useState</Link>
     </section>
 
     <section>
-      <Link to='/useState2'>useState2</Link>
+      <Link to='/useState-error'>useStateError示范</Link>
     </section>
 
     <section>
@@ -19,17 +19,25 @@ function Sider() {
     <section>
       <Link to='/useContext'>useContext</Link>
     </section>
+    
+    <section>
+      <Link to='/Reducer-Context'>useReducer、useContext实例</Link>
+    </section>
 
     <section>
       <Link to='/useEffect'>useEffect</Link>
     </section>
-    
+
     <section>
-      <Link to='/useMemo'>useMemo</Link>
+      <Link to='/useLayoutEffect'>useLayoutEffect</Link>
     </section>
 
     <section>
       <Link to='/Memo'>Memo</Link>
+    </section>
+
+    <section>
+      <Link to='/useMemo'>useMemo</Link>
     </section>
 
     <section>
@@ -43,29 +51,19 @@ function Sider() {
     <section>
       <Link to='/useImperativeHandle'>useImperativeHandle</Link>
     </section>
+    
+    <section>
+      <Link to='/useTransition'>useTransition</Link>
+    </section>
+
 
     <section>
-      <Link to='/Reducer-Context'>useReducer、useContext实例</Link>
+      <Link to='/useDeferredValue'>useDeferredValue</Link>
     </section>
 
     <section>
       <Link to='/UseCustom'>封装hooks</Link>
     </section>
-    
-
-
-    <section>
-      <Link to='/Example10'>useImperativeHandle</Link>
-    </section>
-
-    <section>
-      <Link to='/Example11'>useDebugValue</Link>
-    </section>
-
-    <section>
-      <Link to='/useLayoutEffect'>useLayoutEffect</Link>
-    </section>
-  
   </div>)
 }
 

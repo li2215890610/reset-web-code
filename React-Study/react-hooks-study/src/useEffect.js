@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, memo} from "react";
 import { Route, Link } from "react-router-dom";
 import imgUrl from "./useEffect.jpg";
 
@@ -87,13 +87,13 @@ const useMouseInfo = () => {
   return [position, onMousemove]
 }
 
-const MouseInfo = () => {
+const MouseInfo =  memo(() => {
   const [position] = useMouseInfo()
 
   return (<>
     {position.x} ,{position.y}
   </>)
-}
+})
 
 
 export default () => {
@@ -179,7 +179,7 @@ export default () => {
     <button onClick={() => {
       setCount(count + 1)
     }}>点我</button>
-    
+
     <ul>
       {list && list.map(_ => (<li key={_.name + _.age}>
         <p>姓名：{_.name} 年龄：{_.age}</p>

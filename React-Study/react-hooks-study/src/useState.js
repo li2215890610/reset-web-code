@@ -98,7 +98,7 @@ function Child() {
   const update = ()=>forceUpdate({})
   console.log('我是子组件');
   return <>
-    <button onClick={update}> forceUpdate {Date.now()}</button>
+    <button onClick={update}> forceUpdate强制刷新 {Date.now()}</button>
   </>
 }
 

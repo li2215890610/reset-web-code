@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, memo } from "react";
 
 // useMemo 缓存变量
 
@@ -61,7 +61,7 @@ function ChildComponent({ name, children }) {
 }
 
 
-const Son = (props) => <div>{props.num}</div>
+const Son =  memo((props) => <div>{props.num}</div>)
 
 // 父组件
 const Father = () => {

@@ -1,6 +1,6 @@
 import React, { useRef, useState, forwardRef, useImperativeHandle } from "react";
 
-const Child = forwardRef((props, ref) => {
+const Child = forwardRef((_, ref) => {
     const [count, setCount] = useState(0)
 
     //首次渲染执行，并且后续只要state 变化 都会执行
@@ -35,7 +35,6 @@ const Child = forwardRef((props, ref) => {
     }, [count])
 
 
-
     return <>
         <button onClick={() => setCount(prev => prev + 1)}>+1</button>
         <button onClick={() => setCount(prev => prev - 1)}>-1</button>
@@ -55,9 +54,11 @@ export default () => {
         <button onClick={() => {
             console.log(childRef.current);
         }}>ref 结合 useImperativeHandle</button>
+
         <button onClick={() => {
             childRef.current.reset()
         }}>重置</button>
+
         <Child ref={childRef} />
     </div>)
 }
