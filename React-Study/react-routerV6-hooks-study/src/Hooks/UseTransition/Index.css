@@ -1,0 +1,15 @@
+.btn {
+    margin: 5px;
+    background-color: rgb(8, 92, 238);
+    color: #fff;
+    transition: opacity 0.5s ease;
+}
+
+.btn:hover {
+    opacity: 0.6;
+    transition: opacity 0.5s ease;
+}
+
+.btn.active {
+    background-color: rgb(3, 150, 0);
+}
