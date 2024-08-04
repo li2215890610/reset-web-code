@@ -1,0 +1,25 @@
+.head_box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.head_box_save_btn{
+  margin-left: 20px
+}
+.li_item_box{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center
+}
+.li_item{
+  width: 200px
+}
+.li_item_btn{
+  margin-left: 30px;
+}
+.li{
+  margin-bottom: 10px;
+}
+.li_item_select{
+  text-decoration:line-through
+}
