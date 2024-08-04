@@ -37,11 +37,15 @@ class Header extends React.Component {
       alert("最多20个字符")
       return 
     }
+
     this.inputChangeDispatch({
       value: this.state.value,
       id: Header.newId++,
       isSelect: false
     }) 
+    this.setState({
+      value: ''
+    })
   }
 
   render() {

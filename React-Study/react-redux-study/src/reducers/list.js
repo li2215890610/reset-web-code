@@ -7,6 +7,7 @@ const INITIAL_STATE = {
 
 export default function addList( state = INITIAL_STATE, action){
   switch (action.type) {
+    //添加
     case ADD_LIST_ITEM:
       let newState = [...state.list,{...action.payload}];
 
@@ -14,6 +15,7 @@ export default function addList( state = INITIAL_STATE, action){
         list : [...newState]
       }
 
+    //删除
     case REMOVE_LIST_ITEM:
       let list = [...state.list];
       
@@ -23,6 +25,7 @@ export default function addList( state = INITIAL_STATE, action){
         list:[...list]
       }
 
+    //完成任务的状态
     case COMPLETE_LIST_ITEM: 
 
       let newlist = [...state.list];
@@ -33,6 +36,7 @@ export default function addList( state = INITIAL_STATE, action){
         list: newlist,
       }
 
+    //清空
     case EMPTY_LIST:
       
       return{
