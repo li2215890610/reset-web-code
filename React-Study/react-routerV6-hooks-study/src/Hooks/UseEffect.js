@@ -1,40 +1,8 @@
 import React, { useEffect, useRef, useState, memo } from "react";
 import { Link, Outlet } from "react-router-dom";
 import imgUrl from "./useEffect.jpg";
-
-export const Index =  ()=> {
-  // 类似于  componentDidUpdate,componentDidMount
-  useEffect(() => {
-    console.log('我进来了 Index ');
-  }, [])
-
-  useEffect(() => {
-    return () => {
-      // componentWillUnmont  组件销毁
-      console.log('我离开了 --- Index');
-    }
-  }, [])
-
-
-  return <div>来了老弟 ---》 Index</div>
-}
-
-export const List = ()=> {
-
-  // 类似于  componentDidUpdate,componentDidMount
-  useEffect(() => {
-    console.log('我进来了 List ');
-  }, [])
-
-  useEffect(() => {
-    return () => {
-      // componentWillUnmont  组件销毁
-      console.log('我离开了 --- List');
-    }
-  }, [])
-
-  return <div>来了老弟 ---》 List</div>
-}
+// import Index from "./UseEffectIndex";
+// import List from "./UseEffectList";
 
 
 function getData(params) {

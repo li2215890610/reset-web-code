@@ -1,9 +1,12 @@
-import { Navigate, } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { Navigate } from "react-router-dom";
 import UseState from "../Hooks/UseState";
 import UseStateError from "../Hooks/UseStateError";
 import UseReducer from "../Hooks/UseReducer";
 import UseContext from "../Hooks/UseContext";
-import UseEffect, { List as UseEffectList, Index as UseEffectIndex } from "../Hooks/UseEffect";
+import UseEffect from "../Hooks/UseEffect";
+import UseEffectList from "../Hooks/UseEffectList";
+import UseEffectIndex from "../Hooks/UseEffectIndex";
 import UseMemo from "../Hooks/UseMemo";
 import Memo from "../Hooks/Memo";
 import UseCallback from "../Hooks/UseCallback";
@@ -15,7 +18,10 @@ import UseTransition from "../Hooks/UseTransition/Index";
 import UseDeferredValue from "../Hooks/UseDeferredValue";
 import UseLayoutEffect from "../Hooks/UseLayoutEffect";
 
-
+const App = ()=>{
+    console.log('正在加载中');
+    return <>'正在加载中'</>
+  }
 
 /***
  * <Routes/>与 <Route/>
@@ -88,3 +94,101 @@ export const HooksList = [{
     path: "/useLayoutEffect",
     element: <UseLayoutEffect />
 }]
+
+
+export const routes = [{
+    path: "/",
+    element: <Navigate to={'/hooks/useState'} />
+}, {
+    path: "/useState",
+    element: () => import('../Hooks/UseState')
+}, {
+    path: "/useState-error",
+    element: () => import('../Hooks/UseStateError')
+}, {
+    path: "/useReducer",
+    element: () => import('../Hooks/UseReducer')
+}, {
+    path: "/useContext",
+    element: () => import('../Hooks/UseContext'),
+}, {
+    path: "/useEffect",
+    element: () => import('../Hooks/UseEffect'),
+    children: [
+        {
+            path: "index",
+            element: () => import('../Hooks/UseEffectIndex')
+        },
+        {
+            path: "list",
+            element: () => import('../Hooks/UseEffectList')
+        }
+    ]
+}, {
+    path: "/useMemo",
+    element: () => import('../Hooks/UseMemo'),
+}, {
+    path: "/Memo",
+    element: () => import('../Hooks/Memo')
+}, {
+    path: "/useCallback",
+    element: () => import('../Hooks/UseCallback')
+}, {
+    path: "/useRef",
+    element: () => import('../Hooks/UseRef')
+}, {
+    path: "/useImperativeHandle",
+    element: () => import('../Hooks/UseImperativeHandle')
+}, {
+    path: "/Reducer-Context",
+    element: () => import('../Hooks/Reducer-Context/Index')
+}, {
+    path: "/UseCustom",
+    element: () => import('../Hooks/UseCustom')
+}, {
+    path: "/useTransition",
+    element: () => import('../Hooks/UseTransition/Index')
+}, {
+    path: "/UseDeferredValue",
+    element: () => import('../Hooks/UseDeferredValue')
+}, {
+    path: "/useLayoutEffect",
+    element: () => import('../Hooks/UseLayoutEffect')
+}]
+
+
+function LazyElement(props) {
+    const { importFunc } = props
+    const LazyComponent = lazy(importFunc)
+    return (
+        <Suspense fallback={() => {
+            debugger
+            console.log('懒加载了！！！！');
+            return <div>路由懒加载...</div>
+        }}>
+            <LazyComponent />
+        </Suspense>
+    )
+}
+
+// 处理routes 如果element是懒加载，要包裹Suspense
+function dealRoutes(routesArr) {
+    if (routesArr && Array.isArray(routesArr) && routesArr.length > 0) {
+        routesArr.forEach((route) => {
+            if (route.element && typeof route.element == 'function') {
+                const importFunc = route.element
+                route.element = <LazyElement importFunc={importFunc} />
+            }
+            if (route.children) {
+                dealRoutes(route.children)
+            }
+        })
+    }
+
+    // debugger
+    console.log(routesArr);
+}
+
+// dealRoutes(routes)
+
+

@@ -23,7 +23,7 @@ function Content() {
 
         <Route path="/" element={<Navigate to={'/hooks'} />} />
         {/* 404页面 */}
-        <Route path="*" element={<><h1>404!</h1></>}></Route>
+        <Route path="/*" element={<><h1>404!</h1></>}></Route>
       </Routes>
     </div>
   )
