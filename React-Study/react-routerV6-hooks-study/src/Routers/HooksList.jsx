@@ -18,10 +18,6 @@ import UseTransition from "../Hooks/UseTransition/Index";
 import UseDeferredValue from "../Hooks/UseDeferredValue";
 import UseLayoutEffect from "../Hooks/UseLayoutEffect";
 
-const App = ()=>{
-    console.log('正在加载中');
-    return <>'正在加载中'</>
-  }
 
 /***
  * <Routes/>与 <Route/>
@@ -37,6 +33,7 @@ const App = ()=>{
 
 export const HooksList = [{
     path: "/",
+    //重定向到 
     element: <Navigate to={'/hooks/useState'} />
 }, {
     path: "/useState",
@@ -96,7 +93,7 @@ export const HooksList = [{
 }]
 
 
-export const routes = [{
+export const RoutesList = [{
     path: "/",
     element: <Navigate to={'/hooks/useState'} />
 }, {
@@ -157,26 +154,29 @@ export const routes = [{
 }]
 
 
+const AppLazyLoading = () => {
+    console.log('react 组件懒加载 --- 正在加载中');
+
+    return <>'正在加载中'</>
+}
+
 function LazyElement(props) {
     const { importFunc } = props
     const LazyComponent = lazy(importFunc)
+
     return (
-        <Suspense fallback={() => {
-            debugger
-            console.log('懒加载了！！！！');
-            return <div>路由懒加载...</div>
-        }}>
+        <Suspense fallback={<AppLazyLoading />}>
             <LazyComponent />
         </Suspense>
     )
 }
 
-// 处理routes 如果element是懒加载，要包裹Suspense
 function dealRoutes(routesArr) {
     if (routesArr && Array.isArray(routesArr) && routesArr.length > 0) {
         routesArr.forEach((route) => {
             if (route.element && typeof route.element == 'function') {
                 const importFunc = route.element
+
                 route.element = <LazyElement importFunc={importFunc} />
             }
             if (route.children) {
@@ -184,11 +184,10 @@ function dealRoutes(routesArr) {
             }
         })
     }
-
-    // debugger
-    console.log(routesArr);
 }
 
-// dealRoutes(routes)
+dealRoutes(RoutesList)
+
+export default RoutesList
 
 

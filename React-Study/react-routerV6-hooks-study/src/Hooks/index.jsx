@@ -1,5 +1,5 @@
 import { useRoutes, Outlet, Link} from "react-router-dom";
-import {HooksList, routes } from "../Routers/HooksList";
+import RoutesList from "../Routers/HooksList";
 
 const HooksNav = ()=> {
     return (<div>
@@ -68,9 +68,10 @@ const HooksNav = ()=> {
 
 
 function Index() {
-
+    // console.log(RoutesList);
+    // console.log(HooksList);
     //根据路由表渲染路由
-    const element = useRoutes(routes)
+    const element = useRoutes(RoutesList)
 
     return <>
         {HooksNav()}
