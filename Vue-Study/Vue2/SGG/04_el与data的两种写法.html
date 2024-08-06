@@ -4,26 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>01_初识Vue</title>
+    <title>04_el与data的两种写法</title>
     <!-- 引入开发版本vue -->
     <script type="text/javascript" src="../js/vue.js"></script>
 </head>
 
 <body>
     <div id="root">
-        <h1>扯犊子</h1>
         <p>{{message}}</p>
     </div>
 </body>
 <script type="text/javascript">
     //调整 Vue  
     var app = new Vue({
-        el: '#root',
-        //存储数据 
-        data: {
-            message: 'Hello Vue!'
-        },
+        // el:"#root",
+
+
+        //第一种写法
+        // data: {
+        //     message: 'Hello Vue!'
+        // },
+        //第二种
+        data() {
+            console.log('@@@@',this);
+            return {
+                message: 'Hello Vue!'
+            }
+        }
     })
+
+    //两种挂载方式
+    app.$mount('#root')
+    console.log(app);
 </script>
 
 </html>

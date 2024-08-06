@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_事件修饰符</title>
+    <!-- 引入开发版本vue -->
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <style>
+        #root a {
+            margin-bottom: 20px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        Vue中的事件修饰符:
+            1.prevent:阳止默认事件(常用):
+            2.stop:阻止事件目泡(密用):
+            3.once:小件只触发一次(常用):
+            4.capture:使用事件的捕获模式:
+            5.self:只有event.target是当前操作的元素是才触发事件:
+            6.passive:事件的默认行为文即执行，无需等待事件回调执行完毕:
+     -->
+    <div id="root">
+        <p>{{message}}</p>
+        <a @click.prevent="handleClick" href="http://www.baidu.com">阻止默认事件</a>
+        <a @click.stop="handleClick" href="#">阻止冒泡</a>
+        <a @click.stop.prevent="handleClick" href="http://www.baidu.com">先阻止冒泡，在阻止默认事件</a>
+        <a @click.once="handleClick" href="#">事件只会触发一次</a>
+    </div>
+</body>
+<script type="text/javascript">
+    //调整 Vue  
+    var VM = new Vue({
+        el: '#root',
+        //存储数据 
+        data: {
+            message: 'Hello Vue!'
+        },
+        methods:{
+            handleClick: function (e) {
+                console.log('点击了');
+            }
+        }
+    })
+</script>
+
+</html>

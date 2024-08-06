@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_基本使用规则</title>
+    <!-- 引入开发版本vue -->
+    <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+    事件的基本使用:
+        1.使用v-on:xxx或 xxx 绑定事件，其中xxx是事件名:
+        2.事件的回调需要配置在methods对象中，最终会在vm上:
+        3.methods中配置的的数，不要用头所数!否则this就不是vm了:
+        4.methods中配置的的数，都是础vue所管理的的数，this的指向是vm 或 组件实例对象;
+        5.@click="demo"和 @click="demo($event)”效果一致，但后者可以传参:
+    -->
+
+    <div id="root">
+        <p>{{message}}</p>
+        <button type="button" v-on:click="handleClick">点击</button>
+        <button type="button" @click="handleClick1(11,22,'my a string')">点击1</button>
+        <button type="button" @click="handleClick2($event,11,22,'my a string')">点击2</button>
+
+    </div>
+</body>
+<script type="text/javascript">
+    //调整 Vue  
+    var VM = new Vue({
+        el: '#root',
+        //存储数据 
+        data: {
+            message: 'Hello Vue!'
+        },
+        methods: {
+            handleClick:()=> {
+                console.log(this);
+                console.log('点击');
+            },
+            handleClick1() {
+                console.log(this);
+                console.log(arguments);
+                console.log('点击1');
+            },
+            handleClick2() {
+                console.log(this);
+                console.log(arguments);
+                console.log(arguments[0]);
+                const [data,] = arguments
+                console.log(data);
+                console.log('点击2');
+            }
+        }
+    })
+
+
+</script>
+
+</html>

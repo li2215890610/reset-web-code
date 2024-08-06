@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_初识Vue</title>
+    <!-- 引入开发版本vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+
+    <!-- 
+    Vue模板语法有2大类:
+        1.插值语法:
+            功能:用于解析标签体内容。
+            写法:{{xxx}}，xxx是js表达式，且可以直接读取到data中的所有属性
+        2.指令语进
+            功能:用于解析标签(包括:标签属性、标体内容、定事件....)。举例:v-bind:href="xxx”或简写为:href="xxx"，xxx同样要写js表达式,且可以直接读取到data中的所有属性。
+            备注:Vue中有很多的指令，且形式都是:v-????，此处只是拿v-bind举个例子。
+     -->
+
+    <div id="root">
+        <h1>插值语法</h1>
+        <!-- 插值语法 -->
+        <p>{{message}}</p>
+        <p>{{message.toUpperCase()}}</p>
+        <p>现在的时间：{{Date.now()}}</p>
+        <p>{{user.address}}</p>
+        <p>{{user.name}}</p>
+
+
+
+        <h1>指令语法</h1>
+        <!-- 指令语法 -->
+        <!-- v-bind 动态绑定值 -->
+        <a v-bind:href="baiduUrl">百度</a>
+        <a :href="baiduUrl">百度</a>
+
+
+    </div>
+</body>
+<script type="text/javascript">
+    //调整 Vue  
+    var app = new Vue({
+        el: '#root',
+        //存储数据 
+        data: {
+            message: 'Hello yang!',
+            baiduUrl:"https://www.baidu.com",
+            user:{
+                name:'张三',
+                address:"法国巴黎奥运村3号院",
+            }
+        },
+    })
+
+    console.log(app);
+</script>
+
+</html>

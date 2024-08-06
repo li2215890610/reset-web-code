@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    function Baby(name) {
+        this.name = name
+    }
+
+    Baby.prototype.getName = ()=>{
+        console.log(this);
+    }
+
+    Baby.prototype.getName1 = function (params) {
+
+        console.log(this);
+    }
+
+    const baby1 = new Baby('222');
+    baby1.getName()
+    baby1.getName1()
+
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.defineProperty</title>
+    <!-- 引入开发版本vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <p>{{message}}</p>
+    </div>
+</body>
+<script type="text/javascript">
+    //调整 Vue  
+    var app = new Vue({
+        el: '#root',
+        //存储数据 
+        data: {
+            message: 'Hello Vue!'
+        },
+    })
+
+    let number = 18;
+    // number 和 person 确实是两个东西，
+    //利用defineProperty， 产生修改、读取的关联
+    let person = {
+        name:"张三",
+        sex:0
+    }
+
+
+    console.log(person);
+    //这样添加的数据 不可以被便利
+    Object.defineProperty(person,'age',{
+        // value:18,
+        // enumerable: true, //控制是否可以便利
+        // writable: true,//是否可以修改 
+        // configurable: true, //是否可以删除
+ 
+        //当有人读取person的age属性时，get的数(getter)就会被调用，且返回值就是age的值
+        get(){
+            console.log("有人读取age属性了")
+            return number
+        },
+        //当有人修改person的age属性时，set所数(setter)就会被训用，且会收到修改的具体值
+        set(value){
+            console.log('有人修改了age成性，且值是',value)
+            number = value
+        }
+    })
+
+    console.log(Object.keys(person));
+    console.log(person);
+
+</script>
+
+</html>

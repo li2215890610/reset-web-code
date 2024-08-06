@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_初识Vue</title>
+    <!-- 引入开发版本vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="root">
+        <h1>数据绑定</h1>
+        <!-- 单向数据绑定 -->
+        <input type="text" v-bind:value="value">
+        {{value}}
+        <hr>
+        <!-- 双向绑定 -->
+        <!-- 
+            1、v-model只能用在 表单元素中
+            2、v-model:value 可以简写 v-model，因为v-model默认收集的就是value的值
+        -->
+        <input type="text" v-model:value="value">
+        <input type="text" v-model="value">
+        {{value}}
+        <hr>
+    </div>
+</body>
+<script type="text/javascript">
+    //调整 Vue  
+    var app = new Vue({
+        el: '#root',
+        //存储数据 
+        data: {
+            value: 'Hello yang!',
+        },
+    })
+
+    console.log(app);
+</script>
+
+</html>
