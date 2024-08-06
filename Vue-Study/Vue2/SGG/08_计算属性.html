@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08_计算属性</title>
+    <!-- 引入开发版本vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+    计算属性:
+        1.定义:要用的属性不存在，要通过已有属性计算得来。
+        2.原理:底层借助objcet.defineproperty方法提供的getter利setter.
+        3.get函数什么时候执行?
+        (1).初次读取时会执行一次。
+        (2),当依赖的数据发生改变时会被再次调用。
+        4.优势:与methods实现相比，内部有缓存机制(复用)，效更高，调试方便。
+        5.备注:
+            1.计算属性最终会出现在vm上，直接读取使用即可。
+            2.如果计算属性要被修改，那必须写set的数去响应修义，且set中要引起计算时依赖的数据发生变化
+        -->
+
+
+    <div id="root">
+        <p>{{message}}</p>
+        <input type="text" v-model="firstName"><br><br>
+        <input type="text" v-model="lastName"><br><br>
+        <p>全名 :{{fullName}}</p>
+        <p>全名 :{{fullName}}</p>
+        <p>全名 :{{fullName}}</p>
+        <p>全名 :{{fullName}}</p>
+        -----
+        {{demo()}}
+        <p>全名简写的计算属性 :{{fullNameJianXie}}</p>
+        <p>全名简写的计算属性 :{{fullNameJianXie}}</p>
+        <p>全名简写的计算属性 :{{fullNameJianXie}}</p>
+        <p>全名简写的计算属性 :{{fullNameJianXie}}</p>
+        
+    </div>
+</body>
+<script type="text/javascript">
+    //调整 Vue  
+    var VM = new Vue({
+        el: '#root',
+        //存储数据 
+        data: {
+            message: 'Hello Vue!',
+            lastName: "三",
+            firstName: "张",
+        },
+        methods:{
+            demo(){
+                return '调用 demo方法'
+            }
+        },
+        //计算属性
+        computed: {
+            fullName: {
+                //get的this指向 改成了 VM
+                //多次调用 利用缓存只调用一次
+                //什么时候调用 get方法
+                //1、初次读取 fullName 时调用
+                //2、所依赖的数据发生变化调用
+                get() {
+                    console.log('调用计算属性了');
+                    return this.firstName + this.lastName + 1 
+                },
+                //什么时候调用 set方法
+                //当fullName修改的时候
+                set(value){ 
+                    console.log('调用set');
+                    const arr = value.split('-')
+                    this.firstName = arr[0]
+                    this.lastName = arr[1]
+                }
+            },
+            //简写，只读不改
+            fullNameJianXie() {
+                console.log('只读');
+                return this.firstName + this.lastName + 1 
+            }
+        }
+    })
+</script>
+
+</html>

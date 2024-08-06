@@ -24,7 +24,7 @@
         <button type="button" v-on:click="handleClick">点击</button>
         <button type="button" @click="handleClick1(11,22,'my a string')">点击1</button>
         <button type="button" @click="handleClick2($event,11,22,'my a string')">点击2</button>
-
+        <span>{{handleClick3()}}</span>
     </div>
 </body>
 <script type="text/javascript">
@@ -52,6 +52,9 @@
                 const [data,] = arguments
                 console.log(data);
                 console.log('点击2');
+            },
+            handleClick3() {
+                return `${this.message}React的操作,Vue 借鉴`
             }
         }
     })
