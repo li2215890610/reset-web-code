@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_初识Vue</title>
+    <!-- 引入开发版本vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h1>扯犊子</h1>
+        <p>{{message}}</p>
+    </div>
+</body>
+<script type="text/javascript">
+    //调整 Vue  
+    var app = new Vue({
+        el: '#root',
+        //存储数据 
+        data: {
+            message: 'Hello Vue!'
+        },
+    })
+</script>
+
+</html>
