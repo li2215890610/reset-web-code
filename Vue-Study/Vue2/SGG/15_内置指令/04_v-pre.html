@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_v-pre</title>
+    <!-- 引入开发版本vue -->
+    <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+
+<body>
+    <pre>
+        v-pre指令:
+        1. 跳过其所在节点的编译过程,不去解析那行 HTML 代码
+        2. 可利用它跳过: 没有使用指令语法、没有使用插值语法的节点，会加快编译。
+    </pre>
+    <div id="root" >
+        <p v-pre xxxx="111">看看我的作用</p>
+        <p v-pre v-once>初始化的count值 {{count}}</p>
+        <p>当前的count值 {{count}}</p>
+        <button v-cloak @click="count++">点我+1</button>
+    </div>
+</body>
+<script type="text/javascript">
+    //调整 Vue  
+    var VM = new Vue({
+        el: '#root',
+        //存储数据 
+        data: {
+            count: 100
+        },
+    })
+</script>
+
+</html>

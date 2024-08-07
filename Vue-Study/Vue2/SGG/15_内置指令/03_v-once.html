@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_v-once</title>
+    <!-- 引入开发版本vue -->
+    <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+
+<body>
+    <pre>
+        v-once指今
+            1.v-once所在节点在初次动态渲染（{{count}}）后，就视为静态内容了。
+            2.以后数据的改变不会引起v-once所在结构的更新，可以用于优化性能。
+    </pre>
+    <div id="root" >
+        <p v-once>初始化的count值 {{count}}</p>
+        <p>当前的count值 {{count}}</p>
+        <button @click="count++">点我+1</button>
+    </div>
+</body>
+<script type="text/javascript">
+    //调整 Vue  
+    var VM = new Vue({
+        el: '#root',
+        //存储数据 
+        data: {
+            count: 100
+        },
+    })
+</script>
+
+</html>

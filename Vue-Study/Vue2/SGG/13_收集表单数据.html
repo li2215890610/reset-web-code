@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13_收集表单数据</title>
+    <!-- 引入开发版本vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <p>{{message}}</p>
+        <form>
+
+            <label for="account">账号：</label>
+            <!-- 去掉两头空格 -->
+            <input v-model.trim="fromData.acctount" type="text" id="account">
+            <br>
+            <br>
+
+            <label for="password">密码：</label>
+            <input v-model="fromData.password" type="text" id="password">
+            <br>
+            <br>
+
+            <!-- 强制转换 -->
+            <label for="password">年龄：</label>
+            <input  v-model.number="fromData.age" type="number" id="password">
+            <br>
+            <br>
+
+            <label for="man">男：</label>
+            <input v-model="fromData.sex" name="man" type="radio" id="man" value="man">
+            <label for="woman">女：</label>
+            <input v-model="fromData.sex" name="woman" type="radio" id="woman" value="woman">
+            <br>
+            <br>
+
+            <label for="hobby">爱好:</label>
+                学习<input type="checkbox" v-model="fromData.hobby" value="学习">
+                打游戏<input type="checkbox" v-model="fromData.hobby" value="打游戏">
+                吃饭<input type="checkbox" v-model="fromData.hobby" value="吃饭">
+            <br>
+            <br>
+
+            <label for="address">所属地点:</label>
+            <select v-model="fromData.city" name="" id="address" placeholder="请选择">
+                <option value="beijng">北京</option>
+                <option value="xuchang">许昌</option>
+            </select>
+            <br>
+            <br>
+
+            <label for="msg">其他信息:</label>
+            <!-- 节流 失去焦点即可-->
+            <textarea v-model.lazy="fromData.msg" name="" id="msg" cols="30" rows="10"></textarea>
+            <br>
+            <br>
+
+            <input type="checkbox" v-model="fromData.argee">
+                阅读并接受<a href="#">《用户协议》</a>
+            </input>
+            <br>
+            <br>
+
+            <button @click="submint">提交</button>
+        </form>
+    </div>
+</body>
+<script type="text/javascript">
+    //调整 Vue  
+    var VM = new Vue({
+        el: '#root',
+        //存储数据 
+        data: {
+            message: 'Hello Vue!',
+            fromData:{
+                acctount:'',
+                age:'',
+                password:'',
+                sex:'',
+                hobby:[],
+                city:'beijng',
+                msg:"",
+                argee: false
+            }
+
+        },
+        methods:{
+            submint(e){
+                e.preventDefault()
+                console.log(e);
+                console.log('提交');
+                console.log(this.fromData);
+            }
+        }
+    })
+
+</script>
+
+</html>

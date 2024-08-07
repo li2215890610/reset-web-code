@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_v-cloak</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+
+    </style>
+    <!-- 引入开发版本vue -->
+    <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root" >
+        <pre>
+            禁止页面出现 
+            `{{message}}`
+            v-cloak
+        </pre>
+        <p v-cloak>{{message}}</p>
+    </div>
+</body>
+<script type="text/javascript">
+    //调整 Vue  
+    var VM = new Vue({
+        el: '#root',
+        //存储数据 
+        data: {
+            message: 'Hello Vue!'
+        },
+    })
+</script>
+
+</html>
