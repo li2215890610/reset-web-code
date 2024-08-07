@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_更新时的一个问题</title>
+    <!-- 引入开发版本vue -->
+    <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <p>{{message}}</p>
+        <hr>
+        <button @click="handleClick">更新数组第一个</button>
+        <ul>
+            <li v-for="(item,index) of list" :key="item.id">
+                姓名：{{item.name}}——年龄：{{item.age}}
+            </li>
+        </ul>
+
+    </div>
+</body>
+<script type="text/javascript">
+    //调整 Vue  
+    var VM = new Vue({
+        el: '#root',
+        //存储数据 
+        data: {
+            message: 'Hello Vue!',
+            list: [{
+                id: 10,
+                name: "马冬梅",
+                age: 20,
+                sex: '男'
+            }, {
+                id: 11,
+                name: "周冬雨",
+                age: 60,
+                sex: '男'
+            }, {
+                id: 12,
+                name: "周杰伦",
+                age: 35,
+                sex: '男'
+            }, {
+                id: 13,
+                name: "小张伦",
+                age: 30,
+                sex: '男'
+            }],
+        },
+        methods: {
+            handleClick() {
+                console.log();
+                //可以修改
+                // this.list[0].age = 20;
+                // this.list[0].name = 20;
+                // this.list[0].sex = 20;
+                //修改失败
+                this.list[0] = {
+                    age:20,
+                    name:20,
+                    sex:20
+                }
+                // this.keyWordNameComputed = []
+            }
+        },
+    })
+</script>
+
+</html>

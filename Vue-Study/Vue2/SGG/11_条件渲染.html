@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11_条件渲染</title>
+    <!-- 引入开发版本vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <p>{{message}}</p>
+        <!-- 很高的实用DOM频率，使用 -->
+        <!-- display:none -->
+        <span v-show="false">隐藏了</span>
+
+        <!-- 不高的实用DOM频率，使用 -->
+        <!-- 直接从文档删除 -->
+        <span v-if="false">删除了</span>
+
+        <ul>
+            <li v-show="N === 1">Angular</li>
+            <li v-show="N === 2">React</li>
+            <li v-show="N === 3">Vue</li>
+        </ul>
+        <ul>
+            <li v-if="N === 1">Angular</li>
+            <li v-else-if="N === 2">React</li>
+            <li v-else-if="N === 3">Vue</li>
+            <li v-else-if="N===0">综合</li>
+            <li v-else>结束</li>
+        </ul>
+        <button @click="N++">当前{{N}},点我+1</button>
+    </div>
+</body>
+<script type="text/javascript">
+    //调整 Vue  
+    var VM = new Vue({
+        el: '#root',
+        //存储数据 
+        data: {
+            message: 'Hello Vue!',
+            N:0
+        },
+        methods:{
+            setN(){
+                this.N = this.N++
+            }
+        }
+    })
+</script>
+
+</html>

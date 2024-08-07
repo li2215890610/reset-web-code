@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10_绑定样式</title>
+    <style>
+
+        .basic{
+            width: 200px;
+            height: 200px;
+            border: solid 1px red;
+        }
+
+        .sad{
+            background: pink;
+        }
+
+        .normal{
+            background: black;
+        }
+        .class1{
+            color: brown;
+        }
+        .class2{
+            border-radius: 50px;
+        }
+        .class3{
+            font-size: 50px;
+        }
+        .class4{
+            background-color: pink;
+        }
+    </style>
+    <!-- 引入开发版本vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <div class="basic" :class="className" @click="handleClick">
+            <p>{{message}}</p>
+        </div>
+        <br><br><br>
+
+        <div class="basic" :class="classNameList" @click="handleClick1">
+            <p>{{message}}</p>
+        </div>
+
+        <br><br><br>
+
+        <div class="basic" :class="classNameObj">
+            <p>{{message}}</p>
+        </div>
+
+        <br><br><br>
+
+        <div class="basic" :style="{fontSize: fontSize+'px'}" >
+            <p>{{message}}</p>
+        </div>
+
+    </div>
+</body>
+<script type="text/javascript">
+    //调整 Vue  
+    var VM = new Vue({
+        el: '#root',
+        //存储数据 
+        data: {
+            message: 'Hello Vue!',
+            className:"",
+            classNameList:['class1','class2','class3'],
+            classNameObj:{
+                class1: true,
+                class2: true
+            },
+            fontSize:30
+        },
+        methods:{
+            handleClick(){
+                const list = ['happy','sad','normal']
+                this.className = list[Math.floor(Math.random()*3)]
+            },
+            handleClick1(){
+                this.classNameList.push('class4')
+            }
+        }
+    })
+</script>
+
+</html>

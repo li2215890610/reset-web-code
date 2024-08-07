@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01基本列表</title>
+    <!-- 引入开发版本vue -->
+    <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <p>{{message}}</p>
+        <hr>
+        <h2>便利数组</h2>
+        <ul>
+            <li v-for="item in list" :key="item.id">
+                姓名：{{item.name}}——年龄：{{item.age}}
+            </li>
+        </ul>
+        <br>
+        <ul>
+            <li v-for="(item,index) in list" :key="item.id+index">
+                姓名：{{item.name}}——年龄：{{item.age}}{{item.id+index}}
+            </li>
+        </ul>
+
+        <hr>
+        <h2>便利对象</h2>
+        <ul>
+            <li v-for="(value,key) in cat" :key="key">
+                {{value}}
+            </li>
+        </ul>
+
+    </div>
+</body>
+<script type="text/javascript">
+    //调整 Vue  
+    var VM = new Vue({
+        el: '#root',
+        //存储数据 
+        data: {
+            message: 'Hello Vue!',
+            list:[{
+                id:10,
+                name:"张三",
+                age:20
+            },{
+                id:11,
+                name:"张三2",
+                age:60
+            },{
+                id:12,
+                name:"张三1",
+                age:30
+            }],
+            cat:{
+                name:"王来双",
+                age:45,
+                sex:'SB'
+            }
+        },
+    })
+</script>
+
+</html>

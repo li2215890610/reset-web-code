@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_列表的过滤</title>
+    <!-- 引入开发版本vue -->
+    <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <p>{{message}}</p>
+        <hr>
+        <input type="text" placeholder="请输入名字" v-model="keyWordName" @change="changes">
+
+        <button @click="sortType = 0">原顺序</button>
+        <button @click="sortType = 2">升</button>
+        <button @click="sortType = 1">降</button>
+
+        <h2>用watch</h2>
+        <ul>
+            <li v-for="(item,index) of filterList" :key="item.id">
+                姓名：{{item.name}}——年龄：{{item.age}}
+            </li>
+        </ul>
+        <h2>用computed</h2>
+        <ul>
+            <li v-for="(item,index) of keyWordNameComputed" :key="item.id">
+                姓名：{{item.name}}——年龄：{{item.age}}
+            </li>
+        </ul>
+
+    </div>
+</body>
+<script type="text/javascript">
+    //调整 Vue  
+    var VM = new Vue({
+        el: '#root',
+        //存储数据 
+        data: {
+            message: 'Hello Vue!',
+            keyWordName: "",
+            list: [{
+                id: 10,
+                name: "马冬梅",
+                age: 20,
+                sex: '男'
+            }, {
+                id: 11,
+                name: "周冬雨",
+                age: 60,
+                sex: '男'
+            }, {
+                id: 12,
+                name: "周杰伦",
+                age: 35,
+                sex: '男'
+            }, {
+                id: 13,
+                name: "小张伦",
+                age: 30,
+                sex: '男'
+            }],
+            filterList: [],
+            sortType:0
+        },
+        methods: {
+            changes(e) {
+                console.log(e.target.value);
+                // this.keyWordNameComputed = []
+            }
+        },
+        watch: {
+            keyWordName: {
+                immediate: true,
+                handler(newValue) {
+                    this.filterList = this.list.filter(({ name }, i) => (name.includes(newValue)))
+                }
+            }
+        },
+        computed: {
+            //1、初次读取 keyWordNameComputed 时调用
+            //2、所依赖的数据发生变化调用
+            keyWordNameComputed() {
+                console.log('keyWordName已经变化',this.keyWordName);
+                
+                let list = []
+
+                list = this.list.filter(({ name }, i) => {
+                    console.log(name.includes(this.keyWordName));
+                    
+                    return name.includes(this.keyWordName)
+                })
+
+                //降
+                if(this.sortType === 1){
+                    list.sort(({age},{age:nextAge})=>(nextAge-age))
+                }
+
+                //升
+                if(this.sortType === 2){
+                    list.sort(({age},{age:nextAge})=>(age-nextAge))
+                }
+
+                return list
+            },
+        }
+    
+    })
+</script>
+
+</html>
