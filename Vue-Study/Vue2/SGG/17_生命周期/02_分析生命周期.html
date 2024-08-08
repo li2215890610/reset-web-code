@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_分析生命周期</title>
+    <!-- 引入开发版本vue -->
+    <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+
+<body>
+    <pre>
+        常用的生命周期钩子:
+            1.mounted:发送ajax请求、启动定时器、绑定自定义事件、订阅消息等【初始化操作】。
+            2.beforeDestroy:清除定时器、解绑自定义事件、取消订阅消息等【收尾工作】。
+            
+        关于销毁Vue实例:
+                1.销毁后借助Vue开发者工具看不到任何信息。
+                2.销毁后自定义事件会失效，但原生DOM事件依然有效。
+                3.一般不会再beforeDestroy操作数据，因为即便操作数据，也不会再触发更新流程了。
+
+    </pre>
+    <div id="root" v-cloak>
+        <h1 :style="{opacity: opacity}">{{message}}</h1>
+        <h2>当前N {{count}}</h2>
+        <button type="button" @click="addCount">+1</button>
+        <button type="button" @click="handleDestroy">销毁</button>
+        <br><br>
+        <button @click="stopTimer">点我停止透明度变换</button>
+    </div>
+</body>
+<script type="text/javascript">
+    //调整 Vue  
+    var VM = new Vue({
+        el: '#root',
+        //存储数据 
+        data: {
+            message: 'Hello Vue!',
+            opacity: 1,
+            count: 0
+        },
+        clearTimer:null,
+        methods:{
+            change(){
+                this.clearTimer = setInterval(() => {
+                    console.log(this);
+                    this.opacity -= 0.01
+                    if (this.opacity <= 0) {
+                        this.opacity = 1
+                     }
+                }, 16);
+            },
+            addCount() {
+                this.count = this.count + 1
+            },
+            stopTimer(){
+                clearInterval(this.clearTimer)
+                this.opacity = this.opacity
+            },
+            handleDestroy(){
+                console.log(this);
+                this.$destroy()
+            }
+        },
+        beforeCreate() {
+            console.log('beforeCreate');
+            console.log(this);
+            console.log('                  ');
+            console.log('                  ');
+            console.log('                  ');
+        },
+        //创建完成
+        created() {
+            console.log('created ');
+            console.log(this);
+            console.log('                  ');
+            console.log('                  ');
+            console.log('                  ');
+        },
+        //挂载页面前
+        beforeMount(){
+            console.log('beforeMount ');
+            console.log(this);
+            console.log('                  ');
+            console.log('                  ');
+            console.log('                  ');
+            
+        },
+        //完成模版的解析，把真实的DOM放入页面后
+        mounted() {
+            this.change()
+            console.log('mounted ');
+            console.log(this);
+            console.log('                  ');
+            console.log('                  ');
+            console.log('                  ');
+            
+        },
+        //数据已经更新，页面没有更新
+        beforeUpdate(){
+            console.log('beforeUpdate ');
+            console.log(this);
+            console.log('                  ');
+            console.log('                  ');
+            console.log('                  ');
+            // 
+        },
+        //数据页面保持同步了
+        updated(){
+            console.log('updated ');
+            console.log(this);
+            console.log('                  ');
+            console.log('                  ');
+            console.log('                  ');
+            // 
+        },
+        //销毁前 
+        beforeDestroy(){
+            clearInterval(this.clearTimer)
+        },
+        //销毁后
+        destroyed(){
+
+        }
+
+    })
+</script>
+
+</html>
